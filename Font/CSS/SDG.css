@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'SDG';
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+	src: url('../SDGothicNeoRound-eMd.woff') format('woff2-variations');
+}
+
+@font-face {
+	font-family: 'SDG';
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	src: url('../SDGothicNeoRound-gBd.woff') format('woff2-variations');
+}
+
+@font-face {
+	font-family: 'SDG';
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+	src: url('../SDGothicNeoRound-hEb.woff') format('woff2-variations');
+}
