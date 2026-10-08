@@ -1,1 +1,78 @@
-<!-- placeholder -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Font/CSS/SoDoSans.css">
+    <link rel="stylesheet" href="../Font/CSS/pretendardvariable.css">
+    <link rel="stylesheet" href="../CSS/default.css">
+    <link rel="stylesheet" href="Login.css">
+    <title>스타벅스 로그인 화면</title>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <button type="button" class="prev_btn">
+                <span class="sr-only">이전 버튼</span>
+            </button>
+            <h1>로그인</h1>
+        </header>
+        <main>
+            <h2 class="title">
+                <span>안녕하세요 :)</span>
+                <span>스타벅스입니다.</span>
+            </h2>
+            <form action="">
+                <fieldset>
+                    <legend class="sr-only">이메일 로그인</legend>
+                    <label for="email" class="email">이메일 로그인</label>
+                    <div class="input_box">
+                        <input type="email" id="email" name="email" placeholder="아이디(이메일)을 입력해 주세요.">
+                    </div>
+                    <div class="input_box">
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력해 주세요">
+                        <button type="button" class="pw_btn" aria-label="비밀번호 보기">
+                            <span class="sr-only">비밀번호 보기</span>
+                        </button>
+                    </div>
+                    <div class="login-option">
+                        <label>
+                            <input type="checkbox" class="check sr-only" checked>
+                            <span>자동 로그인</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="check sr-only">
+                            <span>아이디 저장</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="login-btn"><span>로그인</span></button>
+                </fieldset>
+            </form>
+            <nav class="login_link" aria-label="계정 관련 메뉴">
+                <a href="#">아이디 찾기</a>
+                <a href="#">비밀번호 재설정</a>
+                <a href="#">회원가입</a>
+            </nav>
+            <section class="sns_login" aria-labelledby="sns-title">
+                <h2 id="sns-title">SNS로 간편하게 로그인</h2>
+                <div class="sns_list">
+                    <a href="#"><span class="sr-only">카카오 로그인</span></a>
+                    <a href="#"><span class="sr-only">네이버 로그인</span></a>
+                    <a href="#"><span class="sr-only">애플 로그인</span></a>
+                    <a href="#"><span class="sr-only">삼성카드 로그인</span></a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        const passwordInput = document.querySelector('#password');
+        const passwordButton = document.querySelector('.pw_btn');
+
+        passwordButton.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            passwordButton.setAttribute('aria-label', isPassword ? '비밀번호 숨기기' : '비밀번호 보기');
+        });
+    </script>
+</body>
+</html>
