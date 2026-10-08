@@ -52,14 +52,14 @@ header h1 {
 }
 
 main {
-    padding: 30px 20px 90px;
+    padding: 34px 20px 90px;
 }
 
 .title {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-bottom: 54px;
+    margin-bottom: 57px;
     color: var(--primary-color);
     font-family: var(--font-Sodo), var(--font-Pretendard), sans-serif;
     font-weight: 900;
@@ -197,7 +197,7 @@ input:focus {
 }
 
 .sns_login {
-    margin-top: 83px;
+    margin-top: 93px;
 }
 
 .sns_login h2 {
