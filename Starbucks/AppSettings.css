@@ -1,0 +1,204 @@
+:root {
+    --font-Sodo: "SoDo Sans", sans-serif;
+    --font-Pretendard: "Pretendard Variable", sans-serif;
+    --primary-color: #00754A;
+    --sub-color: #D4E9E2;
+    --bg-color: #FFFFFF;
+    --text-color: #000000;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --sub-text-color: rgba(0, 0, 0, 0.45);
+    --toggle-off-color: #F0EFEC;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-Pretendard);
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+#wrap {
+    width: 100%;
+    max-width: 1024px;
+    min-width: 360px;
+    min-height: 100dvb;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+}
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 128px;
+}
+
+header h1 {
+    font-family: var(--font-Pretendard);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.prev_btn {
+    position: absolute;
+    left: 6px;
+    top: 40px;
+    width: 48px;
+    height: 48px;
+    background: url(Images/back_icon.svg) no-repeat center / 48px 48px;
+}
+
+main {
+    padding: 8px 20px 18px;
+}
+
+.setting-group {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+}
+
+.setting-group h2 {
+    margin-bottom: 10px;
+    font-family: var(--font-Pretendard);
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.setting-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 36px;
+    font-family: var(--font-Pretendard);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+.setting-item > span:first-child {
+    min-width: 0;
+}
+
+.setting-link {
+    text-decoration: none;
+}
+
+.arrow {
+    flex: 0 0 9px;
+    width: 9px;
+    height: 9px;
+    margin-right: 4px;
+    border-top: 2px solid var(--text-color);
+    border-right: 2px solid var(--text-color);
+    transform: rotate(45deg);
+}
+
+.toggle {
+    position: relative;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 20px;
+    margin-left: 12px;
+    border-radius: 10px;
+    background-color: var(--toggle-off-color);
+}
+
+.toggle::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+}
+
+.setting-toggle:checked + .toggle {
+    background-color: var(--primary-color);
+}
+
+.setting-toggle:checked + .toggle::after {
+    left: 17px;
+}
+
+.sub-item {
+    padding-left: 9px;
+}
+
+.sub-item > span:first-child::before {
+    content: "•";
+    margin-right: 10px;
+}
+
+.night-setting {
+    align-items: flex-start;
+}
+
+.night-setting > span:first-child {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3px;
+}
+
+.night-setting small {
+    margin-top: 4px;
+    margin-left: 23px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--sub-text-color);
+}
+
+.night-setting .toggle {
+    margin-top: 3px;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.version {
+    align-self: flex-start;
+    margin: 0;
+    font-family: var(--font-Sodo), var(--font-Pretendard), sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logout {
+    margin-top: 19px;
+    color: var(--text-color);
+    font-family: var(--font-Pretendard);
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+@media (max-width: 380px) {
+    .setting-item {
+        font-size: 1.4rem;
+    }
+
+    .night-setting small {
+        font-size: 1rem;
+    }
+}
