@@ -45,7 +45,7 @@ header h1 {
 .prev_btn {
     position: absolute;
     left: 6px;
-    bottom: 24px;
+    top: 40px;
     width: 48px;
     height: 48px;
     background: url(Images/back_icon.svg) no-repeat center / 48px 48px;
@@ -198,13 +198,15 @@ input:focus {
 }
 
 .sns_login {
-    margin-top: 93px;
+    margin-top: 96px;
 }
 
 .sns_login h2 {
     display: flex;
     align-items: center;
-    margin-bottom: 36px;
+    justify-content: center;
+    column-gap: 12px;
+    margin-bottom: 35px;
     font-family: var(--font-Pretendard);
     font-size: 1.3rem;
     font-weight: 500;
