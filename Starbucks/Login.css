@@ -171,6 +171,7 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 6px;
     margin-top: 17px;
     font-family: var(--font-Pretendard);
     font-size: 1.4rem;
@@ -180,7 +181,6 @@ input:focus {
 .login_link a {
     display: inline-flex;
     align-items: center;
-    column-gap: 10px;
 }
 
 .login_link a::after {
@@ -190,6 +190,7 @@ input:focus {
     height: 12px;
     background-color: var(--text-color);
     opacity: 0.25;
+    margin-left: 6px;
 }
 
 .login_link a:last-child::after {
