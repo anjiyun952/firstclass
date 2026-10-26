@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도미노피자리뉴얼포트폴리오</title>
+    <link rel="stylesheet" herf="../CSS/default.css">
+    <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" herf="../Font/CSS/pretendardvariable.css">
+    <link rel="stylesheet" href="../Font/TT_Commons_Pro_Mono_Trial_Bold.ttf">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="../npm/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header>제목공간</header>
+        <main>
+            <div class="hero-sec">
+                <!-- Slider main container -->
+                <div class="swiper visual">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="images/visual1.png" alt="단체주문할인배너" class="pc">
+                    <img src="images/m_visual1-2.png" alt="모바일단체주문할인배너" class="mo">
+                 </div>
+                 <div class="swiper-slide">
+                    <img src="images/visual2.png" alt="콜라보이벤트배너" class="pc">
+                    <img src="images/m_visual2-2.png" alt="모바일콜라보이벤트배너" class="mo">
+                </div>
+                ...
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+            <section class="video-section">
+                <div class="video-sticky">
+                    <video
+                    id="scrollVideo"
+                    src="./images/1021 (1)(1).mp4"
+                    muted
+                    playsinline
+                    preload="auto"
+                    ></video>
+                </div>
+            </section>
+     </div>
+        </main>
+        <footer>&copy</footer>
+    </div>
+    <script>
+        const swiper = new Swiper('.hero-sec > .swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.visual .swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.visual .swiper-button-next',
+            prevEl: '.visual .swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.visual .swiper-scrollbar',
+        },
+        });
+    </script>
+    <script>
+  const video = document.getElementById("scrollVideo");
+  const section = document.querySelector(".video-section");
+
+  video.pause();
+
+  function updateVideo() {
+    if (!Number.isFinite(video.duration)) return;
+
+    const rect = section.getBoundingClientRect();
+    const scrollHeight = section.offsetHeight - window.innerHeight;
+
+    if (scrollHeight <= 0) return;
+
+    let progress = -rect.top / scrollHeight;
+    progress = Math.max(0, Math.min(1, progress));
+
+    video.currentTime = progress * video.duration;
+  }
+
+  video.addEventListener("loadedmetadata", updateVideo);
+
+  window.addEventListener("scroll", updateVideo, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateVideo);
+</script>
+</body>
+</body>
+</html>
