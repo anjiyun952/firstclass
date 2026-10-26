@@ -1,0 +1,64 @@
+body {
+    background-color: yellow;
+    font-family: "Pretendard Variable";
+    font-family: "DOMINO";
+}
+.mo {
+    display: none;
+}
+.hero-sec .swiper {
+     width: 100%;
+     height: 600px;
+}
+
+/* 높이를 고정하고 싶은 경우에는 px값 적용
+반응형에 따라 높이 값이 점점 줄어들기를 바라면 높이값 주지않기 
+max-height 정도는 가능 
+*/
+.hero-sec .swiper images {
+    height: 100%;
+    object-fit: cover;}
+
+@media (max-width: 1024px) {
+    .pc {
+        display: none;
+    }
+    .mo {
+        display: block;
+    }
+    header {
+        position: fixed;
+        width: 100%;
+        height: 80px;
+        background-color: orange;
+        z-index: 10;
+    }
+    .hero-sec .swiper {
+        height: 100dvh;
+    }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.video-section {
+  position: relative;
+  height: 800vh;
+}
+
+.video-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-sticky video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
