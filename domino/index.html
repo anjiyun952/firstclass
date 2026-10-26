@@ -79,35 +79,5 @@
             el: '.visual .swiper-scrollbar',
         },
         });
-    </script>
-    <script>
-  const video = document.getElementById("scrollVideo");
-  const section = document.querySelector(".video-section");
-
-  video.pause();
-
-  function updateVideo() {
-    if (!Number.isFinite(video.duration)) return;
-
-    const rect = section.getBoundingClientRect();
-    const scrollHeight = section.offsetHeight - window.innerHeight;
-
-    if (scrollHeight <= 0) return;
-
-    let progress = -rect.top / scrollHeight;
-    progress = Math.max(0, Math.min(1, progress));
-
-    video.currentTime = progress * video.duration;
-  }
-
-  video.addEventListener("loadedmetadata", updateVideo);
-
-  window.addEventListener("scroll", updateVideo, {
-    passive: true
-  });
-
-  window.addEventListener("resize", updateVideo);
-</script>
-</body>
 </body>
 </html>
