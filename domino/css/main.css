@@ -36,10 +36,5 @@ max-height 정도는 가능
     .hero-sec .swiper {
         height: 100dvh;
     }
-    .hero-sec .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    }
+    
 }
