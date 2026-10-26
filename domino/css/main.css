@@ -11,7 +11,7 @@ body {
     height: auto;
 }
 
-.hero-sec .swiper img {
+.hero-sec .swiper images {
     width: 100%;
     height: 100%;
     object-fit: cover;
