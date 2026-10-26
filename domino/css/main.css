@@ -37,28 +37,3 @@ max-height 정도는 가능
         height: 100dvh;
     }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.video-section {
-  position: relative;
-  height: 800vh;
-}
-
-.video-sticky {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: #000;
-}
-
-.video-sticky video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
