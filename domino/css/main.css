@@ -11,10 +11,10 @@ body {
     height: auto;
 }
 
-.hero-sec .swiper-slide img {
-    display: block;
+.hero-sec .swiper img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* 높이를 고정하고 싶은 경우에는 px값 적용
