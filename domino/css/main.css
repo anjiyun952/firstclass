@@ -222,7 +222,15 @@ body {
     --cta-cut: clamp(20px, 3.37vw, 58px);
     --cta-overlap: clamp(12px, 2.08vw, 40px);
 
+    position: absolute;
+    z-index: 6;
+    top: 83.121%;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
+    align-items: center;
+    width: min(73.488%, 1264px);
+    margin: 0;
     gap: 0;
 }
 
