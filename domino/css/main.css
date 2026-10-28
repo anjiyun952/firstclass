@@ -188,7 +188,6 @@ body {
     padding: 0;
 }
 
-}
 .site-header .header-user a {
     font-size: 16px;
     font-weight: 600;
@@ -208,4 +207,56 @@ body {
 @media (max-width: 760px) {
     .site-header { overflow-x: auto; }
     .site-header .header-inner { min-width: 720px; }
+}
+
+/* Hero CTA — Figma node 58:352; diagonal ends echo the reference. */
+.hero-sec {
+    flex-direction: column;
+    align-items: center;
+}
+.hero-cta {
+    --cta-cut: clamp(20px, 3.05vw, 58px);
+    display: flex;
+    width: min(100% - 40px, 1264px);
+    gap: 14px;
+    margin: 28px auto 0;
+    align-items: center;
+}
+.hero-cta-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 70px;
+    box-sizing: border-box;
+    color: var(--text-inverse);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: clamp(14px, 1.458vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.5;
+    transition: filter 0.2s ease;
+}
+.hero-cta-link:hover { filter: brightness(1.08); }
+.hero-cta-link:focus-visible { outline: 3px solid var(--blue-dark); outline-offset: 3px; }
+.hero-cta-delivery {
+    background: var(--action-cta);
+    border-radius: 999px 0 0 999px;
+    clip-path: polygon(0 0, 100% 0, 100% 12%, calc(100% - var(--cta-cut)) 100%, 0 100%);
+}
+.hero-cta-takeout {
+    background: var(--action-primary);
+    clip-path: polygon(var(--cta-cut) 0, 100% 0, 100% 12%, calc(100% - var(--cta-cut)) 100%, 0 100%, 0 88%);
+}
+.hero-cta-quick {
+    background: var(--action-cta-2);
+    border-radius: 0 999px 999px 0;
+    clip-path: polygon(var(--cta-cut) 0, 100% 0, 100% 100%, 0 100%, 0 88%);
+}
+@media (max-width: 760px) {
+    .hero-cta { width: calc(100% - 24px); gap: 6px; margin-top: 16px; --cta-cut: 17px; }
+    .hero-cta-link { height: 48px; font-size: clamp(10px, 2.3vw, 14px); }
 }
