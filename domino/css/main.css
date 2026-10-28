@@ -182,11 +182,11 @@ body {
 }
 .site-header .header-user {
     display: flex;
-    flex: 0 1 190px;
+    flex: 0 1 clamp(0px, 9.8958vw, 190px);
     min-width: max-content;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    gap: 0;
     padding: 0;
 }
 .site-header .header-user a {
