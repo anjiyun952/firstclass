@@ -132,7 +132,7 @@ body {
     border-radius: inherit;
 }
 
-/* Figma header — frame 16:626 */
+/* Header: distribute free space continuously across all groups. */
 .site-header {
     position: relative;
     z-index: 20;
@@ -149,17 +149,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0;
     flex-wrap: nowrap;
+    gap: 0;
 }
 .site-header a { text-decoration: none; white-space: nowrap; }
-.site-header .header-logo { display: block; width: 207px; flex: 0 0 207px; }
-.site-header .header-logo img { display: block; width: 207px; height: 42px; object-fit: contain; }
+.site-header .header-logo { display: block; width: 207px; flex: 0 1 207px; min-width: 90px; }
+.site-header .header-logo img { display: block; width: 100%; height: auto; object-fit: contain; }
 .site-header .header-nav {
     display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
     align-items: center;
-    gap: clamp(10px, 5.21vw, 100px);
-    flex-shrink: 0;
+    justify-content: space-evenly;
+    gap: 0;
 }
 .site-header .header-nav > a:not(.franchise-link) {
     font-size: 18px;
@@ -180,10 +182,12 @@ body {
 }
 .site-header .header-user {
     display: flex;
-    gap: clamp(10px, 2.5vw, 48px);
+    flex: 0 1 190px;
+    min-width: 100px;
+    justify-content: space-between;
     align-items: center;
+    gap: 0;
     padding: 0;
-    flex-shrink: 0;
 }
 .site-header .header-user a {
     font-size: 16px;
@@ -192,26 +196,17 @@ body {
     color: var(--text-secondary);
 }
 
-/* Keep all three header groups on one line as the viewport narrows. */
-@media (max-width: 1500px) {
-    .site-header .header-logo { width: clamp(125px, 12vw, 207px); flex-basis: clamp(125px, 12vw, 207px); }
-    .site-header .header-logo img { width: 100%; height: auto; }
-    .site-header .header-nav { gap: clamp(8px, 3vw, 45px); }
-    .site-header .header-user { gap: clamp(8px, 1.6vw, 24px); }
-    .site-header .franchise-link { padding-inline: clamp(12px, 2vw, 30px); }
-}
+/* Avoid wrapping; only compact typography when space is truly insufficient. */
 @media (max-width: 1100px) {
     .site-header .header-inner { width: calc(100% - 24px); }
-    .site-header .header-logo { width: 110px; flex-basis: 110px; }
-    .site-header .header-nav { gap: clamp(6px, 1vw, 12px); }
+    .site-header .header-logo { flex-basis: 140px; }
     .site-header .header-nav > a:not(.franchise-link),
-    .site-header .franchise-link { font-size: clamp(11px, 1.35vw, 15px); }
-    .site-header .franchise-link { padding: 8px 10px; }
-    .site-header .header-user { gap: 8px; }
-    .site-header .header-user a { font-size: clamp(11px, 1.2vw, 14px); }
+    .site-header .franchise-link { font-size: 14px; }
+    .site-header .franchise-link { padding: 8px 12px; }
+    .site-header .header-user { flex-basis: 125px; }
+    .site-header .header-user a { font-size: 13px; }
 }
 @media (max-width: 760px) {
-    /* On very narrow screens, keep one row and allow horizontal scrolling. */
     .site-header { overflow-x: auto; }
     .site-header .header-inner { min-width: 720px; }
 }
