@@ -53,16 +53,21 @@ body {
 .hero-sec {
     width: 100%;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-sec .swiper {
     width: 100%;
     max-width: 1720px;
-    margin-inline: auto;
+    margin: 0 auto;
+    position: relative;
+    isolation: isolate;
     aspect-ratio: 1720 / 628;
     height: auto;
     border-radius: clamp(24px, 5.814vw, 100px);
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .hero-sec .swiper-slide,
@@ -87,10 +92,11 @@ body {
     margin-top: 0;
     transform: translateY(-50%);
     z-index: 5;
+    top: 50%;
 }
 
-.hero-sec .swiper-button-prev { left: 0; }
-.hero-sec .swiper-button-next { right: 0; }
+.hero-sec .swiper-button-prev { left: 12px; }
+.hero-sec .swiper-button-next { right: 12px; }
 
 .hero-sec .swiper-button-prev::after,
 .hero-sec .swiper-button-next::after { content: none; }
@@ -126,4 +132,10 @@ body {
         height: auto;
         object-fit: contain;
     }
+}
+
+/* Clip the slide images to the same rounded hero outline. */
+.hero-sec .swiper-wrapper,
+.hero-sec .swiper-slide {
+    border-radius: inherit;
 }
