@@ -220,16 +220,14 @@ body {
 }
 .hero-cta {
     --cta-cut: clamp(20px, 3.37vw, 58px);
-    position: absolute;
-    z-index: 6;
-    top: 83.121%; /* Figma: y=522 within 628px hero */
-    left: 50%;
-    transform: translateX(-50%);
+    --cta-overlap: clamp(12px, 2.08vw, 40px);
+
     display: flex;
-    width: min(73.488%, 1264px);
-    gap: clamp(6px, 0.814vw, 14px);
-    margin: 0;
-    align-items: center;
+    gap: 0;
+}
+
+.hero-cta-link + .hero-cta-link {
+    margin-left: calc(-1 * var(--cta-overlap));
 }
 .hero-cta-link {
     display: flex;
