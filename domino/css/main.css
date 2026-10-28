@@ -182,8 +182,9 @@ body {
 }
 .site-header .header-user {
     display: flex;
-    flex: 0 1 190px;
-    min-width: 100px;
+    flex: 1 1 190px;
+    max-width: 190px;
+    min-width: max-content;
     justify-content: space-between;
     align-items: center;
     gap: 0;
@@ -203,7 +204,6 @@ body {
     .site-header .header-nav > a:not(.franchise-link),
     .site-header .franchise-link { font-size: 14px; }
     .site-header .franchise-link { padding: 8px 12px; }
-    .site-header .header-user { flex-basis: 125px; }
     .site-header .header-user a { font-size: 13px; }
 }
 @media (max-width: 760px) {
