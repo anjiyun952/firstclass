@@ -104,3 +104,9 @@ body {
     height: 100%;
     display: block;
 }
+
+/* TT Commons Pro Mono Bold — English headings */
+.eng-title {
+    font-family: "TT Commons Pro Mono", monospace;
+    font-weight: 700;
+}
