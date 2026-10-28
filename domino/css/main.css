@@ -44,14 +44,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: "TT Commons Pro Mono";
-    src: url("../../Font/TT_Commons_Pro_Mono_Trial_Bold.woff2") format("woff2");
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-}
-
 body {
     background-color: yellow;
     font-family: "Pretendard Variable", sans-serif;
