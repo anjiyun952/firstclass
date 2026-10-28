@@ -115,14 +115,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-    header {
-        position: fixed;
-        width: 100%;
-        height: 80px;
-        background-color: orange;
-        z-index: 10;
-    }
-
     .hero-sec .swiper {
         aspect-ratio: auto;
         border-radius: 24px;
@@ -138,4 +130,85 @@ body {
 .hero-sec .swiper-wrapper,
 .hero-sec .swiper-slide {
     border-radius: inherit;
+}
+
+/* Figma header — frame 16:626 */
+.site-header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    height: 100px;
+    background: var(--background-white);
+}
+.site-header .header-inner {
+    max-width: 1720px;
+    width: calc(100% - 40px);
+    height: 100%;
+    padding-top: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+.site-header a { text-decoration: none; white-space: nowrap; }
+.site-header .header-logo { display: block; width: 207px; flex: 0 0 207px; }
+.site-header .header-logo img { display: block; width: 207px; height: 42px; object-fit: contain; }
+.site-header .header-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 5.16vw, 99px);
+}
+.site-header .header-nav > a:not(.franchise-link) {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--text-primary);
+}
+.site-header .franchise-link {
+    padding: 8px 36px;
+    border-radius: 999px;
+    background: var(--action-cta);
+    color: var(--text-inverse);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+.site-header .header-user {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    padding: 0 4px;
+    flex-shrink: 0;
+}
+.site-header .header-user a {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--text-secondary);
+}
+@media (max-width: 1450px) {
+    .site-header .header-inner { gap: 18px; }
+    .site-header .header-nav { gap: clamp(12px, 2.2vw, 32px); }
+    .site-header .header-user { gap: 20px; }
+}
+@media (max-width: 1024px) {
+    .site-header { height: auto; min-height: 80px; }
+    .site-header .header-inner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 16px 0;
+        row-gap: 18px;
+    }
+    .site-header .header-logo { flex-basis: 170px; width: 170px; }
+    .site-header .header-logo img { width: 170px; height: auto; }
+    .site-header .header-nav {
+        width: 100%;
+        order: 3;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+    }
+    .site-header .header-user { margin-left: auto; }
 }
