@@ -184,7 +184,7 @@ body {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: clamp(8px, 1.25vw, 44px);
+    gap: clamp(8px, 2vw, 40px);
     padding: 0;
 }
 
