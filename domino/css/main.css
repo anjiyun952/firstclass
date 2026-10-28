@@ -1,7 +1,60 @@
+/* Figma Variables — Primitives */
+:root {
+    --blue-primary: #0193E8;
+    --blue-dark: #0079C2;
+    --red-primary: #FE0000;
+    --neutral-white: #FFFFFF;
+    --neutral-cream: #FFFBF5;
+    --neutral-900: #242424;
+    --neutral-600: #666666;
+    --neutral-200: #E5E5E5;
+    --brown-primary: #663605;
+    --black: #000000;
+    --neutral-cream2: #FBE7E7;
+    --neutral-deep-cream: #D2B391;
+    --neutral-deep-cream-2: #C7A389;
+
+    /* Figma Variables — Semantic (Primitives aliases) */
+    --action-primary: var(--blue-primary);
+    --action-cta: var(--red-primary);
+    --action-cta-2: var(--brown-primary);
+    --action-hover: var(--blue-dark);
+    --background-default: var(--neutral-cream);
+    --background-white: var(--neutral-white);
+    --background-black: var(--black);
+    --background-subtle: var(--neutral-cream2);
+    --surface-default: var(--neutral-white);
+    --surface-subtle: var(--neutral-cream);
+    --text-primary: var(--neutral-900);
+    --text-secondary: var(--neutral-600);
+    --text-secondary2: var(--neutral-deep-cream);
+    --text-secondary3: var(--neutral-deep-cream-2);
+    --text-inverse: var(--neutral-white);
+    --border-default: var(--neutral-white);
+    --accent-brand: var(--blue-primary);
+    --accent-promotion: var(--red-primary);
+}
+
+/* Local fonts: paths are relative to domino/css/main.css */
+@font-face {
+    font-family: "Pretendard Variable";
+    src: url("../../Font/PretendardVariable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TT Commons Pro Mono";
+    src: url("../../Font/TT_Commons_Pro_Mono_Trial_Bold.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
 body {
     background-color: yellow;
-    font-family: "Pretendard Variable";
-    font-family: "DOMINO";
+    font-family: "Pretendard Variable", sans-serif;
 }
 .hero-sec .swiper-slide > img.mo {
     display: none;
