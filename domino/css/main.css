@@ -57,6 +57,16 @@ body {
     clip-path: path("M 45 0 H 270 A 30 30 0 0 1 300 30 A 30 30 0 0 1 270 60 H 8 Q -2 60 5 48 L 38 5 Q 42 0 45 0 Z");
 }
 
+.store-btn {
+    position: relative;
+    width: 300px;
+    height: 60px;
+    background-color: #FF0000;
+    border-radius: 30px;
+    clip-path: path("M 45 0 H 270 A 30 30 0 0 1 300 30 A 30 30 0 0 1 270 60 H 8 Q -2 60 5 48 L 38 5 Q 42 0 45 0 Z");
+}
+
+
 /* Figma hero 1720 × 628, corner radius 100 */
 .hero-sec {
     width: 100%;
