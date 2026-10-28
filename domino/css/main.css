@@ -287,3 +287,55 @@ body {
     }
     .hero-cta-link { font-size: clamp(10px, 2vw, 18px); }
 }
+
+/* BEST MENU — Figma 72:787. Menu image slots remain 296px square. */
+.best-menu-sec {
+    box-sizing: border-box;
+    padding: 160px 20px;
+    background: var(--background-white);
+    color: var(--text-primary);
+    text-align: center;
+}
+.best-menu-heading { margin-bottom: 0; }
+.best-menu-heading > p { margin: 0 0 18px; color: var(--text-secondary); font-size: 28px; font-weight: 600; letter-spacing: -.03em; line-height: 1; }
+.best-menu-heading h2 { margin: 0; font-size: 64px; font-weight: 700; letter-spacing: -.03em; line-height: 1; }
+.best-menu-grid {
+    max-width: 1226px;
+    margin: 80px auto 124px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 294px));
+    justify-content: space-between;
+    column-gap: 32px;
+    row-gap: 80px;
+}
+.best-menu-card { min-width: 0; width: 100%; }
+.best-menu-image { width: 100%; aspect-ratio: 1; position: relative; }
+.best-menu-image > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.pizza-labels { position: absolute; top: 0; right: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+.pizza-label { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; box-sizing: border-box; padding: 6px 16px; border-radius: 0 0 20px 20px; font-size: 22px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+.pizza-label--new { color: var(--text-inverse); background: var(--action-cta); }
+.pizza-label--best { color: var(--text-inverse); background: var(--action-primary); }
+.pizza-label--signature { color: var(--text-inverse); background: var(--text-primary); }
+.pizza-label--limited { color: var(--text-secondary3); background: var(--background-subtle); }
+.best-menu-info { margin-top: 34px; }
+.best-menu-info h3 { margin: 0; font-size: 26px; line-height: 1.1; font-weight: 600; word-break: keep-all; }
+.best-menu-description { max-width: 236px; min-height: 44px; margin: 10px auto 16px; color: var(--text-secondary); font-size: 18px; font-weight: 500; line-height: 1.2; word-break: keep-all; }
+.best-menu-prices { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; font-size: 18px; font-weight: 600; color: var(--text-secondary); }
+.best-menu-prices span { white-space: nowrap; }
+.best-menu-prices strong { color: var(--accent-promotion); font-weight: 700; margin-right: 6px; }
+.best-menu-more { display: inline-flex; align-items: center; justify-content: center; gap: 9px; box-sizing: border-box; padding: 10px 26px; border: 2px solid var(--neutral-200); border-radius: 999px; color: var(--text-secondary); background: var(--background-white); font-size: 20px; font-weight: 500; line-height: 1.5; text-decoration: none; }
+.best-menu-more:hover { border-color: var(--blue-primary); color: var(--blue-dark); }
+.best-menu-more:focus-visible { outline: 3px solid var(--blue-dark); outline-offset: 3px; }
+.best-menu-more span { font-size: 24px; line-height: 1; }
+@media (max-width: 960px) {
+    .best-menu-sec { padding: 100px 24px; }
+    .best-menu-grid { grid-template-columns: repeat(2, minmax(0, 294px)); justify-content: center; gap: 64px 30px; }
+}
+@media (max-width: 620px) {
+    .best-menu-sec { padding: 80px 16px; }
+    .best-menu-heading > p { font-size: 18px; }
+    .best-menu-heading h2 { font-size: 42px; }
+    .best-menu-grid { grid-template-columns: minmax(0, 294px); gap: 48px; margin: 50px auto 70px; }
+    .best-menu-info h3 { font-size: 24px; }
+    .pizza-label { font-size: 16px; min-height: 32px; }
+}
