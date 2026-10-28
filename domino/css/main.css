@@ -169,7 +169,7 @@ body {
 }
 .site-header .franchise-link {
     padding: 8px 36px 8px 44px;
-    border-radius: 999px;
+    border-radius: 0 999px 999px 0;
     background: var(--action-cta);
     color: var(--text-inverse);
     font-size: 18px;
