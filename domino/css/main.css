@@ -182,7 +182,7 @@ body {
 }
 .site-header .header-user {
     display: flex;
-    flex: 1 1 190px;
+    flex: 1 1 auto;
     max-width: 190px;
     min-width: max-content;
     justify-content: space-between;
