@@ -182,8 +182,8 @@ body {
 }
 .site-header .header-user {
     display: flex;
-    flex: 0 1 clamp(0px, 9.8958vw, 190px);
-    min-width: max-content;
+    flex: 0 1 clamp(0px, 9.8958vw, 48px);
+    min-width: 12px;
     justify-content: space-between;
     align-items: center;
     gap: 0;
