@@ -166,7 +166,7 @@ body {
 .site-header .header-nav {
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: clamp(10px, 5.21vw, 100px);
     flex-shrink: 0;
 }
 .site-header .header-nav > a:not(.franchise-link) {
@@ -186,7 +186,7 @@ body {
 }
 .site-header .header-user {
     display: flex;
-    gap: 48px;
+    gap: clamp(10px, 2.5vw, 48px);
     align-items: center;
     padding: 0;
     flex-shrink: 0;
@@ -197,22 +197,27 @@ body {
     line-height: 1;
     color: var(--text-secondary);
 }
-@media (max-width: 1024px) {
-    .site-header { height: auto; min-height: 80px; }
-    .site-header .header-inner {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 16px 0;
-        row-gap: 18px;
-    }
-    .site-header .header-logo { flex-basis: 170px; width: 170px; }
-    .site-header .header-logo img { width: 170px; height: auto; }
-    .site-header .header-nav {
-        width: 100%;
-        order: 3;
-        gap: 20px;
-        overflow-x: auto;
-        padding-bottom: 6px;
-    }
-    .site-header .header-user { margin-left: auto; }
+
+/* Keep all three header groups on one line as the viewport narrows. */
+@media (max-width: 1500px) {
+    .site-header .header-logo { width: clamp(125px, 12vw, 207px); flex-basis: clamp(125px, 12vw, 207px); }
+    .site-header .header-logo img { width: 100%; height: auto; }
+    .site-header .header-nav { gap: clamp(8px, 3vw, 45px); }
+    .site-header .header-user { gap: clamp(8px, 1.6vw, 24px); }
+    .site-header .franchise-link { padding-inline: clamp(12px, 2vw, 30px); }
+}
+@media (max-width: 1100px) {
+    .site-header .header-inner { width: calc(100% - 24px); }
+    .site-header .header-logo { width: 110px; flex-basis: 110px; }
+    .site-header .header-nav { gap: clamp(6px, 1vw, 12px); }
+    .site-header .header-nav > a:not(.franchise-link),
+    .site-header .franchise-link { font-size: clamp(11px, 1.35vw, 15px); }
+    .site-header .franchise-link { padding: 8px 10px; }
+    .site-header .header-user { gap: 8px; }
+    .site-header .header-user a { font-size: clamp(11px, 1.2vw, 14px); }
+}
+@media (max-width: 760px) {
+    /* On very narrow screens, keep one row and allow horizontal scrolling. */
+    .site-header { overflow-x: auto; }
+    .site-header .header-inner { min-width: 720px; }
 }
