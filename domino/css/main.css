@@ -232,6 +232,8 @@ body {
     width: min(73.488%, 1264px);
     margin: 0;
     gap: 0;
+    /* Figma: X 0, Y 0, blur 10, spread 0, black 10%. */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
 }
 
 .hero-cta-link + .hero-cta-link {
