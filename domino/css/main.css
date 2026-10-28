@@ -176,7 +176,7 @@ body {
     font-weight: 700;
     line-height: 1;
     /* Cut only the upper-left edge; preserve the rounded right side. */
-    clip-path: shape(from 18px 0, line to calc(100% - 12px) 0, curve to 100% 12px with 100% 0, line to 100% calc(100% - 12px), curve to calc(100% - 12px) 100% with 100% 100%, line to 5px 100%, curve to 1px calc(100% - 7px) with 0 100%, line to 18px 0, close);
+    clip-path: shape(from 28px 0, line to calc(100% - 12px) 0, curve to 100% 12px with 100% 0, line to 100% calc(100% - 12px), curve to calc(100% - 12px) 100% with 100% 100%, line to 0 100%, line to 28px 0, close);
 }
 .site-header .header-user {
     display: flex;
