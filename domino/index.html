@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>도미노피자리뉴얼포트폴리오</title>
+    <title>도미노피자 리뉴얼 포트폴리오</title>
     <link rel="stylesheet" href="../CSS/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="preload" href="../Font/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
@@ -12,54 +12,45 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
-
 <body>
     <div id="wrap">
         <header><span class="eng-title">DOMINO'S PIZZA</span></header>
         <main>
-            <div class="hero-sec">
-                <!-- Slider main container -->
+            <section class="hero-sec" aria-label="도미노피자 주요 프로모션">
                 <div class="swiper visual">
-                    <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                    <!-- Slides -->
-                <div class="swiper-slide">
-                    <img src="images/visual1.png" alt="단체주문할인배너" class="pc">
-                    <img src="images/m_visual1-2.png" alt="모바일단체주문할인배너" class="mo">
-                 </div>
-                 <div class="swiper-slide">
-                    <img src="images/visual2.png" alt="콜라보이벤트배너" class="pc">
-                    <img src="images/m_visual2-2.png" alt="모바일콜라보이벤트배너" class="mo">
+                        <div class="swiper-slide">
+                            <picture>
+                                <source media="(max-width: 1024px)" srcset="images/m_visual1-2.png">
+                                <img src="images/visual1.png" alt="단체 주문 할인 배너">
+                            </picture>
+                        </div>
+                        <div class="swiper-slide">
+                            <picture>
+                                <source media="(max-width: 1024px)" srcset="images/m_visual2-2.png">
+                                <img src="images/visual2.png" alt="콜라보 이벤트 배너">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev" aria-label="이전 슬라이드">
+                        <img src="images/left_arrow.svg" alt="">
+                    </div>
+                    <div class="swiper-button-next" aria-label="다음 슬라이드">
+                        <img src="images/right_arrow.svg" alt="">
+                    </div>
                 </div>
-                ...
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev" role="button" aria-label="이전 슬라이드">
-                <img src="images/left_arrow.svg" alt="">
-                </div>
-                <div class="swiper-button-next" role="button" aria-label="다음 슬라이드">
-                <img src="images/right_arrow.svg" alt="">
-                </div>
-            </div>
+            </section>
         </main>
-     </div>
-        <footer>&copy</footer>
+        <footer>&copy;</footer>
     </div>
     <script>
-        const swiper = new Swiper('.hero-sec > .swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.visual .swiper-button-next',
-            prevEl: '.visual .swiper-button-prev',
-        },
-
+        const swiper = new Swiper('.hero-sec .swiper', {
+            direction: 'horizontal',
+            loop: true,
+            navigation: {
+                nextEl: '.hero-sec .swiper-button-next',
+                prevEl: '.hero-sec .swiper-button-prev',
+            },
         });
     </script>
 </body>
