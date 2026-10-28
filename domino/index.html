@@ -10,6 +10,7 @@
     <link rel="preload" href="../Font/TT_Commons_Pro_Mono_Trial_Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../Font/CSS/TT_Commons_Pro_Mono_Trial_Bold.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/scroll-video.css">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -171,9 +172,21 @@
                 </div>
                 <a class="best-menu-more" href="#all-menu">전체 메뉴 보기 <span aria-hidden="true">→</span></a>
             </section>
+
+            <!-- 스크롤 위치에 따라 영상의 재생 시점이 움직이는 브랜드 영상 -->
+            <section class="domino-video-sec" id="brand" aria-label="도미노피자 브랜드 영상">
+                <div class="domino-video-sticky">
+                    <video class="domino-scroll-video" muted playsinline preload="auto" aria-label="도미노피자 브랜드 영상">
+                        <source src="video/domino_video.mp4" type="video/mp4">
+                        브라우저에서 영상을 지원하지 않습니다.
+                    </video>
+                    <p class="domino-video-hint" aria-hidden="true">SCROLL TO PLAY</p>
+                </div>
+            </section>
         </main>
         <footer>&copy;</footer>
     </div>
+    <script src="js/scroll-video.js" defer></script>
     <script>
         const swiper = new Swiper('.hero-sec .swiper', {
             direction: 'horizontal',
