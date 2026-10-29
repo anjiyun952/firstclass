@@ -15,8 +15,8 @@
 .footer-contact-block { display:flex; flex-direction:column; align-items:flex-start; }
 .footer-contact-label { margin:0 0 16px; font-size:16px; font-weight:500; letter-spacing:-.03em; color:rgba(255,255,255,.6); }
 .footer-contact-block:nth-child(2) .footer-contact-label { margin-bottom:20px; }
-.footer-phone { font-size:46px; line-height:1.1; font-weight:500; letter-spacing:-.03em; color:#fff; text-decoration:none; }
-.footer-email { display:inline-flex; align-items:center; gap:16px; font-size:36px; line-height:1.2; font-weight:500; letter-spacing:-.03em; color:#fff; }
+.footer-phone { font-size:32px; line-height:1.1; font-weight:500; letter-spacing:-.03em; color:#fff; text-decoration:none; }
+.footer-email { display:inline-flex; align-items:center; gap:16px; font-size:26px; line-height:1.2; font-weight:500; letter-spacing:-.03em; color:#fff; }
 .footer-email img { display:block; width:auto; height:auto; transition:transform .3s ease; }
 .footer-email:hover img { transform:translateX(8px); }
 @media(prefers-reduced-motion:reduce) { .footer-email img { transition:none; } }
