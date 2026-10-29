@@ -1,5 +1,7 @@
 /* Mega menu: preserve existing header layout and semantic colors. */
-.site-header { overflow: visible; }
+.site-header { overflow: visible; isolation: isolate; }
+.site-header .header-inner { position: relative; z-index: 2; background: var(--background-white); }
+.site-header .mega-menu { z-index: 1; }
 .site-header .header-nav > a:not(.franchise-link) { cursor: pointer; }
 .site-header .header-nav > a:not(.franchise-link) {
     transition: color .2s ease;
@@ -20,15 +22,15 @@
     overflow: hidden;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-16px) scaleY(.96);
+    transform: translateY(-100%);
     transform-origin: top center;
     pointer-events: none;
-    transition: opacity .28s ease, transform .28s ease, visibility .28s;
+    transition: transform .4s ease, opacity .4s ease, visibility .4s;
 }
 .site-header .mega-menu.is-open {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0) scaleY(1);
+    transform: translateY(0);
     pointer-events: auto;
 }
 .site-header .mega-menu-inner {
