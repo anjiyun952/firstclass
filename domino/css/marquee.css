@@ -1,6 +1,6 @@
 /* Figma: DOMMMINO + ' + S, 160px, -3% letter spacing, -22px overlap */
 .domino-marquee-sec { width:100%; overflow:hidden; padding:0 0 224px; background:#000; display:flex; flex-direction:column; gap:40px; }
-.domino-marquee { display:flex; align-items:center; width:100%; height:104px; overflow:hidden; background:#000; }
+.domino-marquee { display:flex; align-items:center; width:100%; min-height:160px; overflow:hidden; background:#000; }
 .domino-marquee-track { display:flex; flex:0 0 auto; width:max-content; animation:domino-marquee-left 28s linear infinite; will-change:transform; }
 .domino-marquee--bottom .domino-marquee-track { animation-name:domino-marquee-right; }
 .domino-marquee-group { display:flex; flex:0 0 auto; align-items:center; white-space:nowrap; }
@@ -12,5 +12,5 @@
 .domino-marquee-blue { color:#0193E8; }
 @keyframes domino-marquee-left { from {transform:translateX(0)} to {transform:translateX(-50%)} }
 @keyframes domino-marquee-right { from {transform:translateX(-50%)} to {transform:translateX(0)} }
-@media(max-width:620px) { .domino-marquee {height:76px;} .domino-marquee-item {font-size:112px;} .domino-apostrophe,.domino-s {margin-left:-15.4px;} }
+@media(max-width:620px) { .domino-marquee {min-height:112px;} .domino-marquee-item {font-size:112px;} .domino-apostrophe,.domino-s {margin-left:-15.4px;} }
 @media(prefers-reduced-motion:reduce) { .domino-marquee-track {animation:none;} }
