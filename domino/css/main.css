@@ -255,9 +255,28 @@ body {
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.5;
-    transition: filter 0.2s ease;
+    position: relative;
+    gap: clamp(4px, .8vw, 12px);
+    cursor: pointer;
+    transition: transform .24s ease, filter .24s ease;
 }
-.hero-cta-link:hover { filter: brightness(1.08); }
+.hero-cta-link::after {
+    content: "→";
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 600;
+    line-height: 1;
+    transition: transform .24s ease;
+}
+.hero-cta-link:hover,
+.hero-cta-link:focus-visible {
+    transform: translateY(-5px);
+    filter: brightness(1.09) drop-shadow(0 7px 6px rgba(0,0,0,.22));
+}
+.hero-cta-link:hover::after,
+.hero-cta-link:focus-visible::after {
+    transform: translateX(5px);
+}
 .hero-cta-link:focus-visible { outline: 3px solid var(--blue-dark); outline-offset: 3px; }
 .hero-cta-delivery {
     background: var(--action-cta);
@@ -286,6 +305,11 @@ body {
         --cta-cut: clamp(12px, 3vw, 30px);
     }
     .hero-cta-link { font-size: clamp(10px, 2vw, 18px); }
+    .hero-cta-link:hover, .hero-cta-link:focus-visible { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-cta-link, .hero-cta-link::after { transition: none; }
 }
 
 /* BEST MENU — Figma 72:787. Menu image slots remain 296px square. */
