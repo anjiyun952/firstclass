@@ -1,0 +1,47 @@
+/* Domino's renewal footer — Figma desktop reference: 1920px / content 1720px */
+.site-footer { background:#000; color:var(--text-inverse,#fff); font-family:"Pretendard Variable",sans-serif; padding:100px max(24px,calc((100% - 1720px)/2)) 170px; }
+.footer-inner { width:100%; max-width:1720px; margin:0 auto; }
+.footer-flex-row { display:flex; justify-content:space-between; align-items:center; }
+.footer-top { min-height:64px; }
+.footer-logo img { display:block; max-width:100%; height:auto; }
+.footer-social,.footer-app-icons { display:flex; align-items:center; }
+.footer-social { gap:28px; }
+.footer-social a,.footer-social img,.footer-app-icons img { display:block; }
+.footer-social img,.footer-app-icons img { width:auto; height:auto; max-width:none; }
+.footer-rule { height:1px; background:var(--text-secondary,#666); width:100%; margin-top:24px; }
+.footer-policy { display:flex; flex-wrap:wrap; align-items:center; gap:12px 40px; margin-top:28px; font-size:14px; font-weight:500; line-height:21px; letter-spacing:-.03em; color:rgba(255,255,255,.8); }
+.footer-policy strong { font-weight:600; color:rgba(255,255,255,.9); }
+.footer-contact { display:flex; align-items:center; gap:82px; margin-top:36px; }
+.footer-contact-block { display:flex; flex-direction:column; align-items:flex-start; }
+.footer-contact-label { margin:0 0 16px; font-size:16px; font-weight:500; letter-spacing:-.03em; color:rgba(255,255,255,.6); }
+.footer-contact-block:nth-child(2) .footer-contact-label { margin-bottom:20px; }
+.footer-phone { font-size:46px; line-height:1.1; font-weight:500; letter-spacing:-.03em; color:#fff; text-decoration:none; }
+.footer-email { display:inline-flex; align-items:center; gap:16px; font-size:36px; line-height:1.2; font-weight:500; letter-spacing:-.03em; color:#fff; }
+.footer-email img { display:block; width:auto; height:auto; }
+.footer-company { margin-top:36px; font-size:14px; font-weight:400; line-height:16px; color:rgba(255,255,255,.6); }
+.footer-company-line { display:flex; flex-wrap:wrap; align-items:center; gap:8px 0; margin-bottom:20px; }
+.footer-company-line span + span { border-left:1px solid rgba(255,255,255,.35); padding-left:20px; margin-left:20px; }
+.footer-copyright { margin: -4px 0 0; font-size:14px; line-height:16px; color:rgba(255,255,255,.4); }
+.footer-rule--bottom { margin-top:28px; }
+.footer-download { margin-top:36px; font-size:14px; font-weight:500; color:rgba(255,255,255,.8); }
+.footer-app-icons { gap:32px; }
+@media(max-width:900px) {
+  .site-footer { padding:72px 24px 100px; }
+  .footer-contact { gap:40px; }
+  .footer-phone { font-size:36px; }
+  .footer-email { font-size:28px; }
+  .footer-policy { column-gap:24px; }
+}
+@media(max-width:620px) {
+  .site-footer { padding:56px 20px 80px; }
+  .footer-top { gap:20px; flex-wrap:wrap; }
+  .footer-logo img { max-width:180px; }
+  .footer-social { gap:18px; }
+  .footer-contact { align-items:flex-start; flex-direction:column; gap:28px; }
+  .footer-phone { font-size:34px; }
+  .footer-email { font-size:26px; }
+  .footer-email img { max-width:30px; }
+  .footer-company-line span + span { margin-left:10px; padding-left:10px; }
+  .footer-download { gap:20px; flex-wrap:wrap; }
+  .footer-app-icons { gap:24px; }
+}
