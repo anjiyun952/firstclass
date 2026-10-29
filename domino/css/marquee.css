@@ -1,5 +1,5 @@
 /* Figma: DOMMMINO + ' + S, 160px, -3% letter spacing, -22px overlap */
-.domino-marquee-sec { width:100%; overflow:hidden; padding:0 0 224px; background:#000; display:flex; flex-direction:column; gap:40px; }
+.domino-marquee-sec { width:100%; overflow:hidden; padding:140px 0 224px; background:#000; display:flex; flex-direction:column; gap:30px; }
 .domino-marquee { display:flex; align-items:center; width:100%; min-height:160px; overflow:hidden; background:#000; }
 .domino-marquee-track { display:flex; flex:0 0 auto; width:max-content; animation:domino-marquee-left 28s linear infinite; will-change:transform; }
 .domino-marquee--bottom .domino-marquee-track { animation-name:domino-marquee-right; }
