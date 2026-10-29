@@ -58,9 +58,14 @@
     for (const trigger of triggers) {
         trigger.setAttribute('aria-controls', menu.id);
         trigger.setAttribute('aria-expanded', 'false');
+        // Desktop: hovering any main category opens the entire mega menu.
+        trigger.addEventListener('mouseenter', () => setOpen(true));
+        trigger.addEventListener('focus', () => setOpen(true));
+        // Touch and keyboard users can still toggle the menu by tapping.
         trigger.addEventListener('click', event => {
             event.preventDefault();
-            setOpen(!open);
+            if (window.matchMedia('(hover: none)').matches) setOpen(!open);
+            else setOpen(true);
         });
     }
     // Moving from the header into its dropdown keeps the menu open.
