@@ -1,7 +1,13 @@
 /* Mega menu: preserve existing header layout and semantic colors. */
 .site-header { overflow: visible; }
 .site-header .header-nav > a:not(.franchise-link) { cursor: pointer; }
-.site-header .header-nav > a[aria-expanded="true"] { color: var(--action-primary); }
+.site-header .header-nav > a:not(.franchise-link) {
+    transition: color .2s ease;
+}
+.site-header .header-nav > a:not(.franchise-link):hover,
+.site-header .header-nav > a:not(.franchise-link):focus-visible {
+    color: var(--action-primary);
+}
 .site-header .mega-menu {
     position: absolute;
     top: 100%;
