@@ -1,7 +1,7 @@
 
 .domino-video-sec {
     position: relative;
-    height: 400vh; /* 영상을 재생할 스크롤 구간 */
+    height: 700vh; /* 영상을 재생할 스크롤 구간 */
     background: #000;
 }
 
@@ -20,5 +20,5 @@
     object-fit: cover;
 }
 .domino-video-hint{position:absolute;z-index:2;bottom:clamp(24px,5vh,56px);left:50%;transform:translateX(-50%);margin:0;font-size:clamp(12px,1.1vw,16px);font-weight:600;letter-spacing:.12em;color:#fff;text-shadow:0 1px 8px #0008;white-space:nowrap;opacity:.85}
-@media(max-width:620px){.domino-video-sec{height:240vh}.domino-scroll-video{object-fit:contain}}
+@media(max-width:620px){.domino-video-sec{height:380vh}.domino-scroll-video{object-fit:contain}}
 @media(prefers-reduced-motion:reduce){.domino-video-sec{height:100vh;height:100svh}.domino-video-hint{display:none}}
