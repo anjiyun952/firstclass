@@ -44,7 +44,7 @@
             const group = groups.get(trigger.textContent.trim());
             if (!group) continue;
             const rect = trigger.getBoundingClientRect();
-            group.style.left = (rect.left - parent.left) + 'px';
+            group.style.left = (rect.left + rect.width / 2 - parent.left) + 'px';
         }
     };
     const setOpen = value => {
