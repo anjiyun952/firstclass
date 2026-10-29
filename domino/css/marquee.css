@@ -4,6 +4,7 @@
 .domino-marquee-track { display:flex; flex:0 0 auto; width:max-content; animation:domino-marquee-left 28s linear infinite; will-change:transform; }
 .domino-marquee--bottom .domino-marquee-track { animation-name:domino-marquee-right; }
 .domino-marquee-group { display:flex; flex:0 0 auto; align-items:center; white-space:nowrap; }
+.domino-marquee-item { margin-right:40px; }
 .domino-marquee-item { display:inline-flex; flex:0 0 auto; align-items:center; font-family:"TT Commons Pro Mono",monospace; font-weight:700; font-size:160px; line-height:1; letter-spacing:-.03em; white-space:nowrap; }
 .domino-word { display:inline; white-space:nowrap; }
 .domino-apostrophe,.domino-s { color:#0193E8; margin-left:-22px; }
