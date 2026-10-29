@@ -322,7 +322,8 @@ body {
 .pizza-label--signature { color: var(--text-inverse); background: var(--text-primary); }
 .pizza-label--limited { color: var(--text-secondary3); background: var(--background-subtle); }
 .best-menu-info { margin-top: 34px; }
-.best-menu-info h3 { margin: 0; font-size: 26px; line-height: 1.1; font-weight: 600; word-break: keep-all; min-height: 58px; }
+.best-menu-info h3 { margin: 0; font-size: 26px; line-height: 1.1; font-weight: 600; word-break: keep-all; }
+.best-menu-info h3.best-menu-title--long { font-size: 20px; letter-spacing: -0.04em; white-space: nowrap; }
 .best-menu-description { max-width: 236px; min-height: 44px; margin: 10px auto 16px; color: var(--text-secondary); font-size: 18px; font-weight: 500; line-height: 1.2; word-break: keep-all; }
 .best-menu-prices { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; font-size: 18px; font-weight: 600; color: var(--text-secondary); }
 .best-menu-prices span { white-space: nowrap; }
