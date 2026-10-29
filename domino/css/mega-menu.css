@@ -1,0 +1,68 @@
+/* Mega menu: preserve existing header layout and semantic colors. */
+.site-header { overflow: visible; }
+.site-header .header-nav > a:not(.franchise-link) { cursor: pointer; }
+.site-header .header-nav > a[aria-expanded="true"] { color: var(--action-primary); }
+.site-header .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    background: var(--background-white);
+    color: var(--text-secondary);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-16px) scaleY(.96);
+    transform-origin: top center;
+    pointer-events: none;
+    transition: opacity .28s ease, transform .28s ease, visibility .28s;
+}
+.site-header .mega-menu.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    pointer-events: auto;
+}
+.site-header .mega-menu-inner {
+    position: relative;
+    width: calc(100% - 40px);
+    max-width: 1720px;
+    height: 100%;
+    margin: 0 auto;
+}
+.site-header .mega-menu-group {
+    position: absolute;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+    white-space: nowrap;
+}
+.site-header .mega-menu-group a {
+    display: block;
+    color: var(--text-secondary);
+    font-family: "Pretendard Variable", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: color .18s ease;
+}
+.site-header .mega-menu-group a:hover,
+.site-header .mega-menu-group a:focus-visible { color: var(--action-primary); }
+@media (max-width: 1100px) {
+    .site-header .mega-menu-inner { width: calc(100% - 24px); }
+}
+@media (max-width: 760px) {
+    /* The existing horizontally scrollable header would clip an absolute dropdown. */
+    .site-header { overflow: visible; }
+    .site-header .header-inner { overflow-x: auto; }
+    .site-header .mega-menu { overflow-x: auto; }
+    .site-header .mega-menu-inner { min-width: 720px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .site-header .mega-menu { transition: none; transform: none; }
+}
