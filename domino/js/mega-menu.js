@@ -59,10 +59,15 @@
         trigger.setAttribute('aria-controls', menu.id);
         trigger.setAttribute('aria-expanded', 'false');
         // Desktop: hovering any main category opens the entire mega menu.
-        trigger.addEventListener('mouseenter', () => setOpen(true));
-        trigger.addEventListener('focus', () => setOpen(true));
+        const isStore = trigger.textContent.trim() === 'STORE';
+        trigger.addEventListener('mouseenter', () => setOpen(!isStore));
+        trigger.addEventListener('focus', () => setOpen(!isStore));
         // Touch and keyboard users can still toggle the menu by tapping.
         trigger.addEventListener('click', event => {
+            if (isStore) {
+                setOpen(false);
+                return; // Keep STORE's existing href navigation.
+            }
             event.preventDefault();
             if (window.matchMedia('(hover: none)').matches) setOpen(!open);
             else setOpen(true);
