@@ -18,6 +18,7 @@
     height: 300px;
     box-sizing: border-box;
     background: var(--background-white);
+    border-top: 1px solid var(--neutral-200);
     color: var(--text-secondary);
     overflow: hidden;
     visibility: hidden;
