@@ -26,7 +26,7 @@
     transform: translateY(-100%);
     transform-origin: top center;
     pointer-events: none;
-    transition: transform .22s ease, opacity .22s ease, visibility .22s;
+    transition: transform .18s ease, opacity .18s ease, visibility .18s;
 }
 .site-header .mega-menu.is-open {
     visibility: visible;
