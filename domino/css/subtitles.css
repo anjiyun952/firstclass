@@ -1,0 +1,43 @@
+/* Subtitle overlay: synchronized to the scroll-driven video timeline. */
+.domino-video-subtitles {
+    position: absolute;
+    z-index: 3;
+    top: 11%;
+    left: 50%;
+    width: min(90%, 1000px);
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
+    pointer-events: none;
+}
+.domino-video-subtitle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    will-change: opacity;
+    text-shadow: 0 2px 10px rgba(0,0,0,.6);
+}
+.domino-video-subtitle .subtitle-lead {
+    display: block;
+    font-size: clamp(12px, 1.25vw, 24px);
+    font-weight: 500;
+    line-height: 1.45;
+    word-break: keep-all;
+}
+.domino-video-subtitle .subtitle-main {
+    display: block;
+    margin-top: .4em;
+    font-size: clamp(20px, 2.15vw, 42px);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -.04em;
+    word-break: keep-all;
+}
+@media(max-width:620px) {
+    .domino-video-subtitles { top: 27%; width: 94%; }
+    .domino-video-subtitle .subtitle-lead { font-size: clamp(11px, 2.6vw, 14px); }
+    .domino-video-subtitle .subtitle-main { font-size: clamp(17px, 4vw, 23px); }
+}
