@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 60px;
+    gap: 40px;
     white-space: nowrap;
 }
 .site-header .mega-menu-group a {
