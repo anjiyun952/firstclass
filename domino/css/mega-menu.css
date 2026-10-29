@@ -22,15 +22,13 @@
     color: var(--text-secondary);
     overflow: hidden;
     visibility: hidden;
-    opacity: 0;
     transform: translateY(-100%);
     transform-origin: top center;
     pointer-events: none;
-    transition: transform .18s ease, opacity .18s ease, visibility .18s;
+    transition: transform .18s ease, visibility .18s;
 }
 .site-header .mega-menu.is-open {
     visibility: visible;
-    opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
 }
