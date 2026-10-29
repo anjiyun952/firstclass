@@ -1,0 +1,65 @@
+/* 브랜드 영상 바로 아래의 두 줄 무한 흐름 띠지 */
+.domino-marquee-sec {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+.domino-marquee {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: clamp(66px, 7.5vw, 118px);
+    align-items: center;
+}
+.domino-marquee--top { background: #006491; color: #fff; }
+.domino-marquee--bottom { background: #e31837; color: #fff; }
+.domino-marquee-track {
+    display: flex;
+    width: max-content;
+    flex: 0 0 auto;
+    will-change: transform;
+    animation: domino-marquee-left 28s linear infinite;
+}
+.domino-marquee--bottom .domino-marquee-track {
+    animation-name: domino-marquee-right;
+}
+.domino-marquee-group {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    white-space: nowrap;
+}
+.domino-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: 0 clamp(16px, 2.8vw, 48px);
+    font-family: 'TT Commons Pro Mono Trial', 'Pretendard Variable', sans-serif;
+    font-weight: 800;
+    font-size: clamp(30px, 4.3vw, 74px);
+    line-height: 1;
+    letter-spacing: -.035em;
+    white-space: nowrap;
+}
+.domino-marquee-item::after {
+    content: '✦';
+    display: inline-block;
+    margin-left: clamp(32px, 5vw, 86px);
+    font-size: .55em;
+    vertical-align: middle;
+}
+@keyframes domino-marquee-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+@keyframes domino-marquee-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+@media (max-width: 620px) {
+    .domino-marquee { height: 62px; }
+    .domino-marquee-item { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .domino-marquee-track { animation: none; }
+}
