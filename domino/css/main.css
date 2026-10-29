@@ -343,3 +343,6 @@ body {
     .best-menu-info h3 { font-size: 24px; }
     .pizza-label { font-size: 16px; min-height: 32px; }
 }
+
+/* BEST and MENU are separate text elements with a fixed Figma gap. */
+.best-menu-heading .eng-title { display:flex; align-items:center; gap:14px; }
