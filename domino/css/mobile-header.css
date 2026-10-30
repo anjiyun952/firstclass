@@ -18,9 +18,10 @@
   .mobile-menu-nav { display:block; }
   .mobile-menu-section,.mobile-menu-direct { border-bottom:1px solid var(--neutral-200); }
   .mobile-menu-category,.mobile-menu-direct { box-sizing:border-box; display:flex; width:100%; min-height:56px; align-items:center; justify-content:space-between; padding:12px 4px; border:0; background:transparent; font:600 17px/1.4 "Pretendard Variable",sans-serif; color:var(--text-primary); text-align:left; text-decoration:none; cursor:pointer; }
-  .mobile-menu-category span { font-size:22px; transition:transform .2s; }
-  .mobile-menu-category[aria-expanded="true"] span { transform:rotate(180deg); }
-  .mobile-menu-submenu { padding:6px 14px 18px; background:var(--background-subtle); }
+  .mobile-menu-arrow { display:block; width:44px; height:44px; flex:0 0 44px; transition:transform .2s ease; }
+  .mobile-menu-category[aria-expanded="true"] .mobile-menu-arrow { transform:rotate(180deg); }
+  .mobile-menu-arrow--direct { transform:rotate(-90deg); }
+  .mobile-menu-submenu { padding:6px 14px 18px; background:var(--background-white); }
   .mobile-menu-submenu[hidden] { display:none; }
   .mobile-menu-submenu a { display:block; padding:11px 0; color:var(--text-secondary); text-decoration:none; font-size:15px; }
   .mobile-menu-bottom { display:flex; gap:24px; margin-top:auto; padding-top:28px; }
@@ -28,5 +29,5 @@
   .mobile-menu button:focus-visible,.mobile-menu a:focus-visible,.mobile-menu-toggle:focus-visible { outline:2px solid var(--action-primary); outline-offset:3px; }
 }
 @media (prefers-reduced-motion:reduce) {
- .mobile-menu,.mobile-menu-overlay,.mobile-menu-category span { transition:none !important; }
+ .mobile-menu,.mobile-menu-overlay,.mobile-menu-arrow { transition:none !important; }
 }
