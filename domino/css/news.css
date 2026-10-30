@@ -21,8 +21,8 @@
 .domino-news-dots .domino-news-dot:last-child{top:0;right:0}
 .domino-news-reveal{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;object-fit:cover;opacity:0;transition:opacity .5s ease;pointer-events:none}
 .domino-news-card.is-auto .domino-news-reveal,.domino-news-card:hover .domino-news-reveal,.domino-news-card:focus-within .domino-news-reveal{opacity:1}
-.domino-news-card--event{justify-content:flex-start;text-align:left;padding:0 24px 0 40px;box-sizing:border-box;text-decoration:none;color:var(--text-inverse)}
-.domino-news-event-body{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.domino-news-card--event{justify-content:flex-start;text-align:left;padding:0 24px 0 30px;box-sizing:border-box;text-decoration:none;color:var(--text-inverse)}
+.domino-news-event-body{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
 .domino-news-event-body strong{font-size:26px;font-weight:700;line-height:1.3;word-break:keep-all}
 .domino-news-event-more{display:inline-flex;align-items:center;gap:8px;font-size:20px;font-weight:500;line-height:1.3}
 .domino-news-event-more img{display:block;width:24px;height:24px}
@@ -38,7 +38,7 @@
  .domino-news-dot{width:31.01%;height:auto;aspect-ratio:1}
  .domino-news-dots .domino-news-dot{width:44.45%}
  .domino-news-dots{width:69.77%;height:auto;aspect-ratio:1}
- .domino-news-card--event{padding-left:clamp(14px,3.75vw,40px);padding-right:12px}
+ .domino-news-card--event{padding-left:clamp(14px,2.81vw,30px);padding-right:12px}
  .domino-news-event-body strong{font-size:clamp(13px,2.4vw,26px)}
  .domino-news-event-more{font-size:clamp(12px,1.85vw,20px)}
 }
