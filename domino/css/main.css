@@ -411,28 +411,9 @@ body {
   .pizza-label { min-height:24px; padding:4px 7px; border-radius:0 0 10px 10px; font-size:clamp(9px,2.5vw,12px); }
 }
 
-/* Mobile refinements: single-line prices/titles and CTA over hero artwork. */
+/* Mobile best-menu typography; hero CTA stays below the slider. */
 @media (max-width:767px) {
-  .hero-sec { position:relative; }
-  .hero-cta {
-    position:absolute;
-    top:auto;
-    bottom:5%;
-    left:50%;
-    transform:translateX(-50%);
-    width:calc(100% - 20px);
-    margin:0;
-  }
-  .best-menu-prices {
-    flex-direction:row;
-    flex-wrap:nowrap;
-    justify-content:center;
-    gap:5px;
-    font-size:clamp(9px,2.4vw,11px);
-    letter-spacing:-.055em;
-    white-space:nowrap;
-  }
-  .best-menu-prices strong { margin-right:2px; }
+  .best-menu-info h3 { font-size:clamp(20px,3.6vw + 6px,23px); }
   .best-menu-info h3.best-menu-title--long {
     width:max-content;
     max-width:none;
@@ -440,7 +421,19 @@ body {
     left:50%;
     transform:translateX(-50%);
     white-space:nowrap;
-    font-size:clamp(9px,2.4vw,12px);
+    font-size:inherit;
     letter-spacing:-.065em;
   }
+  .best-menu-description { font-size:clamp(17px,2.9vw + 6px,19px); }
+  .best-menu-prices {
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:center;
+    gap:5px;
+    font-size:clamp(15px,2.4vw + 6px,17px);
+    letter-spacing:-.055em;
+    white-space:nowrap;
+  }
+  .best-menu-prices strong { margin-right:2px; }
+  .pizza-label { font-size:clamp(15px,2.5vw + 6px,18px); }
 }
