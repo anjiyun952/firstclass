@@ -17,6 +17,8 @@
   .mobile-menu-close { margin-left:auto; flex:0 0 44px; width:44px; height:44px; border:0; background:transparent; font-size:34px; line-height:1; color:var(--text-primary); cursor:pointer; }
   .mobile-menu-nav { display:block; }
   .mobile-menu-section,.mobile-menu-direct { border-bottom:1px solid var(--neutral-200); }
+  /* Ensure the divider beneath STORE is visible before COUPON. */
+  .mobile-menu-direct[href="#store"] { border-bottom:1px solid var(--neutral-200); box-shadow:0 1px 0 var(--neutral-200); }
   .mobile-menu-category,.mobile-menu-direct { box-sizing:border-box; display:flex; width:100%; min-height:56px; align-items:center; justify-content:space-between; padding:12px 4px; border:0; background:transparent; font:600 17px/1.4 "Pretendard Variable",sans-serif; color:var(--text-primary); text-align:left; text-decoration:none; cursor:pointer; }
   .mobile-menu-arrow { display:block; width:44px; height:44px; flex:0 0 44px; transition:transform .2s ease; }
   .mobile-menu-category[aria-expanded="true"] .mobile-menu-arrow { transform:rotate(180deg); }
