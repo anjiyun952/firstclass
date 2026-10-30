@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/subtitles.css">
     <link rel="stylesheet" href="css/marquee.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/mobile-header.css">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -32,12 +33,43 @@
                     <a href="#coupon">COUPON</a>
                     <a class="franchise-link" href="#franchise">가맹점</a>
                 </nav>
+                <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="mobile-menu" aria-expanded="false">
+                    <img src="images/Hamburger_menu_button_icon.svg" alt="">
+                </button>
                 <div class="header-user">
                     <a href="#customer-service">고객센터</a>
                     <a href="#login">로그인</a>
                 </div>
             </div>
         </header>
+        <div class="mobile-menu-overlay" aria-hidden="true"></div>
+        <aside class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" aria-hidden="true" inert>
+            <div class="mobile-menu-top">
+                <span class="mobile-menu-heading">MENU</span>
+                <button class="mobile-menu-close" type="button" aria-label="메뉴 닫기"><span aria-hidden="true">×</span></button>
+            </div>
+            <nav class="mobile-menu-nav" aria-label="모바일 주 메뉴">
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">MENU <span aria-hidden="true">⌄</span></button>
+                    <div class="mobile-menu-submenu" hidden><a href="#menu">피자</a><a href="#menu">사이드</a><a href="#menu">세트</a><a href="#menu">음료·기타</a></div>
+                </div>
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">EVENT <span aria-hidden="true">⌄</span></button>
+                    <div class="mobile-menu-submenu" hidden><a href="#event">이벤트</a><a href="#event">할인·제휴 혜택</a></div>
+                </div>
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">BRAND <span aria-hidden="true">⌄</span></button>
+                    <div class="mobile-menu-submenu" hidden><a href="#brand">도미노피자 소개</a><a href="#brand">역사</a><a href="#brand">도미노뉴스</a><a href="#brand">사회공헌</a></div>
+                </div>
+                <a class="mobile-menu-direct" href="#store">STORE <span aria-hidden="true">↗</span></a>
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">COUPON <span aria-hidden="true">⌄</span></button>
+                    <div class="mobile-menu-submenu" hidden><a href="#coupon">e-쿠폰</a><a href="#coupon">상품권 구매</a><a href="#coupon">이용 안내</a></div>
+                </div>
+                <a class="mobile-menu-direct" href="#franchise">가맹점 <span aria-hidden="true">↗</span></a>
+            </nav>
+            <div class="mobile-menu-bottom"><a href="#customer-service">고객센터</a><a href="#login">로그인</a></div>
+        </aside>
         <main>
             <section class="hero-sec" aria-label="도미노피자 주요 프로모션">
                 <div class="swiper visual">
@@ -275,6 +307,7 @@
         </footer>
     </div>
     <script src="js/mega-menu.js" defer></script>
+    <script src="js/mobile-header.js" defer></script>
     <script src="js/scroll-video.js" defer></script>
     <script src="js/subtitles.js" defer></script>
     <script>
