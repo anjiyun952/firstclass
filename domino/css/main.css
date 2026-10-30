@@ -374,3 +374,15 @@ body {
 
 /* BEST and MENU are separate text elements with a fixed Figma gap. */
 .best-menu-heading .eng-title { display:flex; align-items:center; justify-content:center; gap:14px; }
+
+/* Mobile hero: retain side gutters and readable controls without changing desktop. */
+@media (max-width: 767px) {
+  .hero-sec { width:calc(100% - 32px); max-width:none; }
+  .hero-sec .swiper-button-prev,
+  .hero-sec .swiper-button-next { width:64px; height:64px; }
+  .hero-sec .swiper-button-prev { left:0; }
+  .hero-sec .swiper-button-next { right:0; }
+  .hero-cta { width:100%; --cta-cut:12px; --cta-overlap:12px; }
+  .hero-cta-link { font-size:14px; height:48px; gap:4px; }
+  .hero-cta-link::after { font-size:.8em; }
+}
