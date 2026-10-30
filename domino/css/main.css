@@ -434,3 +434,14 @@ body {
     letter-spacing:-.065em;
   }
 }
+
+/* Mobile BEST MENU: enlarge images and all card typography by about 20%. */
+@media (max-width:767px) {
+  .best-menu-sec { padding-left:26px; padding-right:26px; }
+  .best-menu-image { width:100%; }
+  .best-menu-info h3,
+  .best-menu-info h3.best-menu-title--long { font-size:clamp(16.8px,4.32vw,20.4px); }
+  .best-menu-description { font-size:clamp(13.2px,3.48vw,15.6px); }
+  .best-menu-prices { font-size:clamp(10.8px,2.88vw,13.2px); }
+  .pizza-label { font-size:clamp(10.8px,3vw,14.4px); min-height:29px; padding:5px 8px; }
+}
