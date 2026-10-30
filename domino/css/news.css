@@ -35,7 +35,8 @@
  .domino-news-illustration--pizza{width:52.71%;height:auto}
  .domino-news-illustration--megaphone{width:31.1%;height:auto}
  .domino-news-illustration--delivery{width:38.58%;height:auto}
- .domino-news-dot{width:44.45%;height:auto;aspect-ratio:1}
+ .domino-news-dot{width:31.01%;height:auto;aspect-ratio:1}
+ .domino-news-dots .domino-news-dot{width:44.45%}
  .domino-news-dots{width:69.77%;height:auto;aspect-ratio:1}
  .domino-news-card--event{padding-left:clamp(14px,3.75vw,40px);padding-right:12px}
  .domino-news-event-body strong{font-size:clamp(13px,2.4vw,26px)}
