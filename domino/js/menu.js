@@ -19,8 +19,11 @@
         panel.setAttribute('aria-labelledby', tab.id);
         position(tab);
         tab.scrollIntoView({block:'nearest',inline:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
-        // Only the '전체' product data is available in this first implementation.
-        panel.hidden = tab.dataset.category !== '전체';
+        const selectedCategory = tab.dataset.category;
+        panel.querySelectorAll('.best-menu-card').forEach(card => {
+            card.hidden = selectedCategory !== '전체' && !(selectedCategory === 'NEW' ? card.dataset.new === 'true' : card.dataset.category === selectedCategory);
+        });
+        panel.hidden = !primary[0].classList.contains('is-active');
     }
     tabs.forEach((tab, i) => {
         tab.addEventListener('click', () => activate(tab));
@@ -37,7 +40,8 @@
     primary.forEach(btn => btn.addEventListener('click', () => {
         primary.forEach(p => {p.classList.toggle('is-active',p===btn);if(p===btn)p.setAttribute('aria-current','true');else p.removeAttribute('aria-current');});
         // Other primary categories will receive their products in later stages.
-        panel.hidden = btn.textContent.trim() !== '피자' || !tabs[0].classList.contains('is-active');
+        panel.hidden = btn.textContent.trim() !== '피자';
+        track.parentElement.hidden = btn.textContent.trim() !== '피자';
     }));
     requestAnimationFrame(() => position(tabs[0]));
     window.addEventListener('resize', () => position(tabs.find(t => t.classList.contains('is-active')) || tabs[0]));
