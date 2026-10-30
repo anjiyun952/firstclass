@@ -1,0 +1,58 @@
+/* DOMINO'S NEWS — desktop Figma layout */
+.domino-news-sec{box-sizing:border-box;background:var(--background-black);color:var(--text-inverse);padding:160px 20px 240px;text-align:center}
+.domino-news-heading{margin:0 0 86px}
+.domino-news-heading p{margin:0 0 18px;font-size:28px;font-weight:600;line-height:1;color:var(--text-secondary)}
+.domino-news-heading h2{margin:0;font:700 64px/1 "TT Commons Pro Mono",monospace;letter-spacing:-.03em}
+.domino-news-grid{width:1068px;max-width:100%;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.domino-news-row{display:flex;gap:22px}
+.domino-news-card{position:relative;flex:0 0 258px;width:258px;height:258px;min-width:0;border-radius:80px;overflow:hidden;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.domino-news-card--wide{flex-basis:508px;width:508px}
+.domino-news-card--cream{background:var(--background-default)}
+.domino-news-card--red{background:var(--accent-promotion)}
+.domino-news-card--blue{background:var(--accent-brand)}
+.domino-news-illustration{display:block;object-fit:contain;max-width:100%;height:auto}
+.domino-news-illustration--pizza{width:136px;height:136px}
+.domino-news-illustration--megaphone{width:158px;height:158px}
+.domino-news-illustration--delivery{width:196px;height:196px}
+.domino-news-dot{width:80px;height:80px;background:#fff;border-radius:50%}
+.domino-news-dots{position:relative;width:180px;height:180px}
+.domino-news-dots .domino-news-dot{position:absolute}
+.domino-news-dots .domino-news-dot:first-child{bottom:0;left:0}
+.domino-news-dots .domino-news-dot:last-child{top:0;right:0}
+.domino-news-reveal{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;object-fit:cover;opacity:0;transition:opacity .5s ease;pointer-events:none}
+.domino-news-card.is-auto .domino-news-reveal,.domino-news-card:hover .domino-news-reveal,.domino-news-card:focus-within .domino-news-reveal{opacity:1}
+.domino-news-card--event{justify-content:flex-start;text-align:left;padding:0 24px 0 40px;box-sizing:border-box;text-decoration:none;color:var(--text-inverse)}
+.domino-news-event-body{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.domino-news-event-body strong{font-size:26px;font-weight:700;line-height:1.3;word-break:keep-all}
+.domino-news-event-more{display:inline-flex;align-items:center;gap:8px;font-size:20px;font-weight:500;line-height:1.3}
+.domino-news-event-more img{display:block;width:24px;height:24px}
+.domino-news-card--event:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media(max-width:1120px){
+ .domino-news-grid{width:min(100%,1068px)}
+ .domino-news-row{gap:2.06vw}
+ .domino-news-card{flex:1 1 0;width:auto;height:auto;aspect-ratio:1;border-radius:clamp(25px,7.5vw,80px)}
+ .domino-news-card--wide{flex:1.968 1 0;aspect-ratio:508/258}
+ .domino-news-illustration--pizza{width:52.71%;height:auto}
+ .domino-news-illustration--megaphone{width:31.1%;height:auto}
+ .domino-news-illustration--delivery{width:38.58%;height:auto}
+ .domino-news-dot{width:44.45%;height:auto;aspect-ratio:1}
+ .domino-news-dots{width:69.77%;height:auto;aspect-ratio:1}
+ .domino-news-card--event{padding-left:clamp(14px,3.75vw,40px);padding-right:12px}
+ .domino-news-event-body strong{font-size:clamp(13px,2.4vw,26px)}
+ .domino-news-event-more{font-size:clamp(12px,1.85vw,20px)}
+}
+@media(max-width:767px){
+ .domino-news-sec{padding:80px 16px 100px}
+ .domino-news-heading{margin-bottom:48px}
+ .domino-news-heading p{font-size:18px;margin-bottom:18px}
+ .domino-news-heading h2{font-size:clamp(32px,7vw,44px)}
+ .domino-news-grid{gap:14px}
+ .domino-news-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .domino-news-card,.domino-news-card--wide{width:100%;height:auto;aspect-ratio:1;border-radius:clamp(25px,9vw,56px)}
+ .domino-news-card--wide{grid-column:1/-1;aspect-ratio:2/1}
+ .domino-news-card--event{padding-left:clamp(12px,4vw,28px)}
+ .domino-news-event-body strong{font-size:clamp(14px,3.6vw,21px)}
+ .domino-news-event-more{font-size:clamp(12px,3vw,17px)}
+ .domino-news-illustration--megaphone,.domino-news-illustration--delivery{width:36%;height:auto}
+}
+@media(prefers-reduced-motion:reduce){.domino-news-reveal{transition:none}}
