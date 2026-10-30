@@ -20,7 +20,7 @@
   .mobile-menu-category,.mobile-menu-direct { box-sizing:border-box; display:flex; width:100%; min-height:56px; align-items:center; justify-content:space-between; padding:12px 4px; border:0; background:transparent; font:600 17px/1.4 "Pretendard Variable",sans-serif; color:var(--text-primary); text-align:left; text-decoration:none; cursor:pointer; }
   .mobile-menu-arrow { display:block; width:44px; height:44px; flex:0 0 44px; transition:transform .2s ease; }
   .mobile-menu-category[aria-expanded="true"] .mobile-menu-arrow { transform:rotate(180deg); }
-  .mobile-menu-arrow--direct { transform:rotate(-90deg); }
+  .mobile-menu-arrow--direct { display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:400; line-height:1; transform:none; }
   .mobile-menu-submenu { padding:6px 14px 18px; background:var(--background-white); }
   .mobile-menu-submenu[hidden] { display:none; }
   .mobile-menu-submenu a { display:block; padding:11px 0; color:var(--text-secondary); text-decoration:none; font-size:15px; }
