@@ -62,6 +62,7 @@
  .domino-news-card--event{order:5}
  .domino-news-card[data-news="5"]{order:6}
  .domino-news-card--event{padding-left:clamp(12px,4vw,28px)}
+ .domino-news-event-body{gap:8px}
  .domino-news-event-body strong{font-size:clamp(14px,3.6vw,21px)}
  .domino-news-event-more{font-size:clamp(12px,3vw,17px)}
  .domino-news-illustration--megaphone,.domino-news-illustration--delivery{width:36%;height:auto}
