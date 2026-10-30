@@ -1,4 +1,4 @@
-/* Random news reveal: 0.5s in, 3s visible, 0.5s out, 0.5s pause. */
+/* Random news reveal: 0.5s fade in, 3s hold, then crossfade to the next card. */
 (() => {
  const section=document.querySelector('.domino-news-sec');
  if(!section)return;
@@ -6,18 +6,13 @@
  if(!cards.length)return;
  let previous=-1;
  let timer;
- let active=-1;
  function next(){
   const choices=cards.map((_,index)=>index).filter(index=>index!==previous);
   const index=choices[Math.floor(Math.random()*choices.length)];
   previous=index;
-  active=index;
-  cards[index].classList.add('is-auto');
-  timer=window.setTimeout(()=>{
-   cards[index].classList.remove('is-auto');
-   active=-1;
-   timer=window.setTimeout(next,1000); // 0.5s fade-out + 0.5s rest
-  },3500); // 0.5s fade-in + 3s hold
+  cards.forEach((card,i)=>card.classList.toggle('is-auto',i===index));
+  // When the current image begins fading out, the next begins fading in.
+  timer=window.setTimeout(next,3500);
  }
  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  next();
