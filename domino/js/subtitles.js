@@ -15,10 +15,13 @@
     subtitles.forEach((element, index) => {
       const cue = cues[index];
       if (!cue) return;
-      const opacity = Math.max(0, Math.min(1,
-        (t - cue.start) / cue.fade,
-        (cue.end - t) / cue.fade
-      ));
+      // The final caption remains visible after fading in, through the video end.
+      const opacity = index === subtitles.length - 1
+        ? Math.max(0, Math.min(1, (t - cue.start) / cue.fade))
+        : Math.max(0, Math.min(1,
+            (t - cue.start) / cue.fade,
+            (cue.end - t) / cue.fade
+          ));
       element.style.opacity = opacity.toFixed(3);
     });
   }
