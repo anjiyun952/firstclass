@@ -430,7 +430,7 @@ body {
     left:50%;
     transform:translateX(-50%);
     white-space:nowrap;
-    font-size:inherit;
+    font-size:clamp(14px,3.6vw,17px);
     letter-spacing:-.065em;
   }
 }
