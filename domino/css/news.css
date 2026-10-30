@@ -50,7 +50,7 @@
  .domino-news-heading p{font-size:18px;margin-bottom:18px}
  .domino-news-heading h2{font-size:clamp(32px,7vw,44px)}
  /* One unified mobile grid: the desktop rows no longer constrain card placement. */
- .domino-news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .domino-news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:71.4286%;max-width:100%;margin:0 auto}
  .domino-news-row{display:contents}
  .domino-news-card,.domino-news-card--wide{min-width:0;width:100%;height:auto;aspect-ratio:1;border-radius:clamp(25px,9vw,56px)}
  .domino-news-card--wide{grid-column:1/-1;aspect-ratio:2/1}
