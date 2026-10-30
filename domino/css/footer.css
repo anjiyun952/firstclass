@@ -64,3 +64,23 @@
   .footer-social a { display:flex; align-items:center; justify-content:center; }
   .footer-app-icons img { width:auto; height:26px; }
 }
+
+/* Light footer for subpages; the homepage dark footer remains unchanged. */
+.site-footer.footer--light {
+  background:var(--background-white);
+  color:var(--text-primary);
+}
+.footer--light .footer-rule { background:var(--text-primary); }
+.footer--light .footer-policy,
+.footer--light .footer-policy strong,
+.footer--light .footer-download { color:rgb(36 36 36 / 80%); }
+.footer--light .footer-contact-label,
+.footer--light .footer-company { color:rgb(36 36 36 / 60%); }
+.footer--light .footer-phone,
+.footer--light .footer-email { color:var(--text-primary); }
+.footer--light .footer-copyright { color:rgb(36 36 36 / 40%); }
+/* Original SVG files are white; recolor only the light footer's icons. */
+.footer--light .footer-social img,
+.footer--light .footer-app-icons img { filter:brightness(0); opacity:.8; }
+.footer--light .footer-email img { filter:brightness(0); }
+.footer--light .footer-company-line span + span { border-left-color:rgb(36 36 36 / 35%); }
