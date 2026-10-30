@@ -399,8 +399,8 @@ body {
     max-width:520px;
   }
   .best-menu-card { min-width:0; width:100%; }
-  /* Shrink the pizza visual to ~71% (1/1.4) without shrinking its text. */
-  .best-menu-image { width:71.43%; aspect-ratio:1; margin:0 auto; }
+  /* Keep the pizza visual at 85.7% of the card width without shrinking text. */
+  .best-menu-image { width:85.7%; aspect-ratio:1; margin:0 auto; }
   .best-menu-info { margin-top:16px; }
   .best-menu-info h3 { font-size:clamp(14px,3.6vw,17px); line-height:1.35; overflow-wrap:break-word; }
   .best-menu-info h3.best-menu-title--long { width:auto; max-width:100%; left:auto; transform:none; white-space:normal; }
