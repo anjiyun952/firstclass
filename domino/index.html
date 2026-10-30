@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/subtitles.css">
     <link rel="stylesheet" href="css/marquee.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/news.css">
     <link rel="stylesheet" href="css/mobile-header.css">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
@@ -251,6 +252,45 @@
                             <span class="domino-marquee-item" aria-label="DOMMMINO'S"><span class="domino-word"><span class="domino-marquee-blue">DO</span><span class="domino-marquee-red">MMM</span><span class="domino-marquee-blue">INO</span></span><span class="domino-apostrophe">'</span><span class="domino-s">S</span></span>
                         </div></div></div>
             </section>
+            <!-- DOMINO'S NEWS: 띠지 아래 / footer 위 -->
+            <section class="domino-news-sec" id="news" aria-labelledby="domino-news-title">
+                <div class="domino-news-heading">
+                    <p>놓치면 아쉬운 도미노의 이야기</p>
+                    <h2 id="domino-news-title">DOMINO’S NEWS</h2>
+                </div>
+                <div class="domino-news-grid">
+                    <div class="domino-news-row">
+                        <div class="domino-news-card domino-news-card--cream" data-news="1">
+                            <img class="domino-news-illustration domino-news-illustration--pizza" src="images/pizza_image.png" alt="">
+                            <img class="domino-news-reveal" src="images/news1.png" alt="도미노뉴스 첫 번째 이미지" loading="lazy">
+                        </div>
+                        <div class="domino-news-card domino-news-card--red" data-news="2">
+                            <span class="domino-news-dot" aria-hidden="true"></span>
+                            <img class="domino-news-reveal" src="images/news2.png" alt="도미노뉴스 두 번째 이미지" loading="lazy">
+                        </div>
+                        <div class="domino-news-card domino-news-card--wide domino-news-card--blue" data-news="3">
+                            <img class="domino-news-illustration domino-news-illustration--megaphone" src="images/megaphone_image.png" alt="">
+                            <img class="domino-news-reveal" src="images/news3.png" alt="도미노뉴스 세 번째 이미지" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="domino-news-row">
+                        <div class="domino-news-card domino-news-card--blue" data-news="4">
+                            <div class="domino-news-dots" aria-hidden="true"><span class="domino-news-dot"></span><span class="domino-news-dot"></span></div>
+                            <img class="domino-news-reveal" src="images/news4.png" alt="도미노뉴스 네 번째 이미지" loading="lazy">
+                        </div>
+                        <div class="domino-news-card domino-news-card--wide domino-news-card--cream" data-news="5">
+                            <img class="domino-news-illustration domino-news-illustration--delivery" src="images/fast_delivery_image.png" alt="">
+                            <img class="domino-news-reveal" src="images/news5.png" alt="도미노뉴스 다섯 번째 이미지" loading="lazy">
+                        </div>
+                        <a class="domino-news-card domino-news-card--red domino-news-card--event" href="#event">
+                            <span class="domino-news-event-body">
+                                <strong>진행 중인 이벤트를 더 만나보세요</strong>
+                                <span class="domino-news-event-more">이벤트 더보기 <img src="images/small_arrow_right_icon.svg" alt=""></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer class="site-footer" id="customer-service">
             <div class="footer-inner">
@@ -309,6 +349,7 @@
     <script src="js/mobile-header.js" defer></script>
     <script src="js/scroll-video.js" defer></script>
     <script src="js/subtitles.js" defer></script>
+    <script src="js/news.js" defer></script>
     <script>
         const swiper = new Swiper('.hero-sec .swiper', {
             direction: 'horizontal',
