@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU | 도미노피자 리뉴얼</title>
+    <link rel="stylesheet" href="../CSS/default.css">
+    <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
+    <link rel="preload" href="../Font/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../Font/TT_Commons_Pro_Mono_Trial_Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../Font/CSS/TT_Commons_Pro_Mono_Trial_Bold.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mega-menu.css">
+    <link rel="stylesheet" href="css/scroll-video.css">
+    <link rel="stylesheet" href="css/subtitles.css">
+    <link rel="stylesheet" href="css/marquee.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/mobile-header.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+    <div id="wrap">
+        <header class="site-header">
+            <div class="header-inner">
+                <a class="header-logo" href="index.html" aria-label="도미노피자 홈">
+                    <img src="images/flex-logo.png" alt="도미노피자">
+                </a>
+                <nav class="header-nav" aria-label="주 메뉴">
+                    <a href="menu.html">MENU</a>
+                    <a href="index.html#event">EVENT</a>
+                    <a href="index.html#brand">BRAND</a>
+                    <a href="index.html#store">STORE</a>
+                    <a href="index.html#coupon">COUPON</a>
+                    <a class="franchise-link" href="index.html#franchise">가맹점</a>
+                </nav>
+                <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="mobile-menu" aria-expanded="false">
+                    <img src="images/Hamburger_menu_button_icon.svg" alt="">
+                </button>
+                <div class="header-user">
+                    <a href="#customer-service">고객센터</a>
+                    <a href="index.html#login">로그인</a>
+                </div>
+            </div>
+        </header>
+        <div class="mobile-menu-overlay" aria-hidden="true"></div>
+        <aside class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" aria-hidden="true" inert>
+            <div class="mobile-menu-top">
+                <button class="mobile-menu-close" type="button" aria-label="메뉴 닫기"><span aria-hidden="true">×</span></button>
+            </div>
+            <nav class="mobile-menu-nav" aria-label="모바일 주 메뉴">
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">MENU <img class="mobile-menu-arrow" src="images/arrow_chevron_down_button_icon.svg" alt="" aria-hidden="true"></button>
+                    <div class="mobile-menu-submenu" hidden><a href="#menu">피자</a><a href="#menu">사이드</a><a href="#menu">세트</a><a href="#menu">음료·기타</a></div>
+                </div>
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">EVENT <img class="mobile-menu-arrow" src="images/arrow_chevron_down_button_icon.svg" alt="" aria-hidden="true"></button>
+                    <div class="mobile-menu-submenu" hidden><a href="index.html#event">이벤트</a><a href="index.html#event">할인·제휴 혜택</a></div>
+                </div>
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">BRAND <img class="mobile-menu-arrow" src="images/arrow_chevron_down_button_icon.svg" alt="" aria-hidden="true"></button>
+                    <div class="mobile-menu-submenu" hidden><a href="index.html#brand">도미노피자 소개</a><a href="index.html#brand">역사</a><a href="index.html#brand">도미노뉴스</a><a href="index.html#brand">사회공헌</a></div>
+                </div>
+                <a class="mobile-menu-direct" href="index.html#store">STORE <span class="mobile-menu-arrow mobile-menu-arrow--direct" aria-hidden="true">↗</span></a>
+                <div class="mobile-menu-section">
+                    <button class="mobile-menu-category" type="button" aria-expanded="false">COUPON <img class="mobile-menu-arrow" src="images/arrow_chevron_down_button_icon.svg" alt="" aria-hidden="true"></button>
+                    <div class="mobile-menu-submenu" hidden><a href="index.html#coupon">e-쿠폰</a><a href="index.html#coupon">상품권 구매</a><a href="index.html#coupon">이용 안내</a></div>
+                </div>
+                <a class="mobile-menu-direct" href="index.html#franchise">가맹점 <span class="mobile-menu-arrow mobile-menu-arrow--direct" aria-hidden="true">↗</span></a>
+            </nav>
+            <div class="mobile-menu-bottom"><a href="#customer-service">고객센터</a><a href="index.html#login">로그인</a></div>
+        </aside>
+        <main>
+            <section class="menu-page" aria-labelledby="menu-title">
+                <h1 class="menu-page-title eng-title" id="menu-title">MENU</h1>
+                <nav class="menu-primary" aria-label="메뉴 종류">
+                    <button type="button" class="is-active" aria-current="true">피자</button>
+                    <button type="button">사이드</button>
+                    <button type="button">세트</button>
+                    <button type="button">음료·기타</button>
+                </nav>
+                <div class="menu-secondary-scroll">
+                    <div class="menu-secondary" role="tablist" aria-label="피자 종류">
+                        <span class="menu-tab-indicator" aria-hidden="true"></span>
+                    <button type="button" role="tab" id="pizza-tab-0" aria-selected="true" tabindex="0" aria-controls="pizza-products" data-category="전체" class="is-active">전체</button>
+                    <button type="button" role="tab" id="pizza-tab-1" aria-selected="false" tabindex="-1" aria-controls="pizza-products" data-category="NEW">NEW</button>
+                    <button type="button" role="tab" id="pizza-tab-2" aria-selected="false" tabindex="-1" aria-controls="pizza-products" data-category="프리미엄">프리미엄</button>
+                    <button type="button" role="tab" id="pizza-tab-3" aria-selected="false" tabindex="-1" aria-controls="pizza-products" data-category="클래식">클래식</button>
+                    <button type="button" role="tab" id="pizza-tab-4" aria-selected="false" tabindex="-1" aria-controls="pizza-products" data-category="하프앤하프">하프앤하프</button>
+                    <button type="button" role="tab" id="pizza-tab-5" aria-selected="false" tabindex="-1" aria-controls="pizza-products" data-category="씬자">씬자</button>
+                    </div>
+                </div>
+                <div class="best-menu-grid menu-product-grid" id="pizza-products" role="tabpanel" aria-labelledby="pizza-tab-0">
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/mujinjangshrimpsteak_pizza_image.png" alt="무진장 슈림프 스테이크 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>무진장 슈림프 스테이크</h3>
+                        <p class="best-menu-description">큼직한 자이언트 새우와 육즙 가득 스테이크의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 38,400원</span><span><strong>M</strong> 31,000원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/LACFS_pizza_image.png" alt="LA 치즈폴레 스테이크 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>LA 치즈폴레 스테이크</h3>
+                        <p class="best-menu-description">부드러운 치즈폴레 소스와 스테이크의 풍미</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 35,400원</span><span><strong>M</strong> 29,000원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/lobstershrimp_pizza_image.png" alt="랍스터 슈림프 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>랍스터 슈림프</h3>
+                        <p class="best-menu-description">세 가지 해산물과 진한 치즈 소스의 만남</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 35,400원</span><span><strong>M</strong> 29,000원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/blacktigershrimp_pizza_image.png" alt="블랙타이거 슈림프 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>블랙타이거 슈림프</h3>
+                        <p class="best-menu-description">탱글한 블랙타이거 새우와 풍성한 토핑의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 38,400원</span><span><strong>M</strong> 31,000원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/bestquattro_pizza_image.png" alt="베스트 콰트로 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>베스트 콰트로</h3>
+                        <p class="best-menu-description">도미노 인기 피자 네 가지 맛의 조합</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 38,400원</span><span><strong>M</strong> 30,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/WWWsteak_pizza_image.png" alt="와일드 와일드 웨스트 스테이크 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3 class="best-menu-title--long">와일드 와일드 웨스트 스테이크</h3>
+                        <p class="best-menu-description">그릴드 비프와 고소한 버터 치즈 소스의 풍미</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 35,400원</span><span><strong>M</strong> 29,000원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/potato_pizza_image.png" alt="포테이토 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>포테이토</h3>
+                        <p class="best-menu-description">담백한 감자와 고소한 마요네즈 소스의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 29,400원</span><span><strong>M</strong> 21,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/realbulgogi_pizza_image.png" alt="리얼불고기 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>리얼불고기</h3>
+                        <p class="best-menu-description">달콤짭짤한 불고기와 풍성한 토핑의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 31,400원</span><span><strong>M</strong> 23,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/koreansweetpotato_pizza_image.png" alt="우리 고구마 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>우리 고구마</h3>
+                        <p class="best-menu-description">달콤한 고구마와 고소한 치즈의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 32,400원</span><span><strong>M</strong> 24,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/philadelphiacheesesteak_pizza_image.png" alt="필라델피아 치즈 스테이크 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>필라델피아 치즈 스테이크</h3>
+                        <p class="best-menu-description">진한 치즈와 풍부한 스테이크의 풍미</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 30,400원</span><span><strong>M</strong> 22,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/grilledpattycheeseburger_pizza_image.png" alt="그릴드 패티 치즈 버거 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>그릴드 패티 치즈 버거</h3>
+                        <p class="best-menu-description">육즙 가득 패티와 고소한 치즈의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 31,400원</span><span><strong>M</strong> 23,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/doublemeatjalapeno_pizza_image.png" alt="더블 미트 할라피뇨 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>더블 미트 할라피뇨</h3>
+                        <p class="best-menu-description">풍성한 미트 토핑과 매콤한 할라피뇨의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 31,400원</span><span><strong>M</strong> 23,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/superdeluxe_pizza_image.png" alt="슈퍼디럭스 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>슈퍼디럭스</h3>
+                        <p class="best-menu-description">다양한 고기와 채소가 어우러진 풍성한 맛</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 30,400원</span><span><strong>M</strong> 22,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/supersupreme_pizza_image.png" alt="슈퍼슈프림 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>슈퍼슈프림</h3>
+                        <p class="best-menu-description">풍성한 토핑과 치즈가 어우러진 클래식 피자</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 29,400원</span><span><strong>M</strong> 21,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/baconcheddarcheese_pizza_image.png" alt="베이컨체더치즈 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>베이컨체더치즈</h3>
+                        <p class="best-menu-description">짭짤한 베이컨과 진한 체더치즈의 풍미</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 29,400원</span><span><strong>M</strong> 21,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/pepperoni_pizza_image.png" alt="페퍼로니 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>페퍼로니</h3>
+                        <p class="best-menu-description">짭짤한 페퍼로니와 고소한 치즈의 조화</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 27,400원</span><span><strong>M</strong> 19,500원</span></div>
+                    </div>
+                </article>
+                <article class="best-menu-card">
+                    <div class="best-menu-image"><img src="images/menu/cheese_pizza_image.png" alt="치즈 피자" loading="lazy"></div>
+                    <div class="best-menu-info">
+                        <h3>치즈</h3>
+                        <p class="best-menu-description">풍부한 치즈 본연의 진하고 고소한 풍미</p>
+                        <div class="best-menu-prices"><span><strong>L</strong> 25,400원</span><span><strong>M</strong> 17,500원</span></div>
+                    </div>
+                </article>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer" id="customer-service">
+            <div class="footer-inner">
+                <div class="footer-top footer-flex-row">
+                    <a class="footer-logo" href="index.html" aria-label="도미노피자 홈"><img src="images/footer-logo.png" alt="Domino's"></a>
+                    <div class="footer-social" aria-label="도미노피자 SNS">
+                        <a href="https://www.instagram.com/dominostory/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램"><img src="images/instargram_icon.svg" alt=""></a>
+                        <a href="https://www.facebook.com/dominostory/" target="_blank" rel="noopener noreferrer" aria-label="페이스북"><img src="images/facebook_icon.svg" alt=""></a>
+                        <a href="https://www.youtube.com/@dominostory3082" target="_blank" rel="noopener noreferrer" aria-label="유튜브"><img src="images/youtube_icon.svg" alt=""></a>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="images/x_icon.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="footer-rule"></div>
+                <nav class="footer-policy" aria-label="이용 안내">
+                    <span>이용약관</span>
+                    <strong>개인정보처리방침</strong>
+                    <span>위치기반서비스 이용약관</span>
+                    <span>청소년보호방침</span>
+                    <span>고객센터</span>
+                    <span>인재채용</span>
+                    <span>가맹점모집</span>
+                </nav>
+                <div class="footer-contact">
+                    <div class="footer-contact-block">
+                        <p class="footer-contact-label">고객센터</p>
+                        <a class="footer-phone" href="tel:15773082">1577-3082</a>
+                    </div>
+                    <div class="footer-contact-block">
+                        <p class="footer-contact-label">이메일 문의</p>
+                        <span class="footer-email">이메일 문의하기 <img src="images/big_right_arrow_icon.svg" alt=""></span>
+                    </div>
+                </div>
+                <div class="footer-company">
+                    <div class="footer-company-line">
+                        <span>도미노피자</span><span>대표이사 : 오광현,김영훈</span><span>사업자 등록번호 : 220-81-03371</span>
+                    </div>
+                    <div class="footer-company-line">
+                        <span>06223 서울특별시 강남구 역삼로25길 35(역삼동, 청오큐브타워) 청오디피케이(주)</span>
+                        <span>통신판매업신고: 강남 5064호</span>
+                        <span>사업자정보확인</span>
+                    </div>
+                    <p class="footer-copyright">Copyright © Domino's Pizza. All rights reserved.</p>
+                </div>
+                <div class="footer-rule footer-rule--bottom"></div>
+                <div class="footer-download footer-flex-row">
+                    <span>APP DOWNLOAD</span>
+                    <div class="footer-app-icons" aria-label="앱 다운로드 플랫폼">
+                        <img src="images/apple_icon.svg" alt="Apple">
+                        <img src="images/android_icon.svg" alt="Android">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/mega-menu.js" defer></script>
+    <script src="js/mobile-header.js" defer></script>
+    <script src="js/menu.js" defer></script>
+</body>
+</html>
