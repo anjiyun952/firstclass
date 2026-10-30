@@ -90,6 +90,17 @@
                     <button type="button" role="tab" id="pizza-tab-5" aria-selected="false" tabindex="-1" aria-controls="pizza-products" data-category="SUB PIZZA">SUB PIZZA</button>
                     </div>
                 </div>
+                <div class="menu-secondary-scroll" id="side-tabs-wrap" hidden>
+                    <div class="menu-secondary" role="tablist" aria-label="사이드 종류">
+                        <span class="menu-tab-indicator" aria-hidden="true"></span>
+                        <button type="button" role="tab" id="side-tab-0" aria-selected="true" tabindex="0" aria-controls="side-products" data-category="전체" class="is-active">전체</button>
+                        <button type="button" role="tab" id="side-tab-1" aria-selected="false" tabindex="-1" aria-controls="side-products" data-category="콤보">콤보</button>
+                        <button type="button" role="tab" id="side-tab-2" aria-selected="false" tabindex="-1" aria-controls="side-products" data-category="치킨">치킨</button>
+                        <button type="button" role="tab" id="side-tab-3" aria-selected="false" tabindex="-1" aria-controls="side-products" data-category="파스타">파스타</button>
+                        <button type="button" role="tab" id="side-tab-4" aria-selected="false" tabindex="-1" aria-controls="side-products" data-category="기타">기타</button>
+                    </div>
+                </div>
+                <div class="best-menu-grid menu-product-grid" id="side-products" role="tabpanel" aria-labelledby="side-tab-0" hidden></div>
                 <div class="best-menu-grid menu-product-grid" id="pizza-products" role="tabpanel" aria-labelledby="pizza-tab-0">
                 <article class="best-menu-card" data-category="프리미엄" data-new="true">
                     <div class="best-menu-image"><img src="images/menu/lemonbutterdoublesalsiccia_pizza_image.png" alt="레몬 버터 더블 살시챠" loading="lazy">
