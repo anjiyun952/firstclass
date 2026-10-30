@@ -47,3 +47,18 @@
   .footer-download { gap:20px; flex-wrap:wrap; }
   .footer-app-icons { gap:24px; }
 }
+
+/* Mobile footer scale: keep the logo and divider lines unchanged. */
+@media (max-width:767px) {
+  .footer-policy { font-size:12px; line-height:18px; }
+  .footer-contact-label { font-size:14px; }
+  .footer-phone { font-size:28px; }
+  .footer-email { font-size:21px; }
+  .footer-email img { width:26px; height:26px; max-width:26px; }
+  .footer-company { font-size:12px; line-height:1.4; }
+  .footer-copyright { font-size:12px; line-height:1.4; }
+  .footer-download { font-size:12px; }
+  .footer-social img { width:80%; height:auto; margin:auto; }
+  .footer-social a { display:flex; align-items:center; justify-content:center; }
+  .footer-app-icons img { width:auto; height:26px; }
+}
