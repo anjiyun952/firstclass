@@ -56,6 +56,7 @@
   .footer-email { font-size:21px; }
   .footer-email img { width:26px; height:26px; max-width:26px; }
   .footer-company { font-size:12px; line-height:1.4; }
+  .footer-company-line { column-gap:12px; row-gap:12px; }
   .footer-company-line span + span { border-left:0; padding-left:0; margin-left:0; }
   .footer-copyright { font-size:12px; line-height:1.4; }
   .footer-download { font-size:12px; }
