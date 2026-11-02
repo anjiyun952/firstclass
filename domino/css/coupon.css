@@ -1,0 +1,15 @@
+/* COUPON page: use existing main.css variables and menu-page tab patterns. */
+.coupon-page{padding:96px 20px 150px;text-align:center;background:var(--background-white);color:var(--text-primary)}
+.coupon-page .menu-page-title{margin-bottom:90px}
+.coupon-primary{margin-bottom:40px}
+.coupon-panel[hidden],.coupon-card[hidden],.coupon-empty[hidden]{display:none!important}
+.coupon-grid{max-width:1226px;margin:80px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:80px 32px;text-align:left}
+.coupon-card{min-width:0}
+.coupon-card-visual{aspect-ratio:1.2;display:flex;align-items:center;justify-content:center;border:1px solid var(--neutral-200);border-radius:clamp(24px,5vw,80px);background:var(--background-default);color:var(--text-secondary);font-size:14px;letter-spacing:.06em}
+.coupon-card-info{padding:24px 8px 0}.coupon-card-type{font-size:14px;font-weight:600;color:var(--accent-brand)}.coupon-card-info h3{font-size:26px;line-height:1.2;font-weight:600;margin:12px 0}.coupon-card-info p{font-size:18px;line-height:1.4;color:var(--text-secondary);margin:0;word-break:keep-all}.coupon-empty{margin:80px auto;color:var(--text-secondary)}
+.coupon-page button:focus-visible{outline:3px solid var(--action-primary);outline-offset:4px}
+.coupon-page .menu-secondary button.is-active{color:var(--text-inverse)}
+@media(max-width:960px){.coupon-page{padding:72px 24px 110px}.coupon-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 30px}.coupon-page .menu-page-title{font-size:clamp(64px,9vw,112px);margin-bottom:65px}}
+@media(max-width:767px){.coupon-page{padding:60px 16px 90px}.coupon-page .menu-page-title{font-size:clamp(56px,13vw,88px);margin-bottom:48px}.coupon-primary{gap:clamp(12px,3.6vw,24px);margin-bottom:28px}.coupon-primary button{font-size:clamp(15px,4vw,20px)}.coupon-grid{max-width:520px;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 20px;margin-top:56px}.coupon-card-visual{border-radius:clamp(24px,7vw,48px);font-size:10px}.coupon-card-info{padding:16px 0 0}.coupon-card-info h3{font-size:clamp(16px,4vw,20px)}.coupon-card-info p{font-size:clamp(12px,3vw,15px)}.coupon-card-type{font-size:12px}}
+@media(max-width:380px){.coupon-grid{grid-template-columns:1fr;max-width:294px}.coupon-card-visual{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.coupon-page .menu-tab-indicator{transition:none}}
