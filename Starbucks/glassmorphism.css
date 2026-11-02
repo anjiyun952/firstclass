@@ -1,0 +1,69 @@
+/* Glassmorphism: frosted surfaces over a colorful background. */
+body.glassmorphism {
+  --glass-edge:rgba(255,255,255,.72);
+  background:linear-gradient(125deg,#8bd8c6 0%,#a2bdf9 50%,#f8b9d2 100%);
+  background-attachment:fixed;
+  color:#20372f;
+}
+.glassmorphism #wrap {
+  box-sizing:border-box;
+  background:rgba(255,255,255,.34);
+  border-left:1px solid var(--glass-edge);
+  border-right:1px solid var(--glass-edge);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+}
+.glassmorphism header {
+  background:rgba(255,255,255,.38);
+  border-bottom:1px solid var(--glass-edge);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.glassmorphism header h1 {color:#173d34;font-weight:800;}
+.glassmorphism .title,.glassmorphism .title-main {color:#174d40;}
+.glassmorphism .setting-group,
+.glassmorphism .password-rules,
+.glassmorphism .password-notice {
+  background:rgba(255,255,255,.44);
+  border:1px solid var(--glass-edge);
+  border-radius:20px;
+  padding:16px;
+  box-shadow:0 12px 32px rgba(35,68,81,.12),inset 0 1px 0 rgba(255,255,255,.65);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.glassmorphism .setting-group {margin-bottom:22px;}
+.glassmorphism .setting-group h2 {color:#345a54;font-weight:700;}
+.glassmorphism .setting-item {color:#20372f;}
+.glassmorphism :is(.input_box input,.input-box input) {
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(38,77,81,.1),inset 0 1px 0 #fff;
+}
+.glassmorphism :is(.input_box input,.input-box input):focus-visible {outline:3px solid #00754a;outline-offset:2px;}
+.glassmorphism :is(.login-btn,.complete-btn) {
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:15px;
+  background:rgba(0,117,74,.82);
+  color:#fff;
+  box-shadow:0 9px 24px rgba(0,83,65,.22),inset 0 1px 0 rgba(255,255,255,.5);
+}
+.glassmorphism .sns_login h2 {color:#345a54;}
+.glassmorphism .sns_list a {
+  background-color:rgba(255,255,255,.5);
+  border:1px solid var(--glass-edge);
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(35,68,81,.1);
+}
+.glassmorphism.error-state .password-error {
+  display:block;
+  padding:9px 12px;
+  background:rgba(255,210,216,.68);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:10px;
+}
+.glassmorphism.error-state .complete-btn {opacity:.2;}
+@media(max-width:480px) {
+  .glassmorphism .setting-group,.glassmorphism .password-rules,.glassmorphism .password-notice {padding:12px;}
+}
