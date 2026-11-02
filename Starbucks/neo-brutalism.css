@@ -1,0 +1,128 @@
+/* Neo Brutalism exercise: isolated overrides, original CSS is untouched. */
+body.neo-brutalism {
+  --neo-ink:#161616;
+  --neo-paper:#fffdf5;
+  --neo-yellow:#ffe45c;
+  --neo-pink:#ff85b3;
+  --neo-blue:#72d6ff;
+  --neo-green:#4eddad;
+  background:var(--neo-blue);
+  color:var(--neo-ink);
+}
+.neo-brutalism #wrap {
+  background:var(--neo-paper);
+  border-left:3px solid var(--neo-ink);
+  border-right:3px solid var(--neo-ink);
+  box-sizing:border-box;
+}
+.neo-brutalism header {
+  background:var(--neo-yellow);
+  border-bottom:4px solid var(--neo-ink);
+}
+.neo-brutalism header h1 {color:var(--neo-ink);font-weight:900;letter-spacing:-.04em;}
+.neo-brutalism main {color:var(--neo-ink);}
+.neo-brutalism .title,
+.neo-brutalism .title-main {color:var(--neo-ink);font-weight:900;}
+.neo-brutalism .title > span:last-child,
+.neo-brutalism .title-main > span:last-child {
+  width:fit-content;
+  max-width:100%;
+  background:var(--neo-yellow);
+  box-shadow:4px 4px 0 var(--neo-ink);
+  padding:2px 6px;
+}
+.neo-brutalism :is(.input_box input,.input-box input) {
+  border:3px solid var(--neo-ink);
+  border-radius:0;
+  background:#fff;
+  box-shadow:4px 4px 0 var(--neo-ink);
+  outline-offset:3px;
+}
+.neo-brutalism :is(.input_box input,.input-box input):focus-visible {
+  outline:3px solid #00754a;
+}
+.neo-brutalism :is(.login-btn,.complete-btn) {
+  border:3px solid var(--neo-ink);
+  border-radius:0;
+  background:var(--neo-pink);
+  color:var(--neo-ink);
+  font-weight:900;
+  box-shadow:6px 6px 0 var(--neo-ink);
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.neo-brutalism :is(.login-btn,.complete-btn):not(:disabled):not([aria-disabled="true"]):hover {
+  transform:translate(3px,3px);
+  box-shadow:3px 3px 0 var(--neo-ink);
+}
+.neo-brutalism .sns_login h2 {color:var(--neo-ink);font-weight:800;}
+.neo-brutalism .sns_login h2::before,
+.neo-brutalism .sns_login h2::after {height:3px;background:var(--neo-ink);}
+.neo-brutalism .sns_list a {
+  border:2px solid var(--neo-ink);
+  border-radius:0;
+  box-shadow:3px 3px 0 var(--neo-ink);
+}
+.neo-brutalism .login_link a {font-weight:800;}
+.neo-brutalism .setting-group {
+  border:3px solid var(--neo-ink);
+  border-radius:0;
+  background:#fff;
+  padding:14px 14px 16px;
+  box-shadow:5px 5px 0 var(--neo-ink);
+  margin-bottom:23px;
+}
+.neo-brutalism .setting-group:nth-of-type(2n) {background:var(--neo-yellow);}
+.neo-brutalism .setting-group h2 {
+  color:var(--neo-ink);
+  font-size:1.4rem;
+  font-weight:900;
+  margin-bottom:12px;
+}
+.neo-brutalism .setting-item {color:var(--neo-ink);}
+.neo-brutalism .setting-item + .setting-item {
+  border-top:2px dashed var(--neo-ink);
+  padding-top:8px;
+  margin-top:8px;
+}
+.neo-brutalism .toggle {
+  border:2px solid var(--neo-ink);
+  border-radius:0;
+  box-sizing:border-box;
+  background-color:#fff;
+}
+.neo-brutalism .setting-toggle:focus-visible + .toggle {outline:3px solid #00754a;outline-offset:3px;}
+.neo-brutalism .password-rules {
+  padding:14px;
+  border:3px solid var(--neo-ink);
+  background:var(--neo-yellow);
+  box-shadow:5px 5px 0 var(--neo-ink);
+}
+.neo-brutalism .password-notice {
+  border:3px solid var(--neo-ink);
+  background:var(--neo-blue);
+  padding:14px;
+  box-shadow:5px 5px 0 var(--neo-ink);
+}
+.neo-brutalism .password-notice strong {font-weight:900;}
+.neo-brutalism.error-state .password-error {
+  width:fit-content;
+  padding:6px 10px;
+  border:2px solid var(--neo-ink);
+  background:var(--neo-pink);
+  color:var(--neo-ink);
+  font-weight:800;
+}
+.neo-brutalism.error-state .complete-btn {opacity:.35;}
+.neo-brutalism :is(button,a):focus-visible {
+  outline:3px dashed var(--neo-ink);
+  outline-offset:4px;
+}
+@media(max-width:480px) {
+  .neo-brutalism #wrap {border-left:0;border-right:0;}
+  .neo-brutalism .setting-group {padding:12px;box-shadow:4px 4px 0 var(--neo-ink);}
+  .neo-brutalism .password-rules,
+  .neo-brutalism .password-notice {box-shadow:4px 4px 0 var(--neo-ink);}
+}
+@media(prefers-reduced-motion:reduce) {
+  .neo-brutalism :is(.login-btn,.complete-btn) {transition:none;}
+}
