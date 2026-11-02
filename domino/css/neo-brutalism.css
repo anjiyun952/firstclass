@@ -1,0 +1,119 @@
+/* Neo Brutalism study theme — loaded after the original styles.
+   Disable by removing this stylesheet link or the neo-brutalism class on body. */
+.neo-brutalism {
+  --neo-ink:#111111;
+  --neo-yellow:#FFE45C;
+  --neo-blue:#0193E8;
+  --neo-red:#FE0000;
+  --neo-paper:#FFFBF5;
+  color:var(--neo-ink);
+  background:var(--neo-paper);
+}
+.neo-brutalism .site-header {
+  border-bottom:3px solid var(--neo-ink);
+  background:#fff;
+}
+.neo-brutalism .header-nav a,
+.neo-brutalism .header-user a {
+  font-weight:800;
+}
+.neo-brutalism .hero-sec {padding:24px 20px 0;}
+.neo-brutalism .hero-sec .swiper {
+  border:4px solid var(--neo-ink);
+  border-radius:0;
+  box-shadow:9px 9px 0 var(--neo-ink);
+  -webkit-mask-image:none;
+}
+.neo-brutalism .hero-cta-link,
+.neo-brutalism .best-menu-more,
+.neo-brutalism .domino-news-event-more {
+  border:3px solid var(--neo-ink);
+  border-radius:0;
+  box-shadow:6px 6px 0 var(--neo-ink);
+  font-weight:800;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.neo-brutalism .hero-cta-link:hover,
+.neo-brutalism .best-menu-more:hover,
+.neo-brutalism .domino-news-event-more:hover {
+  transform:translate(3px,3px);
+  box-shadow:3px 3px 0 var(--neo-ink);
+}
+.neo-brutalism .best-menu-sec,
+.neo-brutalism .menu-page {background:var(--neo-yellow);color:var(--neo-ink);}
+.neo-brutalism .best-menu-heading .eng-title,
+.neo-brutalism .menu-page-title {
+  color:var(--neo-ink);
+  letter-spacing:-.055em;
+  font-weight:900;
+}
+.neo-brutalism .best-menu-card {
+  background:#fff;
+  border:3px solid var(--neo-ink);
+  border-radius:0;
+  box-shadow:8px 8px 0 var(--neo-ink);
+  overflow:hidden;
+}
+.neo-brutalism .best-menu-image {border-radius:0;}
+.neo-brutalism .best-menu-info {color:var(--neo-ink);}
+.neo-brutalism .pizza-label {
+  border:2px solid var(--neo-ink);
+  border-radius:0;
+  box-shadow:3px 3px 0 var(--neo-ink);
+  font-weight:900;
+}
+.neo-brutalism .domino-marquee-sec {
+  border-top:4px solid var(--neo-ink);
+  border-bottom:4px solid var(--neo-ink);
+}
+.neo-brutalism .domino-news-sec {background:var(--neo-blue);}
+.neo-brutalism .domino-news-heading p {color:#fff;}
+.neo-brutalism .domino-news-card {
+  border:3px solid var(--neo-ink);
+  border-radius:0;
+  box-shadow:7px 7px 0 var(--neo-ink);
+}
+.neo-brutalism .domino-news-card--cream {background:var(--neo-yellow);}
+.neo-brutalism .domino-news-card--red {background:var(--neo-red);}
+.neo-brutalism .domino-news-card--blue {background:#fff;}
+.neo-brutalism .menu-primary button {
+  border:3px solid transparent;
+  padding:8px 14px;
+  color:var(--neo-ink);
+  font-weight:800;
+}
+.neo-brutalism .menu-primary button.is-active {
+  border-color:var(--neo-ink);
+  background:#fff;
+  box-shadow:5px 5px 0 var(--neo-ink);
+  color:var(--neo-ink);
+}
+.neo-brutalism .menu-secondary {
+  background:#fff;
+  border:3px solid var(--neo-ink);
+  border-radius:0;
+}
+.neo-brutalism .menu-secondary button {border-radius:0;}
+.neo-brutalism .menu-tab-indicator {
+  border-radius:0;
+  background:var(--neo-red);
+}
+.neo-brutalism .menu-secondary button.is-active {color:#fff;}
+.neo-brutalism a:focus-visible,
+.neo-brutalism button:focus-visible {
+  outline:3px dashed var(--neo-ink);
+  outline-offset:4px;
+}
+@media (max-width:767px) {
+  .neo-brutalism .hero-sec {padding:12px 12px 0;}
+  .neo-brutalism .hero-sec .swiper {border-width:3px;box-shadow:5px 5px 0 var(--neo-ink);}
+  .neo-brutalism .best-menu-card {box-shadow:5px 5px 0 var(--neo-ink);}
+  .neo-brutalism .domino-news-card {box-shadow:4px 4px 0 var(--neo-ink);}
+  .neo-brutalism .menu-primary {gap:8px;}
+  .neo-brutalism .menu-primary button {padding:6px 8px;border-width:2px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .neo-brutalism .hero-cta-link,
+  .neo-brutalism .best-menu-more,
+  .neo-brutalism .domino-news-event-more {transition:none;}
+}
