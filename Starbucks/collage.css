@@ -1,0 +1,121 @@
+/* Collage: cut paper, notebook lines, tape and slight rotation.
+   Loaded after original styles; scoped to body.collage-style. */
+body.collage-style {
+  --paper:#fffdf5;
+  --ink:#292720;
+  --tape:rgba(255,211,103,.74);
+  --card:#fffef8;
+  background:#dbe9e2;
+  color:var(--ink);
+}
+.collage-style #wrap {
+  box-sizing:border-box;
+  background:repeating-linear-gradient(0deg, transparent 0 30px, rgba(98,137,166,.13) 31px 32px),var(--paper);
+}
+.collage-style header {
+  background:#f6ead9;
+  border-bottom:2px dashed #887c6c;
+}
+.collage-style header h1 {color:var(--ink);font-weight:900;letter-spacing:-.02em;}
+.collage-style .title,
+.collage-style .title-main {color:var(--ink);}
+.collage-style .title > span:last-child,
+.collage-style .title-main > span:last-child {
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  padding:6px 13px;
+  background:#f8dd9c;
+  transform:rotate(-2deg);
+  box-shadow:4px 5px 0 rgba(65,57,40,.17);
+  clip-path:polygon(0 4%,96% 0,100% 91%,3% 100%);
+}
+.collage-style .setting-group,
+.collage-style .password-rules,
+.collage-style .password-notice {
+  position:relative;
+  isolation:isolate;
+  background:var(--card);
+  border:1px solid #a89b86;
+  box-shadow:4px 5px 0 rgba(65,57,40,.14);
+  padding:16px;
+  clip-path:polygon(0 2%,6% 0,15% 2%,27% 0,40% 1%,56% 0,69% 2%,82% 0,95% 1%,100% 3%,99% 97%,89% 100%,76% 98%,62% 100%,48% 98%,34% 100%,21% 98%,8% 100%,0 97%);
+}
+.collage-style .setting-group {margin-bottom:24px;transform:rotate(-.5deg);}
+.collage-style .setting-group:nth-of-type(even) {transform:rotate(.7deg);background:#ffedee;}
+.collage-style .password-rules {background:#fff3c8;transform:rotate(-.45deg);}
+.collage-style .password-notice {background:#d9ecf2;transform:rotate(.5deg);}
+.collage-style .setting-group::before,
+.collage-style .password-rules::before,
+.collage-style .password-notice::before {
+  content:"";
+  position:absolute;
+  z-index:2;
+  width:68px;
+  height:19px;
+  top:0;
+  left:50%;
+  background:var(--tape);
+  transform:translateX(-50%) rotate(-5deg);
+  border-left:1px solid rgba(135,103,39,.16);
+  border-right:1px solid rgba(135,103,39,.16);
+  pointer-events:none;
+}
+.collage-style .setting-group h2 {
+  font-weight:800;
+  color:#514837;
+}
+.collage-style .setting-item {color:var(--ink);}
+.collage-style :is(.input_box input,.input-box input) {
+  border:2px solid #655f54;
+  border-radius:3px;
+  background:#fffef8;
+  box-shadow:3px 3px 0 rgba(55,52,42,.14);
+}
+.collage-style :is(.input_box input,.input-box input):focus-visible {
+  outline:3px solid #00754a;
+  outline-offset:3px;
+}
+.collage-style :is(.login-btn,.complete-btn) {
+  border:2px solid #51493b;
+  border-radius:3px;
+  background:#f6c5ba;
+  color:#26231e;
+  box-shadow:4px 4px 0 rgba(57,43,36,.28);
+  font-weight:800;
+  transform:rotate(-1deg);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.collage-style :is(.login-btn,.complete-btn):hover {
+  transform:rotate(0deg) translate(2px,2px);
+  box-shadow:2px 2px 0 rgba(57,43,36,.28);
+}
+.collage-style .sns_login h2 {color:#514837;}
+.collage-style .sns_list a {
+  background-color:#fff9e9;
+  border:1px dashed #8d8074;
+  transform:rotate(-5deg);
+  box-shadow:2px 3px 0 rgba(57,43,36,.15);
+}
+.collage-style .sns_list a:nth-child(even) {transform:rotate(5deg);}
+.collage-style.error-state .password-error {
+  display:block;
+  width:fit-content;
+  padding:7px 12px;
+  background:#f9c6c8;
+  color:#9e211b;
+  transform:rotate(-1deg);
+}
+.collage-style.error-state .complete-btn {opacity:.2;}
+.collage-style :is(a,button):focus-visible {
+  outline:3px dashed #00754a;
+  outline-offset:4px;
+}
+@media(max-width:480px){
+  .collage-style .setting-group,
+  .collage-style .password-rules,
+  .collage-style .password-notice {padding:12px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .collage-style :is(.login-btn,.complete-btn) {transition:none;}
+}
