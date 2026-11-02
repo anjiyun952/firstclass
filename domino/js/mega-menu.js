@@ -61,13 +61,14 @@
         // Desktop: hovering any main category opens the entire mega menu.
         const isStore = trigger.textContent.trim() === 'STORE';
         const isMenu = trigger.textContent.trim() === 'MENU';
+        const isEvent = trigger.textContent.trim() === 'EVENT';
         trigger.addEventListener('mouseenter', () => setOpen(!isStore));
         trigger.addEventListener('focus', () => setOpen(!isStore));
         // Touch and keyboard users can still toggle the menu by tapping.
         trigger.addEventListener('click', event => {
-            if (isStore || isMenu) {
+            if (isStore || isMenu || isEvent) {
                 setOpen(false);
-                return; // MENU navigates to menu.html; STORE keeps its existing link.
+                return; // MENU and EVENT navigate to their pages; STORE keeps its existing link.
             }
             event.preventDefault();
             if (window.matchMedia('(hover: none)').matches) setOpen(!open);
