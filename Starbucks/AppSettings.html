@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="../Font/CSS/pretendardvariable.css">
     <link rel="stylesheet" href="../CSS/default.css">
     <link rel="stylesheet" href="AppSettings.css">
-    <link rel="stylesheet" href="collage.css">
+    <link id="active-theme-css" rel="stylesheet" href="collage.css">
+    <link rel="stylesheet" href="theme-switcher.css">
     <title>스타벅스 앱 환경설정</title>
 </head>
 <body class="collage-style">
     <div id="wrap">
+    <div class="theme-switcher">
+        <label for="design-theme">디자인 스타일 비교</label>
+        <select id="design-theme" aria-label="디자인 테마 선택">
+            <option value="original">Original · 기본</option>
+            <option value="neo">Neo Brutalism</option>
+            <option value="collage" selected>Collage</option>
+            <option value="glass">Glassmorphism</option>
+        </select>
+    </div>
         <header>
             <button type="button" class="prev_btn">
                 <span class="sr-only">이전 버튼</span>
@@ -118,5 +128,6 @@
             </section>
         </main>
     </div>
+    <script src="theme-switcher.js"></script>
 </body>
 </html>
