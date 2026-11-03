@@ -101,8 +101,15 @@ function setupRegionDropdown(select){
   });
  }
  button.addEventListener('click',()=>{
-  const opening=menu.hidden;closeRegionDropdowns();
-  if(opening){update();menu.hidden=false;wrapper.classList.add('is-open');button.setAttribute('aria-expanded','true')}
+  // 같은 선택창을 다시 누르면 닫고, 다른 선택창을 누르면 기존 창을 닫은 뒤 엽니다.
+  const wasOpen=!menu.hidden;
+  closeRegionDropdowns();
+  if(!wasOpen){
+   update();
+   menu.hidden=false;
+   wrapper.classList.add('is-open');
+   button.setAttribute('aria-expanded','true');
+  }
  });
  button.addEventListener('keydown',e=>{
   if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){if(menu.hidden){e.preventDefault();button.click()}}
