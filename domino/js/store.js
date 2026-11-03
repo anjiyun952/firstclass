@@ -42,11 +42,24 @@ async function lookupCoordinates(store){
  coordinateCache.set(store.address,coords);
  return coords;
 }
+function buildStorePopup(store){
+ const card=document.createElement('div');card.className='store-map-popup-card';
+ const head=document.createElement('div');head.className='store-map-popup-head';
+ const name=document.createElement('strong');name.className='store-map-popup-name';name.textContent=store.name;
+ const services=document.createElement('span');services.className='store-services';
+ [['delivery','delivery_scooter','배달 가능'],['pickup','food_pakage','포장 가능'],['dineIn','tableware','매장 내 식사 가능']].forEach(([key,file,label])=>{
+  if(store[key]){const img=document.createElement('img');img.src=icon(file);img.alt=label;img.title=label;services.append(img)}
+ });
+ head.append(name,services);
+ const info=document.createElement('div');info.className='store-info';
+ info.append(line('map_marker',store.address),line('call',store.phone),line('clock','영업시간: 공식 매장찾기에서 확인'));
+ card.append(head,info);return card;
+}
 function addStoreMarker(store,coords){
  if(!storeMap)return null;
  if(storeMarkers.has(store.address))return storeMarkers.get(store.address);
  const marker=L.marker(coords,{icon:customIcon,title:store.name}).addTo(storeMap);
- marker.bindTooltip(store.name,{direction:'top',offset:[0,-105]});
+ marker.bindPopup(buildStorePopup(store),{maxWidth:350,minWidth:250,autoPan:true,offset:[0,-90],className:'domino-store-popup'});
  storeMarkers.set(store.address,marker);
  return marker;
 }
@@ -64,7 +77,7 @@ async function selectStore(store,button){
   if(id!==requestId||!coords)return;
   const [lat,lon]=coords;
   activeMarker=addStoreMarker(store,coords);
-  activeMarker?.openTooltip();
+  activeMarker?.openPopup();
   storeMap?.setView(coords,16,{animate:true});
   mapLink.href='https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=16/'+lat+'/'+lon;
  }catch(error){/* 지도 조회 실패 시 주소 검색 링크 유지 */}
