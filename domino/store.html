@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>STORE | 도미노피자 리뉴얼</title>
-<link rel="stylesheet" href="../CSS/default.css"><link rel="stylesheet" href="../Font/CSS/TT_Commons_Pro_Mono_Trial_Bold.css"><link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/mega-menu.css"><link rel="stylesheet" href="css/footer.css"><link rel="stylesheet" href="css/mobile-header.css"><link rel="stylesheet" href="css/store.css"></head>
+<link rel="stylesheet" href="../CSS/default.css"><link rel="stylesheet" href="../Font/CSS/TT_Commons_Pro_Mono_Trial_Bold.css"><link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/mega-menu.css"><link rel="stylesheet" href="css/footer.css"><link rel="stylesheet" href="css/mobile-header.css"><link rel="stylesheet" href="css/store.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></head>
 <body><div id="wrap"><header class="site-header">
             <div class="header-inner">
                 <a class="header-logo" href="index.html" aria-label="도미노피자 홈">
@@ -61,7 +61,7 @@
 <div class="store-results" id="store-results" aria-label="검색 결과"></div>
 <p class="store-data-note">등록된 매장 정보 기준이며 영업시간과 서비스는 변경될 수 있습니다.</p>
 </section>
-<section class="store-map" aria-label="매장 지도"><iframe id="store-map-frame" title="선택한 지역 지도" loading="lazy" referrerpolicy="no-referrer" src="https://www.openstreetmap.org/export/embed.html?bbox=126.75%2C37.42%2C127.10%2C37.65&amp;layer=mapnik"></iframe><a id="store-map-link" class="store-map-link" href="https://www.openstreetmap.org/#map=12/37.55/126.95" target="_blank" rel="noopener noreferrer">큰 지도 보기 ↗</a></section>
+<section class="store-map" aria-label="매장 지도"><div id="store-map-frame" role="application" aria-label="매장 위치 지도"></div><a id="store-map-link" class="store-map-link" href="https://www.openstreetmap.org/#map=12/37.55/126.95" target="_blank" rel="noopener noreferrer">큰 지도 보기 ↗</a></section>
 </div></main><footer class="site-footer footer--light" id="customer-service">
             <div class="footer-inner">
                 <div class="footer-top footer-flex-row">
@@ -114,4 +114,4 @@
                 </div>
             </div>
         </footer>
-</div><script src="js/mega-menu.js" defer></script><script src="js/mobile-header.js" defer></script><script src="js/store.js" defer></script></body></html>
+</div><script src="js/mega-menu.js" defer></script><script src="js/mobile-header.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script><script src="js/store.js" defer></script></body></html>
