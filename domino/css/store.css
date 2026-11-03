@@ -24,3 +24,22 @@
   .store-layout{position:relative;display:flex;flex-direction:column}
   .store-map{position:relative;inset:auto;width:100%;height:340px;border-radius:22px}
 }
+
+/* 데스크톱: 헤더를 제외한 뷰포트 안에 지도와 검색 패널 배치 */
+@media (min-width:768px){
+  .store-main{
+    height:calc(100vh - 100px);
+    height:calc(100dvh - 100px);
+    min-height:0;
+    padding-top:clamp(16px, 5.5vh, 60px);
+    padding-bottom:clamp(16px, 5.5vh, 60px);
+    box-sizing:border-box;
+  }
+  .store-layout{height:100%;min-height:0}
+  .store-panel{
+    height:100%;
+    min-height:0;
+    max-height:none;
+    box-sizing:border-box;
+  }
+}
