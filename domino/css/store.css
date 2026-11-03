@@ -106,3 +106,6 @@
  .domino-store-popup .store-services img:last-child[src*="tableware"]{width:21px;height:21px}
  .domino-store-popup .store-info-line{font-size:14px}
 }
+
+.store-map-notice{position:absolute;z-index:1001;top:16px;left:50%;transform:translateX(-50%);max-width:min(90%,420px);padding:12px 16px;border-radius:12px;background:#fff;color:#333;box-shadow:0 3px 18px #0002;font-size:14px;line-height:1.5;text-align:center}
+.store-map-notice[hidden]{display:none}
