@@ -69,3 +69,17 @@
 
 /* 검색어 입력 시 브라우저 기본 X 버튼과 돋보기 사이 간격 8px 추가 */
 .store-search-field input::-webkit-search-cancel-button{margin-right:8px}
+
+/* 선택된 매장 마커 위에 표시되는 상세 정보 카드 */
+.domino-store-popup .leaflet-popup-content-wrapper{border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:0}
+.domino-store-popup .leaflet-popup-content{margin:0;width:auto!important}
+.store-map-popup-card{padding:20px 18px;color:#242424;font-family:'Pretendard Variable',sans-serif}
+.store-map-popup-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.store-map-popup-name{font-size:20px;font-weight:700;line-height:1.3}
+.store-map-popup-card .store-services{gap:6px}
+.store-map-popup-card .store-services img{width:22px;height:22px}
+.store-map-popup-card .store-info{gap:9px}
+.store-map-popup-card .store-info-line{font-size:13px;line-height:1.5}
+.store-map-popup-card .store-info-line img{width:14px;height:14px;margin-top:3px}
+.domino-store-popup .leaflet-popup-close-button{top:7px!important;right:9px!important;font-size:22px!important;color:#666!important}
+@media(max-width:767px){.store-map-popup-card{padding:16px 14px}.store-map-popup-name{font-size:18px}}
