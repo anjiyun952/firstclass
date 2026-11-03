@@ -14,6 +14,9 @@ const icon=file=>'images/'+file+'_icon.svg';
 const storeMap=typeof L!=='undefined'?L.map('store-map-frame',{zoomControl:true}).setView([37.55,126.95],12):null;
 if(storeMap)L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(storeMap);
 let activeMarker=null;
+const storeMarkers=new Map();
+const coordinateCache=new Map();
+let selectedStoreName=null;
 const markerSVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 128" width="104" height="128" aria-hidden="true">
 <g transform="translate(52 49) rotate(45)">
 <rect x="-22" y="-47" width="44" height="44" rx="5" fill="#ff0000"/>
@@ -28,24 +31,56 @@ provinces.forEach(p=>addOption(province,p));
 function refreshDistrict(){district.replaceChildren(new Option('구/군 선택',''));[...new Set(stores.filter(s=>!province.value||s.province===province.value).map(s=>s.district))].sort((a,b)=>a.localeCompare(b,'ko')).forEach(v=>addOption(district,v))}
 function line(iconName,value){const el=document.createElement('span');el.className='store-info-line';const img=document.createElement('img');img.src=icon(iconName);img.alt='';el.append(img,document.createTextNode(value));return el}
 let requestId=0;
+async function lookupCoordinates(store){
+ if(coordinateCache.has(store.address))return coordinateCache.get(store.address);
+ const query=encodeURIComponent(store.address);
+ const response=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+query);
+ if(!response.ok)throw Error('location');
+ const data=await response.json();
+ if(!data.length)return null;
+ const coords=[Number(data[0].lat),Number(data[0].lon)];
+ coordinateCache.set(store.address,coords);
+ return coords;
+}
+function addStoreMarker(store,coords){
+ if(!storeMap)return null;
+ if(storeMarkers.has(store.address))return storeMarkers.get(store.address);
+ const marker=L.marker(coords,{icon:customIcon,title:store.name}).addTo(storeMap);
+ marker.bindTooltip(store.name,{direction:'top',offset:[0,-105]});
+ storeMarkers.set(store.address,marker);
+ return marker;
+}
 async function selectStore(store,button){
  results.querySelectorAll('.store-item').forEach(el=>{el.classList.remove('is-selected');el.setAttribute('aria-pressed','false')});
  button.classList.add('is-selected');button.setAttribute('aria-pressed','true');
  const id=++requestId;
+ selectedStoreName=store.name;
  const query=encodeURIComponent(store.address);
  mapLink.href='https://www.openstreetmap.org/search?query='+query;
  mapLink.textContent=store.name+' 지도에서 찾기 ↗';
  map.title=store.name+' 주변 지도';
  try{
-  const response=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+query);
-  if(!response.ok)throw Error('location');
-  const data=await response.json();
-  if(id!==requestId||!data.length)return;
-  const lat=Number(data[0].lat),lon=Number(data[0].lon),d=.009;
-  if(storeMap){if(activeMarker)storeMap.removeLayer(activeMarker);activeMarker=L.marker([lat,lon],{icon:customIcon,title:store.name}).addTo(storeMap);storeMap.setView([lat,lon],16,{animate:true});}
+  const coords=await lookupCoordinates(store);
+  if(id!==requestId||!coords)return;
+  const [lat,lon]=coords;
+  activeMarker=addStoreMarker(store,coords);
+  activeMarker?.openTooltip();
+  storeMap?.setView(coords,16,{animate:true});
   mapLink.href='https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=16/'+lat+'/'+lon;
- }catch(error){/* 지도 조회 실패 시 공식 주소 검색 링크는 유지 */}
+ }catch(error){/* 지도 조회 실패 시 주소 검색 링크 유지 */}
 }
+// 공개 지오코딩 서비스에 과도한 요청을 보내지 않도록 초기에는 서울 매장 일부만 순차 표시합니다.
+async function showInitialStoreMarkers(){
+ const initialStores=stores.filter(s=>s.province==='서울특별시').slice(0,5);
+ for(const store of initialStores){
+  try{
+   const coords=await lookupCoordinates(store);
+   if(coords)addStoreMarker(store,coords);
+  }catch(error){/* 일부 매장 좌표를 찾지 못해도 다른 마커는 계속 표시 */}
+  await new Promise(resolve=>setTimeout(resolve,1200));
+ }
+}
+showInitialStoreMarkers();
 function render(){
  const term=keyword.value.trim().toLocaleLowerCase('ko');
  const filtered=stores.filter(s=>(!province.value||s.province===province.value)&&(!district.value||s.district===district.value)&&(!term||[s.name,s.address].some(v=>v.toLocaleLowerCase('ko').includes(term))));
