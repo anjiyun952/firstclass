@@ -53,3 +53,16 @@
 /* 시/도 · 구/군 셀렉트가 활성화되면 화살표를 위로 회전 */
 .store-select::after{transition:transform .2s ease;transform-origin:center}
 .store-select:focus-within::after{transform:rotate(180deg)}
+
+/* 기본 select 대신 실제 열림/닫힘 상태를 제어하는 지역 드롭다운 */
+.store-select{position:relative}
+.store-select select{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.store-select .store-dropdown-trigger{display:block;width:100%;height:100%;padding:0 40px 0 18px;border:0;background:transparent;text-align:left;color:#666;font:400 18px 'Pretendard Variable',sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.store-select:focus-within::after{transform:none}
+.store-select.is-open::after{transform:rotate(180deg)}
+.store-dropdown-menu{position:absolute;top:calc(100% + 6px);left:0;width:100%;max-height:260px;overflow-y:auto;z-index:1000;background:white;border:1px solid #e5e5e5;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.12);padding:5px}
+.store-dropdown-menu[hidden]{display:none}
+.store-dropdown-option{display:block;width:100%;padding:11px 9px;border:0;border-radius:7px;background:transparent;text-align:left;font:400 15px 'Pretendard Variable',sans-serif;color:#333;cursor:pointer}
+.store-dropdown-option:hover,.store-dropdown-option:focus-visible{background:#f0f7fd}
+.store-dropdown-option[aria-selected="true"]{color:#0078c8;font-weight:600}
+@media(max-width:767px){.store-select .store-dropdown-trigger{font-size:14px;padding-left:12px}}
