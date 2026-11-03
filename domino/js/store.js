@@ -31,27 +31,42 @@ provinces.forEach(p=>addOption(province,p));
 function refreshDistrict(){district.replaceChildren(new Option('구/군 선택',''));[...new Set(stores.filter(s=>!province.value||s.province===province.value).map(s=>s.district))].sort((a,b)=>a.localeCompare(b,'ko')).forEach(v=>addOption(district,v))}
 function line(iconName,value){const el=document.createElement('span');el.className='store-info-line';const img=document.createElement('img');img.src=icon(iconName);img.alt='';el.append(img,document.createTextNode(value));return el}
 let requestId=0;
+function showMapNotice(message){status.textContent=message;let notice=document.getElementById('store-map-notice');if(!notice){notice=document.createElement('p');notice.id='store-map-notice';notice.className='store-map-notice';document.querySelector('.store-map').append(notice)}notice.textContent=message;notice.hidden=false}
+function hideMapNotice(){const notice=document.getElementById('store-map-notice');if(notice)notice.hidden=true}
 async function lookupCoordinates(store){
  if(coordinateCache.has(store.address))return coordinateCache.get(store.address);
- const query=encodeURIComponent(store.address);
- const response=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+query);
- if(!response.ok)throw Error('location');
- const data=await response.json();
- // 전체 도로명 주소 검색이 실패하면 건물번호를 제외한 주소로 한 번 더 조회합니다.
- let match=data[0];
- if(!match){
-  const shortened=store.address.replace(/\\s+\\d+(?:-\\d+)?(?:\\s+.*)?$/,'').trim();
-  if(shortened&&shortened!==store.address){
-   const fallback=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+encodeURIComponent(shortened));
-   if(fallback.ok){const fallbackData=await fallback.json();match=fallbackData[0]}
+ const address=store.address;
+ // 공용 지오코딩 API는 요청 제한이 있으므로 순차 조회하고 결과를 캐시합니다.
+ const candidates=[
+  async()=>{
+   const url='https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+encodeURIComponent(address);
+   const response=await fetch(url);
+   if(!response.ok)throw Error('Nominatim '+response.status);
+   const data=await response.json();
+   return data.length?[Number(data[0].lat),Number(data[0].lon)]:null;
+  },
+  async()=>{
+   // Photon은 GeoJSON [경도, 위도] 순서입니다.
+   const query=address.replace(/\\s+\\d+(?:-\\d+)?(?:\\s+.*)?$/,'').trim();
+   const response=await fetch('https://photon.komoot.io/api/?limit=1&q='+encodeURIComponent(query||address));
+   if(!response.ok)throw Error('Photon '+response.status);
+   const data=await response.json();
+   const coords=data.features?.[0]?.geometry?.coordinates;
+   return coords?[Number(coords[1]),Number(coords[0])]:null;
   }
+ ];
+ for(const candidate of candidates){
+  try{
+   const coords=await candidate();
+   if(coords&&coords.every(Number.isFinite)&&coords[0]>=33&&coords[0]<=39&&coords[1]>=124&&coords[1]<=132){
+    coordinateCache.set(address,coords);
+    return coords;
+   }
+  }catch(error){console.warn('매장 좌표 조회 실패:',store.name,error)}
  }
- if(!match)return null;
- const coords=[Number(match.lat),Number(match.lon)];
- if(!coords.every(Number.isFinite))return null;
- coordinateCache.set(store.address,coords);
- return coords;
+ return null;
 }
+
 function buildStorePopup(store){
  const card=document.createElement('div');card.className='store-map-popup-card';
  const head=document.createElement('div');head.className='store-map-popup-head';
@@ -85,13 +100,14 @@ async function selectStore(store,button){
  try{
   const coords=await lookupCoordinates(store);
   if(id!==requestId)return;
-  if(!coords){status.textContent=store.name+'의 지도 좌표를 찾지 못했습니다. 매장 주소를 확인해 주세요.';return;}
+  if(!coords){showMapNotice(store.name+'의 지도 좌표를 찾지 못했습니다. 주소 데이터 확인이 필요합니다.');return;}
   const [lat,lon]=coords;
+  hideMapNotice();
   activeMarker=addStoreMarker(store,coords);
   activeMarker?.openPopup();
   storeMap?.setView(coords,16,{animate:true});
   mapLink.href='https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=16/'+lat+'/'+lon;
- }catch(error){if(id===requestId)status.textContent=store.name+'의 지도 위치를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';}
+ }catch(error){if(id===requestId)showMapNotice(store.name+'의 지도 위치를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.');}
 }
 // 공개 지오코딩 서비스에 과도한 요청을 보내지 않도록 초기에는 서울 매장 일부만 순차 표시합니다.
 async function showInitialStoreMarkers(){
@@ -100,7 +116,7 @@ async function showInitialStoreMarkers(){
   try{
    const coords=await lookupCoordinates(store);
    if(coords)addStoreMarker(store,coords);
-  }catch(error){/* 일부 매장 좌표를 찾지 못해도 다른 마커는 계속 표시 */}
+  }catch(error){console.warn('초기 매장 마커 실패:',store.name,error)}
   await new Promise(resolve=>setTimeout(resolve,1200));
  }
 }
