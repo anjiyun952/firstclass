@@ -83,3 +83,26 @@
 .store-map-popup-card .store-info-line img{width:14px;height:14px;margin-top:3px}
 .domino-store-popup .leaflet-popup-close-button{top:7px!important;right:9px!important;font-size:22px!important;color:#666!important}
 @media(max-width:767px){.store-map-popup-card{padding:16px 14px}.store-map-popup-name{font-size:18px}}
+
+/* Figma STORE 매장 정보 카드: 360px, radius 42px, padding 28px 30px.
+   텍스트/아이콘/행 간격은 좌측 매장 목록과 동일한 스타일을 재사용합니다. */
+.domino-store-popup .leaflet-popup-content-wrapper{width:360px;max-width:calc(100vw - 32px);border-radius:42px;overflow:hidden}
+.domino-store-popup .leaflet-popup-content{width:100%!important;margin:0}
+.domino-store-popup .store-map-popup-card{box-sizing:border-box;width:100%;padding:28px 30px;color:var(--text-primary,#242424)}
+.domino-store-popup .store-map-popup-head{gap:8px;margin-bottom:14px;align-items:flex-start}
+.domino-store-popup .store-map-popup-name{font-size:24px;font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.domino-store-popup .store-services{gap:10px}
+.domino-store-popup .store-services img{width:28px;height:28px}
+.domino-store-popup .store-services img:last-child[src*="tableware"]{width:26px;height:26px}
+.domino-store-popup .store-info{gap:8px}
+.domino-store-popup .store-info-line{gap:6px;font-size:16px;font-weight:500;letter-spacing:-.03em;line-height:1.3}
+.domino-store-popup .store-info-line img{width:14px;height:14px;margin-top:3px}
+@media(max-width:767px){
+ .domino-store-popup .leaflet-popup-content-wrapper{width:min(360px,calc(100vw - 32px))}
+ .domino-store-popup .store-map-popup-card{padding:28px 30px}
+ .domino-store-popup .store-map-popup-name{font-size:20px}
+ .domino-store-popup .store-services{gap:5px}
+ .domino-store-popup .store-services img{width:22px;height:22px}
+ .domino-store-popup .store-services img:last-child[src*="tableware"]{width:21px;height:21px}
+ .domino-store-popup .store-info-line{font-size:14px}
+}
