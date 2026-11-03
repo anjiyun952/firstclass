@@ -66,3 +66,6 @@
 .store-dropdown-option:hover,.store-dropdown-option:focus-visible{background:#f0f7fd}
 .store-dropdown-option[aria-selected="true"]{color:#0078c8;font-weight:600}
 @media(max-width:767px){.store-select .store-dropdown-trigger{font-size:14px;padding-left:12px}}
+
+/* 검색어 입력 시 브라우저 기본 X 버튼과 돋보기 사이 간격 8px 추가 */
+.store-search-field input::-webkit-search-cancel-button{margin-right:8px}
