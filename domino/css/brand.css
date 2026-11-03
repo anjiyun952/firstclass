@@ -1,0 +1,48 @@
+/* BRAND introduction prototype — scoped to avoid changing existing pages. */
+.brand-page{background:var(--background-white);color:var(--text-primary);overflow:hidden}
+.brand-container{width:min(1226px,calc(100% - 48px));margin-inline:auto}
+.brand-intro{text-align:center;padding:96px 20px 64px}
+.brand-intro .menu-page-title{margin:0 0 48px}
+.brand-subnav{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(16px,3vw,48px);font-size:18px}
+.brand-subnav a,.brand-subnav span{color:var(--text-secondary);text-decoration:none;padding:10px 0}
+.brand-subnav .is-active{color:var(--text-primary);font-weight:700;border-bottom:2px solid var(--action-cta)}
+.brand-subnav span{opacity:.55}
+.brand-eyebrow{display:block;font-size:14px;font-weight:700;letter-spacing:.13em}
+.brand-hero{width:min(1720px,calc(100% - 48px));margin:0 auto;min-height:600px;border-radius:clamp(28px,5vw,90px);overflow:hidden;background:#132d4d;position:relative;display:flex;align-items:center;padding:clamp(30px,6vw,110px);color:#fff}
+.brand-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.48}
+.brand-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6),transparent 85%);pointer-events:none}
+.brand-hero-copy{position:relative;z-index:1;max-width:850px}
+.brand-hero h2,.brand-about h2,.brand-identity h2,.brand-values h2,.brand-next h2{font-family:"TT Commons Pro Mono Trial", "Pretendard Variable",sans-serif;font-weight:800;letter-spacing:-.055em;line-height:.98}
+.brand-hero h2{font-size:clamp(60px,9vw,148px);margin:28px 0}
+.brand-period{color:var(--red-primary)}
+.brand-hero p{font-size:clamp(16px,2vw,24px);word-break:keep-all}
+.brand-about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,7vw,110px);align-items:center;padding-block:150px}
+.brand-about-image{border-radius:48px;overflow:hidden;background:var(--background-default);aspect-ratio:1}
+.brand-about-image img{width:100%;height:100%;object-fit:contain}
+.brand-about h2{font-size:clamp(48px,5.5vw,90px);margin:24px 0 34px}
+.brand-about p{font-size:clamp(16px,1.4vw,20px);line-height:1.8;word-break:keep-all;margin-bottom:14px}
+.brand-about small{display:block;margin-top:30px;color:var(--text-secondary)}
+.brand-identity{background:var(--blue-primary);color:#fff;padding:120px 0}
+.brand-identity h2{font-size:clamp(55px,8vw,130px);margin:30px 0 65px}
+.brand-identity-bottom{display:flex;justify-content:space-between;align-items:end;gap:40px}
+.brand-identity-bottom p{max-width:540px;font-size:clamp(16px,1.5vw,21px);line-height:1.7;word-break:keep-all}
+.brand-dots{display:grid;grid-template-columns:repeat(2,56px);gap:15px;transform:rotate(-15deg)}
+.brand-dots span{width:56px;height:56px;border-radius:50%;background:#fff}
+.brand-dots span:first-child{grid-column:1 / -1;justify-self:center}
+.brand-values{padding-block:150px}
+.brand-values h2{font-size:clamp(58px,8vw,120px);margin:22px 0}
+.brand-values-lead{font-size:20px;color:var(--text-secondary);margin-bottom:55px}
+.brand-value-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.brand-value-grid article{min-height:270px;background:var(--background-default);border:1px solid var(--neutral-200);border-radius:26px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s ease}
+.brand-value-grid article:hover{transform:translateY(-6px)}
+.brand-value-grid article span{font-size:14px;color:var(--accent-brand);font-weight:700}
+.brand-value-grid article h3{font-size:clamp(18px,1.6vw,25px);letter-spacing:-.04em}
+.brand-value-grid article p{font-size:18px;color:var(--text-secondary)}
+.brand-next{background:var(--background-default);padding:130px 0}
+.brand-next h2{font-size:clamp(56px,8vw,120px);margin:28px 0}
+.brand-next p{font-size:20px;margin-bottom:36px}
+.brand-next-link{display:inline-flex;align-items:center;gap:38px;background:var(--red-primary);color:#fff;text-decoration:none;border-radius:999px;padding:18px 28px;font-size:18px;font-weight:700}
+.brand-next-link span{font-size:28px}
+@media(max-width:900px){.brand-hero{min-height:490px}.brand-about{padding-block:95px}.brand-value-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-value-grid article{min-height:210px}}
+@media(max-width:767px){.brand-container{width:calc(100% - 32px)}.brand-intro{padding:60px 16px 40px}.brand-intro .menu-page-title{margin-bottom:30px}.brand-subnav{gap:10px 20px;font-size:14px}.brand-hero{width:calc(100% - 32px);min-height:480px;padding:32px;border-radius:30px}.brand-hero h2{font-size:clamp(48px,12vw,82px)}.brand-about{grid-template-columns:1fr;gap:35px;padding-block:75px}.brand-about-image{border-radius:28px;aspect-ratio:1.2}.brand-identity{padding:80px 0}.brand-identity-bottom{align-items:start;flex-direction:column;gap:40px}.brand-dots{grid-template-columns:repeat(2,35px);gap:10px}.brand-dots span{width:35px;height:35px}.brand-values{padding-block:80px}.brand-value-grid{gap:10px}.brand-value-grid article{padding:18px;border-radius:18px;min-height:170px}.brand-value-grid article h3{font-size:16px}.brand-value-grid article p{font-size:15px}.brand-next{padding:85px 0}}
+@media(prefers-reduced-motion:reduce){.brand-value-grid article{transition:none}}
