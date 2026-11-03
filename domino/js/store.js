@@ -11,6 +11,17 @@ const status=document.getElementById('store-status');
 const map=document.getElementById('store-map-frame');
 const mapLink=document.getElementById('store-map-link');
 const icon=file=>'images/'+file+'_icon.svg';
+const storeMap=typeof L!=='undefined'?L.map('store-map-frame',{zoomControl:true}).setView([37.55,126.95],12):null;
+if(storeMap)L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(storeMap);
+let activeMarker=null;
+const markerSVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 128" width="104" height="128" aria-hidden="true">
+<g transform="translate(52 49) rotate(45)">
+<rect x="-22" y="-47" width="44" height="44" rx="5" fill="#ff0000"/>
+<rect x="-22" y="1" width="44" height="44" rx="5" fill="#00a4e8"/>
+<circle cx="0" cy="-25" r="7.5" fill="white"/><circle cx="-10" cy="23" r="7.5" fill="white"/><circle cx="10" cy="23" r="7.5" fill="white"/>
+</g><path d="M52 93V113" stroke="#0078c8" stroke-width="3" stroke-linecap="round"/>
+<circle cx="52" cy="118" r="5" fill="#0078c8" stroke="white" stroke-width="2"/></svg>`;
+const customIcon=typeof L!=='undefined'?L.divIcon({className:'domino-map-marker',html:markerSVG,iconSize:[104,128],iconAnchor:[52,118]}):null;
 function addOption(el,value){el.add(new Option(value,value))}
 const provinces=[...new Set(stores.map(s=>s.province))].sort((a,b)=>a.localeCompare(b,'ko'));
 provinces.forEach(p=>addOption(province,p));
@@ -31,7 +42,7 @@ async function selectStore(store,button){
   const data=await response.json();
   if(id!==requestId||!data.length)return;
   const lat=Number(data[0].lat),lon=Number(data[0].lon),d=.009;
-  map.src='https://www.openstreetmap.org/export/embed.html?bbox='+[lon-d,lat-d,lon+d,lat+d].join('%2C')+'&layer=mapnik&marker='+lat+'%2C'+lon;
+  if(storeMap){if(activeMarker)storeMap.removeLayer(activeMarker);activeMarker=L.marker([lat,lon],{icon:customIcon,title:store.name}).addTo(storeMap);storeMap.setView([lat,lon],16,{animate:true});}
   mapLink.href='https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=16/'+lat+'/'+lon;
  }catch(error){/* 지도 조회 실패 시 공식 주소 검색 링크는 유지 */}
 }
