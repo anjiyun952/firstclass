@@ -37,8 +37,18 @@ async function lookupCoordinates(store){
  const response=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+query);
  if(!response.ok)throw Error('location');
  const data=await response.json();
- if(!data.length)return null;
- const coords=[Number(data[0].lat),Number(data[0].lon)];
+ // 전체 도로명 주소 검색이 실패하면 건물번호를 제외한 주소로 한 번 더 조회합니다.
+ let match=data[0];
+ if(!match){
+  const shortened=store.address.replace(/\\s+\\d+(?:-\\d+)?(?:\\s+.*)?$/,'').trim();
+  if(shortened&&shortened!==store.address){
+   const fallback=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+encodeURIComponent(shortened));
+   if(fallback.ok){const fallbackData=await fallback.json();match=fallbackData[0]}
+  }
+ }
+ if(!match)return null;
+ const coords=[Number(match.lat),Number(match.lon)];
+ if(!coords.every(Number.isFinite))return null;
  coordinateCache.set(store.address,coords);
  return coords;
 }
@@ -74,13 +84,14 @@ async function selectStore(store,button){
  map.title=store.name+' 주변 지도';
  try{
   const coords=await lookupCoordinates(store);
-  if(id!==requestId||!coords)return;
+  if(id!==requestId)return;
+  if(!coords){status.textContent=store.name+'의 지도 좌표를 찾지 못했습니다. 매장 주소를 확인해 주세요.';return;}
   const [lat,lon]=coords;
   activeMarker=addStoreMarker(store,coords);
   activeMarker?.openPopup();
   storeMap?.setView(coords,16,{animate:true});
   mapLink.href='https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=16/'+lat+'/'+lon;
- }catch(error){/* 지도 조회 실패 시 주소 검색 링크 유지 */}
+ }catch(error){if(id===requestId)status.textContent=store.name+'의 지도 위치를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';}
 }
 // 공개 지오코딩 서비스에 과도한 요청을 보내지 않도록 초기에는 서울 매장 일부만 순차 표시합니다.
 async function showInitialStoreMarkers(){
