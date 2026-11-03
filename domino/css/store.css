@@ -118,3 +118,8 @@
 /* 닫기 버튼을 마지막 영업시간 행과 같은 높이에 정렬 */
 .domino-store-popup .store-map-popup-card{padding-bottom:28px;padding-right:60px}
 .domino-store-popup .leaflet-popup-close-button{bottom:28px!important;right:30px!important;transform:translateY(1px)}
+
+/* 카드 본문 레이아웃을 변경하지 않고 X만 영업시간 행 오른쪽 끝에 배치 */
+.domino-store-popup .store-map-popup-card{padding:28px 30px!important}
+.domino-store-popup .store-map-popup-head{padding-right:0!important}
+.domino-store-popup .leaflet-popup-close-button{top:auto!important;right:30px!important;bottom:28px!important;transform:none!important;margin:0!important}
