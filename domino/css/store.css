@@ -49,3 +49,7 @@
 .domino-map-marker{background:transparent;border:0}
 .domino-map-marker svg{display:block;filter:drop-shadow(0 4px 5px rgba(0,0,0,.16))}
 .store-map .leaflet-control-attribution{font-size:10px}
+
+/* 시/도 · 구/군 셀렉트가 활성화되면 화살표를 위로 회전 */
+.store-select::after{transition:transform .2s ease;transform-origin:center}
+.store-select:focus-within::after{transform:rotate(180deg)}
