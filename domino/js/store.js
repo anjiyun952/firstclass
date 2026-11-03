@@ -69,3 +69,51 @@ keyword.addEventListener('input',render);
 province.addEventListener('change',()=>{refreshDistrict();render()});
 district.addEventListener('change',render);
 refreshDistrict();render();
+
+/* 커스텀 지역 선택 메뉴: 실제 열림 상태와 화살표 방향을 일치시킵니다. */
+const regionDropdowns=[];
+function closeRegionDropdowns(except=null){
+ regionDropdowns.forEach(({wrapper,button,menu})=>{
+  if(wrapper===except)return;
+  wrapper.classList.remove('is-open');button.setAttribute('aria-expanded','false');menu.hidden=true;
+ });
+}
+function setupRegionDropdown(select){
+ const wrapper=select.closest('.store-select');
+ const button=document.createElement('button');button.type='button';button.className='store-dropdown-trigger';
+ button.setAttribute('aria-haspopup','listbox');button.setAttribute('aria-expanded','false');
+ button.setAttribute('aria-label',select.id==='store-province'?'시/도 선택':'구/군 선택');
+ const menu=document.createElement('div');menu.className='store-dropdown-menu';menu.setAttribute('role','listbox');menu.hidden=true;
+ wrapper.append(button,menu);
+ const instance={wrapper,button,menu,select};regionDropdowns.push(instance);
+ function update(){
+  button.textContent=select.selectedOptions[0]?.textContent||'선택';
+  menu.replaceChildren();
+  [...select.options].forEach(option=>{
+   const item=document.createElement('button');item.type='button';item.className='store-dropdown-option';
+   item.setAttribute('role','option');item.setAttribute('aria-selected',String(option.value===select.value));
+   item.textContent=option.textContent;
+   item.addEventListener('click',()=>{
+    select.value=option.value;select.dispatchEvent(new Event('change',{bubbles:true}));
+    closeRegionDropdowns();button.focus();
+   });
+   menu.append(item);
+  });
+ }
+ button.addEventListener('click',()=>{
+  const opening=menu.hidden;closeRegionDropdowns();
+  if(opening){update();menu.hidden=false;wrapper.classList.add('is-open');button.setAttribute('aria-expanded','true')}
+ });
+ button.addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){if(menu.hidden){e.preventDefault();button.click()}}
+ });
+ menu.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeRegionDropdowns();button.focus()}
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();const items=[...menu.querySelectorAll('button')];const index=items.indexOf(document.activeElement);items[(index+(e.key==='ArrowDown'?1:-1)+items.length)%items.length]?.focus()}
+ });
+ select.addEventListener('change',update);update();
+ return instance;
+}
+setupRegionDropdown(province);setupRegionDropdown(district);
+document.addEventListener('pointerdown',e=>{if(!e.target.closest('.store-select'))closeRegionDropdowns()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeRegionDropdowns()});
