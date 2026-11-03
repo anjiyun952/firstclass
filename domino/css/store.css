@@ -43,3 +43,9 @@
     box-sizing:border-box;
   }
 }
+
+/* 도미노 로고형 마커: 연결선 끝의 점이 실제 매장 좌표를 가리킵니다. */
+.store-map #store-map-frame{width:100%;height:100%;z-index:0}
+.domino-map-marker{background:transparent;border:0}
+.domino-map-marker svg{display:block;filter:drop-shadow(0 4px 5px rgba(0,0,0,.16))}
+.store-map .leaflet-control-attribution{font-size:10px}
