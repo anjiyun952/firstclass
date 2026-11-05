@@ -3,62 +3,55 @@ document.addEventListener('DOMContentLoaded',()=>{
  const brandBar=document.querySelector('.history-intro .brand-tabs');
  if(brandBar){const active=brandBar.querySelector('.brand-tab.is-active'),indicator=brandBar.querySelector('.menu-tab-indicator');const place=()=>{if(active&&indicator){indicator.style.width=active.offsetWidth+'px';indicator.style.transform='translateX('+active.offsetLeft+'px)'}};place();window.addEventListener('resize',place);if(document.fonts)document.fonts.ready.then(place);}
 
- // SVG ribbon: scalable silhouette, naturally varying width and unscaled repeating ink.
+ // Keep the retouched transparent PNG at its natural aspect ratio.
  const sauce=document.querySelector('.history-sauce');
  const stage=document.querySelector('.history-stage');
- const ribbon=sauce?.querySelector('.history-sauce-ribbon');
  let sauceTrigger;
  function layoutSauce(){
-   if(!stage||!sauce||!ribbon)return;
+   if(!stage||!sauce||!sauce.naturalWidth||!sauce.naturalHeight)return;
    const w=stage.clientWidth,h=stage.scrollHeight;
-   sauce.setAttribute('viewBox',`0 0 ${w} ${h}`);
-   const mobile=w<520;
-   const swing=mobile?w*.26:Math.min(w*.29,370);
-   const anchors=[[0,.5],[.17,.5-swing/w*.9],[.39,.5+swing/w],[.65,.5-swing/w*.76],[.87,.5+swing/w*.86],[1,.5]].map(([t,x])=>({x:x*w,y:t*h}));
-   const centerAt=t=>{
-     let k=0;
-     while(k<anchors.length-2&&t>anchors[k+1].y/h)k++;
-     const p0=anchors[Math.max(0,k-1)],p1=anchors[k],p2=anchors[k+1],p3=anchors[Math.min(anchors.length-1,k+2)];
-     const u=(t*h-p1.y)/(p2.y-p1.y);
-     const hermite=(a,b,c,d)=>.5*((2*b)+(-a+c)*u+(2*a-5*b+4*c-d)*u*u+(-a+3*b-3*c+d)*u*u*u);
-     return {x:hermite(p0.x,p1.x,p2.x,p3.x),y:t*h};
-   };
-   const samples=[];
-   for(let i=0;i<=360;i++){
-     const t=i/360,p=centerAt(t),prev=centerAt(Math.max(0,t-.002)),next=centerAt(Math.min(1,t+.002));
-     const dx=next.x-prev.x,dy=next.y-prev.y,len=Math.hypot(dx,dy)||1;
-     const taper=Math.min(1,t/.035,(1-t)/.045);
-     const width=(mobile?9:16)+(mobile?4:8)*Math.sin(5*Math.PI*t+.4)+(mobile?2:5)*Math.sin(13*Math.PI*t);
-     const radius=Math.max(0,width*taper);
-     samples.push({x:p.x,y:p.y,nx:dy/len,ny:-dx/len,radius});
-   }
-   const edge=side=>samples.map(p=>`${(p.x+side*p.nx*p.radius).toFixed(2)},${(p.y+side*p.ny*p.radius).toFixed(2)}`);
-   const outline=edge(1).concat(edge(-1).reverse());
-   ribbon.setAttribute('d','M '+outline.join(' L ')+' Z');
-   const gap=mobile?28:80;
+   const iw=sauce.naturalWidth,ih=sauce.naturalHeight;
+   const scale=Math.min(w/iw,h/ih);
+   const paintedWidth=iw*scale,paintedHeight=ih*scale;
+   const offsetX=(w-paintedWidth)/2,offsetY=(h-paintedHeight)/2;
+   const gap=w<520?28:80;
+   const canvas=document.createElement('canvas');
+   canvas.width=iw;canvas.height=ih;
+   const ctx=canvas.getContext('2d',{willReadFrequently:true});
+   if(!ctx)return;
+   ctx.drawImage(sauce,0,0);
+   let pixels;
+   try{pixels=ctx.getImageData(0,0,iw,ih).data}catch(e){return}
    const stageRect=stage.getBoundingClientRect();
    events.forEach(event=>{
      const rect=event.getBoundingClientRect();
-     const t=Math.max(0,Math.min(1,(rect.top-stageRect.top+rect.height*.5)/h));
-     const point=samples[Math.round(t*360)];
-     const leftEdge=point.x-point.radius,rightEdge=point.x+point.radius;
+     const cy=rect.top-stageRect.top+rect.height*.5;
+     const imageY=Math.max(0,Math.min(ih-1,Math.round((cy-offsetY)/scale)));
+     let left=iw,right=-1;
+     for(let yy=Math.max(0,imageY-3);yy<=Math.min(ih-1,imageY+3);yy++){
+       for(let x=0;x<iw;x+=2){
+         if(pixels[(yy*iw+x)*4+3]>90){left=Math.min(left,x);right=Math.max(right,x)}
+       }
+     }
+     if(right<0){left=right=iw/2}
+     const sauceLeft=offsetX+left*scale,sauceRight=offsetX+right*scale;
      const itemWidth=event.offsetWidth;
-     const leftRoom=leftEdge-gap,rightRoom=w-rightEdge-gap;
-     const placeLeft=leftRoom>=rightRoom;
-     let x=placeLeft?leftEdge-gap-itemWidth:rightEdge+gap;
+     const placeLeft=sauceLeft-gap>=w-sauceRight-gap;
+     let x=placeLeft?sauceLeft-gap-itemWidth:sauceRight+gap;
      x=Math.max(0,Math.min(w-itemWidth,x));
      event.style.setProperty('--event-x',x+'px');
      event.style.setProperty('--event-align',placeLeft?'right':'left');
    });
  }
- if(stage&&sauce&&ribbon){
-   layoutSauce();
+ if(stage&&sauce){
    const show=progress=>{sauce.style.clipPath=`inset(0 0 ${(1-progress)*100}% 0)`};
    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&window.gsap&&window.ScrollTrigger){
      gsap.registerPlugin(ScrollTrigger);
      sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>show(self.progress)});
    }else show(1);
    const relayout=()=>{layoutSauce();if(sauceTrigger)sauceTrigger.refresh()};
+   if(sauce.complete&&sauce.naturalWidth)layoutSauce();
+   else sauce.addEventListener('load',relayout,{once:true});
    window.addEventListener('resize',relayout);
    window.addEventListener('load',relayout);
    if(document.fonts)document.fonts.ready.then(relayout);
