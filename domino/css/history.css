@@ -59,3 +59,12 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
  .history-event:hover{transform:scale(1.065);z-index:4}
 }
 @media(prefers-reduced-motion:reduce){.history-event{transition:none}}
+
+/* Closing message: a quiet final beat after the timeline. */
+.history-ending{background:#fffbf5;padding:clamp(110px,12vw,200px) 24px clamp(130px,14vw,220px);text-align:center;overflow:hidden}
+.history-ending-inner{max-width:1000px;margin:0 auto}
+.history-ending-eyebrow,.history-ending-signature{margin:0;color:#8b7767;font-size:clamp(12px,1.1vw,15px);font-weight:600;letter-spacing:.18em}
+.history-ending-title{margin:34px 0 38px;color:#663605;font-size:clamp(29px,4.2vw,64px);font-weight:700;line-height:1.45;letter-spacing:-.045em;word-break:keep-all}
+.history-ending-title span{display:block;color:#c82e26}
+.history-ending-rule{display:block;width:72px;height:3px;margin:0 auto 26px;background:#c82e26;border-radius:999px}
+@media(max-width:767px){.history-ending{padding:100px 20px 130px}.history-ending-title{margin:26px 0 30px}}
