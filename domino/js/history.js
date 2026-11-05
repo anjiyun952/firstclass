@@ -3,73 +3,16 @@ document.addEventListener('DOMContentLoaded',()=>{
  const brandBar=document.querySelector('.history-intro .brand-tabs');
  if(brandBar){const active=brandBar.querySelector('.brand-tab.is-active'),indicator=brandBar.querySelector('.menu-tab-indicator');const place=()=>{if(active&&indicator){indicator.style.width=active.offsetWidth+'px';indicator.style.transform='translateX('+active.offsetLeft+'px)'}};place();window.addEventListener('resize',place);if(document.fonts)document.fonts.ready.then(place);}
 
- // Draw one continuous, curved sauce line in the empty corridor between events.
+ // Reveal the uploaded sauce graphic progressively as the user scrolls.
  const sauce=document.querySelector('.history-sauce');
  const stage=document.querySelector('.history-stage');
- let sauceTrigger;
- function drawSauce(){
-   if(!sauce||!stage||events.length<2)return;
-   const box=stage.getBoundingClientRect();
-   const width=stage.clientWidth,height=stage.scrollHeight;
-   sauce.setAttribute('viewBox',`0 0 ${width} ${height}`);
-   const narrow=window.matchMedia('(max-width:480px)').matches;
-   const points=events.map((event,i)=>{
-     const r=event.getBoundingClientRect();
-     return {y:r.top-box.top+r.height*.5};
-   });
-   // Four broad, uneven bends across the full timeline (not one turn per event).
-   // Use a single smooth path so the shape remains continuous on resize.
-   const center=width*.5;
-   const swing=narrow?width*.29:Math.min(width*.30,385);
-   const top=Math.max(0,points[0].y-85);
-   const bottom=Math.min(height,points[points.length-1].y+90);
-   const span=bottom-top;
-   const anchors=[
-     [0,center],
-     [.17,center-swing*.90],
-     [.39,center+swing],
-     [.65,center-swing*.76],
-     [.87,center+swing*.86],
-     [1,center]
-   ].map(([t,x])=>({x,y:top+span*t}));
-   // Catmull–Rom to cubic Bézier: gently rounded, varied-length sweeping turns.
-   let d=`M ${anchors[0].x} ${anchors[0].y}`;
-   for(let i=0;i<anchors.length-1;i++){
-     const p0=anchors[Math.max(0,i-1)];
-     const p1=anchors[i];
-     const p2=anchors[i+1];
-     const p3=anchors[Math.min(anchors.length-1,i+2)];
-     const c1x=p1.x+(p2.x-p0.x)/6;
-     const c1y=p1.y+(p2.y-p0.y)/6;
-     const c2x=p2.x-(p3.x-p1.x)/6;
-     const c2y=p2.y-(p3.y-p1.y)/6;
-     d+=` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2.x} ${p2.y}`;
-   }
-   sauce.querySelectorAll('path').forEach(path=>path.setAttribute('d',d));
-   const ink=sauce.querySelector('.history-sauce-line');
-   const shadow=sauce.querySelector('.history-sauce-shadow');
-   const grain=sauce.querySelector('.history-sauce-grain');
-   const highlight=sauce.querySelector('.history-sauce-highlight');
-   const length=ink.getTotalLength();
-   [ink,shadow].forEach(path=>{path.style.strokeDasharray=length;path.style.strokeDashoffset=length});
-   [grain,highlight].forEach(path=>{path.style.strokeDasharray=length;path.style.strokeDashoffset=length});
-   if(sauceTrigger){sauceTrigger.kill();sauceTrigger=null}
-   const showProgress=progress=>{
-     const offset=length*(1-progress);
-     ink.style.strokeDashoffset=offset;
-     shadow.style.strokeDashoffset=offset;
-     [grain,highlight].forEach(path=>{path.style.strokeDashoffset=offset});
-   };
+ if(sauce&&stage){
+   const show=progress=>{sauce.style.clipPath=`inset(0 0 ${(1-progress)*100}% 0)`};
    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&window.gsap&&window.ScrollTrigger){
-     showProgress(0);
-     sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>showProgress(self.progress)});
-   }else{showProgress(1)}
+     gsap.registerPlugin(ScrollTrigger);
+     ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>show(self.progress)});
+   }else{show(1)}
  }
- const redraw=()=>{drawSauce();if(window.ScrollTrigger)ScrollTrigger.refresh()};
- window.addEventListener('load',redraw);
- window.addEventListener('resize',redraw);
- if(document.fonts)document.fonts.ready.then(redraw);
- drawSauce();
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  events.forEach((event,i)=>{
    const holder=event.querySelector('.flour-particles');
