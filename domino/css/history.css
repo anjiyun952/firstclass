@@ -74,9 +74,10 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-events{position:relative;z-index:1}
 .history-sauce{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible;pointer-events:none}
 .history-sauce path{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.history-sauce-shadow{stroke:#782918;stroke-width:23;opacity:.14;filter:blur(2px)}
-.history-sauce-line{stroke:#ad3825;stroke-width:15;opacity:.94;filter:url(#history-sauce-rough)}
-.history-sauce-grain{stroke:#e3a17d;stroke-width:2.5;opacity:.45;stroke-dasharray:1 8;filter:url(#history-sauce-rough)}
-.history-sauce-highlight{stroke:#d96c48;stroke-width:3;opacity:.55;stroke-dasharray:19 38;filter:url(#history-sauce-rough)}
+.history-sauce-shadow{stroke:#782918;stroke-width:21;opacity:.10;filter:blur(1.5px)}
+/* Distressed matte ink, with irregular paper-colored gaps instead of glossy highlights. */
+.history-sauce-line{stroke:#a43c2a;stroke-width:16;opacity:.96;filter:url(#history-sauce-rough)}
+.history-sauce-grain{stroke:#713222;stroke-width:1.7;opacity:.24;stroke-dasharray:2 13;filter:url(#history-sauce-rough)}
+.history-sauce-highlight{stroke:#d08b69;stroke-width:1.1;opacity:.13;stroke-dasharray:3 31;filter:url(#history-sauce-rough)}
 @media(max-width:767px){.history-sauce-shadow{stroke-width:15}.history-sauce-line{stroke-width:10}.history-sauce-grain{stroke-width:1.5}.history-sauce-highlight{stroke-width:2}}
 @media(prefers-reduced-motion:reduce){.history-sauce-line{transition:none}}
