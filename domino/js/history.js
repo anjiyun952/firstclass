@@ -11,9 +11,13 @@ document.addEventListener('DOMContentLoaded',()=>{
    if(!stage||!sauce||!sauce.naturalWidth||!sauce.naturalHeight)return;
    const w=stage.clientWidth,h=stage.scrollHeight;
    const iw=sauce.naturalWidth,ih=sauce.naturalHeight;
-   const scale=Math.min(w/iw,h/ih)*1.5;
+   // Match the image's actual rendered box and object-fit:contain dimensions.
+   const stageRect=stage.getBoundingClientRect();
+   const imageRect=sauce.getBoundingClientRect();
+   const scale=Math.min(imageRect.width/iw,imageRect.height/ih);
    const paintedWidth=iw*scale,paintedHeight=ih*scale;
-   const offsetX=(w-paintedWidth)/2,offsetY=(h-paintedHeight)/2;
+   const offsetX=imageRect.left-stageRect.left+(imageRect.width-paintedWidth)/2;
+   const offsetY=imageRect.top-stageRect.top+(imageRect.height-paintedHeight)/2;
    const gap=w<520?28:80;
    const canvas=document.createElement('canvas');
    canvas.width=iw;canvas.height=ih;
@@ -22,7 +26,6 @@ document.addEventListener('DOMContentLoaded',()=>{
    ctx.drawImage(sauce,0,0);
    let pixels;
    try{pixels=ctx.getImageData(0,0,iw,ih).data}catch(e){return}
-   const stageRect=stage.getBoundingClientRect();
    events.forEach(event=>{
      const rect=event.getBoundingClientRect();
      const cy=rect.top-stageRect.top+rect.height*.5;
