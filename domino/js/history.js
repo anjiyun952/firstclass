@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    const edge=side=>samples.map(p=>`${(p.x+side*p.nx*p.radius).toFixed(2)},${(p.y+side*p.ny*p.radius).toFixed(2)}`);
    const outline=edge(1).concat(edge(-1).reverse());
    ribbon.setAttribute('d','M '+outline.join(' L ')+' Z');
-   const gap=mobile?16:40;
+   const gap=mobile?28:80;
    const stageRect=stage.getBoundingClientRect();
    events.forEach(event=>{
      const rect=event.getBoundingClientRect();
