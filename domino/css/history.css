@@ -7,28 +7,11 @@
 /* Subtle flour dust, without wood grain, photography, or decorative props. */
 .history-section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(ellipse 28% 11% at 17% 9%,rgba(255,255,255,.96),transparent 100%),radial-gradient(ellipse 23% 9% at 83% 29%,rgba(255,255,255,.85),transparent 100%),radial-gradient(ellipse 31% 12% at 24% 57%,rgba(255,255,255,.9),transparent 100%),radial-gradient(ellipse 26% 10% at 77% 82%,rgba(255,255,255,.88),transparent 100%);opacity:.85}
 .history-section::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.92) 0 1px,transparent 1.8px),radial-gradient(circle,rgba(224,207,183,.2) 0 .65px,transparent 1.4px);background-size:61px 67px,97px 89px;background-position:11px 23px,43px 37px;opacity:.42;mask-image:radial-gradient(ellipse 42% 25% at 15% 16%,#000,transparent),radial-gradient(ellipse 36% 24% at 85% 44%,#000,transparent),radial-gradient(ellipse 42% 28% at 25% 74%,#000,transparent);mask-composite:add}
-.history-stage{width:min(1380px,100%);margin:auto}
-.history-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(100px,14vw,240px);row-gap:clamp(48px,6vw,95px);align-items:start}
-.history-event{position:relative;min-width:0}
-/* One event per grid row: left-top → right-below → left-below. */
-.history-event:nth-child(1){grid-row:1}
-.history-event:nth-child(2){grid-row:2}
-.history-event:nth-child(3){grid-row:3}
-.history-event:nth-child(4){grid-row:4}
-.history-event:nth-child(5){grid-row:5}
-.history-event:nth-child(6){grid-row:6}
-.history-event:nth-child(7){grid-row:7}
-.history-event:nth-child(8){grid-row:8}
-.history-event:nth-child(9){grid-row:9}
-.history-event:nth-child(10){grid-row:10}
-.history-event:nth-child(11){grid-row:11}
-.history-event:nth-child(12){grid-row:12}
-.history-event:nth-child(13){grid-row:13}
-.history-event:nth-child(14){grid-row:14}
-.history-event:nth-child(15){grid-row:15}
-.history-event.is-left{grid-column:1;text-align:right;justify-self:start}
-.history-event.is-right{grid-column:2;text-align:left;justify-self:end}
-.history-copy{position:relative;display:inline-block;max-width:100%}
+.history-stage{position:relative;isolation:isolate;width:min(1380px,100%);margin:auto}
+.history-events{display:block;position:relative;z-index:1}
+.history-event{position:relative;min-width:0;box-sizing:border-box}
+.history-event.is-left,.history-event.is-right{position:absolute;top:var(--event-y,0px);left:var(--event-x,0px);width:var(--event-width,300px);margin:0;text-align:var(--event-align,left)}
+.history-copy{position:relative;display:block;max-width:100%}
 .history-year{display:block;max-width:100%;font-family:"TT Commons Pro Mono",Impact,sans-serif;font-size:clamp(42px,5vw,76px);font-weight:700;line-height:1.05;letter-spacing:-.035em;color:#663605;margin-bottom:16px;
 -webkit-mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),radial-gradient(circle at 74% 61%,transparent 0 1px,#000 1.6px),radial-gradient(circle at 41% 82%,transparent 0 .55px,#000 1.15px);
 -webkit-mask-size:13px 17px,19px 23px,11px 29px;-webkit-mask-composite:source-in;
@@ -37,12 +20,11 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-copy h2{font-size:clamp(21px,2vw,29px);font-weight:700;line-height:1.45;word-break:keep-all;color:var(--text-primary,#242424)}
 .history-event:not(.is-featured) .history-copy h2{font-size:clamp(16px,1.45vw,21px);font-weight:500;color:var(--text-secondary,#666)}
 .history-art{display:block;width:auto;max-width:none;max-height:210px;object-fit:contain;margin-top:22px}
-.is-left .history-art{margin-left:auto;margin-right:0}.is-right .history-art{margin-right:auto}
+
 .flour-particles{position:absolute;inset:-24px;pointer-events:none;z-index:3}
 .flour-particle{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:#fff9ec;opacity:0;filter:blur(var(--blur))}
 @media(max-width:767px){
 .history-intro{padding:90px 16px 60px}.history-section{padding:72px 20px 110px}
-.history-events{column-gap:18px;row-gap:48px}
 .history-year{font-size:clamp(28px,7vw,48px);margin-bottom:10px}
 .history-copy h2{font-size:clamp(15px,3.6vw,20px)}
 .history-event:not(.is-featured) .history-copy h2{font-size:clamp(12px,3vw,16px)}
@@ -50,13 +32,7 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .flour-particles{inset:-12px}
 }
 @media(max-width:480px){
-.history-events{grid-template-columns:minmax(0,1fr);row-gap:45px}
-.history-event.is-left{grid-column:1;width:82%;justify-self:start;text-align:right}
-.history-event.is-right{grid-column:1;width:82%;justify-self:end;text-align:right}
-.history-event.is-left .history-year{margin-left:0}
-.history-event.is-right .history-year{margin-left:auto}
-.history-event.is-left .history-art{margin-left:auto;margin-right:0}
-.history-event.is-right .history-art{margin-left:auto}
+
 }
 @media(prefers-reduced-motion:reduce){.history-copy,.history-art,.flour-particle{animation:none!important;transition:none!important}}
 
@@ -69,35 +45,10 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 @media(max-width:960px){.history-intro{padding:72px 24px 75px}.history-intro .menu-page-title{margin-bottom:65px}}
 @media(max-width:767px){.history-intro{padding:60px 16px 65px}.history-intro .menu-page-title{margin-bottom:48px}.history-intro .menu-secondary-scroll{margin:0 -16px;padding:0 16px}.history-intro .brand-tab{font-size:15px;padding:9px 17px}}
 
-/* A concept: printed tomato-sauce ink trail behind the zigzag timeline. */
-.history-stage{position:relative;isolation:isolate}
-.history-events{position:relative;z-index:1}
-.history-sauce{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;object-fit:contain;object-position:center center;clip-path:inset(0 0 100% 0);will-change:clip-path}
-@media(prefers-reduced-motion:reduce){.history-sauce{clip-path:none;will-change:auto}}
-
-/* Position each milestone in relation to the sauce rather than alternating grid columns. */
-.history-events{grid-template-columns:minmax(0,1fr)}
-.history-event.is-left,.history-event.is-right{grid-column:1;justify-self:stretch;width:min(36%,390px);max-width:none;box-sizing:border-box;text-align:var(--event-align,left);margin-left:var(--event-x,0px)}
+/* Sauce artwork and milestone placement. JavaScript sets each event's coordinates. */
+.history-sauce{position:absolute;inset:0;width:100%;height:100%;margin:auto;z-index:0;pointer-events:none;object-fit:contain;object-position:center;clip-path:inset(0 0 100% 0);will-change:clip-path}
 .history-event .history-year{margin-left:0;margin-right:0}
-.history-event[style*="--event-align: right"] .history-year{margin-left:auto;margin-right:0}
+.history-event[style*="--event-align: right"] .history-year{margin-left:auto}
 .history-event[style*="--event-align: right"] .history-art{margin-left:auto;margin-right:0}
 .history-event[style*="--event-align: left"] .history-art{margin-left:0;margin-right:auto}
-@media(max-width:767px){.history-event.is-left,.history-event.is-right{width:42%}}
-@media(max-width:480px){.history-event.is-left,.history-event.is-right{width:46%}}
-
-/* Enlarge the final sauce artwork without distorting its proportions. */
-.history-sauce{inset:0;width:100%;height:100%;object-fit:contain;object-position:center center}
-.history-event.is-left,.history-event.is-right{width:min(30%,360px);margin-left:var(--event-x,0px);text-align:var(--event-align,left)}
-.history-event .history-copy{display:block}
-@media(max-width:767px){.history-event.is-left,.history-event.is-right{width:38%}}
-@media(max-width:480px){.history-event.is-left,.history-event.is-right{width:42%}}
-
-
-/* Keep the full PNG inside the timeline instead of cropping its outer bends. */
-.history-sauce{inset:0;margin:auto;width:100%;height:100%;object-fit:contain;object-position:center}
-.history-event.is-left,.history-event.is-right{width:var(--event-width,min(30%,360px));max-width:none}
-
-/* Timeline cards are positioned as independent milestones around the sauce. */
-.history-events{display:block;position:relative}
-.history-event.is-left,.history-event.is-right{position:absolute;top:var(--event-y,0px);left:var(--event-x,0px);margin:0;width:var(--event-width,300px);text-align:var(--event-align,left);grid-column:auto}
-.history-event .history-copy{display:block}
+@media(prefers-reduced-motion:reduce){.history-sauce{clip-path:none;will-change:auto}}
