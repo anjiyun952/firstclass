@@ -53,11 +53,9 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-event[style*="--event-align: left"] .history-art{margin-left:0;margin-right:auto}
 @media(prefers-reduced-motion:reduce){.history-sauce{clip-path:none;will-change:auto}}
 
-/* Gentle hover emphasis for each timeline milestone, without changing layout. */
+/* Scale the event wrapper so GSAP's inline transforms on its children remain intact. */
 @media (hover:hover) and (pointer:fine){
- .history-event .history-copy{transition:scale .3s ease;transform-origin:center center}
- .history-event:hover .history-copy{scale:1.045}
+ .history-event{transform:scale(1);transform-origin:center center;transition:transform .3s ease}
+ .history-event:hover{transform:scale(1.065);z-index:4}
 }
-@media(prefers-reduced-motion:reduce){
- .history-event .history-copy{transition:none}
-}
+@media(prefers-reduced-motion:reduce){.history-event{transition:none}}
