@@ -17,20 +17,34 @@ document.addEventListener('DOMContentLoaded',()=>{
      const r=event.getBoundingClientRect();
      return {y:r.top-box.top+r.height*.5};
    });
-   // Wide, alternating S-turns, with slight variation so the sauce feels hand-pulled.
+   // Four broad, uneven bends across the full timeline (not one turn per event).
+   // Use a single smooth path so the shape remains continuous on resize.
    const center=width*.5;
-   const amplitude=narrow?width*.22:Math.min(width*.32,410);
-   const minX=narrow?width*.16:width*.12,maxX=width-minX;
-   const xAt=i=>Math.max(minX,Math.min(maxX,center+(i%2===0?-1:1)*amplitude*(i%3===0?.83:1)));
-   let d=`M ${center} ${Math.max(0,points[0].y-85)}`;
-   for(let i=0;i<points.length;i++){
-     const prevY=i===0?Math.max(0,points[0].y-85):points[i-1].y;
-     const y=points[i].y,dy=y-prevY;
-     const prevX=i===0?center:xAt(i-1),x=xAt(i);
-     d+=` C ${prevX} ${prevY+dy*.72}, ${x} ${y-dy*.72}, ${x} ${y}`;
+   const swing=narrow?width*.29:Math.min(width*.30,385);
+   const top=Math.max(0,points[0].y-85);
+   const bottom=Math.min(height,points[points.length-1].y+90);
+   const span=bottom-top;
+   const anchors=[
+     [0,center],
+     [.17,center-swing*.90],
+     [.39,center+swing],
+     [.65,center-swing*.76],
+     [.87,center+swing*.86],
+     [1,center]
+   ].map(([t,x])=>({x,y:top+span*t}));
+   // Catmull–Rom to cubic Bézier: gently rounded, varied-length sweeping turns.
+   let d=`M ${anchors[0].x} ${anchors[0].y}`;
+   for(let i=0;i<anchors.length-1;i++){
+     const p0=anchors[Math.max(0,i-1)];
+     const p1=anchors[i];
+     const p2=anchors[i+1];
+     const p3=anchors[Math.min(anchors.length-1,i+2)];
+     const c1x=p1.x+(p2.x-p0.x)/6;
+     const c1y=p1.y+(p2.y-p0.y)/6;
+     const c2x=p2.x-(p3.x-p1.x)/6;
+     const c2y=p2.y-(p3.y-p1.y)/6;
+     d+=` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2.x} ${p2.y}`;
    }
-   const last=points[points.length-1];
-   d+=` C ${xAt(points.length-1)} ${last.y+45}, ${center} ${Math.min(height,last.y+65)}, ${center} ${Math.min(height,last.y+90)}`;
    sauce.querySelectorAll('path').forEach(path=>path.setAttribute('d',d));
    const ink=sauce.querySelector('.history-sauce-line');
    const shadow=sauce.querySelector('.history-sauce-shadow');
