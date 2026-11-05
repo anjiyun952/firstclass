@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    const paintedWidth=iw*scale,paintedHeight=ih*scale;
    const offsetX=imageRect.left-stageRect.left+(imageRect.width-paintedWidth)/2;
    const offsetY=imageRect.top-stageRect.top+(imageRect.height-paintedHeight)/2;
-   const preferredGap=w<520?28:80;
+   const preferredGap=w<520?18:80;
    const canvas=document.createElement('canvas');
    canvas.width=iw;canvas.height=ih;
    const ctx=canvas.getContext('2d',{willReadFrequently:true});
@@ -26,28 +26,36 @@ document.addEventListener('DOMContentLoaded',()=>{
    ctx.drawImage(sauce,0,0);
    let pixels;
    try{pixels=ctx.getImageData(0,0,iw,ih).data}catch(e){return}
-   events.forEach(event=>{
-     const rect=event.getBoundingClientRect();
-     const cy=rect.top-stageRect.top+rect.height*.5;
-     const imageY=Math.round((cy-offsetY)/scale);
-     if(imageY<0||imageY>=ih)return;
+   const boundsAt=y=>{
+     const iy=Math.round((y-offsetY)/scale);
+     if(iy<0||iy>=ih)return null;
      let left=iw,right=-1;
-     // Use a broad band to include irregular, distressed edges.
-     for(let yy=Math.max(0,imageY-5);yy<=Math.min(ih-1,imageY+5);yy++){
+     for(let yy=Math.max(0,iy-4);yy<=Math.min(ih-1,iy+4);yy++){
        for(let x=0;x<iw;x+=2){
-         if(pixels[(yy*iw+x)*4+3]>45){left=Math.min(left,x);right=Math.max(right,x)}
+         if(pixels[(yy*iw+x)*4+3]>35){left=Math.min(left,x);right=Math.max(right,x)}
        }
      }
-     if(right<0){left=right=iw/2}
-     const sauceLeft=offsetX+left*scale,sauceRight=offsetX+right*scale;
-     const itemWidth=event.offsetWidth;
-     const availableLeft=sauceLeft-itemWidth,availableRight=w-sauceRight-itemWidth;
-     const placeLeft=availableLeft>=availableRight;
-     const available=placeLeft?availableLeft:availableRight;
-     // Prefer the full gap; if space is limited, never overlap the sauce.
-     const gap=Math.max(0,Math.min(preferredGap,available));
-     const x=placeLeft?sauceLeft-gap-itemWidth:sauceRight+gap;
-     event.style.setProperty('--event-x',Math.max(0,Math.min(w-itemWidth,x))+'px');
+     return right<0?null:[offsetX+left*scale,offsetX+right*scale];
+   };
+   events.forEach(event=>{
+     const rect=event.getBoundingClientRect();
+     const top=rect.top-stageRect.top;
+     const cardHeight=rect.height;
+     let left=w,right=0,found=false;
+     // Check the entire event height, including illustrations, not only its center.
+     for(let y=top;y<=top+cardHeight;y+=Math.max(8,cardHeight/18)){
+       const bounds=boundsAt(y);
+       if(bounds){left=Math.min(left,bounds[0]);right=Math.max(right,bounds[1]);found=true}
+     }
+     if(!found){left=right=w/2}
+     const leftSpace=Math.max(0,left),rightSpace=Math.max(0,w-right);
+     const placeLeft=leftSpace>=rightSpace;
+     const space=placeLeft?leftSpace:rightSpace;
+     const gap=Math.min(preferredGap,Math.max(12,space*.18));
+     const cardWidth=Math.max(0,Math.min(w*.3,360,space-gap));
+     const x=placeLeft?left-gap-cardWidth:right+gap;
+     event.style.setProperty('--event-width',cardWidth+'px');
+     event.style.setProperty('--event-x',Math.max(0,Math.min(w-cardWidth,x))+'px');
      event.style.setProperty('--event-align',placeLeft?'right':'left');
    });
  }
