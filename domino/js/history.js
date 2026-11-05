@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded',()=>{
  const sauce=document.querySelector('.history-sauce');
  const stage=document.querySelector('.history-stage');
  let sauceTrigger;
+ const eventAnimations=[];
+ const syncEvents=progress=>{
+   if(!stage)return;
+   const revealY=progress*stage.clientHeight;
+   eventAnimations.forEach(({event,tl})=>{
+     const eventY=event.offsetTop+Math.min(event.offsetHeight*.35,65);
+     if(revealY>=eventY && !tl.isActive() && tl.progress()===0)tl.play();
+   });
+ };
  function layoutSauce(){
    if(!stage||!sauce||!sauce.naturalWidth||!sauce.naturalHeight)return;
    const w=stage.clientWidth;
@@ -81,9 +90,9 @@ document.addEventListener('DOMContentLoaded',()=>{
    const show=progress=>{sauce.style.clipPath=`inset(0 0 ${(1-progress)*100}% 0)`};
    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&window.gsap&&window.ScrollTrigger){
      gsap.registerPlugin(ScrollTrigger);
-     sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>show(self.progress)});
+     sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>{show(self.progress);syncEvents(self.progress)}});
    }else show(1);
-   const relayout=()=>{layoutSauce();if(sauceTrigger)sauceTrigger.refresh()};
+   const relayout=()=>{layoutSauce();if(sauceTrigger){sauceTrigger.refresh();syncEvents(sauceTrigger.progress)}};
    if(sauce.complete&&sauce.naturalWidth)layoutSauce();
    else sauce.addEventListener('load',relayout,{once:true});
    window.addEventListener('resize',relayout);
@@ -104,7 +113,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     const tl=gsap.timeline({paused:true}).to(copy,{autoAlpha:1,y:0,duration:.85,ease:'power2.out'},.15);
     dots.forEach((dot,j)=>{const angle=(j*2.39996),distance=20+(j%8)*8;tl.fromTo(dot,{x:0,y:0,opacity:0},{keyframes:[{opacity:.6,duration:.2},{x:Math.cos(angle)*distance,y:Math.sin(angle)*distance,opacity:0,duration:.65}],ease:'power1.out'},(j%7)*.025)});
     if(art)tl.to(art,{scale:1,duration:.65,ease:'power2.out'},.4);
-    ScrollTrigger.create({trigger:event,start:'top 78%',once:true,onEnter:()=>tl.play()});
+    eventAnimations.push({event,tl});
   });
+  if(sauceTrigger)syncEvents(sauceTrigger.progress);
  }
 });
