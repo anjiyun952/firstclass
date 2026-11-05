@@ -13,6 +13,55 @@ document.addEventListener('DOMContentLoaded',()=>{
      ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>show(self.progress)});
    }else{show(1)}
  }
+ // Read the actual transparent PNG silhouette to place milestones beside the sauce.
+ // The image is stretched to the stage, so sample its alpha at the same relative Y.
+ if(sauce&&stage&&events.length){
+   let imageData=null;
+   const measure=()=>{
+     if(!imageData)return;
+     const stageRect=stage.getBoundingClientRect();
+     const stageWidth=stage.clientWidth,stageHeight=stage.scrollHeight;
+     const iw=imageData.width,ih=imageData.height,pixels=imageData.data;
+     const gap=window.innerWidth<=480?16:40;
+     events.forEach(event=>{
+       const rect=event.getBoundingClientRect();
+       const y=Math.max(0,Math.min(ih-1,Math.round((rect.top-stageRect.top+rect.height*.5)/stageHeight*(ih-1))));
+       // Sample a small vertical band to avoid gaps in the distressed ink.
+       let left=iw,right=-1;
+       for(let yy=Math.max(0,y-3);yy<=Math.min(ih-1,y+3);yy++){
+         for(let x=0;x<iw;x+=2){
+           if(pixels[(yy*iw+x)*4+3]>90){left=Math.min(left,x);right=Math.max(right,x)}
+         }
+       }
+       if(right<0){left=right=iw*.5}
+       const sauceLeft=left/iw*stageWidth,sauceRight=right/iw*stageWidth;
+       const itemWidth=event.offsetWidth;
+       const leftRoom=sauceLeft-gap,rightRoom=stageWidth-sauceRight-gap;
+       const placeLeft=leftRoom>=rightRoom;
+       let x=placeLeft?sauceLeft-gap-itemWidth:sauceRight+gap;
+       x=Math.max(0,Math.min(stageWidth-itemWidth,x));
+       event.style.setProperty('--event-x',x+'px');
+       event.style.setProperty('--event-align',placeLeft?'right':'left');
+     });
+   };
+   const loadShape=()=>{
+     const source=new Image();
+     source.onload=()=>{
+       const canvas=document.createElement('canvas');
+       canvas.width=source.naturalWidth;canvas.height=source.naturalHeight;
+       const context=canvas.getContext('2d',{willReadFrequently:true});
+       if(!context)return;
+       context.drawImage(source,0,0);
+       try{imageData=context.getImageData(0,0,canvas.width,canvas.height)}catch(e){return}
+       measure();
+     };
+     source.src=sauce.currentSrc||sauce.src;
+   };
+   loadShape();
+   window.addEventListener('resize',measure);
+   window.addEventListener('load',measure);
+   if(document.fonts)document.fonts.ready.then(measure);
+ }
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  events.forEach((event,i)=>{
    const holder=event.querySelector('.flour-particles');
