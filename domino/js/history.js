@@ -1,10 +1,5 @@
-/* The PNG contains 31 uneven boxes. The first pass uses 15 normalized anchors.
-   After visual inspection, set pixel-accurate percentage centers in ANCHORS below. */
-const ANCHORS = [3.3333,10,16.6667,23.3333,30,36.6667,43.3333,50,56.6667,63.3333,70,76.6667,83.3333,90,96.6667];
 document.addEventListener('DOMContentLoaded',()=>{
- const stage=document.querySelector('.history-stage'),tower=document.querySelector('.history-boxes'),events=[...document.querySelectorAll('.history-event')];
- const layout=()=>{if(!tower.naturalWidth)return;const h=tower.getBoundingClientRect().height;stage.style.height=h+'px';events.forEach((el,i)=>el.style.top=ANCHORS[i]+'%')};
- tower.addEventListener('load',layout);window.addEventListener('resize',layout);if(tower.complete)layout();
+ const events=[...document.querySelectorAll('.history-event')];
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  events.forEach((event,i)=>{
    const holder=event.querySelector('.flour-particles');
@@ -21,7 +16,5 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(art)tl.to(art,{scale:1,duration:.65,ease:'power2.out'},.4);
     ScrollTrigger.create({trigger:event,start:'top 78%',once:true,onEnter:()=>tl.play()});
   });
- }else if(!reduced){
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.1});events.forEach(e=>observer.observe(e));
  }
 });
