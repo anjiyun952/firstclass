@@ -1,7 +1,7 @@
 /* HISTORY — flour-dusted workbench inspired timeline, no pizza-box tower. */
-.history-intro{text-align:center;padding:130px 20px 85px;background:var(--background-default,#fffbf5)}
+.history-intro{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:42px;padding:55px 20px 92px;background:#fff}
 .history-eyebrow{font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--blue-primary,#0193e8)}
-.history-intro h1{font-family:"TT Commons Pro Mono",sans-serif;font-size:clamp(60px,10vw,130px);font-weight:700;line-height:1;letter-spacing:-.055em;margin:16px 0 18px}
+.history-intro h1{font-family:"TT Commons Pro Mono",sans-serif;font-size:clamp(60px,7vw,90px);font-weight:700;line-height:1;letter-spacing:-.045em;margin:0;color:var(--text-primary,#242424)}
 .history-intro>p:last-child{font-size:clamp(17px,2vw,24px);font-weight:600}
 .history-section{padding:110px 32px 160px;overflow:hidden;background-color:#e9dcc9;background-image:radial-gradient(ellipse at 20% 15%,rgba(255,250,238,.8),transparent 45%),radial-gradient(ellipse at 80% 62%,rgba(255,250,238,.48),transparent 48%),repeating-linear-gradient(6deg,transparent 0 22px,rgba(113,77,43,.025) 23px 24px,transparent 25px 65px)}
 .history-stage{width:min(1180px,100%);margin:auto}
@@ -40,3 +40,10 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-event.is-right .history-art{margin-left:auto}
 }
 @media(prefers-reduced-motion:reduce){.history-copy,.history-art,.flour-particle{animation:none!important;transition:none!important}}
+
+/* BRAND category selector — matches supplied reference. */
+.brand-tabs{display:flex;align-items:center;justify-content:space-between;gap:5px;background:#e8e8e8;border-radius:999px;padding:4px 7px;max-width:100%;min-height:36px}
+.brand-tab{display:flex;align-items:center;justify-content:center;padding:7px 15px;border-radius:999px;color:#666;font-size:13px;font-weight:500;white-space:nowrap;line-height:1.1;text-decoration:none}
+.brand-tab.is-active{background:var(--red-primary,#fe0000);color:#fff;font-weight:600}
+.brand-tab[aria-disabled="true"]{cursor:default}
+@media(max-width:767px){.history-intro{gap:32px;padding:55px 14px 65px}.history-intro h1{font-size:clamp(56px,13vw,76px)}.brand-tabs{gap:1px;padding:4px}.brand-tab{font-size:clamp(10px,2.7vw,13px);padding:7px clamp(7px,2vw,14px)}}
