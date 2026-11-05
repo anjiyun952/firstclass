@@ -92,3 +92,7 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 @media(max-width:767px){.history-event.is-left,.history-event.is-right{width:38%}}
 @media(max-width:480px){.history-event.is-left,.history-event.is-right{width:42%}}
 
+
+/* Keep the full PNG inside the timeline instead of cropping its outer bends. */
+.history-sauce{inset:0;margin:auto;width:58%;height:100%;object-fit:contain;object-position:center}
+.history-event.is-left,.history-event.is-right{width:var(--event-width,min(30%,360px));max-width:none}
