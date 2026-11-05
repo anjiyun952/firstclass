@@ -3,7 +3,10 @@
 .history-eyebrow{font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--blue-primary,#0193e8)}
 .history-intro .menu-page-title{margin:0 0 90px}
 .history-intro>p:last-child{font-size:clamp(17px,2vw,24px);font-weight:600}
-.history-section{padding:110px 32px 160px;overflow:hidden;background-color:#e9dcc9;background-image:radial-gradient(ellipse at 20% 15%,rgba(255,250,238,.8),transparent 45%),radial-gradient(ellipse at 80% 62%,rgba(255,250,238,.48),transparent 48%),repeating-linear-gradient(6deg,transparent 0 22px,rgba(113,77,43,.025) 23px 24px,transparent 25px 65px)}
+.history-section{position:relative;isolation:isolate;padding:110px 32px 160px;overflow:hidden;background:#fffbf5}
+/* Subtle flour dust, without wood grain, photography, or decorative props. */
+.history-section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(ellipse 28% 11% at 17% 9%,rgba(255,255,255,.96),transparent 100%),radial-gradient(ellipse 23% 9% at 83% 29%,rgba(255,255,255,.85),transparent 100%),radial-gradient(ellipse 31% 12% at 24% 57%,rgba(255,255,255,.9),transparent 100%),radial-gradient(ellipse 26% 10% at 77% 82%,rgba(255,255,255,.88),transparent 100%);opacity:.85}
+.history-section::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.92) 0 1px,transparent 1.8px),radial-gradient(circle,rgba(224,207,183,.2) 0 .65px,transparent 1.4px);background-size:61px 67px,97px 89px;background-position:11px 23px,43px 37px;opacity:.42;mask-image:radial-gradient(ellipse 42% 25% at 15% 16%,#000,transparent),radial-gradient(ellipse 36% 24% at 85% 44%,#000,transparent),radial-gradient(ellipse 42% 28% at 25% 74%,#000,transparent);mask-composite:add}
 .history-stage{width:min(1380px,100%);margin:auto}
 .history-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(100px,14vw,240px);row-gap:clamp(48px,6vw,95px);align-items:start}
 .history-event{position:relative;min-width:0}
