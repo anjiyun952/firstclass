@@ -15,30 +15,41 @@ document.addEventListener('DOMContentLoaded',()=>{
    const narrow=window.matchMedia('(max-width:480px)').matches;
    const points=events.map((event,i)=>{
      const r=event.getBoundingClientRect();
-     // Stay near the central corridor; gentle alternation suggests a hand-pulled sauce trail.
-     const x=width*(narrow?(i%2===0?.48:.52):(i%2===0?.46:.54));
-     return {x,y:r.top-box.top+r.height*.5};
+     return {y:r.top-box.top+r.height*.5};
    });
-   let d=`M ${points[0].x} ${Math.max(0,points[0].y-75)} L ${points[0].x} ${points[0].y}`;
-   for(let i=1;i<points.length;i++){
-     const a=points[i-1],b=points[i],dy=b.y-a.y;
-     d+=` C ${a.x} ${a.y+dy*.53}, ${b.x} ${b.y-dy*.53}, ${b.x} ${b.y}`;
+   // Wide, alternating S-turns, with slight variation so the sauce feels hand-pulled.
+   const center=width*.5;
+   const amplitude=narrow?width*.22:Math.min(width*.32,410);
+   const minX=narrow?width*.16:width*.12,maxX=width-minX;
+   const xAt=i=>Math.max(minX,Math.min(maxX,center+(i%2===0?-1:1)*amplitude*(i%3===0?.83:1)));
+   let d=`M ${center} ${Math.max(0,points[0].y-85)}`;
+   for(let i=0;i<points.length;i++){
+     const prevY=i===0?Math.max(0,points[0].y-85):points[i-1].y;
+     const y=points[i].y,dy=y-prevY;
+     const prevX=i===0?center:xAt(i-1),x=xAt(i);
+     d+=` C ${prevX} ${prevY+dy*.72}, ${x} ${y-dy*.72}, ${x} ${y}`;
    }
-   d+=` L ${points[points.length-1].x} ${Math.min(height,points[points.length-1].y+75)}`;
+   const last=points[points.length-1];
+   d+=` C ${xAt(points.length-1)} ${last.y+45}, ${center} ${Math.min(height,last.y+65)}, ${center} ${Math.min(height,last.y+90)}`;
    sauce.querySelectorAll('path').forEach(path=>path.setAttribute('d',d));
    const ink=sauce.querySelector('.history-sauce-line');
    const shadow=sauce.querySelector('.history-sauce-shadow');
+   const grain=sauce.querySelector('.history-sauce-grain');
+   const highlight=sauce.querySelector('.history-sauce-highlight');
    const length=ink.getTotalLength();
    [ink,shadow].forEach(path=>{path.style.strokeDasharray=length;path.style.strokeDashoffset=length});
+   [grain,highlight].forEach(path=>{path.style.strokeDasharray=length;path.style.strokeDashoffset=length});
    if(sauceTrigger){sauceTrigger.kill();sauceTrigger=null}
+   const showProgress=progress=>{
+     const offset=length*(1-progress);
+     ink.style.strokeDashoffset=offset;
+     shadow.style.strokeDashoffset=offset;
+     [grain,highlight].forEach(path=>{path.style.strokeDashoffset=offset});
+   };
    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&window.gsap&&window.ScrollTrigger){
-     gsap.set([ink,shadow],{strokeDashoffset:length});
-     sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>{
-       const offset=length*(1-self.progress);
-       ink.style.strokeDashoffset=offset;
-       shadow.style.strokeDashoffset=offset;
-     }});
-   }else{[ink,shadow].forEach(path=>path.style.strokeDashoffset=0)}
+     showProgress(0);
+     sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>showProgress(self.progress)});
+   }else{showProgress(1)}
  }
  const redraw=()=>{drawSauce();if(window.ScrollTrigger)ScrollTrigger.refresh()};
  window.addEventListener('load',redraw);
