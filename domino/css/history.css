@@ -68,3 +68,13 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-intro .brand-tab[aria-disabled="true"]{cursor:default}
 @media(max-width:960px){.history-intro{padding:72px 24px 75px}.history-intro .menu-page-title{margin-bottom:65px}}
 @media(max-width:767px){.history-intro{padding:60px 16px 65px}.history-intro .menu-page-title{margin-bottom:48px}.history-intro .menu-secondary-scroll{margin:0 -16px;padding:0 16px}.history-intro .brand-tab{font-size:15px;padding:9px 17px}}
+
+/* A concept: printed tomato-sauce ink trail behind the zigzag timeline. */
+.history-stage{position:relative;isolation:isolate}
+.history-events{position:relative;z-index:1}
+.history-sauce{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible;pointer-events:none}
+.history-sauce path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.history-sauce-shadow{stroke:#7e2918;stroke-width:15;opacity:.12}
+.history-sauce-line{stroke:#b63c27;stroke-width:9;opacity:.88}
+@media(max-width:767px){.history-sauce-shadow{stroke-width:11}.history-sauce-line{stroke-width:6}}
+@media(prefers-reduced-motion:reduce){.history-sauce-line{transition:none}}
