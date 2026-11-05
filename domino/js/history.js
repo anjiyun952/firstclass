@@ -9,7 +9,13 @@ document.addEventListener('DOMContentLoaded',()=>{
  let sauceTrigger;
  function layoutSauce(){
    if(!stage||!sauce||!sauce.naturalWidth||!sauce.naturalHeight)return;
-   const w=stage.clientWidth,h=stage.scrollHeight;
+   const w=stage.clientWidth;
+   const minGap=w<520?42:72;
+   const paddingY=w<520?36:72;
+   const totalCards=events.reduce((sum,event)=>sum+event.offsetHeight,0);
+   const targetHeight=totalCards+Math.max(0,events.length-1)*minGap+paddingY;
+   const h=Math.max(targetHeight,stage.clientHeight);
+   stage.style.height=h+'px';
    const iw=sauce.naturalWidth,ih=sauce.naturalHeight;
    // Match the image's actual rendered box and object-fit:contain dimensions.
    const stageRect=stage.getBoundingClientRect();
@@ -37,26 +43,38 @@ document.addEventListener('DOMContentLoaded',()=>{
      }
      return right<0?null:[offsetX+left*scale,offsetX+right*scale];
    };
-   events.forEach(event=>{
-     const rect=event.getBoundingClientRect();
-     const top=rect.top-stageRect.top;
-     const cardHeight=rect.height;
-     let left=w,right=0,found=false;
-     // Check the entire event height, including illustrations, not only its center.
-     for(let y=top;y<=top+cardHeight;y+=Math.max(8,cardHeight/18)){
-       const bounds=boundsAt(y);
-       if(bounds){left=Math.min(left,bounds[0]);right=Math.max(right,bounds[1]);found=true}
+   // Use the original event order and natural heights to build a non-overlapping
+   // vertical timeline; then place each card beside the full sauce silhouette.
+   const minVerticalGap=w<520?42:72;
+   const topInset=w<520?18:36;
+   const bottomInset=w<520?18:36;
+   const totalHeight=events.reduce((sum,event)=>sum+event.offsetHeight,0)
+     +minVerticalGap*(events.length-1)+topInset+bottomInset;
+   const naturalHeights=events.map(event=>event.offsetHeight);
+   const availableExtra=Math.max(0,h-totalHeight);
+   const extraGap=events.length>1?availableExtra/(events.length-1):0;
+   let y=topInset;
+   events.forEach((event,i)=>{
+     const cardHeight=naturalHeights[i];
+     const leftCandidates=[],rightCandidates=[];
+     for(let py=y;py<=y+cardHeight;py+=Math.max(5,cardHeight/24)){
+       const bounds=boundsAt(py);
+       if(bounds){leftCandidates.push(bounds[0]);rightCandidates.push(bounds[1]);}
      }
-     if(!found){left=right=w/2}
+     const left=leftCandidates.length?Math.min(...leftCandidates):w/2;
+     const right=rightCandidates.length?Math.max(...rightCandidates):w/2;
      const leftSpace=Math.max(0,left),rightSpace=Math.max(0,w-right);
      const placeLeft=leftSpace>=rightSpace;
      const space=placeLeft?leftSpace:rightSpace;
-     const gap=Math.min(preferredGap,Math.max(12,space*.18));
-     const cardWidth=Math.max(0,Math.min(w*.3,360,space-gap));
+     const idealWidth=Math.min(w<520?w*.38:w*.30,360);
+     const gap=Math.min(preferredGap,Math.max(12,space*.2));
+     const cardWidth=Math.max(0,Math.min(idealWidth,space-gap));
      const x=placeLeft?left-gap-cardWidth:right+gap;
+     event.style.setProperty('--event-y',y+'px');
      event.style.setProperty('--event-width',cardWidth+'px');
      event.style.setProperty('--event-x',Math.max(0,Math.min(w-cardWidth,x))+'px');
      event.style.setProperty('--event-align',placeLeft?'right':'left');
+     y+=cardHeight+minVerticalGap+extraGap;
    });
  }
  if(stage&&sauce){
