@@ -10,10 +10,18 @@
 .history-event{position:absolute;top:var(--anchor);width:19%;max-width:290px;transform:translateY(-50%);pointer-events:none}
 .history-event.is-left{left:0;text-align:right}.history-event.is-right{right:0;text-align:left}
 .history-copy{position:relative;display:inline-block;max-width:100%;opacity:1}
-.history-year{display:block;font-family:"TT Commons Pro Mono",sans-serif;font-size:clamp(27px,3vw,48px);font-weight:700;color:var(--red-primary,#fe0000);line-height:1.05;margin-bottom:10px}
+.history-year{display:block;width:max-content;max-width:100%;font-family:"TT Commons Pro Mono",Impact,sans-serif;font-size:clamp(27px,3vw,48px);font-weight:700;color:var(--neutral-deep-cream,#D2B391);line-height:1.05;letter-spacing:-.035em;margin-bottom:10px;
+  /* Tiny irregular ink gaps cut through the numeral shapes, not a stamp border. */
+  -webkit-mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),radial-gradient(circle at 74% 61%,transparent 0 1px,#000 1.6px),radial-gradient(circle at 41% 82%,transparent 0 .55px,#000 1.15px);
+  -webkit-mask-size:13px 17px,19px 23px,11px 29px;
+  -webkit-mask-composite:source-in;
+  mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),radial-gradient(circle at 74% 61%,transparent 0 1px,#000 1.6px),radial-gradient(circle at 41% 82%,transparent 0 .55px,#000 1.15px);
+  mask-size:13px 17px,19px 23px,11px 29px;
+  mask-composite:intersect;
+}
 .history-copy h2{font-size:clamp(17px,1.65vw,26px);font-weight:700;line-height:1.4;word-break:keep-all}
 /* Major events retain the stronger red year and dark heading; ordinary events recede. */
-.history-event:not(.is-featured) .history-year{color:var(--text-secondary,#666666);font-size:clamp(22px,2.15vw,34px)}
+
 .history-event:not(.is-featured) .history-copy h2{color:var(--text-secondary,#666666);font-size:clamp(15px,1.3vw,20px);font-weight:500}
 .history-art{display:block;max-width:min(100%,235px);max-height:150px;object-fit:contain;margin-top:18px}
 .is-left .history-art{margin-left:auto}.is-right .history-art{margin-right:auto}
@@ -25,9 +33,13 @@
 .history-event,.history-event.is-left,.history-event.is-right{left:61%;right:auto;width:38%;text-align:left}
 .history-year{font-size:clamp(20px,5vw,30px);margin-bottom:4px}
 .history-copy h2{font-size:clamp(12px,3.5vw,17px)}
-.history-event:not(.is-featured) .history-year{font-size:clamp(17px,4vw,23px)}
+
 .history-event:not(.is-featured) .history-copy h2{font-size:clamp(11px,3vw,14px)}
 .history-art{max-width:125px;max-height:110px;margin:8px 0 0!important}
 .flour-particles{inset:-12px}
 }
 @media(prefers-reduced-motion:reduce){.history-copy,.history-art,.flour-particle{animation:none!important;transition:none!important}}
+
+/* The year stamp is identical for major and ordinary milestones. */
+.history-event.is-left .history-year{margin-left:auto}
+@media(max-width:767px){.history-event.is-left .history-year{margin-left:0}.history-year{font-size:clamp(20px,5vw,30px)}}
