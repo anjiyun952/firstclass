@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    if(!stage||!sauce||!sauce.naturalWidth||!sauce.naturalHeight)return;
    const w=stage.clientWidth,h=stage.scrollHeight;
    const iw=sauce.naturalWidth,ih=sauce.naturalHeight;
-   const scale=Math.min(w/iw,h/ih);
+   const scale=Math.min(w/iw,h/ih)*1.5;
    const paintedWidth=iw*scale,paintedHeight=ih*scale;
    const offsetX=(w-paintedWidth)/2,offsetY=(h-paintedHeight)/2;
    const gap=w<520?28:80;
