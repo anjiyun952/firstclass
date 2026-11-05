@@ -3,6 +3,48 @@ document.addEventListener('DOMContentLoaded',()=>{
  const brandBar=document.querySelector('.history-intro .brand-tabs');
  if(brandBar){const active=brandBar.querySelector('.brand-tab.is-active'),indicator=brandBar.querySelector('.menu-tab-indicator');const place=()=>{if(active&&indicator){indicator.style.width=active.offsetWidth+'px';indicator.style.transform='translateX('+active.offsetLeft+'px)'}};place();window.addEventListener('resize',place);if(document.fonts)document.fonts.ready.then(place);}
 
+ // Draw one continuous, curved sauce line in the empty corridor between events.
+ const sauce=document.querySelector('.history-sauce');
+ const stage=document.querySelector('.history-stage');
+ let sauceTrigger;
+ function drawSauce(){
+   if(!sauce||!stage||events.length<2)return;
+   const box=stage.getBoundingClientRect();
+   const width=stage.clientWidth,height=stage.scrollHeight;
+   sauce.setAttribute('viewBox',`0 0 ${width} ${height}`);
+   const narrow=window.matchMedia('(max-width:480px)').matches;
+   const points=events.map((event,i)=>{
+     const r=event.getBoundingClientRect();
+     // Stay near the central corridor; gentle alternation suggests a hand-pulled sauce trail.
+     const x=width*(narrow?(i%2===0?.48:.52):(i%2===0?.46:.54));
+     return {x,y:r.top-box.top+r.height*.5};
+   });
+   let d=`M ${points[0].x} ${Math.max(0,points[0].y-75)} L ${points[0].x} ${points[0].y}`;
+   for(let i=1;i<points.length;i++){
+     const a=points[i-1],b=points[i],dy=b.y-a.y;
+     d+=` C ${a.x} ${a.y+dy*.53}, ${b.x} ${b.y-dy*.53}, ${b.x} ${b.y}`;
+   }
+   d+=` L ${points[points.length-1].x} ${Math.min(height,points[points.length-1].y+75)}`;
+   sauce.querySelectorAll('path').forEach(path=>path.setAttribute('d',d));
+   const ink=sauce.querySelector('.history-sauce-line');
+   const shadow=sauce.querySelector('.history-sauce-shadow');
+   const length=ink.getTotalLength();
+   [ink,shadow].forEach(path=>{path.style.strokeDasharray=length;path.style.strokeDashoffset=length});
+   if(sauceTrigger){sauceTrigger.kill();sauceTrigger=null}
+   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&window.gsap&&window.ScrollTrigger){
+     gsap.set([ink,shadow],{strokeDashoffset:length});
+     sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>{
+       const offset=length*(1-self.progress);
+       ink.style.strokeDashoffset=offset;
+       shadow.style.strokeDashoffset=offset;
+     }});
+   }else{[ink,shadow].forEach(path=>path.style.strokeDashoffset=0)}
+ }
+ const redraw=()=>{drawSauce();if(window.ScrollTrigger)ScrollTrigger.refresh()};
+ window.addEventListener('load',redraw);
+ window.addEventListener('resize',redraw);
+ if(document.fonts)document.fonts.ready.then(redraw);
+ drawSauce();
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  events.forEach((event,i)=>{
    const holder=event.querySelector('.flour-particles');
