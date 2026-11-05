@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    const paintedWidth=iw*scale,paintedHeight=ih*scale;
    const offsetX=imageRect.left-stageRect.left+(imageRect.width-paintedWidth)/2;
    const offsetY=imageRect.top-stageRect.top+(imageRect.height-paintedHeight)/2;
-   const gap=w<520?28:80;
+   const preferredGap=w<520?28:80;
    const canvas=document.createElement('canvas');
    canvas.width=iw;canvas.height=ih;
    const ctx=canvas.getContext('2d',{willReadFrequently:true});
@@ -29,20 +29,25 @@ document.addEventListener('DOMContentLoaded',()=>{
    events.forEach(event=>{
      const rect=event.getBoundingClientRect();
      const cy=rect.top-stageRect.top+rect.height*.5;
-     const imageY=Math.max(0,Math.min(ih-1,Math.round((cy-offsetY)/scale)));
+     const imageY=Math.round((cy-offsetY)/scale);
+     if(imageY<0||imageY>=ih)return;
      let left=iw,right=-1;
-     for(let yy=Math.max(0,imageY-3);yy<=Math.min(ih-1,imageY+3);yy++){
+     // Use a broad band to include irregular, distressed edges.
+     for(let yy=Math.max(0,imageY-5);yy<=Math.min(ih-1,imageY+5);yy++){
        for(let x=0;x<iw;x+=2){
-         if(pixels[(yy*iw+x)*4+3]>90){left=Math.min(left,x);right=Math.max(right,x)}
+         if(pixels[(yy*iw+x)*4+3]>45){left=Math.min(left,x);right=Math.max(right,x)}
        }
      }
      if(right<0){left=right=iw/2}
      const sauceLeft=offsetX+left*scale,sauceRight=offsetX+right*scale;
      const itemWidth=event.offsetWidth;
-     const placeLeft=sauceLeft-gap>=w-sauceRight-gap;
-     let x=placeLeft?sauceLeft-gap-itemWidth:sauceRight+gap;
-     x=Math.max(0,Math.min(w-itemWidth,x));
-     event.style.setProperty('--event-x',x+'px');
+     const availableLeft=sauceLeft-itemWidth,availableRight=w-sauceRight-itemWidth;
+     const placeLeft=availableLeft>=availableRight;
+     const available=placeLeft?availableLeft:availableRight;
+     // Prefer the full gap; if space is limited, never overlap the sauce.
+     const gap=Math.max(0,Math.min(preferredGap,available));
+     const x=placeLeft?sauceLeft-gap-itemWidth:sauceRight+gap;
+     event.style.setProperty('--event-x',Math.max(0,Math.min(w-itemWidth,x))+'px');
      event.style.setProperty('--event-align',placeLeft?'right':'left');
    });
  }
