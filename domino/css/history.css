@@ -5,21 +5,21 @@
 .history-intro>p:last-child{font-size:clamp(17px,2vw,24px);font-weight:600}
 .history-section{background:var(--background-default,#fffbf5);overflow:hidden;padding:0 24px 110px}
 .history-stage{position:relative;width:min(1200px,100%);margin:auto;min-height:1100px}
-.history-boxes{display:block;width:35%;height:auto;margin:0 auto;position:relative;z-index:1}
+.history-boxes{display:block;width:45.5%;height:auto;margin:0 auto;position:relative;z-index:1}
 .history-events{position:absolute;inset:0;z-index:2;pointer-events:none}
 .history-event{position:absolute;top:var(--anchor);width:calc(32.5% - 12px);transform:translateY(-50%);pointer-events:none}
 .history-event.is-left{left:0;text-align:right}.history-event.is-right{right:0;text-align:left}
 .history-copy{position:relative;display:inline-block;max-width:100%;opacity:1}
 .history-year{display:block;font-family:"TT Commons Pro Mono",sans-serif;font-size:clamp(27px,3vw,48px);font-weight:700;color:var(--red-primary,#fe0000);line-height:1.05;margin-bottom:10px}
 .history-copy h2{font-size:clamp(17px,1.65vw,26px);font-weight:700;line-height:1.4;word-break:keep-all}
-.history-art{display:block;max-width:min(100%,285px);max-height:230px;object-fit:contain;margin-top:18px}
+.history-art{display:block;max-width:min(100%,235px);max-height:150px;object-fit:contain;margin-top:18px}
 .is-left .history-art{margin-left:auto}.is-right .history-art{margin-right:auto}
 .flour-particles{position:absolute;inset:-24px;pointer-events:none;z-index:3}
 .flour-particle{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:var(--neutral-deep-cream,#d2b391);opacity:0;filter:blur(var(--blur))}
 @media(max-width:767px){
 .history-intro{padding:90px 16px 60px}.history-section{padding:0 12px 80px}
-.history-stage{width:100%}.history-boxes{width:43%;margin-left:0}
-.history-event,.history-event.is-left,.history-event.is-right{left:48%;right:auto;width:51%;text-align:left}
+.history-stage{width:100%}.history-boxes{width:55.9%;margin-left:0}
+.history-event,.history-event.is-left,.history-event.is-right{left:59%;right:auto;width:40%;text-align:left}
 .history-year{font-size:clamp(20px,5vw,30px);margin-bottom:4px}
 .history-copy h2{font-size:clamp(12px,3.5vw,17px)}
 .history-art{max-width:125px;max-height:110px;margin:8px 0 0!important}
