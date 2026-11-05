@@ -29,14 +29,14 @@
 .history-event.is-left{grid-column:1;text-align:right;justify-self:start}
 .history-event.is-right{grid-column:2;text-align:left;justify-self:end}
 .history-copy{position:relative;display:inline-block;max-width:100%}
-.history-year{display:block;width:max-content;max-width:100%;font-family:"TT Commons Pro Mono",Impact,sans-serif;font-size:clamp(42px,5vw,76px);font-weight:700;line-height:1.05;letter-spacing:-.035em;color:#663605;margin-bottom:16px;
+.history-year{display:block;max-width:100%;font-family:"TT Commons Pro Mono",Impact,sans-serif;font-size:clamp(42px,5vw,76px);font-weight:700;line-height:1.05;letter-spacing:-.035em;color:#663605;margin-bottom:16px;
 -webkit-mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),radial-gradient(circle at 74% 61%,transparent 0 1px,#000 1.6px),radial-gradient(circle at 41% 82%,transparent 0 .55px,#000 1.15px);
 -webkit-mask-size:13px 17px,19px 23px,11px 29px;-webkit-mask-composite:source-in;
 mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),radial-gradient(circle at 74% 61%,transparent 0 1px,#000 1.6px),radial-gradient(circle at 41% 82%,transparent 0 .55px,#000 1.15px);mask-size:13px 17px,19px 23px,11px 29px;mask-composite:intersect}
 .history-event.is-left .history-year{margin-left:auto}
 .history-copy h2{font-size:clamp(21px,2vw,29px);font-weight:700;line-height:1.45;word-break:keep-all;color:var(--text-primary,#242424)}
 .history-event:not(.is-featured) .history-copy h2{font-size:clamp(16px,1.45vw,21px);font-weight:500;color:var(--text-secondary,#666)}
-.history-art{display:block;max-width:min(100%,280px);max-height:210px;object-fit:contain;margin-top:22px}
+.history-art{display:block;width:auto;max-width:none;max-height:210px;object-fit:contain;margin-top:22px}
 .is-left .history-art{margin-left:auto;margin-right:0}.is-right .history-art{margin-right:auto}
 .flour-particles{position:absolute;inset:-24px;pointer-events:none;z-index:3}
 .flour-particle{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:#fff9ec;opacity:0;filter:blur(var(--blur))}
