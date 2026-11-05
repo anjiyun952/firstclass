@@ -74,3 +74,13 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-events{position:relative;z-index:1}
 .history-sauce{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;object-fit:fill;clip-path:inset(0 0 100% 0);will-change:clip-path}
 @media(prefers-reduced-motion:reduce){.history-sauce{clip-path:none;will-change:auto}}}
+
+/* Position each milestone in relation to the sauce rather than alternating grid columns. */
+.history-events{grid-template-columns:minmax(0,1fr)}
+.history-event.is-left,.history-event.is-right{grid-column:1;justify-self:stretch;width:min(36%,390px);max-width:none;box-sizing:border-box;text-align:var(--event-align,left);margin-left:var(--event-x,0px)}
+.history-event .history-year{margin-left:0;margin-right:0}
+.history-event[style*="--event-align: right"] .history-year{margin-left:auto;margin-right:0}
+.history-event[style*="--event-align: right"] .history-art{margin-left:auto;margin-right:0}
+.history-event[style*="--event-align: left"] .history-art{margin-left:0;margin-right:auto}
+@media(max-width:767px){.history-event.is-left,.history-event.is-right{width:42%}}
+@media(max-width:480px){.history-event.is-left,.history-event.is-right{width:46%}}
