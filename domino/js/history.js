@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded',()=>{
  const events=[...document.querySelectorAll('.history-event')];
+ const brandBar=document.querySelector('.history-intro .brand-tabs');
+ if(brandBar){const active=brandBar.querySelector('.brand-tab.is-active'),indicator=brandBar.querySelector('.menu-tab-indicator');const place=()=>{if(active&&indicator){indicator.style.width=active.offsetWidth+'px';indicator.style.transform='translateX('+active.offsetLeft+'px)'}};place();window.addEventListener('resize',place);if(document.fonts)document.fonts.ready.then(place);}
+
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  events.forEach((event,i)=>{
    const holder=event.querySelector('.flour-particles');
