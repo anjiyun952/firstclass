@@ -27,8 +27,8 @@
         for (const label of submenus[category]) {
             const link = document.createElement('a');
             link.textContent = label;
-            link.href = '#'; // Destinations not yet supplied.
-            link.addEventListener('click', event => event.preventDefault());
+            link.href = category === 'BRAND' && label === '역사' ? 'history.html' : '#'; // Link implemented destinations.
+            if (link.getAttribute('href') === '#') link.addEventListener('click', event => event.preventDefault());
             group.appendChild(link);
         }
         inner.appendChild(group);
@@ -62,13 +62,14 @@
         const isStore = trigger.textContent.trim() === 'STORE';
         const isMenu = trigger.textContent.trim() === 'MENU';
         const isEvent = trigger.textContent.trim() === 'EVENT';
+        const isBrand = trigger.textContent.trim() === 'BRAND';
         trigger.addEventListener('mouseenter', () => setOpen(!isStore));
         trigger.addEventListener('focus', () => setOpen(!isStore));
         // Touch and keyboard users can still toggle the menu by tapping.
         trigger.addEventListener('click', event => {
-            if (isStore || isMenu || isEvent) {
+            if (isStore || isMenu || isEvent || isBrand) {
                 setOpen(false);
-                return; // MENU and EVENT navigate to their pages; STORE keeps its existing link.
+                return; // Main navigation links, including BRAND, navigate to their pages.
             }
             event.preventDefault();
             if (window.matchMedia('(hover: none)').matches) setOpen(!open);
