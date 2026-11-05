@@ -52,3 +52,12 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-event[style*="--event-align: right"] .history-art{margin-left:auto;margin-right:0}
 .history-event[style*="--event-align: left"] .history-art{margin-left:0;margin-right:auto}
 @media(prefers-reduced-motion:reduce){.history-sauce{clip-path:none;will-change:auto}}
+
+/* Gentle hover emphasis for each timeline milestone, without changing layout. */
+@media (hover:hover) and (pointer:fine){
+ .history-event .history-copy{transition:scale .3s ease;transform-origin:center center}
+ .history-event:hover .history-copy{scale:1.045}
+}
+@media(prefers-reduced-motion:reduce){
+ .history-event .history-copy{transition:none}
+}
