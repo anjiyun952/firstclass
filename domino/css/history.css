@@ -86,4 +86,4 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 @media(max-width:480px){.history-event.is-left,.history-event.is-right{width:46%}}
 
 /* Enlarge the final sauce artwork without distorting its proportions. */
-.history-sauce{width:150%;height:150%;left:-25%;top:-25%;right:auto;bottom:auto;inset:auto;object-fit:contain}
+.history-sauce{inset:auto;left:-40%;top:-40%;width:180%;height:180%;object-fit:contain}
