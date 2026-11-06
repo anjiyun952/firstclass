@@ -111,3 +111,7 @@ body.benefit-modal-open{overflow:hidden}
 /* Dividers between partnership types; no line above the first group. */
 #coupon-benefit .benefit-group + .benefit-group{border-top:1px solid var(--neutral-200);padding-top:80px}
 @media(max-width:767px){#coupon-benefit .benefit-group + .benefit-group{padding-top:56px}}
+
+/* Match category dividers between the four banners and telecom cards. */
+#coupon-benefit > .telecom-banners + .benefit-group{border-top:1px solid var(--neutral-200);padding-top:80px}
+@media(max-width:767px){#coupon-benefit > .telecom-banners + .benefit-group{padding-top:56px}}
