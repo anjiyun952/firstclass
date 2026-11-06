@@ -60,6 +60,10 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 }
 @media(prefers-reduced-motion:reduce){.history-event{transition:none}}
 
-/* Simple closing statement, without imagery or decoration. */
+/* Figma node 93:1471: 28px caption, 18px gap, 96px DOMINO’S wordmark. */
 .history-ending{background:#fffbf5;padding:clamp(110px,13vw,190px) 20px;text-align:center}
-.history-ending-title{margin:0;color:#663605;font-size:clamp(26px,3.5vw,52px);font-weight:700;line-height:1.5;letter-spacing:-.035em;word-break:keep-all}
+.history-ending-inner{display:flex;flex-direction:column;align-items:center;gap:18px}
+.history-ending-caption{margin:0;color:#666;font-family:"Pretendard Variable",Pretendard,sans-serif;font-size:28px;font-weight:600;line-height:1;letter-spacing:-.84px;word-break:keep-all}
+.history-ending-title{display:flex;justify-content:center;align-items:center;margin:0;color:#0193e8;font-family:"TT Commons Pro Mono", "TT Commons Pro Mono Trial",monospace;font-size:96px;font-weight:700;line-height:1;letter-spacing:-2.88px;white-space:nowrap}
+.history-ending-title span:not(:last-child){margin-right:-10px}
+@media(max-width:767px){.history-ending{padding:100px 16px}.history-ending-caption{font-size:clamp(16px,3.6vw,28px);letter-spacing:-.03em}.history-ending-title{font-size:clamp(48px,12vw,96px);letter-spacing:-.03em}.history-ending-title span:not(:last-child){margin-right:clamp(-10px,-1.25vw,-4px)}}
