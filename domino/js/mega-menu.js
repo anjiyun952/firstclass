@@ -63,11 +63,12 @@
         const isMenu = trigger.textContent.trim() === 'MENU';
         const isEvent = trigger.textContent.trim() === 'EVENT';
         const isBrand = trigger.textContent.trim() === 'BRAND';
+        const isCoupon = trigger.textContent.trim() === 'COUPON';
         trigger.addEventListener('mouseenter', () => setOpen(!isStore));
         trigger.addEventListener('focus', () => setOpen(!isStore));
         // Touch and keyboard users can still toggle the menu by tapping.
         trigger.addEventListener('click', event => {
-            if (isStore || isMenu || isEvent || isBrand) {
+            if (isStore || isMenu || isEvent || isBrand || isCoupon) {
                 setOpen(false);
                 return; // Main navigation links, including BRAND, navigate to their pages.
             }
