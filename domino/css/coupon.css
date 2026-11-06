@@ -85,3 +85,9 @@ body.benefit-modal-open{overflow:hidden}
 #coupon-benefit .benefit-group .coupon-grid{margin-top:0}
 #coupon-benefit .telecom-banners{margin-top:72px}
 @media(max-width:767px){.coupon-page .event-section-title{margin-bottom:28px;font-size:28px}#coupon-benefit{margin-top:80px}#coupon-benefit .benefit-group{margin-bottom:72px}#coupon-benefit .benefit-group-title{margin-bottom:24px;font-size:22px}#coupon-benefit .telecom-banners{margin-top:48px}}
+
+/* Restore top-level EVENT tabs; only partnership subcategories are merged. */
+#coupon-benefit{margin-top:0}
+#coupon-benefit .benefit-group:first-child{margin-top:80px}
+#coupon-event .event-banners{margin-top:80px}
+@media(max-width:767px){#coupon-benefit .benefit-group:first-child{margin-top:56px}#coupon-event .event-banners{margin-top:56px}}
