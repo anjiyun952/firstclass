@@ -104,3 +104,6 @@ body.benefit-modal-open{overflow:hidden}
 
 /* Use the existing arrow SVG as a mask so its color follows text/primary. */
 #coupon-benefit .coupon-card-arrow{background-color:var(--text-primary);-webkit-mask:url('../images/small_arrow_right_icon.svg') center / contain no-repeat;mask:url('../images/small_arrow_right_icon.svg') center / contain no-repeat;object-position:-9999px}
+
+/* Partnership card artwork: 1/1.4 of previous dimensions, centered. */
+#coupon-benefit .coupon-card-visual{width:71.4286%;margin-inline:auto}
