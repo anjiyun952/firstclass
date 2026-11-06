@@ -122,3 +122,10 @@ body.benefit-modal-open{overflow:hidden}
 #coupon-event .event-more-button:focus-visible{outline:3px solid var(--text-primary);outline-offset:4px}
 #coupon-event .event-more-button[hidden]{display:none!important}
 @media(max-width:767px){#coupon-event .event-more-button{margin-top:36px;padding:12px 30px;font-size:15px}}
+
+/* Match the main page BEST MENU pill CTA; retain the plus icon for More. */
+#coupon-event .event-more-button{gap:9px;box-sizing:border-box;padding:10px 26px;border:2px solid var(--neutral-200);border-radius:999px;background:var(--background-white);color:var(--text-secondary);font-size:20px;font-weight:500;line-height:1.5;transform:none}
+#coupon-event .event-more-button span{font-size:24px;line-height:1}
+#coupon-event .event-more-button:hover{border-color:var(--blue-primary);color:var(--blue-dark);transform:none}
+#coupon-event .event-more-button:focus-visible{outline:3px solid var(--blue-dark);outline-offset:3px}
+@media(max-width:767px){#coupon-event .event-more-button{padding:10px 26px;font-size:20px}}
