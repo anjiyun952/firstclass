@@ -60,10 +60,6 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 }
 @media(prefers-reduced-motion:reduce){.history-event{transition:none}}
 
-/* HISTORY ending: use the same page background and a cropped real menu photo. */
-.history-ending{position:relative;overflow:hidden;background:#fffbf5;min-height:clamp(510px,54vw,800px);padding:clamp(90px,10vw,160px) 20px 0;text-align:center;isolation:isolate}
-.history-ending-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto}
-.history-ending-title{margin:0;color:#663605;font-size:clamp(30px,4.3vw,68px);font-weight:700;line-height:1.4;letter-spacing:-.045em;word-break:keep-all}
-.history-ending-title span{display:block;color:#c82e26}
-.history-ending-pizza{position:absolute;z-index:0;display:block;width:clamp(480px,75vw,1100px);height:auto;max-width:none;left:50%;bottom:0;transform:translate(-50%,50%);pointer-events:none}
-@media(max-width:767px){.history-ending{min-height:clamp(430px,115vw,610px);padding:90px 18px 0}.history-ending-pizza{width:clamp(420px,115vw,740px)}}
+/* Simple closing statement, without imagery or decoration. */
+.history-ending{background:#fffbf5;padding:clamp(110px,13vw,190px) 20px;text-align:center}
+.history-ending-title{margin:0;color:#663605;font-size:clamp(26px,3.5vw,52px);font-weight:700;line-height:1.5;letter-spacing:-.035em;word-break:keep-all}
