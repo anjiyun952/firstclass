@@ -115,3 +115,10 @@ body.benefit-modal-open{overflow:hidden}
 /* Match category dividers between the four banners and telecom cards. */
 #coupon-benefit > .telecom-banners + .benefit-group{border-top:1px solid var(--neutral-200);padding-top:80px}
 @media(max-width:767px){#coupon-benefit > .telecom-banners + .benefit-group{padding-top:56px}}
+
+/* EVENT: reveal temporary extra banners on demand. */
+#coupon-event .event-more-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;margin:56px auto 0;padding:16px 40px;border:1px solid var(--neutral-200);border-radius:999px;background:transparent;color:var(--text-primary);font:inherit;font-size:18px;cursor:pointer;transition:border-color .2s ease,transform .2s ease}
+#coupon-event .event-more-button:hover{border-color:var(--text-primary);transform:translateY(-2px)}
+#coupon-event .event-more-button:focus-visible{outline:3px solid var(--text-primary);outline-offset:4px}
+#coupon-event .event-more-button[hidden]{display:none!important}
+@media(max-width:767px){#coupon-event .event-more-button{margin-top:36px;padding:12px 30px;font-size:15px}}
