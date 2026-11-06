@@ -97,3 +97,7 @@ body.benefit-modal-open{overflow:hidden}
 #coupon-benefit > .telecom-banners .telecom-banners-divider{display:none}
 #coupon-benefit .benefit-group:first-of-type{margin-top:0}
 @media(max-width:767px){#coupon-benefit > .telecom-banners{margin:56px auto 64px}}
+
+/* Center partnership card names and descriptions within each card. */
+#coupon-benefit .coupon-card-info{width:100%;box-sizing:border-box;text-align:center}
+#coupon-benefit .coupon-card-description{width:100%;text-align:center}
