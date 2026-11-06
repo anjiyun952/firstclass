@@ -8,7 +8,7 @@
         MENU: ['피자', '사이드', '세트', '음료·기타'],
         EVENT: ['이벤트', '할인·제휴 혜택'],
         BRAND: ['도미노피자 소개', '역사', '도미노뉴스', '사회공헌'],
-        STORE: [],
+        STORE: ['매장 찾기'],
         COUPON: ['e-쿠폰', '상품권 구매', '이용 안내']
     };
     const triggers = [...nav.querySelectorAll('a')].filter(a => categories.includes(a.textContent.trim()));
@@ -20,7 +20,7 @@
     const groups = new Map();
 
     for (const category of categories) {
-        if (!submenus[category].length) continue; // STORE has no submenu.
+        if (!submenus[category].length) continue;
         const group = document.createElement('div');
         group.className = 'mega-menu-group';
         group.setAttribute('aria-label', category + ' 하위 메뉴');
@@ -31,7 +31,8 @@
                 MENU: ['menu.html?category=피자', 'menu.html?category=사이드', 'menu.html?category=세트', 'menu.html?category=음료·기타'],
                 EVENT: ['event.html?category=이벤트', 'event.html?category=할인·제휴 혜택'],
                 BRAND: ['history.html?category=도미노피자 소개', 'history.html?category=역사', 'history.html?category=도미노뉴스', 'history.html?category=사회공헌'],
-                COUPON: ['coupon.html?category=e-쿠폰', 'coupon.html?category=상품권', 'coupon.html?category=이용 안내']
+                COUPON: ['coupon.html?category=e-쿠폰', 'coupon.html?category=상품권', 'coupon.html?category=이용 안내'],
+                STORE: ['store.html']
             };
             link.href = destinations[category][submenus[category].indexOf(label)];
             group.appendChild(link);
@@ -69,8 +70,8 @@
         const isEvent = trigger.textContent.trim() === 'EVENT';
         const isBrand = trigger.textContent.trim() === 'BRAND';
         const isCoupon = trigger.textContent.trim() === 'COUPON';
-        trigger.addEventListener('mouseenter', () => setOpen(!isStore));
-        trigger.addEventListener('focus', () => setOpen(!isStore));
+        trigger.addEventListener('mouseenter', () => setOpen(true));
+        trigger.addEventListener('focus', () => setOpen(true));
         // Touch and keyboard users can still toggle the menu by tapping.
         trigger.addEventListener('click', event => {
             if (isStore || isMenu || isEvent || isBrand || isCoupon) {
