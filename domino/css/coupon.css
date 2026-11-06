@@ -101,3 +101,6 @@ body.benefit-modal-open{overflow:hidden}
 /* Center partnership card names and descriptions within each card. */
 #coupon-benefit .coupon-card-info{width:100%;box-sizing:border-box;text-align:center}
 #coupon-benefit .coupon-card-description{width:100%;text-align:center}
+
+/* Use the existing arrow SVG as a mask so its color follows text/primary. */
+#coupon-benefit .coupon-card-arrow{background-color:var(--text-primary);-webkit-mask:url('../images/small_arrow_right_icon.svg') center / contain no-repeat;mask:url('../images/small_arrow_right_icon.svg') center / contain no-repeat;object-position:-9999px}
