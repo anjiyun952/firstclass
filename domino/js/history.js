@@ -149,15 +149,6 @@ document.addEventListener('DOMContentLoaded',()=>{
    }
  }
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
- // Reveal the final brand message only when it enters the viewport.
- const ending=document.querySelector('.history-ending-inner');
- if(ending && !reduced && window.gsap && window.ScrollTrigger){
-   gsap.from(ending.children,{autoAlpha:0,y:28,duration:1,ease:'power2.out',stagger:.18,scrollTrigger:{trigger:ending,start:'top 82%',once:true}});
- }
- events.forEach((event,i)=>{
-   const holder=event.querySelector('.flour-particles');
-   if(!reduced){const count=event.classList.contains('is-featured')?30:20;for(let j=0;j<count;j++){const dot=document.createElement('i');dot.className='flour-particle';const seed=(j*37+i*19)%101;dot.style.setProperty('--x',(seed%90+5)+'%');dot.style.setProperty('--y',((j*23+i*11)%90+5)+'%');dot.style.setProperty('--size',(1+(j%4))+'px');dot.style.setProperty('--blur',(j%5===0?1:0)+'px');holder.append(dot)}}
- });
  if(!reduced&&window.gsap&&window.ScrollTrigger){
   gsap.registerPlugin(ScrollTrigger);
   events.forEach(event=>{
