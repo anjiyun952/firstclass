@@ -68,3 +68,12 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 .history-ending-title span{display:block;color:#c82e26}
 .history-ending-rule{display:block;width:72px;height:3px;margin:0 auto 26px;background:#c82e26;border-radius:999px}
 @media(max-width:767px){.history-ending{padding:100px 20px 130px}.history-ending-title{margin:26px 0 30px}}
+
+/* BRAND category panels reuse the MENU sliding indicator and tab behavior. */
+.history-intro .brand-tab{cursor:pointer}
+.history-intro .brand-tab:focus-visible{outline:2px solid var(--blue-primary,#0193e8);outline-offset:3px}
+.brand-content-panel[hidden]{display:none!important}
+.brand-placeholder{min-height:360px;padding:110px 24px 150px;text-align:center;background:var(--background-white)}
+.brand-placeholder h2{font-size:clamp(26px,3vw,42px);font-weight:700;margin:0 0 24px}
+.brand-placeholder p{font-size:clamp(15px,1.5vw,19px);color:var(--text-secondary)}
+@media(max-width:767px){.brand-placeholder{min-height:300px;padding:85px 20px 110px}}
