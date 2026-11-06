@@ -4,6 +4,17 @@
         '피자': { wrap: document.querySelector('.menu-secondary-scroll:not(#side-tabs-wrap)'), panel: document.getElementById('pizza-products') },
         '사이드': { wrap: document.getElementById('side-tabs-wrap'), panel: document.getElementById('side-products') }
     };
+    // Categories without product data still need their own empty panel.
+    for (const name of ['세트', '음료·기타']) {
+        const panel = document.createElement('div');
+        panel.className = 'menu-product-grid';
+        panel.hidden = true;
+        panel.setAttribute('role', 'region');
+        panel.setAttribute('aria-label', name);
+        panel.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:80px 16px;">상품을 준비 중입니다.</p>';
+        document.getElementById('pizza-products').insertAdjacentElement('afterend', panel);
+        sections[name] = { wrap: null, panel };
+    }
     let activePrimary = '피자';
 
     function position(section) {
@@ -64,7 +75,7 @@
             else p.removeAttribute('aria-current');
         });
         Object.entries(sections).forEach(([name, section]) => {
-            section.wrap.hidden = name !== activePrimary;
+            if (section.wrap) section.wrap.hidden = name !== activePrimary;
             section.panel.hidden = name !== activePrimary;
         });
         requestAnimationFrame(() => position(sections[activePrimary]));
