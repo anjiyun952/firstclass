@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded',()=>{
        e.preventDefault();tabs[next].focus();activate(tabs[next]);
      });
    });
+   const requested=new URLSearchParams(location.search).get('category');
+   const target=tabs.find(t=>t.textContent.trim()===requested);
+   if(target)activate(target);
    place();window.addEventListener('resize',place);
    if(document.fonts)document.fonts.ready.then(place);
  }
