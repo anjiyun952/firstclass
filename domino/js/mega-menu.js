@@ -27,7 +27,7 @@
         for (const label of submenus[category]) {
             const link = document.createElement('a');
             link.textContent = label;
-            link.href = category === 'BRAND' && label === '역사' ? 'history.html' : '#'; // Link implemented destinations.
+            link.href = category === 'COUPON' ? 'coupon.html' : category === 'BRAND' ? 'history.html' : '#'; // Link implemented destinations.
             if (link.getAttribute('href') === '#') link.addEventListener('click', event => event.preventDefault());
             group.appendChild(link);
         }
