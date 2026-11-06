@@ -91,3 +91,9 @@ body.benefit-modal-open{overflow:hidden}
 #coupon-benefit .benefit-group:first-child{margin-top:80px}
 #coupon-event .event-banners{margin-top:80px}
 @media(max-width:767px){#coupon-benefit .benefit-group:first-child{margin-top:56px}#coupon-event .event-banners{margin-top:56px}}
+
+/* Partnership promotional banners appear before the partnership card groups. */
+#coupon-benefit > .telecom-banners{margin:80px auto 90px}
+#coupon-benefit > .telecom-banners .telecom-banners-divider{display:none}
+#coupon-benefit .benefit-group:first-of-type{margin-top:0}
+@media(max-width:767px){#coupon-benefit > .telecom-banners{margin:56px auto 64px}}
