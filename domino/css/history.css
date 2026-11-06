@@ -60,20 +60,10 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 }
 @media(prefers-reduced-motion:reduce){.history-event{transition:none}}
 
-/* Closing message: a quiet final beat after the timeline. */
-.history-ending{background:#fffbf5;padding:clamp(110px,12vw,200px) 24px clamp(130px,14vw,220px);text-align:center;overflow:hidden}
-.history-ending-inner{max-width:1000px;margin:0 auto}
-.history-ending-eyebrow,.history-ending-signature{margin:0;color:#8b7767;font-size:clamp(12px,1.1vw,15px);font-weight:600;letter-spacing:.18em}
-.history-ending-title{margin:34px 0 38px;color:#663605;font-size:clamp(29px,4.2vw,64px);font-weight:700;line-height:1.45;letter-spacing:-.045em;word-break:keep-all}
+/* HISTORY ending: use the same page background and a cropped real menu photo. */
+.history-ending{position:relative;overflow:hidden;background:#fffbf5;min-height:clamp(510px,54vw,800px);padding:clamp(90px,10vw,160px) 20px 0;text-align:center;isolation:isolate}
+.history-ending-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto}
+.history-ending-title{margin:0;color:#663605;font-size:clamp(30px,4.3vw,68px);font-weight:700;line-height:1.4;letter-spacing:-.045em;word-break:keep-all}
 .history-ending-title span{display:block;color:#c82e26}
-.history-ending-rule{display:block;width:72px;height:3px;margin:0 auto 26px;background:#c82e26;border-radius:999px}
-@media(max-width:767px){.history-ending{padding:100px 20px 130px}.history-ending-title{margin:26px 0 30px}}
-
-/* BRAND category panels reuse the MENU sliding indicator and tab behavior. */
-.history-intro .brand-tab{cursor:pointer}
-.history-intro .brand-tab:focus-visible{outline:2px solid var(--blue-primary,#0193e8);outline-offset:3px}
-.brand-content-panel[hidden]{display:none!important}
-.brand-placeholder{min-height:360px;padding:110px 24px 150px;text-align:center;background:var(--background-white)}
-.brand-placeholder h2{font-size:clamp(26px,3vw,42px);font-weight:700;margin:0 0 24px}
-.brand-placeholder p{font-size:clamp(15px,1.5vw,19px);color:var(--text-secondary)}
-@media(max-width:767px){.brand-placeholder{min-height:300px;padding:85px 20px 110px}}
+.history-ending-pizza{position:absolute;z-index:0;display:block;width:clamp(480px,75vw,1100px);height:auto;max-width:none;left:50%;bottom:0;transform:translate(-50%,50%);pointer-events:none}
+@media(max-width:767px){.history-ending{min-height:clamp(430px,115vw,610px);padding:90px 18px 0}.history-ending-pizza{width:clamp(420px,115vw,740px)}}
