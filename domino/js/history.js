@@ -1,7 +1,41 @@
 document.addEventListener('DOMContentLoaded',()=>{
  const events=[...document.querySelectorAll('.history-event')];
  const brandBar=document.querySelector('.history-intro .brand-tabs');
- if(brandBar){const active=brandBar.querySelector('.brand-tab.is-active'),indicator=brandBar.querySelector('.menu-tab-indicator');const place=()=>{if(active&&indicator){indicator.style.width=active.offsetWidth+'px';indicator.style.transform='translateX('+active.offsetLeft+'px)'}};place();window.addEventListener('resize',place);if(document.fonts)document.fonts.ready.then(place);}
+ if(brandBar){
+   const tabs=[...brandBar.querySelectorAll('[role="tab"]')];
+   const indicator=brandBar.querySelector('.menu-tab-indicator');
+   const place=()=>{
+     const active=brandBar.querySelector('.brand-tab.is-active');
+     if(active&&indicator){indicator.style.width=active.offsetWidth+'px';indicator.style.transform='translateX('+active.offsetLeft+'px)'}
+   };
+   const activate=tab=>{
+     tabs.forEach(t=>{
+       const selected=t===tab;
+       t.classList.toggle('is-active',selected);
+       t.setAttribute('aria-selected',String(selected));
+       t.tabIndex=selected?0:-1;
+       document.getElementById(t.getAttribute('aria-controls')).hidden=!selected;
+     });
+     requestAnimationFrame(()=>{
+       place();
+       if(window.ScrollTrigger)window.ScrollTrigger.refresh();
+     });
+   };
+   tabs.forEach((tab,i)=>{
+     tab.addEventListener('click',()=>activate(tab));
+     tab.addEventListener('keydown',e=>{
+       let next=i;
+       if(e.key==='ArrowRight')next=(i+1)%tabs.length;
+       else if(e.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;
+       else if(e.key==='Home')next=0;
+       else if(e.key==='End')next=tabs.length-1;
+       else return;
+       e.preventDefault();tabs[next].focus();activate(tabs[next]);
+     });
+   });
+   place();window.addEventListener('resize',place);
+   if(document.fonts)document.fonts.ready.then(place);
+ }
 
  // Keep the retouched transparent PNG at its natural aspect ratio.
  const sauce=document.querySelector('.history-sauce');
