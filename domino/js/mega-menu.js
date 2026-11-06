@@ -27,8 +27,13 @@
         for (const label of submenus[category]) {
             const link = document.createElement('a');
             link.textContent = label;
-            link.href = category === 'COUPON' ? 'coupon.html' : category === 'BRAND' ? 'history.html' : '#'; // Link implemented destinations.
-            if (link.getAttribute('href') === '#') link.addEventListener('click', event => event.preventDefault());
+            const destinations = {
+                MENU: ['menu.html?category=피자', 'menu.html?category=사이드', 'menu.html?category=세트', 'menu.html?category=음료·기타'],
+                EVENT: ['event.html?category=이벤트', 'event.html?category=할인·제휴 혜택'],
+                BRAND: ['history.html?category=도미노피자 소개', 'history.html?category=역사', 'history.html?category=도미노뉴스', 'history.html?category=사회공헌'],
+                COUPON: ['coupon.html?category=e-쿠폰', 'coupon.html?category=상품권', 'coupon.html?category=이용 안내']
+            };
+            link.href = destinations[category][submenus[category].indexOf(label)];
             group.appendChild(link);
         }
         inner.appendChild(group);
