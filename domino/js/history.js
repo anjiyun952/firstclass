@@ -57,7 +57,8 @@ document.addEventListener('DOMContentLoaded',()=>{
    const paddingY=w<520?36:72;
    const totalCards=events.reduce((sum,event)=>sum+event.offsetHeight,0);
    const targetHeight=totalCards+Math.max(0,events.length-1)*minGap+paddingY;
-   const h=Math.max(targetHeight,stage.clientHeight);
+   // Recalculate from content rather than preserving a stale inline height.
+   const h=targetHeight;
    stage.style.height=h+'px';
    const iw=sauce.naturalWidth,ih=sauce.naturalHeight;
    // Match the image's actual rendered box and object-fit:contain dimensions.
@@ -126,12 +127,26 @@ document.addEventListener('DOMContentLoaded',()=>{
      gsap.registerPlugin(ScrollTrigger);
      sauceTrigger=ScrollTrigger.create({trigger:stage,start:'top 75%',end:'bottom 70%',scrub:true,onUpdate:self=>{show(self.progress);syncEvents(self.progress)}});
    }else show(1);
-   const relayout=()=>{layoutSauce();if(sauceTrigger){sauceTrigger.refresh();syncEvents(sauceTrigger.progress)}};
-   if(sauce.complete&&sauce.naturalWidth)layoutSauce();
+   let relayoutFrame=0;
+   const relayout=()=>{
+     cancelAnimationFrame(relayoutFrame);
+     relayoutFrame=requestAnimationFrame(()=>{
+       layoutSauce();
+       if(sauceTrigger){sauceTrigger.refresh();syncEvents(sauceTrigger.progress)}
+     });
+   };
+   if(sauce.complete&&sauce.naturalWidth)relayout();
    else sauce.addEventListener('load',relayout,{once:true});
+   // Featured illustrations change card heights when their image data arrives.
+   stage.querySelectorAll('.history-art').forEach(img=>{
+     if(!img.complete)img.addEventListener('load',relayout,{once:true});
+   });
    window.addEventListener('resize',relayout);
    window.addEventListener('load',relayout);
-   if(document.fonts)document.fonts.ready.then(relayout);
+   if(document.fonts){
+     document.fonts.ready.then(relayout);
+     document.fonts.addEventListener?.('loadingdone',relayout);
+   }
  }
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  // Reveal the final brand message only when it enters the viewport.
