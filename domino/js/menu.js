@@ -70,6 +70,11 @@
         requestAnimationFrame(() => position(sections[activePrimary]));
     }));
 
-    requestAnimationFrame(() => position(sections['피자']));
+    const requested = new URLSearchParams(location.search).get('category');
+    if (requested) {
+        const target = primary.find(button => button.textContent.trim() === requested);
+        if (target) target.click();
+    }
+    requestAnimationFrame(() => position(sections[activePrimary]));
     window.addEventListener('resize', () => position(sections[activePrimary]));
 })();
