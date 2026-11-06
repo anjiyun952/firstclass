@@ -50,6 +50,7 @@
     }
 
     Object.values(sections).forEach(section => {
+        if (!section.wrap) return;
         const tabs = [...section.wrap.querySelectorAll('[role="tab"]')];
         tabs.forEach((tab, i) => {
             tab.addEventListener('click', () => activate(section, tab));
