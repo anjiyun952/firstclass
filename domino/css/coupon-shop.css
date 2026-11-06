@@ -1,0 +1,9 @@
+/* COUPON category-only page; shared MENU design tokens and tabs */
+.coupon-shop-page{padding-top:80px;padding-bottom:160px;min-height:650px}
+.coupon-shop-page .menu-page-title{margin-bottom:68px}
+.coupon-shop-page .coupon-primary{gap:11px;margin-bottom:30px}
+.coupon-shop-page .coupon-primary button{padding:0 24px;line-height:1}
+.coupon-shop-page .menu-secondary-scroll{padding-bottom:100px}
+.coupon-shop-page .coupon-panel[hidden]{display:none!important}
+@media(max-width:960px){.coupon-shop-page{padding-top:72px;padding-bottom:110px}.coupon-shop-page .menu-page-title{margin-bottom:65px}}
+@media(max-width:767px){.coupon-shop-page{padding-top:60px;padding-bottom:90px;min-height:480px}.coupon-shop-page .menu-page-title{margin-bottom:48px}.coupon-shop-page .coupon-primary{gap:clamp(8px,2vw,11px);margin-bottom:28px}.coupon-shop-page .coupon-primary button{padding:0 clamp(5px,2vw,14px)}.coupon-shop-page .menu-secondary-scroll{padding-bottom:70px}}
