@@ -63,11 +63,11 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 
 /* Mobile HISTORY: retain the desktop timeline composition and scale it uniformly. */
 @media(max-width:767px){
- .history-section{padding:48px 16px 72px}
- .history-stage{width:1100px;max-width:none;margin:0;transform-origin:top left}
- .history-stage .history-year{font-size:clamp(42px,5vw,76px);margin-bottom:16px}
- .history-stage .history-copy h2{font-size:clamp(21px,2vw,29px)}
- .history-stage .history-event:not(.is-featured) .history-copy h2{font-size:clamp(16px,1.45vw,21px)}
+ .history-section{display:flex;justify-content:center;align-items:flex-start;padding:48px 16px 72px}
+ .history-stage{flex:0 0 auto;width:760px;max-width:none;margin:0;transform-origin:top center}
+ .history-stage .history-year{font-size:76px;margin-bottom:16px}
+ .history-stage .history-copy h2{font-size:34px;line-height:1.35}
+ .history-stage .history-event:not(.is-featured) .history-copy h2{font-size:30px;line-height:1.35}
  .history-stage .history-art{width:auto;max-width:none;max-height:210px;margin-top:22px}
  .history-stage .flour-particles{inset:-24px}
 }
