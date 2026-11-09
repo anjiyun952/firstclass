@@ -117,3 +117,8 @@
 .gift-demo-price-label{white-space:nowrap}.gift-demo-price-label strong{color:var(--red-primary);font-weight:700}.gift-demo-price-sale{font-size:17px;font-weight:700;white-space:nowrap}.gift-demo-price-original{font-size:12px;color:var(--text-secondary);white-space:nowrap}
 .gift-demo-card{display:flex;flex-direction:column}.gift-demo-card-actions{margin-top:18px}
 @media(max-width:767px){.gift-demo-price{gap:5px;margin-top:14px;font-size:12px}.gift-demo-price-sale{font-size:15px}.gift-demo-price-original{font-size:11px}}
+
+/* Editable quantity in both gift dialogs */
+.gift-demo-stepper .gift-demo-count-input{width:60px;min-width:0;height:38px;padding:0 4px;border:1px solid var(--neutral-200);border-radius:8px;background:var(--background-white);color:var(--text-primary);text-align:center;font:600 16px/1.2 "Pretendard Variable",sans-serif;appearance:textfield;-moz-appearance:textfield}
+.gift-demo-count-input::-webkit-inner-spin-button,.gift-demo-count-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.gift-demo-count-input:focus-visible{outline:3px solid var(--blue-dark);outline-offset:2px}
