@@ -71,3 +71,8 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
  .history-stage .history-art{width:auto;max-width:none;max-height:210px;margin-top:22px}
  .history-stage .flour-particles{inset:-24px}
 }
+
+/* Keep milestone illustrations inside their text card on mobile. */
+@media(max-width:767px){
+ .history-stage .history-art{display:block;box-sizing:border-box;width:auto;max-width:100%;height:auto;max-height:210px;object-fit:contain}
+}
