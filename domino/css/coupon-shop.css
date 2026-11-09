@@ -59,3 +59,9 @@
 .ecoupon-notice-toggle strong{font-size:20px}
 .ecoupon-notice-toggle small{font-size:14px;margin-top:6px}
 @media(max-width:767px){.ecoupon-content{margin-bottom:90px}.ecoupon-heading{margin-bottom:36px}.ecoupon-heading h2{font-size:clamp(26px,6vw,34px)}.ecoupon-form-row input,.ecoupon-form-row button{height:54px;border-radius:4px}.ecoupon-form-row button{min-width:96px}.ecoupon-limit{margin:22px 0 36px}.ecoupon-result{min-height:210px;padding:34px 12px}.ecoupon-notice{margin-top:52px}.ecoupon-notice-toggle strong{font-size:18px}}
+
+/* Rounded controls consistent with the renewal's soft UI language. */
+.ecoupon-form-row input{border-radius:18px}
+.ecoupon-form-row button{border-radius:18px}
+.ecoupon-cart{border-radius:999px}
+@media(max-width:767px){.ecoupon-form-row input,.ecoupon-form-row button{border-radius:14px}}
