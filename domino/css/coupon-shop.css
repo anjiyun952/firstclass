@@ -97,3 +97,6 @@
 .gift-demo-card-actions button:focus-visible,.gift-demo-quick-dialog button:focus-visible{outline:3px solid var(--blue-dark);outline-offset:3px}
 @media(max-width:767px){.gift-demo-card-actions{gap:8px;margin-top:16px}.gift-demo-card-actions .gift-demo-open,.gift-demo-quick-open{min-height:42px;padding:10px 8px;font-size:13px}.gift-demo-quick-dialog{padding:36px 24px 28px;border-radius:24px}.gift-demo-quick-dialog h3{font-size:24px}}
 @media(prefers-reduced-motion:reduce){.gift-demo-card-actions button{transition:none}}
+
+/* Four gift cards per row on desktop */
+@media(min-width:768px){.gift-demo-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
