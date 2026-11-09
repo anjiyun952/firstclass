@@ -183,18 +183,30 @@ document.addEventListener('DOMContentLoaded',()=>{
        if(sauceTrigger){sauceTrigger.refresh();syncEvents(sauceTrigger.progress)}
      });
    };
-   if(sauce.complete&&sauce.naturalWidth)relayout();
-   else sauce.addEventListener('load',relayout,{once:true});
-   // Featured illustrations change card heights when their image data arrives.
-   stage.querySelectorAll('.history-art').forEach(img=>{
-     if(!img.complete)img.addEventListener('load',relayout,{once:true});
+   // Wait for the fonts and all timeline images before measuring card heights.
+   // Previously each asset load triggered a different layout, causing jumps.
+   const waitForImage=img=>{
+     if(img.complete)return Promise.resolve();
+     return new Promise(resolve=>{
+       img.addEventListener('load',resolve,{once:true});
+       img.addEventListener('error',resolve,{once:true});
+     });
+   };
+   const images=[sauce,...stage.querySelectorAll('.history-art')];
+   const fontsReady=document.fonts?document.fonts.ready.catch(()=>{}):Promise.resolve();
+   let layoutReady=false;
+   Promise.all([fontsReady,...images.map(waitForImage)]).then(()=>{
+     layoutReady=true;
+     relayout();
    });
-   window.addEventListener('resize',relayout);
-   window.addEventListener('load',relayout);
-   if(document.fonts){
-     document.fonts.ready.then(relayout);
-     document.fonts.addEventListener?.('loadingdone',relayout);
-   }
+   // Resize only when viewport width changes (mobile browser chrome may alter height).
+   let lastViewportWidth=window.innerWidth;
+   window.addEventListener('resize',()=>{
+     if(!layoutReady)return;
+     if(window.innerWidth===lastViewportWidth)return;
+     lastViewportWidth=window.innerWidth;
+     relayout();
+   });
  }
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(!reduced&&window.gsap&&window.ScrollTrigger){
