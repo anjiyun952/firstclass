@@ -107,3 +107,12 @@
 /* e-쿠폰 has one view: no redundant secondary category navigation */
 #coupon-panel-ecoupon .ecoupon-content{padding-top:80px}
 @media(max-width:767px){#coupon-panel-ecoupon .ecoupon-content{padding-top:48px}}
+
+/* Match gift notice to the existing e-coupon notice component */
+.gift-demo .gift-notice.ecoupon-notice{border:0;border-top:1px solid var(--neutral-200);border-bottom:1px solid var(--neutral-200);border-radius:0;overflow:visible;margin:0 0 54px}
+.gift-demo .gift-notice-toggle.ecoupon-notice-toggle{padding:26px 4px;font:inherit}
+.gift-demo .gift-notice-toggle.ecoupon-notice-toggle strong{font-size:20px;font-weight:700}
+.gift-demo .gift-notice-toggle.ecoupon-notice-toggle small{display:block;font-size:14px;color:var(--text-secondary);margin-top:6px}
+.gift-demo .gift-notice .ecoupon-notice-arrow{width:14px;height:14px;flex:0 0 14px;margin-right:8px;font-size:initial}
+.gift-demo .gift-notice-body.ecoupon-notice-body{border-top:0;padding:0 8px 32px;font-size:15px;line-height:1.9}
+@media(max-width:767px){.gift-demo .gift-notice.ecoupon-notice{margin-bottom:34px}.gift-demo .gift-notice-toggle.ecoupon-notice-toggle{padding:22px 4px}.gift-demo .gift-notice-toggle.ecoupon-notice-toggle strong{font-size:18px}.gift-demo .gift-notice-body.ecoupon-notice-body{padding:0 8px 26px;font-size:14px}}
