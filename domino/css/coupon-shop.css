@@ -111,3 +111,9 @@
 .gift-demo .gift-notice-body h4:first-child{margin-top:0}
 .gift-demo .gift-notice-source{font-size:13px;margin-top:22px}
 @media(max-width:767px){.gift-demo .gift-notice.ecoupon-notice{margin-bottom:34px}}
+
+/* Product price row based on the supplied reference image */
+.gift-demo-price{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:22px;font-size:14px;line-height:1.5;color:var(--text-primary)}
+.gift-demo-price-label{white-space:nowrap}.gift-demo-price-label strong{color:var(--red-primary);font-weight:700}.gift-demo-price-sale{font-size:17px;font-weight:700;white-space:nowrap}.gift-demo-price-original{font-size:12px;color:var(--text-secondary);white-space:nowrap}
+.gift-demo-card{display:flex;flex-direction:column}.gift-demo-card-actions{margin-top:18px}
+@media(max-width:767px){.gift-demo-price{gap:5px;margin-top:14px;font-size:12px}.gift-demo-price-sale{font-size:15px}.gift-demo-price-original{font-size:11px}}
