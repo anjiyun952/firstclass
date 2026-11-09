@@ -133,6 +133,32 @@ document.addEventListener('DOMContentLoaded',()=>{
      event.style.setProperty('--event-align',placeLeft?'right':'left');
      y+=cardHeight+minVerticalGap+extraGap;
    });
+   // Mobile-only art direction for three featured milestones.
+   // Keep these corrections after automatic positioning so relayouts retain them.
+   if(window.innerWidth<=767){
+     const move=(index,dx,dy)=>{
+       const event=events[index];
+       if(!event)return;
+       const x=parseFloat(event.style.getPropertyValue('--event-x'))||0;
+       const top=parseFloat(event.style.getPropertyValue('--event-y'))||0;
+       const width=parseFloat(event.style.getPropertyValue('--event-width'))||0;
+       event.style.setProperty('--event-x',Math.max(0,Math.min(w-width,x+dx))+'px');
+       event.style.setProperty('--event-y',Math.max(0,top+dy)+'px');
+     };
+     move(1,-28,28); // 1990: slightly left and down
+     move(4,28,0);  // 1999: slightly right
+     const milestone2017=events[11],milestone2023=events[12];
+     if(milestone2017&&milestone2023){
+       const x2023=parseFloat(milestone2023.style.getPropertyValue('--event-x'))||0;
+       const w2023=parseFloat(milestone2023.style.getPropertyValue('--event-width'))||0;
+       const w2017=parseFloat(milestone2017.style.getPropertyValue('--event-width'))||0;
+       const y2023=parseFloat(milestone2023.style.getPropertyValue('--event-y'))||0;
+       const rightX=x2023+w2023+20;
+       milestone2017.style.setProperty('--event-x',Math.min(w-w2017,rightX)+'px');
+       milestone2017.style.setProperty('--event-y',y2023+'px');
+       milestone2017.style.setProperty('--event-align','left');
+     }
+   }
  }
  if(stage&&sauce){
    const show=progress=>{sauce.style.clipPath=`inset(0 0 ${(1-progress)*100}% 0)`};
