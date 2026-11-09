@@ -18,3 +18,10 @@
 
 /* Ensure inactive category panels and filtered cards remain hidden despite grid/flex styles. */
 .menu-page [hidden] { display:none !important; }
+
+/* Compact subcategory pills consistently across MENU, EVENT, COUPON and BRAND on mobile. */
+@media(max-width:767px){
+ .menu-secondary{padding:4px 5px}
+ .menu-secondary button{font-size:13px;padding:8px 11px;line-height:20px}
+ .history-intro .menu-secondary .brand-tab{font-size:13px;padding:8px 11px;line-height:20px}
+}
