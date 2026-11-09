@@ -69,3 +69,6 @@
 /* One-item e-coupon tab: anchor indicator to the track's inner edges, no JS offsets. */
 #coupon-panel-ecoupon .menu-secondary{position:relative}
 #coupon-panel-ecoupon .menu-tab-indicator{left:8px;right:8px;width:auto!important;transform:none!important;transition:none}
+
+/* Avoid double divider between coupon result and notice. */
+.ecoupon-result{border-bottom:0}
