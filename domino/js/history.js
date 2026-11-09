@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded',()=>{
      if(milestone2026){
        const cardWidth=parseFloat(milestone2026.style.getPropertyValue('--event-width'))||0;
        const currentY=parseFloat(milestone2026.style.getPropertyValue('--event-y'))||0;
-       milestone2026.style.setProperty('--event-x',Math.max(0,w*.12-cardWidth*.5)+'px');
+       milestone2026.style.setProperty('--event-x',Math.max(0,Math.min(w-cardWidth,w*.30-cardWidth*.5))+'px');
        milestone2026.style.setProperty('--event-y',(currentY+55)+'px');
        milestone2026.style.setProperty('--event-align','left');
      }
