@@ -129,3 +129,8 @@ body.benefit-modal-open{overflow:hidden}
 #coupon-event .event-more-button:hover{border-color:var(--blue-primary);color:var(--blue-dark);transform:none}
 #coupon-event .event-more-button:focus-visible{outline:3px solid var(--blue-dark);outline-offset:3px}
 @media(max-width:767px){#coupon-event .event-more-button{padding:10px 26px;font-size:20px}}
+
+/* Featured EVENT banner: full grid width on desktop, standard card on mobile. */
+#coupon-event .event-banner-picture{display:block;min-width:0}
+#coupon-event .event-banner-picture img{display:block;width:100%;height:auto}
+@media(max-width:767px){#coupon-event .event-banner-picture.event-banner--featured{grid-column:auto}}
