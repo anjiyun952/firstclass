@@ -1,4 +1,40 @@
-/* COUPON uses the same title, primary tabs and sliding secondary tabs as MENU/EVENT. */
+/* COUPON: existing category navigation remains unchanged. */
 .coupon-shop-page .coupon-panel[hidden]{display:none!important}
 .coupon-shop-page .menu-secondary-scroll{margin-bottom:100px}
-@media(max-width:767px){.coupon-shop-page .menu-secondary-scroll{margin-bottom:70px}}
+.ecoupon-content{max-width:1068px;margin:0 auto 150px;padding:0 24px;color:var(--text-primary)}
+.ecoupon-heading{text-align:center;margin-bottom:44px}
+.ecoupon-heading h2{font-size:clamp(30px,3vw,44px);font-weight:700;line-height:1.3;letter-spacing:-.035em}
+.ecoupon-heading p{font-size:18px;color:var(--text-secondary);margin-top:18px}
+.ecoupon-mobile-break{display:none}
+.ecoupon-form{max-width:690px;margin:0 auto}
+.ecoupon-label{display:block;font-size:16px;font-weight:600;margin-bottom:12px}
+.ecoupon-form-row{display:flex;gap:12px}
+.ecoupon-form-row input{flex:1;min-width:0;height:64px;border:2px solid var(--neutral-200);border-radius:16px;padding:0 22px;background:var(--surface-default);font:inherit;font-size:18px;color:var(--text-primary);outline:none;transition:border-color .2s}
+.ecoupon-form-row input:focus{border-color:var(--action-primary)}
+.ecoupon-form-row button{min-width:148px;border:0;border-radius:16px;background:var(--action-primary);color:var(--text-inverse);font:inherit;font-size:18px;font-weight:700;cursor:pointer;transition:background .2s}
+.ecoupon-form-row button:hover{background:var(--action-hover)}
+.ecoupon-form-row button:focus-visible,.ecoupon-cart:focus-visible,.ecoupon-notice-toggle:focus-visible{outline:3px solid var(--blue-dark);outline-offset:3px}
+.ecoupon-message{margin-top:12px;font-size:14px;line-height:1.5;color:var(--text-secondary)}
+.ecoupon-message.is-error{color:var(--action-cta)}
+.ecoupon-limit{text-align:center;margin:30px 0 36px;color:var(--text-secondary);font-size:15px}
+.ecoupon-limit span{padding:0 8px}
+.ecoupon-result{border-radius:42px;background:var(--background-subtle);min-height:340px;padding:48px 24px 42px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ecoupon-ticket{display:grid;place-items:center;width:68px;height:68px;border:2px dashed var(--neutral-deep-cream);border-radius:18px;color:var(--brown-primary);font-size:30px;font-weight:700;margin-bottom:22px;transform:rotate(-8deg)}
+.ecoupon-empty h3,.ecoupon-found h3{font-size:24px;font-weight:700;line-height:1.35}
+.ecoupon-empty p,.ecoupon-found p{margin-top:10px;font-size:16px;line-height:1.5;color:var(--text-secondary)}
+.ecoupon-found[hidden],.ecoupon-empty[hidden],.ecoupon-notice-body[hidden]{display:none}
+.ecoupon-demo-tag{display:inline-block;color:var(--action-primary);font-size:13px;font-weight:700;margin-bottom:16px}
+.ecoupon-cart{margin-top:30px;border:0;border-radius:999px;padding:17px 44px;background:var(--action-primary);color:var(--text-inverse);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.ecoupon-cart:disabled{background:var(--neutral-200);color:var(--text-secondary);cursor:not-allowed}
+.ecoupon-cart-note{font-size:14px;color:var(--text-secondary);margin-top:12px}
+.ecoupon-notice{margin-top:68px;border-top:2px solid var(--neutral-200);border-bottom:2px solid var(--neutral-200)}
+.ecoupon-notice-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:30px 8px;border:0;background:transparent;color:var(--text-primary);text-align:left;cursor:pointer}
+.ecoupon-notice-toggle strong{display:block;font-size:22px;font-weight:700}
+.ecoupon-notice-toggle small{display:block;font-size:15px;color:var(--text-secondary);margin-top:8px}
+.ecoupon-notice-arrow{width:14px;height:14px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-right:8px}
+.ecoupon-notice-toggle[aria-expanded="true"] .ecoupon-notice-arrow{transform:rotate(225deg)}
+.ecoupon-notice-body{padding:0 8px 32px;color:var(--text-secondary);font-size:15px;line-height:1.9}
+.ecoupon-notice-body ul{padding-left:20px;list-style:disc}
+@media(max-width:767px){.coupon-shop-page .menu-secondary-scroll{margin-bottom:70px}.ecoupon-content{padding:0 20px;margin-bottom:90px}.ecoupon-heading{margin-bottom:32px}.ecoupon-heading h2{font-size:clamp(25px,6vw,34px)}.ecoupon-heading p{font-size:15px}.ecoupon-mobile-break{display:block}.ecoupon-form-row input{height:56px;font-size:15px;padding:0 14px}.ecoupon-form-row button{min-width:100px;font-size:15px;border-radius:12px}.ecoupon-form-row input{border-radius:12px}.ecoupon-limit{font-size:13px;line-height:1.6}.ecoupon-result{min-height:290px;border-radius:28px;padding:36px 18px}.ecoupon-empty h3,.ecoupon-found h3{font-size:20px}.ecoupon-empty p,.ecoupon-found p{font-size:14px}.ecoupon-notice{margin-top:48px}.ecoupon-notice-toggle strong{font-size:19px}}
+@media(max-width:380px){.ecoupon-form-row{flex-direction:column}.ecoupon-form-row button{height:52px}}
+@media(prefers-reduced-motion:reduce){.ecoupon-form-row input,.ecoupon-form-row button,.ecoupon-notice-arrow{transition:none}}
