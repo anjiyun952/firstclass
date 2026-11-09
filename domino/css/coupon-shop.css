@@ -65,3 +65,7 @@
 .ecoupon-form-row button{border-radius:18px}
 .ecoupon-cart{border-radius:999px}
 @media(max-width:767px){.ecoupon-form-row input,.ecoupon-form-row button{border-radius:14px}}
+
+/* One-item e-coupon tab: anchor indicator to the track's inner edges, no JS offsets. */
+#coupon-panel-ecoupon .menu-secondary{position:relative}
+#coupon-panel-ecoupon .menu-tab-indicator{left:8px;right:8px;width:auto!important;transform:none!important;transition:none}
