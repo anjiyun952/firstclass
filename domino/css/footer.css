@@ -84,3 +84,7 @@
 .footer--light .footer-app-icons img { filter:brightness(0); opacity:.8; }
 .footer--light .footer-email img { filter:brightness(0); }
 .footer--light .footer-company-line span + span { border-left-color:rgb(36 36 36 / 35%); }
+
+/* Portfolio disclaimer beneath copyright across all pages */
+.footer-portfolio-notice{margin-top:8px;font-size:13px;line-height:1.6;color:inherit;opacity:.7}
+@media(max-width:767px){.footer-portfolio-notice{font-size:11px}}
