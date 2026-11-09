@@ -25,3 +25,8 @@
  .menu-secondary button{font-size:13px;padding:8px 11px;line-height:20px}
  .history-intro .menu-secondary .brand-tab{font-size:13px;padding:8px 11px;line-height:20px}
 }
+
+/* Only the pizza subcategory: slightly narrower mobile pills. */
+@media(max-width:767px){
+ .menu-secondary[aria-label="피자 종류"] button{padding-left:9px;padding-right:9px}
+}
