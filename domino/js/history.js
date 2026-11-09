@@ -147,6 +147,15 @@ document.addEventListener('DOMContentLoaded',()=>{
      };
      move(1,-28,28); // 1990: slightly left and down
      move(4,28,0);  // 1999: slightly right
+     // 2026: position below and to the left of the sauce path.
+     const milestone2026=events[14];
+     if(milestone2026){
+       const cardWidth=parseFloat(milestone2026.style.getPropertyValue('--event-width'))||0;
+       const currentY=parseFloat(milestone2026.style.getPropertyValue('--event-y'))||0;
+       milestone2026.style.setProperty('--event-x',Math.max(0,w*.12-cardWidth*.5)+'px');
+       milestone2026.style.setProperty('--event-y',(currentY+55)+'px');
+       milestone2026.style.setProperty('--event-align','left');
+     }
      const milestone2017=events[11],milestone2023=events[12];
      if(milestone2017&&milestone2023){
        const x2023=parseFloat(milestone2023.style.getPropertyValue('--event-x'))||0;
