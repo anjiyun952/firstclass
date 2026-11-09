@@ -45,6 +45,14 @@ document.addEventListener('DOMContentLoaded',()=>{
  const stage=document.querySelector('.history-stage');
  let sauceTrigger;
  const eventAnimations=[];
+ // On mobile, preserve a desktop-sized timeline and scale it as a single layout.
+ const desktopTimelineWidth=1100;
+ const setTimelineScale=()=>{
+   if(!stage)return;
+   const mobile=window.innerWidth<=767;
+   stage.style.zoom=mobile?String(Math.min(1,Math.max(0.1,(stage.parentElement.clientWidth)/desktopTimelineWidth))):'';
+ };
+ setTimelineScale();
  const syncEvents=progress=>{
    if(!stage)return;
    const revealY=progress*stage.clientHeight;
@@ -55,7 +63,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  };
  function layoutSauce(){
    if(!stage||!sauce||!sauce.naturalWidth||!sauce.naturalHeight)return;
+   setTimelineScale();
    const w=stage.clientWidth;
+   const layoutZoom=parseFloat(stage.style.zoom)||1;
    const minGap=w<520?42:72;
    const paddingY=w<520?36:72;
    const totalCards=events.reduce((sum,event)=>sum+event.offsetHeight,0);
@@ -67,10 +77,10 @@ document.addEventListener('DOMContentLoaded',()=>{
    // Match the image's actual rendered box and object-fit:contain dimensions.
    const stageRect=stage.getBoundingClientRect();
    const imageRect=sauce.getBoundingClientRect();
-   const scale=Math.min(imageRect.width/iw,imageRect.height/ih);
+   const scale=Math.min(imageRect.width/layoutZoom/iw,imageRect.height/layoutZoom/ih);
    const paintedWidth=iw*scale,paintedHeight=ih*scale;
-   const offsetX=imageRect.left-stageRect.left+(imageRect.width-paintedWidth)/2;
-   const offsetY=imageRect.top-stageRect.top+(imageRect.height-paintedHeight)/2;
+   const offsetX=(imageRect.left-stageRect.left)/layoutZoom+(imageRect.width/layoutZoom-paintedWidth)/2;
+   const offsetY=(imageRect.top-stageRect.top)/layoutZoom+(imageRect.height/layoutZoom-paintedHeight)/2;
    const preferredGap=w<520?18:80;
    const canvas=document.createElement('canvas');
    canvas.width=iw;canvas.height=ih;
