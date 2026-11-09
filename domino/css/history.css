@@ -81,3 +81,9 @@ mask-image:radial-gradient(circle at 18% 29%,transparent 0 .65px,#000 1.2px),rad
 @media(max-width:767px){
  .history-stage{margin-left:auto;margin-right:auto}
 }
+
+/* Center the zoomed 1100px stage using its actual rendered width. */
+@media(max-width:767px){
+ .history-section{display:flex;justify-content:center;align-items:flex-start}
+ .history-stage{flex:0 0 auto;margin:0}
+}
