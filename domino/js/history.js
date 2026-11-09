@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  let sauceTrigger;
  const eventAnimations=[];
  // On mobile, preserve a desktop-sized timeline and scale it as a single layout.
- const desktopTimelineWidth=760;
+ const desktopTimelineWidth=1100;
  const setTimelineScale=()=>{
    if(!stage)return;
    const mobile=window.innerWidth<=767;
