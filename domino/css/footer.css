@@ -1,5 +1,5 @@
 /* Domino's renewal footer — Figma desktop reference: 1920px / content 1720px */
-.site-footer { background:#000; color:var(--text-inverse,#fff); font-family:"Pretendard Variable",sans-serif; padding:100px max(24px,calc((100% - 1720px)/2)) 170px; }
+.site-footer { background:#000; color:var(--text-inverse,#fff); font-family:"Pretendard Variable",sans-serif; padding: 100px max(24px, calc((100% - 1720px) / 2)) 70px; }
 .footer-inner { width:100%; max-width:1720px; margin:0 auto; }
 .footer-flex-row { display:flex; justify-content:space-between; align-items:center; }
 .footer-top { min-height:64px; }
