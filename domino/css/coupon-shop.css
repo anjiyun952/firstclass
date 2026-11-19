@@ -128,3 +128,7 @@
 .gift-demo-card .gift-demo-price{margin-top:22px}
 .gift-demo-card .gift-demo-card-actions{margin-top:auto;padding-top:18px}
 @media(max-width:767px){.gift-demo-composition{font-size:13px;line-height:1.5;min-height:3em;margin-top:8px}.gift-demo-card .gift-demo-price{margin-top:14px}.gift-demo-card .gift-demo-card-actions{padding-top:16px}}
+
+/* Primary CTA for mobile gift coupon cards */
+.gift-demo-card-actions .gift-demo-open{background:var(--action-primary);border-color:var(--action-primary);color:var(--text-inverse);transition:background .2s,border-color .2s}
+.gift-demo-card-actions .gift-demo-open:hover{background:var(--action-hover);border-color:var(--action-hover);color:var(--text-inverse)}
