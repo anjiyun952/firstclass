@@ -122,3 +122,9 @@
 .gift-demo-stepper .gift-demo-count-input{width:60px;min-width:0;height:38px;padding:0 4px;border:1px solid var(--neutral-200);border-radius:8px;background:var(--background-white);color:var(--text-primary);text-align:center;font:600 16px/1.2 "Pretendard Variable",sans-serif;appearance:textfield;-moz-appearance:textfield}
 .gift-demo-count-input::-webkit-inner-spin-button,.gift-demo-count-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .gift-demo-count-input:focus-visible{outline:3px solid var(--blue-dark);outline-offset:2px}
+
+/* Keep mobile gift coupon prices and actions aligned across cards. */
+.gift-demo-composition{font-size:16px;line-height:1.5;color:var(--text-secondary);margin-top:10px;min-height:3em;overflow-wrap:break-word}
+.gift-demo-card .gift-demo-price{margin-top:22px}
+.gift-demo-card .gift-demo-card-actions{margin-top:auto;padding-top:18px}
+@media(max-width:767px){.gift-demo-composition{font-size:13px;line-height:1.5;min-height:3em;margin-top:8px}.gift-demo-card .gift-demo-price{margin-top:14px}.gift-demo-card .gift-demo-card-actions{padding-top:16px}}
