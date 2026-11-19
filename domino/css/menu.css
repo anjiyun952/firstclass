@@ -31,33 +31,41 @@
  .menu-secondary[aria-label="피자 종류"] button{padding-left:9px;padding-right:9px}
 }
 
-/* MENU floating bottom-sheet basket */
-.menu-basket{position:fixed;right:24px;bottom:0;width:min(420px,100vw);height:712px;max-height:calc(100dvh - 16px);z-index:1000;background:#fff;border-radius:38px 38px 0 0;box-shadow:0 -5px 25px #0002;display:flex;flex-direction:column;overflow:hidden;transform:translateY(calc(100% - 66px));transition:transform .32s ease;text-align:left;color:#222}.menu-basket[data-open="true"]{transform:translateY(0)}.menu-basket-toggle{border:0;background:#fff;flex:0 0 66px;display:flex;align-items:center;justify-content:center;gap:12px;font:600 18px Pretendard,sans-serif;cursor:pointer}.menu-basket-toggle img{width:24px;height:24px;transition:transform .3s}.menu-basket[data-open="false"] .menu-basket-toggle img{transform:rotate(180deg)}.menu-basket-content{min-height:0;flex:1;display:flex;flex-direction:column;padding:12px 10px 0}.menu-basket-list{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}.menu-basket-item{padding:20px;border-bottom:1px solid #e8e8e8;display:flex;flex-direction:column;gap:16px}.menu-basket-item-top{display:flex;align-items:flex-start;gap:20px}.menu-basket-item-image{width:62px;height:62px;border:1px solid #e8e8e8;border-radius:8px;object-fit:contain;flex-shrink:0}.menu-basket-item-info{flex:1;min-width:0}.menu-basket-item-title{display:flex;align-items:start;justify-content:space-between;gap:10px}.menu-basket-item-title strong{font-size:16px;line-height:1.4}.menu-basket-remove{background:none;border:0;cursor:pointer;padding:2px}.menu-basket-remove img{width:16px;height:16px}.menu-basket-item-desc{font-size:12px;color:#777;margin:5px 0 0;line-height:1.5}.menu-basket-item-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}.menu-basket-item-price{font-size:16px;font-weight:600}.menu-basket-stepper{display:flex;border:1px solid #e5e5e5;border-radius:20px;height:32px;overflow:hidden}.menu-basket-stepper button{width:30px;border:0;background:#fff;cursor:pointer;font-size:17px}.menu-basket-stepper output{min-width:34px;display:grid;place-items:center;border-left:1px solid #eee;border-right:1px solid #eee;font-size:14px}.menu-basket-footer{flex-shrink:0;padding:20px 20px 36px;box-shadow:0 -3px 10px #0001;background:#fff}.menu-basket-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.menu-basket-total span{font-size:12px;color:#777}.menu-basket-total strong{font-size:22px}.menu-basket-order{width:100%;height:50px;border:0;border-radius:12px;background:#0098e8;color:white;font-size:16px;font-weight:600;cursor:pointer}.menu-basket-status{font-size:12px;color:#666;margin:6px 0 0}.menu-basket-empty{text-align:center;padding:36px 16px;color:#777;font-size:14px;line-height:1.7}.menu-card-add{display:block;margin:12px auto 0;padding:9px 18px;background:var(--action-primary,#0098e8);border:0;border-radius:8px;color:white;font-size:13px;font-weight:600;cursor:pointer}.menu-card-add:focus-visible,.menu-basket button:focus-visible{outline:2px solid #0098e8;outline-offset:3px}@media(max-width:480px){.menu-basket{right:0;width:100%}}@media(prefers-reduced-motion:reduce){.menu-basket,.menu-basket-toggle img{transition:none}}
-
-/* Figma basket alignment refinements — node 722:969 */
-.menu-basket{border-radius:38px 38px 0 0}
-.menu-basket-content{padding-top:12px}
-.menu-basket-list{padding-top:8px}
-.menu-basket-item{padding:20px 20px 24px;gap:16px}
-.menu-basket-item-top{min-height:72px}
-.menu-basket-item-bottom{height:32px}
-.menu-basket-footer{padding:20px 20px 36px}
-.menu-basket-order{border-radius:14px;background:#0193e8}
-.menu-basket-toggle{font-family:"Pretendard Variable",sans-serif;font-size:18px;font-weight:600}
-
-/* Precise Figma 722:969 layout mapping */
-.menu-basket{width:min(420px,100vw);height:712px;gap:0}
-.menu-basket-content{padding:12px 10px 0;gap:0}
-.menu-basket-list{padding-top:20px}
-.menu-basket-item{padding:0 20px 24px;gap:16px;margin-bottom:24px;min-height:144px}
-.menu-basket-item-top{height:auto;min-height:72px;gap:20px}
-.menu-basket-item-image{width:72px;height:72px;padding:8px;object-fit:contain}
-.menu-basket-item-info{min-height:66px}
-.menu-basket-item-bottom{height:32px;min-height:32px}
-.menu-basket-stepper{width:108px;height:32px;flex-shrink:0}
-.menu-basket-stepper button:first-child{width:32px}.menu-basket-stepper button:last-child{width:28px}.menu-basket-stepper output{width:48px;min-width:48px}
-.menu-basket-footer{height:146px;min-height:146px;padding:20px 30px 36px;box-shadow:0 -2px 9px rgba(0,0,0,.06)}
-.menu-basket-total{height:24px;margin-bottom:16px}
-.menu-basket-order{height:50px;border-radius:14px}
+/* Basket — Figma measurements confirmed by designer */
+.menu-basket{position:fixed;right:100px;bottom:0;width:420px;height:700px;max-height:100dvh;z-index:1000;display:flex;flex-direction:column;overflow:hidden;background:#f2f2f2;border-radius:42px 42px 0 0;box-shadow:0 0 10px rgba(0,0,0,.1);transform:translateY(calc(100% - 66px));transition:transform .32s ease;text-align:left;color:var(--text-primary,#222)}
+.menu-basket[data-open="true"]{transform:translateY(0)}
+.menu-basket-toggle{flex:0 0 66px;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;border:0;background:#fff;color:var(--text-primary,#222);font-family:Pretendard,"Pretendard Variable",sans-serif;font-size:20px;font-weight:600;cursor:pointer}
+.menu-basket-toggle img{width:24px;height:24px;transition:transform .32s ease}
+.menu-basket[data-open="false"] .menu-basket-toggle img{transform:rotate(180deg)}
+.menu-basket-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0;background:#f2f2f2}
+.menu-basket-list{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:12px 10px 0;background:#f2f2f2}
+.menu-basket-item{background:#fff;border-radius:14px;padding:12px 10px;display:flex;flex-direction:column;gap:22px;min-height:144px;margin-bottom:0;border:0}
+.menu-basket-item+.menu-basket-item{border-top:1px solid #e5e5e5;border-radius:0}
+.menu-basket-item:first-child{border-radius:14px 14px 0 0}
+.menu-basket-item:last-child{border-radius:0 0 14px 14px}
+.menu-basket-item:only-child{border-radius:14px}
+.menu-basket-item-top{display:flex;align-items:flex-start;gap:20px;min-height:72px}
+.menu-basket-item-image{width:72px;height:72px;flex:0 0 72px;object-fit:contain;border:1px solid #e5e5e5;border-radius:8px;background:#fff}
+.menu-basket-item-info{flex:1;min-width:0}
+.menu-basket-item-title{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;min-height:24px}
+.menu-basket-item-title strong{font-size:20px;font-weight:600;line-height:1.3;color:var(--text-primary,#222);overflow-wrap:anywhere}
+.menu-basket-remove{flex:0 0 24px;width:24px;height:24px;display:grid;place-items:center;border:0;background:transparent;padding:0;cursor:pointer}
+.menu-basket-remove img{width:24px;height:24px}
+.menu-basket-item-desc{font-size:14px;font-weight:500;line-height:1.55;color:var(--text-secondary,#777);margin:10px 0 0;overflow-wrap:anywhere}
+.menu-basket-item-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px}
+.menu-basket-item-price{font-size:18px;font-weight:600;color:var(--text-primary,#222)}
+.menu-basket-stepper{flex:0 0 108px;width:108px;height:32px;display:grid;grid-template-columns:32px 44px 32px;overflow:hidden;border:1px solid #e5e5e5;border-radius:9999px;background:#fff}
+.menu-basket-stepper button{width:100%;border:0;background:#fff;color:var(--text-primary,#222);font:400 18px Pretendard,"Pretendard Variable",sans-serif;cursor:pointer;padding:0}
+.menu-basket-stepper output{display:grid;place-items:center;min-width:0;border-left:1px solid #e5e5e5;border-right:1px solid #e5e5e5;font-size:16px;font-weight:600;color:var(--text-primary,#222)}
+.menu-basket-footer{flex:0 0 146px;height:146px;box-sizing:border-box;background:#fff;padding:20px 30px 36px;box-shadow:0 -2px 10px rgba(0,0,0,.08);position:relative;z-index:1}
+.menu-basket-total{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 16px}
+.menu-basket-total span{font-size:14px;font-weight:500;color:var(--text-secondary,#777)}
+.menu-basket-total strong{font-size:24px;font-weight:600;color:var(--text-primary,#222)}
+.menu-basket-order{width:100%;height:50px;border:0;border-radius:14px;background:var(--action-primary,#0098e8);color:#fff;font:600 20px Pretendard,"Pretendard Variable",sans-serif;cursor:pointer}
+.menu-basket-status{margin:4px 0 0;font-size:12px;color:var(--text-secondary,#777)}
 .menu-basket-status:empty{display:none}
-.menu-basket-empty{padding:30px 10px}
+.menu-basket-empty{margin:0;background:#fff;border-radius:14px;text-align:center;padding:35px 12px;color:var(--text-secondary,#777);font-size:14px}
+.menu-card-add{display:block;margin:12px auto 0;padding:9px 18px;background:var(--action-primary,#0098e8);border:0;border-radius:8px;color:#fff;font-size:13px;font-weight:600;cursor:pointer}
+.menu-basket button:focus-visible,.menu-card-add:focus-visible{outline:2px solid #0098e8;outline-offset:2px}
+@media(max-width:640px){.menu-basket{right:0;width:min(420px,100vw)}}
+@media(prefers-reduced-motion:reduce){.menu-basket,.menu-basket-toggle img{transition:none}}
