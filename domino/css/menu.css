@@ -45,7 +45,7 @@
 .menu-basket-item:last-child{border-radius:0 0 14px 14px}
 .menu-basket-item:only-child{border-radius:14px}
 .menu-basket-item-top{display:flex;align-items:flex-start;gap:20px;min-height:72px}
-.menu-basket-item-image{width:72px;height:72px;flex:0 0 72px;object-fit:contain;border:1px solid #e5e5e5;border-radius:8px;background:#fff}
+.menu-basket-item-image{box-sizing:border-box;width:72px;height:72px;flex:0 0 72px;padding:8px;object-fit:contain;border:1px solid #e5e5e5;border-radius:8px;background:#fff}
 .menu-basket-item-info{flex:1;min-width:0}
 .menu-basket-item-title{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;min-height:24px}
 .menu-basket-item-title strong{font-size:20px;font-weight:600;line-height:1.3;color:var(--text-primary,#222);overflow-wrap:anywhere}
