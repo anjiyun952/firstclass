@@ -99,3 +99,12 @@
 .detail-edges button.is-selected .detail-edge-image{outline-color:var(--action-primary,#0193e8)}
 .detail-edges button small{margin-top:6px}
 }
+
+/* Keep all four edge labels inside the 760px option column. */
+@media(min-width:1001px){
+.detail-edges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:100%;overflow:visible;padding:8px 0 0}
+.detail-edges button{position:relative;width:100%;min-width:0;flex:none;white-space:nowrap;overflow:visible;align-items:center}
+.detail-edges button .detail-edge-image{width:94px;height:75px;max-width:100%;border:0!important;border-radius:0!important;outline:none!important;margin-bottom:20px}
+.detail-edges button::before{content:"";position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:110px;height:91px;border:2px solid transparent;border-radius:20px;pointer-events:none;box-sizing:border-box}
+.detail-edges button.is-selected::before{border-color:var(--action-primary,#0193e8)}
+}
