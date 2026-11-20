@@ -40,3 +40,5 @@
 .login-form[hidden],.login-social[hidden],.login-guest-panel[hidden],.login-member-panel[hidden],.login-success[hidden]{display:none!important}
 .login-page button:focus-visible,.login-page input:focus-visible{outline:2px solid #0055a5;outline-offset:3px}
 @media(max-width:767px){.login-page{min-height:730px;padding:45px 20px 70px}.login-title{height:105px;font-size:64px}.login-tabs{height:54px;margin-bottom:32px}.login-tab{height:42px;font-size:15px}.login-options{gap:8px}.login-remember,.login-find-links button{font-size:13px}.login-find-links button+button{margin-left:9px;padding-left:9px}.login-social{margin-top:40px}.login-demo-note{margin-top:28px}}
+
+.login-social-icons button{display:grid;place-items:center;background:transparent}.social-mark{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-size:24px;font-weight:800;font-family:Arial,sans-serif}.social-mark--kakao{background:#fee500;color:#191919}.social-mark--google{background:#fff;border:1px solid #ddd;color:#4285f4}.social-mark--naver{background:#03c75a;color:#fff}.social-mark--apple{background:#111;color:#fff;font-size:20px}
