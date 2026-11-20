@@ -19,3 +19,5 @@
 .login-success[hidden]{display:none}.login-success h2{font-size:23px}.login-success p{margin:12px 0 20px;color:var(--text-secondary);line-height:1.6}
 .login-success button{border:0;border-radius:12px;padding:12px 28px;background:var(--action-primary);color:white;font:inherit;cursor:pointer}
 @media(max-width:767px){.login-page{padding:70px 20px 100px;min-height:520px}.login-subtitle{margin-bottom:40px}.login-form input{height:56px}.login-links{font-size:13px}.login-links span+span{margin-left:10px;padding-left:10px}}
+
+.login-form[hidden],.login-links[hidden]{display:none!important}
