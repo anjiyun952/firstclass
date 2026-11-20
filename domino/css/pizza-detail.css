@@ -77,3 +77,16 @@
 .detail-actions button{height:62px;border-radius:20px;font-size:20px;font-weight:600}
 }
 @media(min-width:1001px) and (max-width:1500px){.detail-shell{margin:0 24px}.detail-checkout-inner{margin-right:24px}}
+
+/* 2026-11-20 detail refinements */
+@media(min-width:1001px){
+.detail-options{padding-right:10px}
+.detail-mini-stepper{gap:10px;flex-shrink:0}
+.detail-mini-stepper button{width:54px;height:54px;flex:0 0 54px;border-radius:9999px;font-size:24px;display:grid;place-items:center}
+.detail-mini-stepper output{min-width:22px;font-size:18px;font-weight:500;text-align:center;font-variant-numeric:tabular-nums}
+.detail-summary-toggle{padding-bottom:6px;margin-bottom:6px;min-height:42px}
+}
+.detail-summary-label{display:inline-flex;align-items:center;gap:6px}
+.detail-summary-arrow{display:block;width:24px;height:24px;object-fit:contain;transition:transform .2s ease}
+.detail-summary-toggle[aria-expanded="true"] .detail-summary-arrow{transform:rotate(180deg)}
+@media(max-width:1000px){.detail-mini-stepper button{width:40px;height:40px;flex:0 0 40px}.detail-mini-stepper{gap:6px}}
