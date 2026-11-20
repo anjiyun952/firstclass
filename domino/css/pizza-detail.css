@@ -265,3 +265,36 @@
 
 /* Edge names and additional prices: +4px, preserve layout. */
 @media(min-width:1001px){.detail-edges button{font-size:20px}.detail-edges button small{font-size:16px}}
+
+/* Compact, independently collapsible add-on sections */
+.detail-addons{border-top:1px solid var(--neutral-200,#e5e5e5);margin-bottom:0!important;padding:0}
+.detail-addons:last-child{border-bottom:1px solid var(--neutral-200,#e5e5e5)}
+.detail-addons h2{margin:0!important}
+.detail-addon-toggle{display:flex;align-items:center;width:100%;min-height:76px;padding:14px 8px;border:0;background:#fff;text-align:left;color:var(--text-primary,#242424);font-size:inherit;font-weight:inherit;gap:12px}
+.detail-addon-count{margin-left:auto;font-size:14px;font-weight:500;color:var(--action-primary,#0193e8)}
+.detail-addon-chevron{font-size:27px;font-weight:400;line-height:1;transition:transform .2s}
+.detail-addon-toggle[aria-expanded="true"] .detail-addon-chevron{transform:rotate(180deg)}
+.detail-addon-content[hidden]{display:none!important}
+.detail-addon-content{padding:0 8px 22px}
+.detail-addons .detail-tabs{margin-bottom:12px}
+.detail-addons .detail-list{height:auto;max-height:300px;overflow-y:auto}
+.detail-addons .detail-item{min-height:0;height:auto;padding:12px 10px;gap:14px}
+.detail-addons .detail-item:first-child{padding-top:8px}
+.detail-addons .detail-item-image{width:64px;height:64px;flex-basis:64px}
+.detail-addons .detail-item-name{font-size:16px;margin-bottom:5px;line-height:1.35}
+.detail-addons .detail-item-price{font-size:14px}
+.detail-addons .detail-add{width:42px;height:42px;flex-basis:42px}
+.detail-addons .detail-mini-stepper button{width:38px;height:38px;flex-basis:38px}
+.detail-addons .detail-mini-stepper output{font-size:16px}
+.detail-cart-modal[hidden]{display:none!important}
+.detail-cart-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px}
+.detail-cart-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.detail-cart-dialog{position:relative;width:min(100%,460px);padding:42px 30px 34px;border-radius:24px;background:#fff;text-align:center;box-shadow:0 20px 60px #0002}
+.detail-cart-close{position:absolute;top:14px;right:20px;border:0;background:transparent;font-size:28px;color:#666}
+.detail-cart-check{display:grid;place-items:center;margin:0 auto 20px;width:54px;height:54px;border-radius:50%;background:var(--action-primary,#0193e8);color:white;font-size:28px}
+.detail-cart-dialog h2{font-size:23px;font-weight:700}.detail-cart-dialog p{margin:12px 0 28px;color:#666;font-size:15px}
+.detail-cart-modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.detail-cart-modal-actions button,.detail-cart-modal-actions a{display:grid;place-items:center;min-height:50px;padding:10px;border:1px solid #ddd;border-radius:12px;background:white;color:#242424;text-decoration:none;font-size:15px;font-weight:600}
+.detail-cart-modal-actions a{border-color:var(--action-primary,#0193e8);background:var(--action-primary,#0193e8);color:white}
+@media(max-width:767px){.detail-addon-toggle{min-height:66px}.detail-addons .detail-list{max-height:260px}.detail-addons .detail-item-image{width:56px;height:56px;flex-basis:56px}.detail-cart-dialog{padding:38px 20px 28px}}
+@media(prefers-reduced-motion:reduce){.detail-addon-chevron{transition:none}}
