@@ -122,3 +122,6 @@
 .detail-edges button .detail-edge-image{align-self:center}
 .detail-edges button::before{left:50%;transform:translateX(-50%)}
 }
+
+/* Reserve room for the 8px-outset selection frame at the first edge. */
+@media(min-width:1001px){.detail-edges{padding:10px 0 2px 8px;box-sizing:border-box}.detail-edges button::before{top:-8px}}
