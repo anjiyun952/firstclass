@@ -256,3 +256,9 @@
 @media(prefers-reduced-motion:reduce){
 .detail-summary{transition:none!important}
 }
+
+/* Align the desktop options scrollbar with the header login link's right edge.
+   Compensate inside the scrollport so the option content itself does not shift. */
+@media(min-width:1001px){
+ .detail-options{margin-right:calc(-1 * var(--detail-scrollbar-extension,0px));padding-right:var(--detail-scrollbar-extension,0px)}
+}

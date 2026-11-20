@@ -29,3 +29,20 @@
  else syncCollapsedHeight();
  window.addEventListener('resize',syncCollapsedHeight);
 })();
+
+/* Match the options scrollbar's right edge to the header login link. */
+(()=>{
+ const options=document.querySelector('.detail-options');
+ const login=document.querySelector('.site-header .header-user a:last-child');
+ if(!options||!login)return;
+ const align=()=>{
+   options.style.removeProperty('--detail-scrollbar-extension');
+   if(window.innerWidth<=1000)return;
+   const target=login.getBoundingClientRect().right;
+   const current=options.getBoundingClientRect().right;
+   const extension=Math.max(0,Math.min(260,target-current));
+   options.style.setProperty('--detail-scrollbar-extension',extension+'px');
+ };
+ window.addEventListener('resize',align);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',align,{once:true});else align();
+})();
