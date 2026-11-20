@@ -298,3 +298,6 @@
 .detail-cart-modal-actions a{border-color:var(--action-primary,#0193e8);background:var(--action-primary,#0193e8);color:white}
 @media(max-width:767px){.detail-addon-toggle{min-height:66px}.detail-addons .detail-list{max-height:260px}.detail-addons .detail-item-image{width:56px;height:56px;flex-basis:56px}.detail-cart-dialog{padding:38px 20px 28px}}
 @media(prefers-reduced-motion:reduce){.detail-addon-chevron{transition:none}}
+
+/* Use the existing arrow_down_icon.svg for all three accordion toggles. */
+.detail-addon-chevron{display:block;width:24px;height:24px;flex:0 0 24px;object-fit:contain;font-size:initial}
