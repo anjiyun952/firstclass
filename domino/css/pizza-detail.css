@@ -175,3 +175,12 @@
 .detail-shell{height:calc(100dvh - 100px - var(--detail-checkout-height,258px))}
 .detail-checkout{box-sizing:border-box;border-top:1px solid #e5e5e5;background:#fff}
 }
+
+/* One layout coordinate system: header, scrolling detail, and fixed checkout. */
+@media(min-width:1001px){
+.detail-page{display:flex;flex-direction:column;height:100dvh;min-height:0;overflow:hidden}
+.detail-page>.site-header{flex:0 0 auto}
+.detail-page>.detail-shell{flex:1 1 auto;height:auto!important;min-height:0;width:100%;margin-top:0;margin-bottom:var(--detail-checkout-height,258px)}
+.detail-page>.detail-checkout{position:fixed;inset:auto 0 0;height:auto!important;min-height:0!important;border-top:1px solid #e5e5e5;background:#fff}
+.detail-checkout-inner{padding-top:16px;padding-bottom:16px}
+}
