@@ -3,3 +3,9 @@
 @media(max-width:1000px){.detail-shell{grid-template-columns:minmax(0,42%) minmax(0,58%);gap:12px;padding:18px 16px 0}.detail-checkout-inner{max-width:58%;margin-right:16px}.detail-dough{gap:7px}.detail-edges button span{width:45px;height:45px;font-size:26px}}
 @media(max-width:767px){.detail-page{height:auto;min-height:100dvh;overflow:visible}.detail-shell{display:block;height:auto;padding:16px 18px 210px}.detail-visual{padding:0}.detail-visual img{max-width:360px;max-height:320px}.detail-options{overflow:visible}.detail-options-inner{padding:0}.detail-options h1{font-size:26px}.detail-checkout{position:fixed;bottom:0;left:0;right:0;height:auto;box-shadow:0 -4px 18px #0001}.detail-checkout-inner{max-width:none;margin:0;padding:8px 16px 12px}.detail-group{margin-bottom:34px}.detail-dough{grid-template-columns:repeat(2,minmax(0,1fr))}.detail-edges{gap:4px}.detail-edges button{font-size:10px}.detail-edges button span{width:48px;height:48px}.detail-tabs button{font-size:11px}.detail-list{height:275px}.detail-summary{left:0;width:100%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+/* Uploaded product images and edge information icons */
+.detail-edges button .detail-edge-image{width:64px;height:64px;object-fit:contain;border-radius:8px;display:block}
+.detail-edges button{position:relative;padding-bottom:24px}
+.detail-edge-info{position:absolute;right:4px;bottom:3px;width:16px;height:16px;object-fit:contain}
+@media(max-width:1000px){.detail-edges button .detail-edge-image{width:45px;height:45px}}
+@media(max-width:767px){.detail-edges button .detail-edge-image{width:48px;height:48px}}
