@@ -108,3 +108,6 @@
 .detail-edges button::before{content:"";position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:110px;height:91px;border:2px solid transparent;border-radius:20px;pointer-events:none;box-sizing:border-box}
 .detail-edges button.is-selected::before{border-color:var(--action-primary,#0193e8)}
 }
+
+/* Edge image corner radius; selection border remains 20px. */
+.detail-edges button .detail-edge-image{border-radius:12px!important}
