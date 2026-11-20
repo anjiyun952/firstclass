@@ -184,3 +184,29 @@
 .detail-page>.detail-checkout{position:fixed;inset:auto 0 0;height:auto!important;min-height:0!important;border-top:1px solid #e5e5e5;background:#fff}
 .detail-checkout-inner{padding-top:16px;padding-bottom:16px}
 }
+
+/* Desktop 90% detail view. Header stays at its original scale. */
+@media(min-width:1001px){
+.detail-page>.detail-shell{
+  zoom:.9;
+  width:calc(100% / .9);
+  max-width:calc(1405px / .9);
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:calc(var(--detail-checkout-height,258px) / .9);
+  grid-template-columns:minmax(0,1fr) 760px;
+}
+.detail-page>.detail-checkout{
+  width:100%;
+}
+.detail-checkout-inner{
+  zoom:.9;
+  width:760px;
+  max-width:760px;
+  margin-left:auto;
+  margin-right:max(0px,calc((100vw / .9 - 1405px / .9) / 2));
+}
+}
+@media(min-width:1001px) and (max-width:1500px){
+.detail-checkout-inner{margin-right:calc(24px / .9)}
+}
