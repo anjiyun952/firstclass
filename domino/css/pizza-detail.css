@@ -90,3 +90,12 @@
 .detail-summary-arrow{display:block;width:24px;height:24px;object-fit:contain;transition:transform .2s ease}
 .detail-summary-toggle[aria-expanded="true"] .detail-summary-arrow{transform:rotate(180deg)}
 @media(max-width:1000px){.detail-mini-stepper button{width:40px;height:40px;flex:0 0 40px}.detail-mini-stepper{gap:6px}}
+
+/* Edge image selection ring and checkout spacing refinements */
+.detail-summary-arrow{width:18px;height:18px}
+.detail-summary-toggle + .detail-summary + .detail-checkout-row{padding-top:6px;min-height:42px}
+@media(min-width:1001px){
+.detail-edges button .detail-edge-image{border:0!important;border-radius:0!important;outline:2px solid transparent;outline-offset:6px;margin-bottom:20px}
+.detail-edges button.is-selected .detail-edge-image{outline-color:var(--action-primary,#0193e8)}
+.detail-edges button small{margin-top:6px}
+}
