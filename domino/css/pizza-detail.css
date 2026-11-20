@@ -23,3 +23,13 @@
 .detail-checkout-inner{width:759px;max-width:calc(100% - 40px);margin-right:max(20px,calc((100vw - 1525px)/2));padding-right:0}
 }
 @media(min-width:1001px) and (max-height:900px){.detail-shell{padding-top:20px}.detail-visual img{width:min(100%,560px)}}
+
+/* Prevent addon thumbnails from being compressed or clipped by row sizing. */
+.detail-list{overflow-x:hidden;scroll-padding-block:12px}
+.detail-item{box-sizing:border-box;flex-shrink:0;overflow:visible}
+.detail-item-image{display:block;flex:none;min-width:0;min-height:0;object-fit:contain;object-position:center;align-self:center}
+.detail-item-info{overflow-wrap:anywhere}
+.detail-item>div:last-child{flex-shrink:0}
+/* Missing edge assets: show an honest, readable placeholder rather than an unrelated pizza emoji. */
+.detail-edges .detail-edge-placeholder{display:grid;place-items:center;width:94px;height:75px;border:1px solid #e5e5e5;background:#f7f7f7;border-radius:8px;color:#777;font-size:12px;line-height:1.4;text-align:center}
+@media(max-width:1000px){.detail-edges .detail-edge-placeholder{width:48px;height:48px;font-size:10px}}
