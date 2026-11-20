@@ -33,3 +33,47 @@
 /* Missing edge assets: show an honest, readable placeholder rather than an unrelated pizza emoji. */
 .detail-edges .detail-edge-placeholder{display:grid;place-items:center;width:94px;height:75px;border:1px solid #e5e5e5;background:#f7f7f7;border-radius:8px;color:#777;font-size:12px;line-height:1.4;text-align:center}
 @media(max-width:1000px){.detail-edges .detail-edge-placeholder{width:48px;height:48px;font-size:10px}}
+
+/* Figma verified desktop measurements — keep pizza visual rules unchanged */
+@media(min-width:1001px){
+.detail-shell{max-width:1405px;grid-template-columns:minmax(0,1fr) 760px;gap:clamp(24px,3vw,60px);height:calc(100dvh - 100px - 274px);padding:60px 0 0}
+.detail-options-inner{max-width:760px;padding:0 0 40px}
+.detail-options h1{font-size:48px;font-weight:600;margin-bottom:12px}
+.detail-description{font-size:24px;font-weight:500}
+.detail-rule{border-top:1px solid #e5e5e5;margin:56px 0}
+.detail-group{margin-bottom:60px}
+.detail-group h2{font-size:24px;font-weight:600;margin-bottom:22px}
+.detail-size{grid-template-columns:repeat(2,minmax(0,360px));justify-content:space-between;gap:0}
+.detail-size button{height:86px;border-radius:9999px;border-width:2px;gap:10px}
+.detail-size strong{font-size:32px;font-weight:600;line-height:1}
+.detail-size small{font-size:16px;font-weight:600;line-height:1}
+.detail-dough{grid-template-columns:repeat(3,minmax(0,234px));justify-content:space-between;column-gap:0;row-gap:22px}
+.detail-dough button{height:64px;min-height:64px;border-radius:20px;padding:0 16px;font-size:20px;font-weight:500;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.detail-dough button .detail-dough-info{width:24px;height:24px;flex:0 0 24px}
+.detail-edges{gap:54px;align-items:flex-start}
+.detail-edges button{border:0!important;border-radius:0;padding:0;gap:0;width:94px;flex:0 0 94px;color:color-mix(in srgb,var(--text-secondary,#666) 50%,transparent);font-size:16px;font-weight:600;text-align:center;white-space:nowrap}
+.detail-edges button .detail-edge-image,.detail-edges button .detail-edge-placeholder{width:94px;height:75px;border:2px solid transparent;border-radius:12px;object-fit:contain;box-sizing:border-box;margin-bottom:20px}
+.detail-edges button.is-selected .detail-edge-image,.detail-edges button.is-selected .detail-edge-placeholder{border-color:var(--action-primary,#0193e8)}
+.detail-edges button small{font-size:12px;font-weight:600;margin-top:10px;color:inherit}
+.detail-edges button .detail-edge-info{display:none}
+.detail-tabs{height:52px;margin-bottom:28px}
+.detail-tabs button{height:52px;font-size:20px;font-weight:500}
+.detail-list{height:386px}
+.detail-item{height:auto;min-height:0;padding:30px 14px;gap:20px;border-bottom:1px solid #e5e5e5}
+.detail-item:first-child{padding-top:0}
+.detail-item-image{width:100px;height:100px;flex:0 0 100px}
+.detail-item-name{font-size:24px;font-weight:500;margin-bottom:18px}
+.detail-item-price{font-size:18px;font-weight:500}
+.detail-add{width:54px;height:54px;flex:0 0 54px;border-radius:9999px}
+.detail-checkout{height:274px}
+.detail-checkout-inner{width:760px;max-width:760px;margin:0 max(0px,calc((100vw - 1405px)/2)) 0 auto;padding:24px 0}
+.detail-checkout-row,.detail-summary-toggle{font-size:16px;min-height:36px}
+.detail-summary-toggle{font-weight:400}
+.detail-summary-toggle strong{font-size:18px;font-weight:400}
+.detail-stepper{width:122px;height:36px;justify-content:space-between}
+.detail-stepper button{height:34px}
+.detail-total{font-size:32px;font-weight:600}
+.detail-actions{grid-template-columns:repeat(2,minmax(0,368px));gap:24px;margin-top:16px}
+.detail-actions button{height:62px;border-radius:20px;font-size:20px;font-weight:600}
+}
+@media(min-width:1001px) and (max-width:1500px){.detail-shell{margin:0 24px}.detail-checkout-inner{margin-right:24px}}
