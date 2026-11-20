@@ -169,3 +169,9 @@
 .detail-checkout-inner{padding-top:16px;padding-bottom:16px}
 .detail-shell{height:calc(100dvh - 100px - 258px)}
 }
+
+/* Synchronize the scrolling content boundary with the actual checkout panel. */
+@media(min-width:1001px){
+.detail-shell{height:calc(100dvh - 100px - var(--detail-checkout-height,258px))}
+.detail-checkout{box-sizing:border-box;border-top:1px solid #e5e5e5;background:#fff}
+}
