@@ -216,3 +216,12 @@
 
 /* Larger quantity numerals in topping, side dish and drink steppers. */
 @media(min-width:1001px){.detail-mini-stepper output{font-size:24px}}
+
+/* Keep the pizza image and options viewport stable when checkout expands. */
+@media(min-width:1001px){
+.detail-page>.detail-shell{
+  margin-bottom:calc(var(--detail-collapsed-checkout-height,258px) / .9)!important;
+  min-height:0;
+}
+.detail-visual img{flex-shrink:0}
+}
