@@ -156,3 +156,9 @@
   .detail-checkout{height:auto;min-height:0;max-height:85dvh;overflow-y:auto}
   .detail-summary{max-height:28dvh}
 }
+
+/* Reduce checkout vertical outer spacing by 8px on both sides. */
+@media(min-width:1001px){
+.detail-checkout{min-height:0}
+.detail-checkout-inner{padding-top:16px;padding-bottom:16px}
+}
