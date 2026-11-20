@@ -9,3 +9,17 @@
 .detail-edge-info{position:absolute;right:4px;bottom:3px;width:16px;height:16px;object-fit:contain}
 @media(max-width:1000px){.detail-edges button .detail-edge-image{width:45px;height:45px}}
 @media(max-width:767px){.detail-edges button .detail-edge-image{width:48px;height:48px}}
+
+/* Figma 716:1095 desktop layout alignment */
+@media(min-width:1001px){
+.detail-shell{max-width:1525px;grid-template-columns:minmax(0,680px) minmax(0,759px);gap:86px;padding:60px 0 0;height:calc(100dvh - 100px - 194px)}
+.detail-visual{align-items:flex-start;padding:0;overflow:hidden}.detail-visual img{width:min(100%,680px);max-height:100%;object-fit:contain}
+.detail-options-inner{padding-right:0}.detail-options h1{font-size:40px}.detail-description{font-size:20px}.detail-rule{margin:56px 0 56px;border-top-width:2px}
+.detail-group{margin-bottom:60px}.detail-group h2{font-size:20px;margin-bottom:22px}.detail-size{gap:38px}.detail-size button{height:85px}
+.detail-dough{column-gap:28.5px;row-gap:22px}.detail-dough button{height:64px;padding:12px 18px;font-size:16px}
+.detail-edges{display:flex;gap:54px;justify-content:flex-start}.detail-edges button{width:94px;flex:0 0 94px;padding:0 0 6px}.detail-edges button .detail-edge-image,.detail-edges button span{width:94px;height:75px}.detail-edge-info{display:none}
+.detail-tabs{margin-bottom:28px}.detail-tabs button{height:52px;font-size:16px;padding:0}
+.detail-list{height:387px}.detail-item{height:162px;min-height:162px;padding:18px 24px;gap:20px}.detail-item-image{width:100px;height:100px;flex-basis:100px}.detail-item-name{font-size:20px}.detail-item-price{font-size:16px}.detail-add{width:54px;height:54px;flex-basis:54px}
+.detail-checkout-inner{width:759px;max-width:calc(100% - 40px);margin-right:max(20px,calc((100vw - 1525px)/2));padding-right:0}
+}
+@media(min-width:1001px) and (max-height:900px){.detail-shell{padding-top:20px}.detail-visual img{width:min(100%,560px)}}
