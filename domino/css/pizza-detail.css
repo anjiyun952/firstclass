@@ -114,3 +114,11 @@
 
 /* Align the four edge choices to the left, preserving image and selection ring dimensions. */
 @media(min-width:1001px){.detail-edges{display:flex;justify-content:flex-start;gap:54px}.detail-edges button{flex:0 0 94px;width:94px;align-items:flex-start;text-align:left}.detail-edges button::before{left:47px;transform:translateX(-50%)}}
+
+/* Edge items remain left-grouped; labels centered below their thumbnails. */
+@media(min-width:1001px){
+.detail-edges{justify-content:flex-start;gap:64px}
+.detail-edges button{flex:0 0 94px;width:94px;align-items:center;text-align:center}
+.detail-edges button .detail-edge-image{align-self:center}
+.detail-edges button::before{left:50%;transform:translateX(-50%)}
+}
