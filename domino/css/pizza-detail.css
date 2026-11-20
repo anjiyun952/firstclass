@@ -162,3 +162,10 @@
 .detail-checkout{min-height:0}
 .detail-checkout-inner{padding-top:16px;padding-bottom:16px}
 }
+
+/* Let the white checkout background follow its content after padding reduction. */
+@media(min-width:1001px){
+.detail-checkout{height:auto!important;min-height:0!important}
+.detail-checkout-inner{padding-top:16px;padding-bottom:16px}
+.detail-shell{height:calc(100dvh - 100px - 258px)}
+}
