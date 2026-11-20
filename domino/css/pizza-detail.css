@@ -213,3 +213,6 @@
 
 /* More breathing room to the right of quantity controls in all add-on lists. */
 @media(min-width:1001px){.detail-list .detail-item{padding-right:20px}}
+
+/* Larger quantity numerals in topping, side dish and drink steppers. */
+@media(min-width:1001px){.detail-mini-stepper output{font-size:24px}}
