@@ -262,3 +262,6 @@
 @media(min-width:1001px){
  .detail-options{margin-right:calc(-1 * var(--detail-scrollbar-extension,0px));padding-right:var(--detail-scrollbar-extension,0px)}
 }
+
+/* Edge names and additional prices: +4px, preserve layout. */
+@media(min-width:1001px){.detail-edges button{font-size:20px}.detail-edges button small{font-size:16px}}
