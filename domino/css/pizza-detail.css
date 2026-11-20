@@ -210,3 +210,6 @@
 @media(min-width:1001px) and (max-width:1500px){
 .detail-checkout-inner{margin-right:calc(24px / .9)}
 }
+
+/* More breathing room to the right of quantity controls in all add-on lists. */
+@media(min-width:1001px){.detail-list .detail-item{padding-right:20px}}
