@@ -32,11 +32,12 @@ let selectionDirty=false,selectionModal=false,restoreSelection=null;
 function showSelection(title,body,confirmText,callback){
  selectionModal=true;showModal(title,body,callback);
  modalConfirm.textContent=confirmText;modalCancel.hidden=true;
+ $('.cart-modal-dialog').classList.remove('cart-store-dialog');
  $('.cart-modal-dialog').classList.add('cart-selection-dialog');
 }
 function finishSelection(){
  selectionDirty=false;selectionModal=false;modalCancel.hidden=false;modalConfirm.hidden=false;
- modalConfirm.textContent='확인';$('.cart-modal-dialog').classList.remove('cart-selection-dialog');
+ modalConfirm.textContent='확인';$('.cart-modal-dialog').classList.remove('cart-selection-dialog','cart-store-dialog');
  closeModal();orderRender();
 }
 function attemptSelectionClose(){
@@ -153,11 +154,26 @@ function storePicker(filters={keyword:'',province:'',district:''}){
  restoreSelection=()=>storePicker({keyword:input.value,province:province.value,district:district.value});renderStores();input.focus();
 }
 function storeDetail(store,filters){
- const body=make('div','cart-picker');const back=text('button','매장 변경','cart-picker-back');back.type='button';back.addEventListener('click',()=>storePicker(filters));
- append(body,back,text('strong',store.name,'cart-detail-road'),text('p','주소: '+store.address),text('p','전화번호: '+store.phone),text('p','영업시간: '+store.hours));
+ const body=make('div','cart-store-detail');
+ const heading=make('div','cart-store-heading');
+ const nameGroup=make('div','cart-store-name');
+ append(nameGroup,text('strong',store.name),text('span','선택한 매장 정보'));
+ const back=text('button','매장 변경','cart-store-change');back.type='button';back.addEventListener('click',()=>storePicker(filters));
+ append(heading,nameGroup,back);
+ const info=make('div','cart-store-info');
+ [['map-pin','매장 주소',store.address],['phone','전화번호',store.phone],['clock','영업시간',store.hours]].forEach(([icon,label,value])=>{
+  const row=make('div','cart-store-info-row'),symbol=make('span','cart-store-icon'),content=make('div','cart-store-info-text');
+  symbol.setAttribute('aria-hidden','true');
+  symbol.textContent=icon==='map-pin'?'⌖':icon==='phone'?'☎':'◷';
+  append(content,text('span',label),text('strong',value));
+  append(row,symbol,content);info.append(row);
+ });
+ append(body,heading,info);
  showSelection(order.mode==='delivery'?'배달 매장 확인':'포장 매장 확인',body,'이 매장으로 설정하기',()=>{const selected={name:store.name,address:store.address,phone:store.phone,hours:store.hours};if(order.mode==='delivery')order.deliveryStore=selected;else order.pickup=selected;saveOrder();finishSelection();return false});
+ $('.cart-modal-dialog').classList.add('cart-store-dialog');
  modalConfirm.hidden=false;restoreSelection=()=>storeDetail(store,filters);
 }
+
 $('#cart-edit').addEventListener('click',()=>{selectionDirty=false;order.mode==='delivery'?addressPicker():storePicker()});
 $('#cart-delivery-store-edit')?.addEventListener('click',()=>{selectionDirty=false;storePicker()});
 function render(){const filled=items.length>0;$('#cart-filled').hidden=!filled;$('#cart-empty').hidden=filled;const wrap=$('#cart-items');wrap.replaceChildren();let sum=0;items.forEach(item=>{sum+=item.price*item.quantity;const row=make('article','cart-item');const top=make('div','cart-item-top');const image=make('img','cart-item-image');image.src=item.image||'';image.alt='';const info=make('div','cart-item-details');info.append(make('h3','',item.name),make('p','',item.description||''),make('strong','',won(item.price*item.quantity)));const remove=make('button','cart-remove');remove.type='button';remove.setAttribute('aria-label',item.name+' 삭제');const x=make('img');x.src='images/shoppingbasket_close_icon.svg';x.alt='';remove.append(x);remove.addEventListener('click',()=>{items=items.filter(x=>x!==item);save();render()});top.append(image,info,remove);const bottom=make('div','cart-item-bottom');const link=make('a','cart-option-link',item.size?'옵션 변경':'상품 정보');if(item.size){link.href='pizza-detail.html?id='+encodeURIComponent((()=>{try{return JSON.parse(item.key)[0]}catch(e){return ''}})())+'&edit='+encodeURIComponent(item.key)}else{link.href='menu.html'}const step=make('div','cart-stepper');const minus=make('button','','−'),out=make('output','',String(item.quantity)),plus=make('button','','+');minus.type=plus.type='button';minus.disabled=item.quantity<=1;minus.setAttribute('aria-label','수량 줄이기');plus.setAttribute('aria-label','수량 늘리기');minus.addEventListener('click',()=>{if(item.quantity>1){item.quantity--;save();render()}});plus.addEventListener('click',()=>{if(item.quantity<99){item.quantity++;save();render()}});step.append(minus,out,plus);bottom.append(link,step);row.append(top,bottom);wrap.append(row)});$('#cart-subtotal').textContent=won(sum);$('#cart-total').textContent=won(sum)}$('#cart-clear').addEventListener('click',()=>showModal('장바구니 전체 삭제','장바구니에 담긴 상품을 모두 삭제하시겠습니까?',()=>{items=[];save();render()}));const recommendations=[{name:'코카콜라 1.25L',price:2500,image:'images/coca_cola_1250ml_image.png'},{name:'코카콜라 510ml',price:1800,image:'images/coca_cola_510ml_image.png'},{name:'코카콜라 제로 1.25L',price:2500,image:'images/coca_cola_zero_1250ml_image.png'},{name:'콘샐러드 콤보(코카콜라 1.25L)',price:3900,image:'images/corn_salad_combo_image.png'}];const rec=$('#cart-recommendations');recommendations.forEach(p=>{const card=make('article','cart-rec-card'),img=make('img'),info=make('div','cart-rec-info'),add=make('button','','+');img.src=p.image;img.alt='';info.append(make('h3','',p.name),make('p','',won(p.price)));add.type='button';add.setAttribute('aria-label',p.name+' 추가');add.addEventListener('click',()=>{const key=JSON.stringify(['recommend',p.name]);const existing=items.find(x=>x.key===key);if(existing)existing.quantity=Math.min(99,existing.quantity+1);else items.push({key,name:p.name,image:p.image,description:'',price:p.price,quantity:1});save();render()});card.append(img,info,add);rec.append(card)});$('#cart-checkout').addEventListener('click',()=>{
