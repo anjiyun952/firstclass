@@ -32,12 +32,12 @@ let selectionDirty=false,selectionModal=false,restoreSelection=null;
 function showSelection(title,body,confirmText,callback){
  selectionModal=true;showModal(title,body,callback);
  modalConfirm.textContent=confirmText;modalCancel.hidden=true;
- $('.cart-modal-dialog').classList.remove('cart-store-dialog');
+ $('.cart-modal-dialog').classList.remove('cart-store-dialog','cart-address-detail-dialog');
  $('.cart-modal-dialog').classList.add('cart-selection-dialog');
 }
 function finishSelection(){
  selectionDirty=false;selectionModal=false;modalCancel.hidden=false;modalConfirm.hidden=false;
- modalConfirm.textContent='확인';$('.cart-modal-dialog').classList.remove('cart-selection-dialog','cart-store-dialog');
+ modalConfirm.textContent='확인';$('.cart-modal-dialog').classList.remove('cart-selection-dialog','cart-store-dialog','cart-address-detail-dialog');
  closeModal();orderRender();
 }
 function attemptSelectionClose(){
@@ -113,24 +113,31 @@ function addressPicker(initialKeyword='',initialPage=1){
  input.focus();
 }
 function addressDetail(address,keyword,page){
- const body=make('div','cart-picker');
- append(body,text('strong',address.road,'cart-detail-road'),text('p','우편번호 '+address.zip));
- const back=text('button','주소 변경','cart-picker-back');back.type='button';back.addEventListener('click',()=>addressPicker(keyword,page));
- const label=text('label','상세 주소');const input=make('input');input.type='text';input.maxLength=150;input.placeholder='동·호수 등 상세 주소를 입력해 주세요';
+ const body=make('div','cart-address-detail');
+ const addressRow=make('div','cart-address-selected');
+ const addressText=make('div','cart-address-selected-text');
+ append(addressText,text('span','선택한 주소','cart-address-caption'),text('strong',address.road,'cart-detail-road'),text('span','우편번호 '+address.zip,'cart-address-zip'));
+ const back=text('button','주소 변경','cart-address-change');back.type='button';back.addEventListener('click',()=>addressPicker(keyword,page));
+ append(addressRow,addressText,back);
+ const field=make('div','cart-address-field');
+ const label=text('label','상세 주소');const input=make('input');input.type='text';input.maxLength=150;input.placeholder='동·호수 등 상세 주소를 입력해 주세요';input.id='cart-address-detail-input';label.htmlFor=input.id;
  const checkLabel=make('label','cart-check-label'),checkbox=make('input');checkbox.type='checkbox';
  append(checkLabel,checkbox,document.createTextNode('상세 주소 없음'));
  const error=text('p','','cart-field-error');error.setAttribute('aria-live','polite');
- append(body,back,label,input,checkLabel,error);
+ append(field,label,input,checkLabel,error);
+ append(body,addressRow,field);
  showSelection('상세 주소 입력',body,'이 주소로 설정하기',()=>{
   if(!input.value.trim()&&!checkbox.checked){input.classList.add('is-invalid');error.textContent='상세 주소를 입력하거나 상세 주소 없음을 선택해 주세요.';return false}
   order.delivery={road:address.road,jibun:address.jibun,zip:address.zip,detail:checkbox.checked?'':input.value.trim()};
   saveOrder();finishSelection();return false;
  });
+ $('.cart-modal-dialog').classList.add('cart-address-detail-dialog');
  modalConfirm.hidden=false;
  checkbox.addEventListener('change',()=>{input.disabled=checkbox.checked;if(checkbox.checked){input.value='';input.classList.remove('is-invalid');error.textContent=''}});
  input.addEventListener('input',()=>{input.classList.remove('is-invalid');error.textContent=''});
  restoreSelection=()=>addressDetail(address,keyword,page);input.focus();
 }
+
 function storePicker(filters={keyword:'',province:'',district:''}){
  const body=make('div','cart-picker'),form=make('form','cart-picker-search');
  const input=make('input');input.type='search';input.placeholder='매장명 검색';input.value=filters.keyword;
