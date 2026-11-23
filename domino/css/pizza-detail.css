@@ -67,9 +67,9 @@
 .detail-add{width:54px;height:54px;flex:0 0 54px;border-radius:9999px}
 .detail-checkout{height:274px}
 .detail-checkout-inner{width:760px;max-width:760px;margin:0 max(0px,calc((100vw - 1405px)/2)) 0 auto;padding:24px 0}
-.detail-checkout-row{font-size:16px;min-height:36px}
-.detail-summary-toggle{font-size:14px;min-height:36px;font-weight:400}
-.detail-summary-toggle strong{font-size:14px;font-weight:300}
+.detail-checkout-row,.detail-summary-toggle{font-size:16px;min-height:36px}
+.detail-summary-toggle{font-weight:400}
+.detail-summary-toggle strong{font-size:18px;font-weight:400}
 .detail-stepper{width:122px;height:36px;justify-content:space-between}
 .detail-stepper button{height:34px}
 .detail-total{font-size:32px;font-weight:600}
@@ -343,3 +343,9 @@
  .detail-edges button::before{width:69.696px;max-width:calc(100% + 12px);height:58.08px;top:-5.04px;left:50%;transform:translateX(-50%);border-radius:10px}
 }
 
+
+/* Mobile checkout: keep additional options subordinate to pizza quantity. */
+@media(max-width:767px){
+ .detail-summary-toggle{font-size:14px}
+ .detail-summary-toggle strong{font-size:14px;font-weight:300}
+}
