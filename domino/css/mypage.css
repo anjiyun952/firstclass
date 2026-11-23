@@ -153,3 +153,7 @@
 .mypage-accordion,.mypage-accordion:last-of-type{border-color:var(--neutral-200)}
 @media(max-width:900px){.mypage-coupon-panel{border-top-color:var(--neutral-200)}}
 @media(max-width:767px){.mypage-section-heading{padding-top:18px;padding-bottom:0;margin-bottom:16px}}
+
+/* Rounded membership hero and coupon CTA. */
+.mypage-hero{border-radius:60px}
+.mypage-benefit-button{border-radius:9999px}
