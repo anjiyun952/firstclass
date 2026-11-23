@@ -72,3 +72,7 @@
 
 /* Link to the full cart while keeping the mini basket. */
 .menu-basket-footer{flex-basis:208px;height:208px;padding-top:15px;padding-bottom:18px}.menu-basket-view{display:flex;justify-content:center;align-items:center;gap:8px;width:100%;height:43px;box-sizing:border-box;margin-bottom:9px;border:1px solid var(--action-primary,#0098e8);border-radius:12px;color:var(--action-primary,#0098e8);background:#fff;text-decoration:none;font-weight:600;font-size:16px}.menu-basket-view img{width:18px;height:18px}.menu-basket-view:focus-visible{outline:2px solid #0098e8;outline-offset:2px}
+
+/* Keep the label geometrically centered, independent of the arrow icon. */
+.menu-basket-view{position:relative;display:grid;place-items:center;padding:0 36px;text-align:center;gap:0}
+.menu-basket-view img{position:absolute;right:15px;top:50%;transform:translateY(-50%)}
