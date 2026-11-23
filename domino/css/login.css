@@ -34,10 +34,7 @@
 .login-guest-panel button{margin-top:24px;padding:15px 30px;border:1px solid #666;border-radius:999px;background:#fff;font:inherit;cursor:pointer}
 .login-demo-note{margin:30px auto 0;text-align:center;font-size:13px;color:#777}
 .login-demo-note strong{color:#242424}
-.login-success{text-align:center;margin-top:25px;padding:24px;border-radius:16px;background:#f6f6f6}
-.login-success h2{font-size:23px}.login-success p{margin:12px 0 20px;color:#666;line-height:1.6}
-.login-success button{padding:12px 28px;border:0;border-radius:999px;background:#fe0000;color:white;font:inherit;cursor:pointer}
-.login-form[hidden],.login-social[hidden],.login-guest-panel[hidden],.login-member-panel[hidden],.login-success[hidden]{display:none!important}
+.login-form[hidden],.login-social[hidden],.login-guest-panel[hidden],.login-member-panel[hidden]{display:none!important}
 .login-page button:focus-visible,.login-page input:focus-visible{outline:2px solid #0055a5;outline-offset:3px}
 @media(max-width:767px){.login-page{min-height:730px;padding:45px 20px 70px}.login-title{height:105px;font-size:64px}.login-tabs{height:54px;margin-bottom:32px}.login-tab{height:42px;font-size:15px}.login-options{gap:8px}.login-remember,.login-find-links button{font-size:13px}.login-find-links button+button{margin-left:9px;padding-left:9px}.login-social{margin-top:40px}.login-demo-note{margin-top:28px}}
 
