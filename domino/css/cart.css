@@ -102,3 +102,6 @@ html{scrollbar-gutter:stable}
 .cart-address-detail-dialog .cart-field-error:empty{display:none}
 .cart-address-detail-dialog .cart-field-error{margin:0;font-size:13px;color:#e03939}
 @media(max-width:550px){.cart-address-selected{align-items:flex-start}.cart-address-change{padding:9px 10px}}
+
+/* Space the native search-field clear (X) control from the search icon. */
+.cart-modal .cart-picker-search input[type="search"]::-webkit-search-cancel-button{margin-right:8px}
