@@ -162,3 +162,11 @@
 .mypage-accordion summary .mypage-accordion-arrow{display:block;width:24px;height:24px;flex:none;transition:transform .2s ease}
 .mypage-accordion[open] summary .mypage-accordion-arrow{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.mypage-accordion summary .mypage-accordion-arrow{transition:none}}
+
+/* Align logout button with the bottom edge of MY PAGE, not the subtitle. */
+.mypage-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:initial;column-gap:24px;row-gap:0}
+.mypage-heading>div{display:contents}
+.mypage-heading h1{grid-column:1;grid-row:1}
+.mypage-heading p{grid-column:1;grid-row:2}
+.mypage-heading .mypage-logout{grid-column:2;grid-row:1;align-self:end;margin-bottom:12px}
+@media(max-width:767px){.mypage-heading .mypage-logout{margin-bottom:10px}}
