@@ -41,6 +41,7 @@ function finishSelection(){
  closeModal();orderRender();
 }
 function attemptSelectionClose(){
+ if(selectionModal&&$('#cart-modal-title').textContent==='상세 주소 입력'){finishSelection();return}
  if(!selectionModal){closeModal();return}
  if(!selectionDirty){finishSelection();return}
  const resume=restoreSelection;
