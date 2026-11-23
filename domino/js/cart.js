@@ -161,12 +161,10 @@ function storeDetail(store,filters){
  const back=text('button','매장 변경','cart-store-change');back.type='button';back.addEventListener('click',()=>storePicker(filters));
  append(heading,nameGroup,back);
  const info=make('div','cart-store-info');
- [['map-pin','매장 주소',store.address],['phone','전화번호',store.phone],['clock','영업시간',store.hours]].forEach(([icon,label,value])=>{
-  const row=make('div','cart-store-info-row'),symbol=make('span','cart-store-icon'),content=make('div','cart-store-info-text');
-  symbol.setAttribute('aria-hidden','true');
-  symbol.textContent=icon==='map-pin'?'⌖':icon==='phone'?'☎':'◷';
-  append(content,text('span',label),text('strong',value));
-  append(row,symbol,content);info.append(row);
+ [['map_marker',store.address],['call',store.phone],['clock','영업시간: '+store.hours]].forEach(([icon,value])=>{
+  const row=make('div','cart-store-info-row'),symbol=make('img','cart-store-icon');
+  symbol.src='images/'+icon+'_icon.svg';symbol.alt='';symbol.setAttribute('aria-hidden','true');
+  append(row,symbol,text('span',value));info.append(row);
  });
  append(body,heading,info);
  showSelection(order.mode==='delivery'?'배달 매장 확인':'포장 매장 확인',body,'이 매장으로 설정하기',()=>{const selected={name:store.name,address:store.address,phone:store.phone,hours:store.hours};if(order.mode==='delivery')order.deliveryStore=selected;else order.pickup=selected;saveOrder();finishSelection();return false});
