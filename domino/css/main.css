@@ -38,9 +38,19 @@
 /* Local fonts: paths are relative to domino/css/main.css */
 @font-face {
     font-family: "Pretendard Variable";
-    src: url("../../Font/PretendardVariable.woff2") format("woff2");
+    src: url("https://anjiyun952.github.io/firstclass/Font/PretendardVariable.woff2") format("woff2");
     font-style: normal;
     font-weight: 100 900;
+    font-display: swap;
+}
+
+
+/* Shared English display font for all pages on both GitHub Pages and Vercel. */
+@font-face {
+    font-family: "TT Commons Pro Mono";
+    src: url("https://anjiyun952.github.io/firstclass/Font/TT_Commons_Pro_Mono_Trial_Bold.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
     font-display: swap;
 }
 
