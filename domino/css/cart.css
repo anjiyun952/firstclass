@@ -70,3 +70,11 @@ html{scrollbar-gutter:stable}
 .cart-store-info-text span{font-size:13px;color:#777}
 .cart-store-info-text strong{font-size:15px;font-weight:600;line-height:1.5;overflow-wrap:anywhere}
 @media(max-width:550px){.cart-store-info{padding:16px}.cart-store-heading{align-items:flex-start}.cart-store-change{padding:9px 10px}}
+
+
+/* Match STORE's icon-and-text information rows inside the confirmed compact dialog. */
+.cart-store-info{gap:8px}
+.cart-store-info-row{align-items:flex-start;gap:6px;color:#666;font-size:16px;font-weight:500;letter-spacing:-.03em;line-height:1.3}
+.cart-store-info-row:first-child{color:#242424}
+.cart-store-info-row .cart-store-icon{display:block;width:14px;height:14px;flex:0 0 14px;margin-top:3px;object-fit:contain}
+.cart-store-info-row>span{overflow-wrap:anywhere}
