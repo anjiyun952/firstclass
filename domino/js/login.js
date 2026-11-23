@@ -3,6 +3,9 @@ const form=document.getElementById('demo-login-form');if(!form)return;
 const id=document.getElementById('login-id'),password=document.getElementById('login-password'),feedback=document.getElementById('login-feedback'),success=document.getElementById('login-success'),logout=document.getElementById('demo-logout'),social=document.querySelector('.login-social');
 const remember=document.getElementById('remember-id'),tabs=[document.getElementById('member-login-tab'),document.getElementById('guest-login-tab')],panels=[document.getElementById('member-login-panel'),document.getElementById('guest-login-panel')];
 const key='domino_demo_logged_in',rememberKey='domino_demo_remembered_id';
+// Logged-in visitors arriving from any page should go straight to My Page.
+if(sessionStorage.getItem(key)==='true'){location.replace('mypage.html');return;}
+
 try{const saved=localStorage.getItem(rememberKey);if(saved){id.value=saved;remember.checked=true}}catch(e){}
 function render(){const active=sessionStorage.getItem(key)==='true';form.hidden=active;success.hidden=!active;social.hidden=active}
 const tabBar=document.querySelector('.login-tabs'),indicator=tabBar.querySelector('.login-tab-indicator');
