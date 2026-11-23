@@ -352,17 +352,45 @@
     <script src="js/subtitles.js" defer></script>
     <script src="js/news.js" defer></script>
     <script>
-        const swiper = new Swiper('.hero-sec .swiper', {
-            direction: 'horizontal',
-            loop: true,
-            navigation: {
-                nextEl: '.hero-sec .swiper-button-next',
-                prevEl: '.hero-sec .swiper-button-prev',
-            },
-            autoplay: {
-                delay: 3000,
-            },
-        });
+        // Self-contained hero slider: works even when the Swiper bundle is unavailable.
+        (() => {
+            const hero = document.querySelector('.hero-sec .swiper');
+            if (!hero) return;
+            const track = hero.querySelector('.swiper-wrapper');
+            const slides = [...track.querySelectorAll('.swiper-slide')];
+            if (!slides.length) return;
+            let index = 0;
+            let timer;
+            let touchStartX = null;
+            const render = () => {
+                track.style.transform = 'translate3d(-' + (index * 100) + '%,0,0)';
+            };
+            const move = (step) => {
+                index = (index + step + slides.length) % slides.length;
+                render();
+            };
+            const start = () => {
+                clearInterval(timer);
+                timer = setInterval(() => move(1), 3000);
+            };
+            hero.querySelector('.swiper-button-prev')?.addEventListener('click', () => { move(-1); start(); });
+            hero.querySelector('.swiper-button-next')?.addEventListener('click', () => { move(1); start(); });
+            hero.addEventListener('touchstart', (event) => {
+                touchStartX = event.touches[0]?.clientX ?? null;
+            }, { passive: true });
+            hero.addEventListener('touchend', (event) => {
+                if (touchStartX === null) return;
+                const delta = (event.changedTouches[0]?.clientX ?? touchStartX) - touchStartX;
+                if (Math.abs(delta) > 40) { move(delta < 0 ? 1 : -1); start(); }
+                touchStartX = null;
+            }, { passive: true });
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) clearInterval(timer);
+                else start();
+            });
+            render();
+            start();
+        })();
     </script>
 </body>
 </html>
