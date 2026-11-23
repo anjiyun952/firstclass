@@ -157,3 +157,8 @@
 /* Rounded membership hero and coupon CTA. */
 .mypage-hero{border-radius:60px}
 .mypage-benefit-button{border-radius:9999px}
+
+/* Match the existing accordion down-arrow rotation pattern. */
+.mypage-accordion summary .mypage-accordion-arrow{display:block;width:24px;height:24px;flex:none;transition:transform .2s ease}
+.mypage-accordion[open] summary .mypage-accordion-arrow{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.mypage-accordion summary .mypage-accordion-arrow{transition:none}}
