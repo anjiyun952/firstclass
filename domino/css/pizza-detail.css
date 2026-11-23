@@ -318,3 +318,14 @@
   .detail-dough button>span{flex:1;min-width:0;line-height:1.4;overflow-wrap:break-word}
   .detail-dough button .detail-dough-info{display:block;flex:0 0 18px;width:18px;height:18px;margin-left:auto;object-fit:contain}
 }
+
+/* Mobile edge choices follow the desktop thumbnail-only selection frame. */
+@media(max-width:767px){
+ .detail-edges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%;padding:8px 0 0;align-items:start}
+ .detail-edges button{position:relative;width:100%;min-width:0;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;padding:0 0 4px;border:0!important;border-radius:0;background:transparent;text-align:center;white-space:normal;font-size:clamp(10px,2.7vw,13px);font-weight:600;line-height:1.35}
+ .detail-edges button .detail-edge-image{width:min(100%,72px);height:60px;object-fit:contain;border:0!important;border-radius:9px!important;outline:none!important;margin:0 0 14px}
+ .detail-edges button::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:min(calc(100% + 2px),84px);height:72px;border:1.5px solid transparent;border-radius:13px;box-sizing:border-box;pointer-events:none}
+ .detail-edges button.is-selected::before{border-color:var(--blue-primary,var(--action-primary,#0193e8))}
+ .detail-edges button small{font-size:clamp(10px,2.6vw,12px);font-weight:600;line-height:1.35;margin-top:5px;color:inherit}
+ .detail-edges button .detail-edge-info{display:none!important}
+}
