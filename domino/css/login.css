@@ -14,9 +14,8 @@
 .login-field input::placeholder{color:#999}
 .login-options{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:25.2px;margin:10.8px 0 32.4px}
 .login-remember{display:flex;align-items:center;gap:7.2px;cursor:pointer;font-size:16px;white-space:nowrap}
-.login-remember input{appearance:none;width:25.2px;height:25.2px;margin:0;border:1px solid #999;border-radius:5px;background:#fff;cursor:pointer}
-.login-remember input:checked{background:#ff0000;border-color:#ff0000}
-.login-remember input:checked:after{content:'✓';display:block;text-align:center;color:#fff;font-size:18px;line-height:23px}
+.login-remember input{appearance:none;width:25.2px;height:25.2px;flex:0 0 25.2px;margin:0;border:0;border-radius:0;background:transparent url("../checkbox_unchecked_icon.svg") center/contain no-repeat;cursor:pointer}
+.login-remember input:checked{background-image:url("../checkbox_checked_icon.svg")}
 .login-find-links{display:flex;align-items:center}
 .login-find-links button{border:0;background:none;padding:0;color:#666;font:inherit;font-size:15px;white-space:nowrap;cursor:pointer}
 .login-find-links button+button{margin-left:16px;padding-left:16px;border-left:1px solid #ccc}
