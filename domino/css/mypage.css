@@ -145,3 +145,11 @@
  .mypage-shortcut img{width:20px;height:20px;flex-basis:20px}
 }
 @media(prefers-reduced-motion:reduce){.mypage-shortcut,.mypage-shortcut img{transition:none}.mypage-shortcut:hover img,.mypage-shortcut:focus-visible img{transform:none}}
+
+/* Follow the renewal site's section-divider convention: above headings, neutral-200. */
+.mypage-section-heading{border-bottom:0;border-top:1px solid var(--neutral-200);padding-top:24px;padding-bottom:0;margin-bottom:24px}
+.mypage-shortcut,.mypage-shortcut:first-child,.mypage-shortcut:nth-child(odd),.mypage-shortcut:hover{border-bottom-color:var(--neutral-200)}
+.mypage-coupon-panel{border-left-color:var(--neutral-200)}
+.mypage-accordion,.mypage-accordion:last-of-type{border-color:var(--neutral-200)}
+@media(max-width:900px){.mypage-coupon-panel{border-top-color:var(--neutral-200)}}
+@media(max-width:767px){.mypage-section-heading{padding-top:18px;padding-bottom:0;margin-bottom:16px}}
