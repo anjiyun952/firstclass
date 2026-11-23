@@ -1,0 +1,56 @@
+/* MY PAGE — responsive member dashboard; isolated from shared styles. */
+.mypage{background:#fff;color:#242424;font-family:"Pretendard Variable",Pretendard,sans-serif;padding:66px 24px 140px}
+.mypage *{box-sizing:border-box}.mypage-container{max-width:1405px;margin:0 auto}
+.mypage-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
+.mypage-eyebrow,.mypage-section-number,.mypage-kicker{font-size:12px;font-weight:650;letter-spacing:.11em;color:#0193e8}
+.mypage-heading h1{font-size:clamp(54px,7vw,104px);line-height:1.05;letter-spacing:-.055em;margin:14px 0 12px;font-weight:700}
+.mypage-heading p{font-size:17px;color:#666;margin:0}
+.mypage-logout{border:1px solid #e5e5e5;border-radius:999px;background:#fff;padding:13px 22px;font:500 14px inherit;cursor:pointer;white-space:nowrap}
+.mypage-logout span{margin-left:14px}
+.mypage-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;background:#111;color:#fff;border-radius:24px;padding:52px 60px}
+.mypage-hello{margin:0 0 42px;font-size:19px;color:#e6e6e6}.mypage-hello strong{color:#fff}
+.mypage-member-caption{font-size:12px;color:#aaa;letter-spacing:.12em;margin:0 0 8px}
+.mypage-grade{display:block;font-size:clamp(44px,5vw,76px);line-height:1.1;letter-spacing:-.04em}
+.mypage-grade-link{display:inline-flex;margin-top:25px;color:#fff;text-decoration:none;border-bottom:1px solid #0193e8;padding-bottom:9px;font-size:14px;gap:30px}
+.mypage-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.mypage-stat{padding:15px 24px 15px 34px;border-left:1px solid #444;display:flex;flex-direction:column;gap:15px}
+.mypage-stat>span:first-child{font-size:14px;color:#bcbcbc}
+.mypage-stat strong{font-size:clamp(38px,4vw,64px);line-height:1.1;font-weight:600;font-variant-numeric:tabular-nums}
+.mypage-stat strong small{font-size:18px;margin-left:5px;font-weight:500}
+.mypage-stat-period{font-size:12px;color:#999}
+.mypage-section{margin-top:88px}.mypage-section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+.mypage-section-heading h2{font-size:clamp(25px,3vw,36px);font-weight:650;margin:9px 0 0}
+.mypage-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.mypage-shortcut{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:24px;min-height:176px;border:1px solid #e5e5e5;border-radius:20px;background:#fff;padding:25px;color:#242424;text-decoration:none;text-align:left;font:600 18px "Pretendard Variable",Pretendard,sans-serif;cursor:pointer;transition:border-color .2s,transform .2s}
+.mypage-shortcut:hover{border-color:#0193e8;transform:translateY(-3px)}
+.mypage-shortcut-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:#f1f8fd;color:#0193e8;font-size:29px;font-weight:400}
+.mypage-shortcut-arrow{position:absolute;right:25px;bottom:25px;font-size:21px;color:#999}
+.mypage-membership-card{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;padding:42px 46px;border:1px solid #e5e5e5;border-radius:22px}
+.mypage-membership-card h3{font-size:clamp(34px,4vw,54px);margin:14px 0 12px;letter-spacing:-.04em}
+.mypage-membership-card p{margin:0;color:#777;font-size:14px;line-height:1.7}
+.mypage-membership-card p strong{color:#0193e8}
+.mypage-level-row{display:flex;justify-content:space-between;font-size:14px;letter-spacing:.04em}
+.mypage-level-row strong:last-child{color:#0193e8}
+.mypage-level-track{height:8px;border-radius:999px;background:#e9edf0;margin:16px 0 14px}
+.mypage-level-track span{display:block;width:0;height:100%}
+.mypage-benefit-card{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:45px 46px;border:1px solid #e5e5e5;border-radius:22px;background:#fbfdff}
+.mypage-benefit-copy h3{font-size:clamp(24px,3vw,36px);font-weight:650;margin:16px 0 10px}
+.mypage-benefit-copy h3 em{color:#0193e8;font-style:normal}
+.mypage-benefit-copy p{margin:0;font-size:14px;color:#777;line-height:1.7}
+.mypage-benefit-button{flex:none;min-width:174px;border:0;border-radius:999px;padding:19px 24px;background:#0193e8;color:#fff;font:600 16px "Pretendard Variable",Pretendard,sans-serif;cursor:pointer}
+.mypage-benefit-button span{margin-left:12px}
+.mypage-accordion{border-top:1px solid #e5e5e5}
+.mypage-accordion:last-of-type{border-bottom:1px solid #e5e5e5}
+.mypage-accordion summary{display:flex;align-items:center;justify-content:space-between;gap:20px;list-style:none;cursor:pointer;padding:24px 8px;font-size:18px;font-weight:600}
+.mypage-accordion summary::-webkit-details-marker{display:none}
+.mypage-accordion summary span{font-size:25px;font-weight:400;color:#666;transition:transform .2s}
+.mypage-accordion[open] summary span{transform:rotate(45deg)}
+.mypage-accordion-body{padding:0 8px 26px;color:#555;font-size:15px;line-height:1.8}
+.mypage-accordion-body p{margin:0 0 8px}
+.mypage-muted{color:#888;font-size:13px}
+.mypage-notice{min-height:24px;margin:28px 0 0;font-size:14px;color:#0079c2}
+.mypage a:focus-visible,.mypage button:focus-visible,.mypage summary:focus-visible{outline:3px solid #0079c2;outline-offset:3px}
+@media(max-width:900px){.mypage{padding:48px 22px 100px}.mypage-hero{padding:36px;gap:20px}.mypage-shortcuts{gap:10px}.mypage-shortcut{padding:20px;min-height:155px}.mypage-membership-card{gap:30px;padding:32px}}
+@media(max-width:767px){.mypage{padding:36px 18px 90px}.mypage-heading{margin-bottom:30px;align-items:start}.mypage-heading h1{font-size:58px;margin:9px 0 10px}.mypage-heading p{font-size:13px}.mypage-eyebrow{font-size:10px}.mypage-logout{font-size:12px;padding:10px 13px;margin-top:8px}.mypage-logout span{margin-left:4px}.mypage-hero{display:block;border-radius:18px;padding:30px 26px}.mypage-hello{font-size:16px;margin-bottom:28px}.mypage-grade{font-size:50px}.mypage-grade-link{margin-top:18px}.mypage-stats{margin-top:35px;padding-top:24px;border-top:1px solid #444}.mypage-stat{padding:0 12px 0 0;border-left:0}.mypage-stat+.mypage-stat{padding-left:20px;border-left:1px solid #444}.mypage-stat strong{font-size:36px}.mypage-stat strong small{font-size:14px}.mypage-stat-period{font-size:10px}.mypage-section{margin-top:62px}.mypage-section-heading{margin-bottom:20px}.mypage-section-heading h2{font-size:25px}.mypage-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mypage-shortcut{min-height:132px;border-radius:14px;padding:17px;font-size:15px;gap:18px}.mypage-shortcut-icon{width:39px;height:39px;font-size:24px}.mypage-shortcut-arrow{right:17px;bottom:17px}.mypage-membership-card{grid-template-columns:1fr;gap:28px;padding:26px;border-radius:16px}.mypage-membership-card h3{font-size:40px}.mypage-benefit-card{flex-direction:column;align-items:stretch;padding:28px 24px;border-radius:16px;gap:24px}.mypage-benefit-copy h3{font-size:25px}.mypage-benefit-button{width:100%;min-width:0}.mypage-accordion summary{font-size:16px;padding:21px 4px}.mypage-accordion-body{font-size:14px}}
+@media(max-width:360px){.mypage-heading h1{font-size:47px}.mypage-logout{padding:9px}.mypage-hero{padding:25px 20px}.mypage-stat strong{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.mypage-shortcut,.mypage-accordion summary span{transition:none}}
