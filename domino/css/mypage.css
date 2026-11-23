@@ -170,3 +170,8 @@
 .mypage-heading p{grid-column:1;grid-row:2}
 .mypage-heading .mypage-logout{grid-column:2;grid-row:1;align-self:end;margin-bottom:12px}
 @media(max-width:767px){.mypage-heading .mypage-logout{margin-bottom:10px}}
+
+/* Membership progress cue based on official reference; illustrative, not live data. */
+.mypage-level-progress-hint{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px}
+.mypage-level-count-pill{display:inline-flex;align-items:center;justify-content:center;padding:9px 17px;border-radius:9999px;background:var(--neutral-900);color:var(--neutral-white);font-size:12px;font-weight:700;line-height:1.2;white-space:nowrap}
+.mypage-level-sample{font-size:12px;color:var(--neutral-600)}
