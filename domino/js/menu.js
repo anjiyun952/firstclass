@@ -130,7 +130,8 @@
  }
  const open=()=>{basket.dataset.open='true';toggle.setAttribute('aria-expanded','true')};
  toggle.addEventListener('click',()=>{const next=basket.dataset.open!=='true';basket.dataset.open=String(next);toggle.setAttribute('aria-expanded',String(next))});
- basket.querySelector('.menu-basket-order').addEventListener('click',()=>{status.textContent=items.length?'포트폴리오 체험 화면입니다. 실제 주문 및 결제는 진행되지 않습니다.':'먼저 메뉴를 담아 주세요.'});
+ basket.querySelector('.menu-basket-order').addEventListener('click',()=>{if(items.length)location.href='cart.html';else status.textContent='먼저 메뉴를 담아 주세요.'});
+ window.addEventListener('storage',e=>{if(e.key===KEY){try{const v=JSON.parse(e.newValue||'[]');items=Array.isArray(v)?v:[]}catch(err){items=[]}render()}});
  render();
  if(new URLSearchParams(location.search).get('cart')==='open'){open();history.replaceState(null,'',location.pathname+location.hash)}
 })();
