@@ -105,3 +105,11 @@ html{scrollbar-gutter:stable}
 
 /* Space the native search-field clear (X) control from the search icon. */
 .cart-modal .cart-picker-search input[type="search"]::-webkit-search-cancel-button{margin-right:8px}
+
+/* Mobile delivery-store card: let long addresses wrap without clipping the change button. */
+@media(max-width:550px){
+ #cart-delivery-store{min-width:0}
+ #cart-delivery-store>div{flex:1 1 0;min-width:0}
+ #cart-delivery-store p{overflow-wrap:anywhere;line-height:1.5}
+ #cart-delivery-store>button{flex:0 0 auto;align-self:center}
+}
