@@ -51,3 +51,22 @@ html{scrollbar-gutter:stable}
 .cart-picker-search input::placeholder{color:rgba(102,102,102,.7)}
 .cart-picker-search button{display:grid;place-items:center;flex:none;min-height:0;width:32px;height:32px;padding:4px;border:0;border-radius:0;background:transparent;color:inherit;cursor:pointer}
 .cart-picker-search button img{display:block;width:24px;height:24px;object-fit:contain}
+
+
+/* Compact, grouped store confirmation for both delivery and pickup. */
+.cart-modal-dialog.cart-store-dialog{height:auto;max-height:calc(100dvh - 36px);min-height:0}
+.cart-store-dialog #cart-modal-body{flex:0 1 auto;overflow:auto;min-height:0}
+.cart-store-dialog .cart-modal-actions{margin-top:24px}
+.cart-store-detail{display:flex;flex-direction:column;gap:20px;min-height:0}
+.cart-store-heading{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.cart-store-name{display:flex;flex-direction:column;gap:5px;min-width:0}
+.cart-store-name strong{font-size:20px;font-weight:700;line-height:1.4}
+.cart-store-name span{font-size:13px;color:#777}
+.cart-store-change{flex:none;border:1px solid #ddd;background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer;font:600 14px Pretendard,"Pretendard Variable",sans-serif}
+.cart-store-info{display:flex;flex-direction:column;gap:18px;background:#f7f7f7;border-radius:14px;padding:20px}
+.cart-store-info-row{display:flex;align-items:flex-start;gap:14px}
+.cart-store-icon{width:20px;flex:0 0 20px;text-align:center;font-size:20px;line-height:1.25;color:#777}
+.cart-store-info-text{display:flex;flex-direction:column;gap:5px;min-width:0}
+.cart-store-info-text span{font-size:13px;color:#777}
+.cart-store-info-text strong{font-size:15px;font-weight:600;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:550px){.cart-store-info{padding:16px}.cart-store-heading{align-items:flex-start}.cart-store-change{padding:9px 10px}}
