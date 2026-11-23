@@ -123,3 +123,9 @@
 .mypage-level-head h3,.mypage-level-row strong:first-child{color:var(--tier-regular)}
 .mypage-level-row strong:last-child{color:#a47700}
 .mypage-level-row strong:last-child::before{content:"";display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:var(--tier-premium);vertical-align:middle}
+
+/* Membership benefits arrow: subtle rightward motion on hover and keyboard focus. */
+.mypage-grade-link{align-items:center}
+.mypage-grade-link img{display:block;width:24px;height:24px;flex:none;transition:transform .22s ease}
+.mypage-grade-link:hover img,.mypage-grade-link:focus-visible img{transform:translateX(6px)}
+@media(prefers-reduced-motion:reduce){.mypage-grade-link img{transition:none}.mypage-grade-link:hover img,.mypage-grade-link:focus-visible img{transform:none}}
