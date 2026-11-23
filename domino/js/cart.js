@@ -61,8 +61,6 @@ function orderRender(){
   area.append(text('strong',delivery?chosen.road:chosen.name,'cart-location-main'));
   if(delivery){
    if(chosen.detail)area.append(text('span',chosen.detail,'cart-location-sub'));
-   const linked=order.deliveryStore;
-   area.append(text('span',linked?'선택한 배달 매장: '+linked.name+' · '+linked.address+' · '+linked.phone+' · 영업시간: '+linked.hours:'배달 매장을 선택해 주세요. (시연용 매장 선택이며 실제 배달 가능 여부와 다릅니다.)','cart-linked-store'));
   }else{
    area.append(text('span',chosen.address,'cart-location-sub'));
    area.append(text('span',chosen.phone+' · 영업시간: '+chosen.hours,'cart-linked-store'));
