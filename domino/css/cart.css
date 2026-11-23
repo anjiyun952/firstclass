@@ -29,3 +29,15 @@
 .cart-location-sub{display:block;margin-top:5px;color:#666;line-height:1.5;overflow-wrap:anywhere}
 .cart-linked-store{display:block;margin-top:14px;padding-top:12px;border-top:1px solid #e9e9e9;color:#777;line-height:1.6;overflow-wrap:anywhere}
 @media(max-width:550px){.cart-selection-dialog{padding:24px 18px;height:min(680px,calc(100dvh - 20px))}.cart-picker-region{grid-template-columns:1fr}}
+
+
+/* Vercel deploys domino/ as the root, so ../Font is outside its output.
+   Load the existing portfolio font from the already-published GitHub Pages assets. */
+@font-face{
+  font-family:"TT Commons Pro Mono";
+  src:url("https://anjiyun952.github.io/firstclass/Font/TT_Commons_Pro_Mono_Trial_Bold.woff2") format("woff2");
+  font-style:normal;font-weight:700;font-display:swap;
+}
+.cart-heading .eng-title{font-family:"TT Commons Pro Mono",monospace;font-weight:700}
+/* Reserve the scrollbar width even while a dialog locks background scrolling. */
+html{scrollbar-gutter:stable}
