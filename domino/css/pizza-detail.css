@@ -343,3 +343,9 @@
  .detail-edges button .detail-edge-image{width:min(100%,57.6px);height:48px;align-self:center}
  .detail-edges button::before{width:69.696px;max-width:calc(100% + 12px);height:58.08px;top:-5.04px;left:50%;transform:translateX(-50%);border-radius:10px}
 }
+
+/* Checkout hierarchy: additional options are secondary to pizza quantity. */
+@media(min-width:1001px){
+ .detail-summary-toggle{font-size:14px}
+ .detail-summary-toggle strong{font-size:14px;font-weight:300}
+}
