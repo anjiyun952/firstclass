@@ -76,3 +76,12 @@
 /* Keep the label geometrically centered, independent of the arrow icon. */
 .menu-basket-view{position:relative;display:grid;place-items:center;padding:0 36px;text-align:center;gap:0}
 .menu-basket-view img{position:absolute;right:15px;top:50%;transform:translateY(-50%)}
+
+
+/* Restore the originally planned single basket card with internal item dividers. */
+.menu-basket-list{padding:12px 20px 0}
+.menu-basket-item{border-radius:0;margin:0;padding:20px;border:0;background:#fff}
+.menu-basket-item+.menu-basket-item{margin-top:0;padding-top:20px;border-top:1px solid #e5e5e5;border-radius:0}
+.menu-basket-item:first-child{border-radius:14px 14px 0 0}
+.menu-basket-item:last-child{border-radius:0 0 14px 14px}
+.menu-basket-item:only-child{border-radius:14px}
