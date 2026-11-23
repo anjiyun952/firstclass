@@ -79,7 +79,7 @@
 
 
 /* Restore the originally planned single basket card with internal item dividers. */
-.menu-basket-list{padding:12px 20px 0}
+.menu-basket-list{padding:12px}
 .menu-basket-item{border-radius:0;margin:0;padding:20px;border:0;background:#fff}
 .menu-basket-item+.menu-basket-item{margin-top:0;padding-top:20px;border-top:1px solid #e5e5e5;border-radius:0}
 .menu-basket-item:first-child{border-radius:14px 14px 0 0}
