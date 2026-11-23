@@ -41,7 +41,7 @@ function finishSelection(){
  closeModal();orderRender();
 }
 function attemptSelectionClose(){
- if(selectionModal&&$('#cart-modal-title').textContent==='상세 주소 입력'){finishSelection();return}
+ if(selectionModal&&['상세 주소 입력','배달 매장 확인','포장 매장 확인'].includes($('#cart-modal-title').textContent)){finishSelection();return}
  if(!selectionModal){closeModal();return}
  if(!selectionDirty){finishSelection();return}
  const resume=restoreSelection;
