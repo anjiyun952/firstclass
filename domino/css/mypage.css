@@ -54,3 +54,65 @@
 @media(max-width:767px){.mypage{padding:36px 18px 90px}.mypage-heading{margin-bottom:30px;align-items:start}.mypage-heading h1{font-size:58px;margin:9px 0 10px}.mypage-heading p{font-size:13px}.mypage-eyebrow{font-size:10px}.mypage-logout{font-size:12px;padding:10px 13px;margin-top:8px}.mypage-logout span{margin-left:4px}.mypage-hero{display:block;border-radius:18px;padding:30px 26px}.mypage-hello{font-size:16px;margin-bottom:28px}.mypage-grade{font-size:50px}.mypage-grade-link{margin-top:18px}.mypage-stats{margin-top:35px;padding-top:24px;border-top:1px solid #444}.mypage-stat{padding:0 12px 0 0;border-left:0}.mypage-stat+.mypage-stat{padding-left:20px;border-left:1px solid #444}.mypage-stat strong{font-size:36px}.mypage-stat strong small{font-size:14px}.mypage-stat-period{font-size:10px}.mypage-section{margin-top:62px}.mypage-section-heading{margin-bottom:20px}.mypage-section-heading h2{font-size:25px}.mypage-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mypage-shortcut{min-height:132px;border-radius:14px;padding:17px;font-size:15px;gap:18px}.mypage-shortcut-icon{width:39px;height:39px;font-size:24px}.mypage-shortcut-arrow{right:17px;bottom:17px}.mypage-membership-card{grid-template-columns:1fr;gap:28px;padding:26px;border-radius:16px}.mypage-membership-card h3{font-size:40px}.mypage-benefit-card{flex-direction:column;align-items:stretch;padding:28px 24px;border-radius:16px;gap:24px}.mypage-benefit-copy h3{font-size:25px}.mypage-benefit-button{width:100%;min-width:0}.mypage-accordion summary{font-size:16px;padding:21px 4px}.mypage-accordion-body{font-size:14px}}
 @media(max-width:360px){.mypage-heading h1{font-size:47px}.mypage-logout{padding:9px}.mypage-hero{padding:25px 20px}.mypage-stat strong{font-size:30px}}
 @media(prefers-reduced-motion:reduce){.mypage-shortcut,.mypage-accordion summary span{transition:none}}
+
+/* Editorial refresh: fewer boxed cards, stronger type hierarchy and section rules. */
+.mypage-container{max-width:1240px}
+.mypage{padding-top:76px}
+.mypage-heading{margin-bottom:54px}
+.mypage-heading h1{font-size:clamp(68px,8vw,118px);letter-spacing:-.065em}
+.mypage-hero{border-radius:0;grid-template-columns:1.15fr 1fr;padding:58px 64px;background:#111}
+.mypage-hello{margin-bottom:54px}
+.mypage-grade{font-size:clamp(54px,6vw,90px)}
+.mypage-section{margin-top:98px}
+.mypage-section-heading{padding-bottom:23px;border-bottom:2px solid #242424;margin-bottom:0}
+.mypage-section-heading h2{font-size:clamp(27px,3vw,39px);letter-spacing:-.035em}
+.mypage-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.mypage-shortcut{border:0;border-right:1px solid #e5e5e5;border-radius:0;min-height:154px;padding:29px 26px 24px;gap:22px;transition:background .2s;transform:none}
+.mypage-shortcut:first-child{border-left:1px solid #e5e5e5}
+.mypage-shortcut:hover{background:#f7fafc;border-color:#e5e5e5;transform:none}
+.mypage-shortcut-icon{background:transparent;border-radius:0;width:auto;height:auto;font-size:32px}
+.mypage-shortcut-arrow{right:24px;bottom:23px}
+.mypage-benefits-layout{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.mypage-level-panel,.mypage-coupon-panel{padding:42px 40px 30px 0}
+.mypage-coupon-panel{padding-left:48px;padding-right:0;border-left:1px solid #e5e5e5}
+.mypage-level-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:18px 0 48px}
+.mypage-level-head h3{font-size:clamp(42px,4vw,62px);letter-spacing:-.045em;line-height:1;margin:0}
+.mypage-level-head>span{color:#777;font-size:13px}
+.mypage-level-row{display:flex;justify-content:space-between;font-size:13px}
+.mypage-level-row strong:last-child{color:#0193e8}
+.mypage-level-track{margin:15px 0}
+.mypage-level-note,.mypage-coupon-note{font-size:12px;color:#777;line-height:1.7;margin:16px 0 0}
+.mypage-coupon-main{display:flex;align-items:center;gap:24px;margin:21px 0 27px}
+.mypage-coupon-value{font-size:clamp(76px,7vw,112px);font-weight:750;letter-spacing:-.08em;line-height:1;color:#0193e8}
+.mypage-coupon-value small{font-size:.43em;letter-spacing:-.04em}
+.mypage-coupon-main h3{font-size:20px;font-weight:650;margin:0 0 8px}
+.mypage-coupon-main p{font-size:13px;color:#777;margin:0}
+.mypage-benefit-button{border-radius:0;padding:15px 24px;font-size:14px}
+.mypage-more .mypage-accordion summary{padding:26px 6px}
+@media(max-width:900px){
+ .mypage-benefits-layout{grid-template-columns:1fr}
+ .mypage-level-panel{padding:34px 0 32px}
+ .mypage-coupon-panel{border-left:0;border-top:1px solid #e5e5e5;padding:32px 0}
+ .mypage-level-head{margin-bottom:32px}
+ .mypage-coupon-main{margin-bottom:20px}
+}
+@media(max-width:767px){
+ .mypage{padding:40px 18px 90px}
+ .mypage-heading{margin-bottom:30px}
+ .mypage-heading h1{font-size:clamp(48px,12vw,66px)}
+ .mypage-hero{padding:32px 25px}
+ .mypage-hello{margin-bottom:32px}
+ .mypage-grade{font-size:56px}
+ .mypage-section{margin-top:66px}
+ .mypage-section-heading{padding-bottom:17px}
+ .mypage-section-heading h2{font-size:27px}
+ .mypage-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mypage-shortcut{min-height:124px;padding:18px 15px;border-bottom:1px solid #e5e5e5;font-size:15px}
+ .mypage-shortcut:nth-child(odd){border-left:1px solid #e5e5e5}
+ .mypage-shortcut-icon{font-size:26px}
+ .mypage-shortcut-arrow{right:15px;bottom:15px}
+ .mypage-level-head h3{font-size:45px}
+ .mypage-coupon-value{font-size:88px}
+ .mypage-coupon-main h3{font-size:18px}
+ .mypage-benefit-button{width:100%}
+}
