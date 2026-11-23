@@ -116,3 +116,10 @@
  .mypage-coupon-main h3{font-size:18px}
  .mypage-benefit-button{width:100%}
 }
+
+/* Membership tier accents (approximate colors sampled from supplied reference). */
+.mypage{--tier-regular:#FF3950;--tier-premium:#FFC43B;--tier-vip:#3C5EFF;--tier-royal:#A735FF}
+.mypage-hero .mypage-grade{color:var(--tier-regular)}
+.mypage-level-head h3,.mypage-level-row strong:first-child{color:var(--tier-regular)}
+.mypage-level-row strong:last-child{color:#a47700}
+.mypage-level-row strong:last-child::before{content:"";display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:var(--tier-premium);vertical-align:middle}
