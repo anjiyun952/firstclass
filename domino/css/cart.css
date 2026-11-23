@@ -80,7 +80,7 @@ html{scrollbar-gutter:stable}
 .cart-store-info-row>span{overflow-wrap:anywhere}
 
 /* Popup CTA labels: one weight lighter than the default 700. */
-.cart-modal-actions .cart-primary{font-family:"Pretendard Variable",Pretendard,sans-serif;font-weight:500}
+.cart-modal-actions .cart-primary{font-family:"Pretendard Variable",Pretendard,sans-serif;font-weight:600}
 
 
 /* Compact address detail dialog, consistent with the store confirmation popup. */
