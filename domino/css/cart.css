@@ -41,3 +41,13 @@
 .cart-heading .eng-title{font-family:"TT Commons Pro Mono",monospace;font-weight:700}
 /* Reserve the scrollbar width even while a dialog locks background scrolling. */
 html{scrollbar-gutter:stable}
+
+
+/* Match the search control on STORE: single outlined field with inset search icon. */
+.cart-picker-search{height:50px;min-height:50px;display:flex;align-items:center;gap:0;border:1px solid var(--neutral-200,#e5e5e5);border-radius:14px;background:#fff;padding:0 12px 0 18px;box-sizing:border-box}
+.cart-picker-search:focus-within{border-color:var(--blue-primary,#0193e8)}
+.cart-modal .cart-picker-search input{min-width:0;flex:1;width:100%;height:100%;padding:0;border:0;outline:0;border-radius:0;background:transparent;color:var(--text-primary,#242424);font:400 16px "Pretendard Variable",sans-serif;letter-spacing:-.03em}
+.cart-modal .cart-picker-search input:focus{outline:none}
+.cart-picker-search input::placeholder{color:rgba(102,102,102,.7)}
+.cart-picker-search button{display:grid;place-items:center;flex:none;min-height:0;width:32px;height:32px;padding:4px;border:0;border-radius:0;background:transparent;color:inherit;cursor:pointer}
+.cart-picker-search button img{display:block;width:24px;height:24px;object-fit:contain}
