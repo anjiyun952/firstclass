@@ -7,16 +7,20 @@ document.querySelectorAll('.detail-addons').forEach(wrap=>{const section=wrap.da
  const description='사이즈: '+activeSize+' · 도우: '+dough+' · 엣지: '+edge+(options.length?' · '+options.map(x=>x.name+' × '+x.qty).join(', '):'');
  const key=JSON.stringify([productId||name,activeSize,dough,edge,options.map(x=>[x.section,x.name,x.qty]).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)))]);
  const KEY='domino-pizza-cart-v1';
+ const editKey=new URLSearchParams(location.search).get('edit');
  try{
    const saved=JSON.parse(localStorage.getItem(KEY)||'[]');
    const items=Array.isArray(saved)?saved:[];
+   if(editKey){const index=items.findIndex(x=>x.key===editKey);if(index<0){$('#detail-status').textContent='수정할 상품을 찾지 못했습니다.';return}const old=items[index];items.splice(index,1);const existing=items.find(x=>x.key===key);if(existing)existing.quantity=Math.min(99,existing.quantity+quantity);else items.splice(index,0,{key,name,image,description,price:unitPrice,quantity,options,size:activeSize,dough,edge});localStorage.setItem(KEY,JSON.stringify(items));location.href='cart.html';return}
    const existing=items.find(x=>x.key===key);
    if(existing)existing.quantity=Math.min(99,existing.quantity+quantity);
    else items.push({key,name,image,description,price:unitPrice,quantity,options,size:activeSize,dough,edge});
    localStorage.setItem(KEY,JSON.stringify(items));
    openCartModal();
  }catch(e){$('#detail-status').textContent='장바구니 저장에 실패했습니다. 브라우저 저장 기능을 확인해 주세요.'}
-});$('#detail-order').addEventListener('click',()=>{$('#detail-status').textContent='포트폴리오 체험 화면입니다. 실제 주문은 진행되지 않습니다.'});update()})();
+});/* Restore selected pizza configuration when editing an existing cart line. */
+(()=>{const edit=new URLSearchParams(location.search).get('edit');if(!edit)return;try{const arr=JSON.parse(localStorage.getItem('domino-pizza-cart-v1')||'[]');const item=arr.find(x=>x.key===edit);if(!item)return;quantity=Math.max(1,Math.min(99,item.quantity));const sizeBtn=[...document.querySelectorAll('#size-options button')].find(x=>x.dataset.size===item.size);if(sizeBtn)sizeBtn.click();const doughBtn=[...document.querySelectorAll('#dough-options button')].find(x=>x.textContent.trim()===item.dough);if(doughBtn)doughBtn.click();const edgeBtn=[...document.querySelectorAll('#edge-options button')].find(x=>x.textContent.trim().replace(/\\+.*/,'')===item.edge);if(edgeBtn)edgeBtn.click();for(const o of item.options||[]){const categories=catalog[o.section]||{};const match=Object.entries(categories).flatMap(([cat,rows])=>rows.map(row=>({cat,row}))).find(v=>v.row[0]===o.name);if(match)selections.set(itemKey(o.section,o.name),{section:o.section,category:match.cat,name:o.name,price:o.price,qty:o.qty})}document.querySelector('#detail-cart').textContent='수정 완료';update();document.querySelectorAll('.detail-addons').forEach(w=>renderList(w.dataset.section))}catch(e){}})();
+$('#detail-order').addEventListener('click',()=>{$('#detail-status').textContent='포트폴리오 체험 화면입니다. 실제 주문은 진행되지 않습니다.'});update()})();
 // Measure the collapsed panel once. Expanding the summary must not resize the pizza/options.
 (()=>{
  const checkout=document.querySelector('.detail-checkout');
