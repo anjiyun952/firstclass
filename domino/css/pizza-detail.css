@@ -335,3 +335,11 @@
  .detail-edges button .detail-edge-image{width:min(100%,57.6px);height:48px;margin-bottom:14px}
  .detail-edges button::before{width:min(100%,57.6px);height:48px;top:0;border-radius:9px}
 }
+
+/* Mobile: group edge options at the section's left edge; keep labels centered per thumbnail. */
+@media(max-width:767px){
+ .detail-edges{display:flex;justify-content:flex-start;align-items:flex-start;gap:clamp(8px,2.8vw,14px);width:100%;padding:8px 0 0}
+ .detail-edges button{flex:0 1 72px;width:72px;min-width:0;align-items:center;text-align:center}
+ .detail-edges button .detail-edge-image{width:min(100%,57.6px);height:48px;align-self:center}
+ .detail-edges button::before{width:63.36px;max-width:calc(100% + 6px);height:52.8px;top:-2.4px;left:50%;transform:translateX(-50%);border-radius:10px}
+}
