@@ -5,7 +5,7 @@
 .mypage-eyebrow,.mypage-section-number,.mypage-kicker{font-size:12px;font-weight:650;letter-spacing:.11em;color:#0193e8}
 .mypage-heading h1{font-size:clamp(54px,7vw,104px);line-height:1.05;letter-spacing:-.055em;margin:14px 0 12px;font-weight:700}
 .mypage-heading p{font-size:17px;color:#666;margin:0}
-.mypage-logout{border:1px solid #e5e5e5;border-radius:999px;background:#fff;padding:13px 22px;font:500 14px inherit;cursor:pointer;white-space:nowrap}
+.mypage-logout{border:1px solid #e5e5e5;border-radius:999px;background:#fff;padding:13px 22px;font:500 14px "Pretendard Variable",Pretendard,sans-serif;cursor:pointer;white-space:nowrap}
 .mypage-logout span{margin-left:14px}
 .mypage-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;background:#111;color:#fff;border-radius:24px;padding:52px 60px}
 .mypage-hello{margin:0 0 42px;font-size:19px;color:#e6e6e6}.mypage-hello strong{color:#fff}
