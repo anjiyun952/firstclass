@@ -346,6 +346,6 @@
 
 /* Mobile checkout: keep additional options subordinate to pizza quantity. */
 @media(max-width:767px){
- .detail-summary-toggle{font-size:14px}
- .detail-summary-toggle strong{font-size:14px;font-weight:300}
+ .detail-summary-toggle{font-size:12px}
+ .detail-summary-toggle strong{font-size:12px;font-weight:600}
 }
