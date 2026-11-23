@@ -329,3 +329,9 @@
  .detail-edges button small{font-size:clamp(10px,2.6vw,12px);font-weight:600;line-height:1.35;margin-top:5px;color:inherit}
  .detail-edges button .detail-edge-info{display:none!important}
 }
+
+/* Mobile edge thumbnails: 20% smaller, selection frame matches thumbnail proportions. */
+@media(max-width:767px){
+ .detail-edges button .detail-edge-image{width:min(100%,57.6px);height:48px;margin-bottom:14px}
+ .detail-edges button::before{width:min(100%,57.6px);height:48px;top:0;border-radius:9px}
+}
