@@ -129,3 +129,6 @@
 .mypage-grade-link img{display:block;width:24px;height:24px;flex:none;transition:transform .22s ease}
 .mypage-grade-link:hover img,.mypage-grade-link:focus-visible img{transform:translateX(6px)}
 @media(prefers-reduced-motion:reduce){.mypage-grade-link img{transition:none}.mypage-grade-link:hover img,.mypage-grade-link:focus-visible img{transform:none}}
+
+/* Center membership link label and arrow vertically; remove blue underline. */
+.mypage-grade-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-bottom:0;padding-bottom:0;line-height:24px}
