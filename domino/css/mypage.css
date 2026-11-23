@@ -132,3 +132,16 @@
 
 /* Center membership link label and arrow vertically; remove blue underline. */
 .mypage-grade-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-bottom:0;padding-bottom:0;line-height:24px}
+
+/* Quick menu: editorial two-column text navigation, no icon tiles or card borders. */
+.mypage-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;row-gap:0}
+.mypage-shortcut,.mypage-shortcut:first-child,.mypage-shortcut:nth-child(odd){display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:0;padding:27px 4px;border:0;border-bottom:1px solid #e5e5e5;border-radius:0;background:transparent;box-shadow:none;text-align:left;font-size:19px;font-weight:600;color:#242424;transform:none;transition:color .2s ease}
+.mypage-shortcut:hover{border-color:#e5e5e5;background:transparent;color:#0193e8;transform:none}
+.mypage-shortcut img{display:block;width:22px;height:22px;flex:0 0 22px;filter:brightness(0);transition:transform .2s ease,filter .2s ease}
+.mypage-shortcut:hover img,.mypage-shortcut:focus-visible img{transform:translateX(5px);filter:brightness(0) saturate(100%) invert(45%) sepia(93%) saturate(2281%) hue-rotate(169deg) brightness(99%) contrast(101%)}
+@media(max-width:767px){
+ .mypage-shortcuts{grid-template-columns:1fr;column-gap:0}
+ .mypage-shortcut,.mypage-shortcut:first-child,.mypage-shortcut:nth-child(odd){min-height:0;padding:22px 2px;font-size:16px;border-left:0;border-right:0}
+ .mypage-shortcut img{width:20px;height:20px;flex-basis:20px}
+}
+@media(prefers-reduced-motion:reduce){.mypage-shortcut,.mypage-shortcut img{transition:none}.mypage-shortcut:hover img,.mypage-shortcut:focus-visible img{transform:none}}
