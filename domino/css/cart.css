@@ -81,3 +81,24 @@ html{scrollbar-gutter:stable}
 
 /* Popup CTA labels: one weight lighter than the default 700. */
 .cart-modal-actions .cart-primary{font-family:"Pretendard Variable",Pretendard,sans-serif;font-weight:500}
+
+
+/* Compact address detail dialog, consistent with the store confirmation popup. */
+.cart-modal-dialog.cart-address-detail-dialog{height:auto;min-height:0;max-height:calc(100dvh - 36px)}
+.cart-address-detail-dialog #cart-modal-body{flex:0 1 auto;min-height:0;overflow:auto}
+.cart-address-detail-dialog .cart-modal-actions{margin-top:24px;flex:none}
+.cart-address-detail{display:flex;flex-direction:column;gap:22px;min-height:0}
+.cart-address-selected{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.cart-address-selected-text{display:flex;flex-direction:column;gap:7px;min-width:0}
+.cart-address-caption{font-size:13px;color:#777}
+.cart-address-selected .cart-detail-road{font-size:16px;font-weight:600;line-height:1.45;color:#242424}
+.cart-address-zip{font-size:13px;color:#777}
+.cart-address-change{flex:none;border:1px solid #ddd;background:#fff;border-radius:10px;padding:10px 12px;font:500 14px "Pretendard Variable",Pretendard,sans-serif;cursor:pointer}
+.cart-address-field{display:flex;flex-direction:column;gap:10px}
+.cart-address-detail-dialog .cart-address-field>label:first-child{margin:0;font-size:14px;font-weight:500}
+.cart-address-detail-dialog .cart-address-field>input{min-height:46px}
+.cart-address-detail-dialog .cart-check-label{display:flex;align-items:center;gap:9px;margin:4px 0 0;font-weight:400;cursor:pointer}
+.cart-address-detail-dialog .cart-check-label input{width:18px;height:18px;flex:none;margin:0}
+.cart-address-detail-dialog .cart-field-error:empty{display:none}
+.cart-address-detail-dialog .cart-field-error{margin:0;font-size:13px;color:#e03939}
+@media(max-width:550px){.cart-address-selected{align-items:flex-start}.cart-address-change{padding:9px 10px}}
