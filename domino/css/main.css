@@ -460,3 +460,6 @@ body {
 .best-menu-link{display:block;width:100%;height:100%;color:inherit;text-decoration:none}
 .best-menu-link:visited{color:inherit}
 .best-menu-link:focus-visible{outline:2px solid var(--action-primary,#e31837);outline-offset:5px;border-radius:8px}
+
+/* Keep viewport width stable when dialogs or mobile navigation lock scrolling. */
+html { scrollbar-gutter: stable; }
