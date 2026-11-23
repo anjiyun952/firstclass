@@ -73,7 +73,7 @@ document.querySelectorAll('[data-mode]').forEach(btn=>btn.addEventListener('clic
 function addressPicker(initialKeyword='',initialPage=1){
  const body=make('div','cart-picker');const form=make('form','cart-picker-search');
  const input=make('input');input.type='search';input.placeholder='도로명 또는 건물명을 검색해 주세요';input.value=initialKeyword;input.maxLength=100;
- const submit=text('button','검색');submit.type='submit';append(form,input,submit);
+ const submit=make('button');submit.type='submit';submit.setAttribute('aria-label','검색');const searchIcon=make('img');searchIcon.src='images/magnifying_glass_icon.svg';searchIcon.alt='';submit.append(searchIcon);append(form,input,submit);
  const status=make('p','cart-picker-status');status.setAttribute('aria-live','polite');
  const results=make('div','cart-picker-results');const pages=make('div','cart-picker-pages');
  append(body,form,status,results,pages);
@@ -131,7 +131,7 @@ function addressDetail(address,keyword,page){
 function storePicker(filters={keyword:'',province:'',district:''}){
  const body=make('div','cart-picker'),form=make('form','cart-picker-search');
  const input=make('input');input.type='search';input.placeholder='매장명 검색';input.value=filters.keyword;
- const searchButton=text('button','검색');searchButton.type='submit';append(form,input,searchButton);
+ const searchButton=make('button');searchButton.type='submit';searchButton.setAttribute('aria-label','검색');const searchIcon=make('img');searchIcon.src='images/magnifying_glass_icon.svg';searchIcon.alt='';searchButton.append(searchIcon);append(form,input,searchButton);
  const region=make('div','cart-picker-region'),province=make('select'),district=make('select');
  const addOptions=(select,values,placeholder)=>{select.replaceChildren(new Option(placeholder,''));values.forEach(v=>select.add(new Option(v,v)))};
  addOptions(province,[...new Set(demoStores.map(s=>s.province))].sort(),'시/도 선택');province.value=filters.province;
