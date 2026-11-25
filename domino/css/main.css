@@ -17,7 +17,7 @@
     /* Figma Variables — Semantic (Primitives aliases) */
     --action-primary: var(--blue-primary);
     --action-cta: var(--red-primary);
-    --action-cta-2: var(--brown-primary);
+    --action-cta-2: var(--neutral-900);
     --action-hover: var(--blue-dark);
     --background-default: var(--neutral-cream);
     --background-white: var(--neutral-white);
