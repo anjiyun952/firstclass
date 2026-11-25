@@ -113,3 +113,17 @@ html{scrollbar-gutter:stable}
  #cart-delivery-store p{overflow-wrap:anywhere;line-height:1.5}
  #cart-delivery-store>button{flex:0 0 auto;align-self:center}
 }
+
+/* Region dropdowns in the delivery/pickup store picker */
+.cart-picker-region{overflow:visible}
+.cart-picker-select{position:relative;min-width:0}
+.cart-picker-region .cart-picker-native-select{position:absolute;width:1px;height:1px;min-width:0;padding:0;border:0;opacity:0;pointer-events:none}
+.cart-picker-select-trigger{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;height:50px;padding:0 16px;border:1px solid #ddd;border-radius:10px;background:#fff;color:#242424;text-align:left;font:400 16px "Pretendard Variable",Pretendard,sans-serif;cursor:pointer}
+.cart-picker-select-label{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cart-picker-select-arrow{display:block;width:24px;height:24px;flex:none;object-fit:contain;transition:transform .2s ease;pointer-events:none}
+.cart-picker-select.is-open .cart-picker-select-arrow{transform:rotate(180deg)}
+.cart-picker-select-menu{position:absolute;top:calc(100% + 6px);left:0;width:100%;max-height:225px;overflow-y:auto;box-sizing:border-box;padding:5px;border:1px solid #e5e5e5;border-radius:10px;background:#fff;box-shadow:0 8px 24px #0002;z-index:50}
+.cart-picker-select-menu[hidden]{display:none}
+.cart-picker-select-option{display:block;width:100%;padding:10px;border:0;border-radius:7px;background:transparent;text-align:left;color:#242424;font:400 15px "Pretendard Variable",Pretendard,sans-serif;cursor:pointer}
+.cart-picker-select-option:hover,.cart-picker-select-option:focus-visible{background:#f0f7fd}
+.cart-picker-select-option[aria-selected="true"]{color:#0079c2;font-weight:600}
