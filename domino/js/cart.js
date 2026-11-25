@@ -144,7 +144,61 @@ function storePicker(filters={keyword:'',province:'',district:''}){
  const addOptions=(select,values,placeholder)=>{select.replaceChildren(new Option(placeholder,''));values.forEach(v=>select.add(new Option(v,v)))};
  addOptions(province,[...new Set(demoStores.map(s=>s.province))].sort(),'시/도 선택');province.value=filters.province;
  function districts(){addOptions(district,[...new Set(demoStores.filter(s=>!province.value||s.province===province.value).map(s=>s.district))].sort(),'구/군 선택');district.value=filters.district}
- districts();append(region,province,district);
+ districts();
+ // Keep the native selects as the data source and display custom dropdown controls.
+ const dropdowns=[];
+ function regionDropdown(select,label){
+  const wrapper=make('div','cart-picker-select');
+  const trigger=make('button','cart-picker-select-trigger');trigger.type='button';
+  trigger.setAttribute('aria-label',label);trigger.setAttribute('aria-haspopup','listbox');trigger.setAttribute('aria-expanded','false');
+  const caption=make('span','cart-picker-select-label');
+  const arrow=make('img','cart-picker-select-arrow');arrow.src='images/arrow_down_icon.svg';arrow.alt='';arrow.setAttribute('aria-hidden','true');
+  append(trigger,caption,arrow);
+  const menu=make('div','cart-picker-select-menu');menu.setAttribute('role','listbox');menu.hidden=true;
+  select.classList.add('cart-picker-native-select');select.tabIndex=-1;select.setAttribute('aria-hidden','true');
+  append(wrapper,select,trigger,menu);
+  function close(){
+   wrapper.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');menu.hidden=true;
+   document.removeEventListener('pointerdown',onOutside);
+   document.removeEventListener('keydown',onEscape);
+  }
+  function onOutside(event){if(!wrapper.contains(event.target))close()}
+  function onEscape(event){if(event.key==='Escape'){close();trigger.focus()}}
+  function sync(){
+   caption.textContent=select.selectedOptions[0]?.textContent||label;
+   menu.replaceChildren();
+   [...select.options].forEach(option=>{
+    const item=make('button','cart-picker-select-option');item.type='button';
+    item.setAttribute('role','option');item.setAttribute('aria-selected',String(select.value===option.value));
+    item.textContent=option.textContent;
+    item.addEventListener('click',()=>{
+     select.value=option.value;select.dispatchEvent(new Event('change',{bubbles:true}));
+     close();trigger.focus();
+    });
+    menu.append(item);
+   });
+  }
+  function open(){
+   dropdowns.forEach(dropdown=>dropdown.close());
+   sync();menu.hidden=false;wrapper.classList.add('is-open');trigger.setAttribute('aria-expanded','true');
+   document.addEventListener('pointerdown',onOutside);
+   document.addEventListener('keydown',onEscape);
+  }
+  trigger.addEventListener('click',()=>{if(menu.hidden)open();else close()});
+  trigger.addEventListener('keydown',event=>{
+   if(event.key==='ArrowDown'){event.preventDefault();if(menu.hidden)open();menu.querySelector('button')?.focus()}
+  });
+  menu.addEventListener('keydown',event=>{
+   if(event.key==='ArrowDown'||event.key==='ArrowUp'){
+    event.preventDefault();const items=[...menu.querySelectorAll('button')],index=items.indexOf(document.activeElement);
+    items[(index+(event.key==='ArrowDown'?1:-1)+items.length)%items.length]?.focus();
+   }
+  });
+  select.addEventListener('change',sync);sync();
+  dropdowns.push({close,sync});
+  return wrapper;
+ }
+ append(region,regionDropdown(province,'시/도 선택'),regionDropdown(district,'구/군 선택'));
  const status=make('p','cart-picker-status'),results=make('div','cart-picker-results');
  append(body,form,region,status,results);
  showSelection(order.mode==='delivery'?'배달 매장 검색':'포장 매장 검색',body,'매장 선택',()=>false);modalConfirm.hidden=true;
@@ -156,7 +210,7 @@ function storePicker(filters={keyword:'',province:'',district:''}){
   list.forEach(s=>{const b=make('button','cart-picker-result');b.type='button';append(b,text('strong',s.name),text('span',s.address));b.addEventListener('click',()=>{selectionDirty=true;storeDetail(s,{keyword:input.value,province:province.value,district:district.value})});results.append(b)});
  }
  form.addEventListener('submit',e=>{e.preventDefault();renderStores()});
- province.addEventListener('change',()=>{filters.district='';districts();renderStores()});district.addEventListener('change',renderStores);
+ province.addEventListener('change',()=>{filters.district='';districts();dropdowns.forEach(dropdown=>dropdown.sync());renderStores()});district.addEventListener('change',renderStores);
  restoreSelection=()=>storePicker({keyword:input.value,province:province.value,district:district.value});renderStores();input.focus();
 }
 function storeDetail(store,filters){
