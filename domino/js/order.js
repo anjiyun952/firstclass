@@ -1,4 +1,4 @@
-(()=>{'use strict';const ORDER='domino-cart-order-v1',$=s=>document.querySelector(s);let order={mode:'delivery',delivery:null,deliveryStore:null,pickup:null};try{order={...order,...JSON.parse(localStorage.getItem(ORDER)||'{}')}}catch(e){}const mode=new URLSearchParams(location.search).get('mode');if(['delivery','pickup'].includes(mode))order.mode=mode;const saveOrder=()=>localStorage.setItem(ORDER,JSON.stringify(order));const make=(tag,cls,txt)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(txt!==undefined)el.textContent=txt;return el};const demoStores=[
+(()=>{'use strict';const ORDER='domino-cart-order-v1',$=s=>document.querySelector(s);let order={mode:'delivery',delivery:null,deliveryStore:null,pickup:null};try{order={...order,...JSON.parse(localStorage.getItem(ORDER)||'{}')}}catch(e){}window.DominoAddresses?.defaultTo(order);const mode=new URLSearchParams(location.search).get('mode');if(['delivery','pickup'].includes(mode))order.mode=mode;const saveOrder=()=>localStorage.setItem(ORDER,JSON.stringify(order));const make=(tag,cls,txt)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(txt!==undefined)el.textContent=txt;return el};const demoStores=[
  ['오금점','서울특별시 송파구 중대로 314-1','02-449-3030'],
  ['잠원점','서울특별시 서초구 나루터로 61','02-533-7878'],
  ['여의도점','서울특별시 영등포구 국제금융로 78','02-780-2020'],
@@ -34,6 +34,7 @@ let selectionDirty=false,restoreSelection=null;const modalConfirm={hidden:false}
  const status=make('p','cart-picker-status');status.setAttribute('aria-live','polite');
  const results=make('div','cart-picker-results');const pages=make('div','cart-picker-pages');
  append(body,form,status,results,pages);
+ window.DominoAddresses?.picker(body,order,()=>{saveOrder();finishSelection()});
  showSelection('배달 주소 검색',body,'주소 선택',()=>false);
  modalConfirm.hidden=true;
  let lastQuery=initialKeyword,request=0;
