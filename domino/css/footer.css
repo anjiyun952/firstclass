@@ -88,3 +88,8 @@
 /* Portfolio disclaimer beneath copyright across all pages */
 .footer-portfolio-notice{margin-top:8px;font-size:13px;line-height:1.6;color:inherit;opacity:.7}
 @media(max-width:767px){.footer-portfolio-notice{font-size:11px}}
+
+/* Pointer cursor for footer policy and contact items on all pages. */
+.site-footer .footer-policy > *,
+.site-footer .footer-phone,
+.site-footer .footer-email { cursor: pointer; }
